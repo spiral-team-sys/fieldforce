@@ -1,26 +1,23 @@
 ENV['RCT_NEW_ARCH_ENABLED'] = '1'
-# Transform this into a `node_require` generic function:
-# Resolve react_native_pods.rb with node to allow for hoisting
-require Pod::Executable.execute_command('node', ['-p',
-  'require.resolve(
-  "react-native/scripts/react_native_pods.rb",
-    {paths: [process.argv[1]]},
-  )', __dir__]).strip
 
 def node_require(script)
-  # Resolve script with node to allow for hoisting
-  require Pod::Executable.execute_command('node', ['-p',
-    "require.resolve(
-      '#{script}',
-      {paths: [process.argv[1]]},
-    )", __dir__]).strip
+  require Pod::Executable.execute_command(
+    'node',
+    [
+      '-p',
+      "require.resolve('#{script}', {paths: [process.argv[1]]})",
+      __dir__
+    ]
+  ).strip
 end
 
-# Use it to require both react-native's and this package's scripts:
 node_require('react-native/scripts/react_native_pods.rb')
 node_require('react-native-permissions/scripts/setup.rb')
 
 platform :ios, '15.5'
+
+use_modular_headers!
+
 prepare_react_native_project!
 
 setup_permissions([
@@ -46,38 +43,47 @@ setup_permissions([
   'StoreKit',
 ])
 
-linkage = ENV['USE_FRAMEWORKS']
-if linkage != nil
-  Pod::UI.puts "Configuring Pod with #{linkage}ally linked Frameworks".green
-  use_frameworks! :linkage => linkage.to_sym
-end
-
 target 'fieldforce' do
   config = use_native_modules!
 
   use_react_native!(
     :path => config[:reactNativePath],
-    # An absolute path to your application root.
     :app_path => "#{Pod::Config.instance.installation_root}/.."
   )
-  
-  # =========================
-  # 🔥 Firebase
-  # ========================= 
-  pod 'FirebaseCore', :modular_headers => true
-  pod 'GoogleUtilities', :modular_headers => true   
-  # =========================
+
+  # Firebase
+  pod 'AppCheckCore', :modular_headers => true
+  pod 'RecaptchaInterop', :modular_headers => true
+  pod 'FirebaseAppCheck', :modular_headers => true
+  pod 'FirebaseCoreInternal', :modular_headers => true
+
   # Google Maps
-  # ========================= 
   rn_maps_path = '../node_modules/react-native-maps'
   pod 'react-native-maps/Google', :path => rn_maps_path
-  #
+
   post_install do |installer|
+    # 1. Giữ nguyên cấu hình mặc định bắt buộc của React Native
     react_native_post_install(
       installer,
       config[:reactNativePath],
-      :mac_catalyst_enabled => false,
-      # :ccache_enabled => true
+      :mac_catalyst_enabled => false
     )
+
+    # 2. Giải quyết chính xác vấn đề lạc đường dẫn "AppCheckCore-Swift.h"
+    installer.pods_project.targets.each do |target|
+      if ['FirebaseAppCheck', 'AppCheckCore', 'fieldforce'].include?(target.name)
+        target.build_configurations.each do |config|
+          # Kích hoạt Clang Modules
+          config.build_settings['CLANG_ENABLE_MODULES'] = 'YES'
+          
+          # Định tuyến chính xác đến các thư mục chứa file Swift Header tự động sinh ra khi build
+          config.build_settings['HEADER_SEARCH_PATHS'] ||= '$(inherited) '
+          config.build_settings['HEADER_SEARCH_PATHS'] << '"$(DERIVED_SOURCES_DIR)" '
+          config.build_settings['HEADER_SEARCH_PATHS'] << '"$(OBJECT_FILE_DIR_normal)/$(CURRENT_ARCH)" '
+          config.build_settings['HEADER_SEARCH_PATHS'] << '"$(PROJECT_TEMP_DIR)/../AppCheckCore.build/DerivedSources" '
+          config.build_settings['HEADER_SEARCH_PATHS'] << '"$(PROJECT_TEMP_DIR)/../Pods.build/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)/AppCheckCore.build/DerivedSources" '
+        end
+      end
+    end
   end
 end

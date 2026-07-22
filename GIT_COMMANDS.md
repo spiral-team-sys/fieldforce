@@ -445,6 +445,11 @@ git pull
 git add .
 git commit -m "message"
 git push
+
+git status
+git branch -vv
+git log --oneline -5
+git log origin/main..HEAD --oneline
 ```
 
 ---
@@ -478,3 +483,338 @@ git branch -vv
 git log --oneline --graph --decorate --all
 git reflog
 ```
+
+# Git Branch Recovery Guide
+
+## 1. Kiểm tra tình trạng hiện tại
+
+```bash
+git status
+git branch -vv
+git remote -v
+git log --oneline --graph --decorate --all
+git reflog -20
+```
+
+---
+
+## 2. Tôi đang đứng ở branch nào?
+
+```bash
+git branch --show-current
+```
+
+---
+
+## 3. Branch local đang theo dõi branch remote nào?
+
+```bash
+git branch -vv
+```
+
+Ví dụ:
+
+```
+* develop 1234567 [origin/develop]
+```
+
+---
+
+## 4. Đồng bộ danh sách branch
+
+```bash
+git fetch --all --prune
+```
+
+---
+
+## 5. Chuyển branch
+
+```bash
+git switch main
+```
+
+hoặc
+
+```bash
+git switch feature/login
+```
+
+---
+
+## 6. Tạo branch mới từ branch hiện tại
+
+```bash
+git switch -c feature/new
+```
+
+---
+
+## 7. Branch local bị lệch remote
+
+Xem khác nhau
+
+```bash
+git log HEAD..origin/main
+```
+
+```bash
+git log origin/main..HEAD
+```
+
+Đồng bộ
+
+```bash
+git fetch origin
+git reset --hard origin/main
+```
+
+---
+
+## 8. Muốn bỏ toàn bộ code local
+
+```bash
+git fetch
+git reset --hard origin/main
+git clean -fd
+```
+
+---
+
+## 9. Muốn giữ code local nhưng cập nhật remote
+
+```bash
+git fetch
+git rebase origin/main
+```
+
+hoặc
+
+```bash
+git pull --rebase
+```
+
+---
+
+## 10. Lỡ commit sai branch
+
+Ví dụ commit trên main.
+
+Lấy commit
+
+```bash
+git log --oneline
+```
+
+Tạo branch
+
+```bash
+git switch -c feature/login
+```
+
+Quay main
+
+```bash
+git switch main
+git reset --hard origin/main
+```
+
+---
+
+## 11. Muốn chuyển commit sang branch khác
+
+```bash
+git cherry-pick <commit-id>
+```
+
+---
+
+## 12. Muốn bỏ commit cuối
+
+Giữ code
+
+```bash
+git reset --soft HEAD~1
+```
+
+Bỏ luôn code
+
+```bash
+git reset --hard HEAD~1
+```
+
+---
+
+## 13. Lỡ reset hoặc checkout mất code
+
+```bash
+git reflog
+```
+
+Ví dụ
+
+```
+abc123 HEAD@{3}
+```
+
+Khôi phục
+
+```bash
+git reset --hard abc123
+```
+
+---
+
+## 14. Branch local khác hoàn toàn remote
+
+```bash
+git fetch
+git checkout main
+git reset --hard origin/main
+```
+
+---
+
+## 15. Đổi remote sang repository khác
+
+Xem
+
+```bash
+git remote -v
+```
+
+Đổi
+
+```bash
+git remote set-url origin <new_repo>
+```
+
+---
+
+## 16. Xóa branch local
+
+```bash
+git branch -D feature/login
+```
+
+---
+
+## 17. Xóa branch remote
+
+```bash
+git push origin --delete feature/login
+```
+
+---
+
+## 18. Tạo branch từ remote
+
+```bash
+git switch -c develop origin/develop
+```
+
+---
+
+## 19. Branch bị detached HEAD
+
+Kiểm tra
+
+```bash
+git status
+```
+
+Nếu hiện
+
+```
+HEAD detached
+```
+
+Tạo branch
+
+```bash
+git switch -c recover
+```
+
+---
+
+## 20. Muốn lấy lại branch đã xóa
+
+```bash
+git reflog
+```
+
+Tìm commit cuối
+
+```
+abc123
+```
+
+Khôi phục
+
+```bash
+git branch feature/login abc123
+```
+
+---
+
+# Checklist khi bị rối branch
+
+```bash
+git status
+
+git branch -vv
+
+git remote -v
+
+git log --oneline --graph --decorate --all
+
+git reflog -20
+```
+
+> Không chạy `git reset --hard` hoặc `git clean -fd` trước khi kiểm tra các lệnh trên.
+
+---
+
+# Quy trình xử lý an toàn
+
+Bước 1
+
+```bash
+git status
+```
+
+↓
+
+Bước 2
+
+```bash
+git branch -vv
+```
+
+↓
+
+Bước 3
+
+```bash
+git log --oneline --graph --decorate --all
+```
+
+↓
+
+Bước 4
+
+```bash
+git reflog
+```
+
+↓
+
+Sau khi biết chính xác tình trạng mới quyết định:
+
+- reset
+- rebase
+- merge
+- cherry-pick
+- stash
+
+Tuyệt đối không đoán.

@@ -18,7 +18,7 @@ import { NotificationModalProvider } from './src/Context/NotificationModalContex
 import { showNotificationModalRef } from './src/Component/Notification/Modal/NotificationModalRef';
 import CodePushManager from './src/Component/CodePush/CodePushManager';
 import CodePush from '@revopush/react-native-code-push';
-// import { APPCHECK } from './src/Utils/Firebase/AppCheck/firebaseAppCheck';
+import { APPCHECK } from './src/Utils/Firebase/AppCheck/firebaseAppCheck';
 
 LogBox.ignoreLogs(["Battery state `unknown` and monitoring disabled, this is normal for simulators and tvOS"]);
 
@@ -29,7 +29,7 @@ const App: React.FC = () => {
   useEffect(() => {
     CodePush.notifyAppReady();
     FIREBASE.initializeFirebaseMessaging();
-    // APPCHECK.initializeAppCheck();
+    APPCHECK.initializeAppCheck();
     // Foreground
     const unsubMessage = FIREBASE.onMessageReceived((remoteMessage: any) => {
       showNotificationModalRef(remoteMessage);
@@ -47,16 +47,16 @@ const App: React.FC = () => {
       unsubOpened?.();
     };
   }, []);
-  // useEffect(() => {
-  //   const checkSecurity = async () => {
-  //     const isSecure = await APPCHECK.verifyDeviceSecurity();
-  //     if (!isSecure) {
-  //       BackHandler.exitApp();
-  //     }
-  //   };
+  useEffect(() => {
+    const checkSecurity = async () => {
+      const isSecure = await APPCHECK.verifyDeviceSecurity();
+      if (!isSecure) {
+        BackHandler.exitApp();
+      }
+    };
 
-  //   checkSecurity();
-  // }, []);
+    checkSecurity();
+  }, []);
   return (
     <GestureHandlerRootView style={{ flex: 1 }}>
       <SafeAreaProvider>

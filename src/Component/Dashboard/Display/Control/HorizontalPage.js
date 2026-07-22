@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { StyleSheet, TouchableOpacity, View } from "react-native";
 import { useSelector } from "react-redux";
-import Orientation from "react-native-orientation-locker";
+// import Orientation from "react-native-orientation-locker";
 import { deviceHeight, deviceWidth, fontWeightBold } from "../../../../Themes/AppsStyle";
 import { Icon, Text } from "@rneui/base";
 import { SearchData } from "../../../../Control/SearchData/SearchData";
