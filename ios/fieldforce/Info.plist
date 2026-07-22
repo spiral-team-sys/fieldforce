@@ -24,6 +24,21 @@
 	<string>????</string>
 	<key>CFBundleVersion</key>
 	<string>$(CURRENT_PROJECT_VERSION)</string>
+	<key>CodePushDeploymentKey</key>
+	<string>xlOQBWJuz4WZuyAIcLDU-EOvd_aXNybJSzZsWg</string>
+	<key>CodePushServerURL</key>
+	<string>https://api.revopush.org</string>
+	<key>LSApplicationQueriesSchemes</key>
+	<array>
+		<string>tel</string>
+		<string>telprompt</string>
+		<string>zalo</string>
+		<string>whatsapp</string>
+		<string>mailto</string>
+		<string>instagram</string>
+		<string>fb</string>
+		<string>comgooglemaps</string>
+	</array>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>NSAppTransportSecurity</key>
@@ -32,6 +47,11 @@
 		<false/>
 		<key>NSAllowsLocalNetworking</key>
 		<true/>
+		<key>NSExceptionDomains</key>
+		<dict>
+			<key>api.revopush.org</key>
+			<dict/>
+		</dict>
 	</dict>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>Ứng dụng yêu cầu quyền truy cập vị trí khi sử dụng</string>
@@ -40,9 +60,49 @@
 	<key>MAPS_API_KEY</key>
 	<string>AIzaSyBpyTUREj93ywXvQ8g-oB5sxx8CuJuL1Bk</string> 
 	<key>NSCameraUsageDescription</key>
-	<string>$(PRODUCT_NAME) needs access to your Camera to capture photos and videos.</string>
+	<string>Ứng dụng cần quyền truy cập vào camera</string>
+	<key>NSContactsUsageDescription</key>
+	<string>Ứng dụng cần quyền truy cập danh bạ để đọc và sử dụng số điện thoại liên hệ.</string>
+	<key>NSDocumentsDirectoryUsageDescription</key>
+	<string>Ứng dụng cần quyền truy cập Documents để lưu file.</string>
+	<key>NSFaceIDUsageDescription</key>
+	<string>Ứng dụng cần sử dụng Face ID để xác thực bảo mật</string>
+	<key>NSHealthClinicalHealthRecordsShareUsageDescription</key>
+	<string>Đọc và hiểu dữ liệu sức khỏe lâm sàng.</string>
+	<key>NSHealthShareUsageDescription</key>
+	<string>Đọc và hiểu dữ liệu sức khỏe.</string>
+	<key>NSHealthUpdateUsageDescription</key>
+	<string>Chia sẻ dữ liệu tập luyện với các ứng dụng khác.</string>
+	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+	<string>Ứng dụng yêu cầu bạn cung cấp quyền sử dụng vị trí chính xác</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>Ứng dụng yêu cầu bạn cung cấp quyền sử dụng vị trí khi dùng</string>
 	<key>NSMicrophoneUsageDescription</key>
-	<string>$(PRODUCT_NAME) needs access to your Microphone to record audio for video recordings.</string> 
+	<string>Vui lòng cấp quyền truy cập Microphone</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>Quyền truy cập thư viện ảnh của thiết bị</string>
+	<key>UIAppFonts</key>
+	<array>
+		<string>AntDesign.ttf</string>
+		<string>Entypo.ttf</string>
+		<string>EvilIcons.ttf</string>
+		<string>Feather.ttf</string>
+		<string>FontAwesome.ttf</string>
+		<string>FontAwesome5_Brands.ttf</string>
+		<string>FontAwesome5_Regular.ttf</string>
+		<string>FontAwesome5_Solid.ttf</string>
+		<string>FontAwesome6_Brands.ttf</string>
+		<string>FontAwesome6_Regular.ttf</string>
+		<string>FontAwesome6_Solid.ttf</string>
+		<string>Foundation.ttf</string>
+		<string>Ionicons.ttf</string>
+		<string>MaterialIcons.ttf</string>
+		<string>MaterialCommunityIcons.ttf</string>
+		<string>SimpleLineIcons.ttf</string>
+		<string>Octicons.ttf</string>
+		<string>Zocial.ttf</string>
+		<string>Fontisto.ttf</string>
+	</array>
 	<key>UIBackgroundModes</key>
 	<array>
 		<string>fetch</string>

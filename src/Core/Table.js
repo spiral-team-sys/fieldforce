@@ -1,0 +1,412 @@
+const mobileKPIList = {
+    tableName: 'mobileKPIList',
+    tableFields: [
+        { columnName: 'kpiId', dataType: 'INTEGER' },
+        { columnName: 'function', dataType: 'NVARCHAR(256)' },
+        { columnName: 'listCode', dataType: 'VARCHAR(64)' },
+        { columnName: 'name', dataType: 'NVARCHAR(256)' },
+        { columnName: 'isLock', dataType: 'INTEGER' },
+        { columnName: 'orderBy', dataType: 'INTEGER' },
+        { columnName: 'refId', dataType: 'INTEGER' },
+        { columnName: 'refName', dataType: 'NVARCHAR(256)' },
+        { columnName: 'refCode', dataType: 'VARCHAR(64)' },
+        { columnName: 'PRIMARY', dataType: 'KEY(kpiId,listCode)' },
+    ]
+}
+const posm = {
+    tableName: 'posm',
+    tableFields: [
+        { columnName: 'id', dataType: 'INTEGER' },
+        { columnName: 'itemId', dataType: 'INTEGER' },
+        { columnName: 'itemCode', dataType: 'VARCHAR(32)' },
+        { columnName: 'itemName', dataType: 'NVARCHAR(225)' },
+        { columnName: 'itemNameVN', dataType: 'NVARCHAR(225)' },
+        { columnName: 'groupId', dataType: 'INTEGER' },
+        { columnName: 'groupName', dataType: 'NVARCHAR(256)' },
+        { columnName: 'note', dataType: 'NVARCHAR(256)' },
+        { columnName: 'PRIMARY', dataType: 'KEY(id)' },
+    ]
+}
+const competitor = {
+    tableName: 'competitor',
+    tableFields: [
+        { columnName: 'competitorId', dataType: 'INTEGER' },
+        { columnName: 'competitorName', dataType: 'NVARCHAR(256)' },
+        { columnName: 'sortList', dataType: 'INTEGER' },
+        { columnName: 'refId', dataType: 'VARCHAR(256)' },
+        { columnName: 'PRIMARY', dataType: 'KEY(competitorId)' },
+    ]
+}
+const dealer = {
+    tableName: 'dealer',
+    tableFields: [
+        { columnName: 'dealerId', dataType: 'INTEGER' },
+        { columnName: 'dealerCode', dataType: 'VARCHAR(32)' },
+        { columnName: 'dealerName', dataType: 'NVARCHAR(128)' },
+        { columnName: 'orderBy', dataType: 'INTEGER' },
+        { columnName: 'PRIMARY', dataType: 'KEY(dealerId)' },
+    ]
+}
+const storeList = {
+    tableName: 'storeList',
+    tableFields: [
+        { columnName: 'shopId', dataType: 'INTEGER' },
+        { columnName: 'shopCode', dataType: 'VARCHAR(32)' },
+        { columnName: 'shopName', dataType: 'NVARCHAR(250)' },
+        { columnName: 'address', dataType: 'NVARCHAR(250)' },
+        { columnName: 'town', dataType: 'NVARCHAR(250)' },
+        { columnName: 'district', dataType: 'NVARCHAR(250)' },
+        { columnName: 'province', dataType: 'NVARCHAR(250)' },
+        { columnName: 'regionID', dataType: 'INTEGER' },
+        { columnName: 'region', dataType: 'NVARCHAR(128)' },
+        { columnName: 'area', dataType: 'NVARCHAR(128)' },
+        { columnName: 'shopFormatId', dataType: 'INTEGER' },
+        { columnName: 'contactName', dataType: 'NVARCHAR(128)' },
+        { columnName: 'email', dataType: 'VARCHAR(128)' },
+        { columnName: 'phone', dataType: 'VARCHAR(32)' },
+        { columnName: 'latitude', dataType: 'FLOAT' },
+        { columnName: 'longitude', dataType: 'FLOAT' },
+        { columnName: 'imageUrl', dataType: 'NVARCHAR(128)' },
+        { columnName: 'auditDate', dataType: 'INTEGER' },
+        { columnName: 'status', dataType: 'INTEGER' },
+        { columnName: 'kpiId', dataType: 'INTEGER' },
+        { columnName: 'numberofFSM', dataType: 'INTEGER' },
+        { columnName: 'storeSize', dataType: 'FLOAT' },
+        { columnName: 'note', dataType: 'NVARCHAR(128)' },
+        { columnName: 'orderBy', dataType: 'INTEGER' },
+        { columnName: 'timeIn', dataType: 'INTEGER' },
+        { columnName: 'timeOut', dataType: 'INTEGER' },
+        { columnName: 'attendantCount', dataType: 'INTEGER' },
+        { columnName: 'result', dataType: 'NVARCHAR(256)' },
+        { columnName: 'config', dataType: 'NVARCHAR(4000)' },
+        { columnName: 'cameraConfig', dataType: 'NVARCHAR(4000)' },
+        { columnName: 'linkTraining', dataType: 'NVARCHAR(128)' },
+        { columnName: 'shopFormat', dataType: 'NVARCHAR(4000)' },
+        { columnName: 'levelName', dataType: 'NVARCHAR(4000)' },
+        { columnName: 'dealerId', dataType: 'INTEGER' },
+        { columnName: 'dealerName', dataType: 'NVARCHAR(4000)' },
+        { columnName: 'openYear', dataType: 'INTEGER' },
+        { columnName: 'newRegionId', dataType: 'INTEGER' },
+        { columnName: 'PRIMARY', dataType: 'KEY(shopId)' },
+    ]
+}
+const products = {
+    tableName: 'products',
+    tableFields: [
+        { columnName: 'productId', dataType: 'INTEGER' },
+        { columnName: 'categoryId', dataType: 'INTEGER' },
+        { columnName: 'productCode', dataType: 'VARCHAR(100)' },
+        { columnName: 'productName', dataType: 'NVARCHAR(250)' },
+        { columnName: 'unit', dataType: 'NVARCHAR(64)' },
+        { columnName: 'division', dataType: 'NVARCHAR(258)' },
+        { columnName: 'catID', dataType: 'INTEGER' },
+        { columnName: 'category', dataType: 'NVARCHAR(128)' },
+        { columnName: 'categoryName', dataType: 'NVARCHAR(256)' },
+        { columnName: 'marketName', dataType: 'NVARCHAR(258)' },
+        { columnName: 'subCatId', dataType: 'INTEGER' },
+        { columnName: 'subCategory', dataType: 'NVARCHAR(256)' },
+        { columnName: 'segmentId', dataType: 'INTEGER' },
+        { columnName: 'segment', dataType: 'NVARCHAR(258)' },
+        { columnName: 'subSegmentId', dataType: 'INTEGER' },
+        { columnName: 'subSegment', dataType: 'NVARCHAR(258)' },
+        { columnName: 'productLine', dataType: 'FLOAT' },
+        { columnName: 'errorPrice', dataType: 'FLOAT' },
+        { columnName: 'price', dataType: 'FLOAT' },
+        { columnName: 'type', dataType: 'INTEGER' },
+        { columnName: 'report', dataType: 'INTEGER' },
+        { columnName: 'isCheck', dataType: 'INTEGER' },
+        { columnName: 'orderBy', dataType: 'INTEGER' },
+        { columnName: 'details', dataType: 'TEXT' },
+        { columnName: 'PRIMARY', dataType: 'KEY(productId)' }
+    ]
+}
+const masterList = {
+    tableName: 'masterList',
+    tableFields: [
+        { columnName: 'id', dataType: 'INTEGER' },
+        { columnName: 'listCode', dataType: 'VARCHAR(20)' },
+        { columnName: 'code', dataType: 'VARCHAR(16)' },
+        { columnName: 'name', dataType: 'NVARCHAR(256)' },
+        { columnName: 'ref_Id', dataType: 'INTEGER' },
+        { columnName: 'ref_Code', dataType: 'VARCHAR(128)' },
+        { columnName: 'ref_Name', dataType: 'NVARCHAR(256)' },
+        { columnName: 'isLock', dataType: 'INTEGER' },
+        { columnName: 'isColor', dataType: 'VARCHAR(20)' },
+        { columnName: 'groupId', dataType: 'INTEGER' },
+        { columnName: 'groupName', dataType: 'NVARCHAR(20)' },
+        { columnName: 'orderBy', dataType: 'INTEGER' },
+        { columnName: 'numberValue', dataType: 'INTEGER' },
+        { columnName: 'textValue', dataType: 'VARCHAR(125)' },
+        { columnName: 'decimalValue', dataType: 'INTEGER' },
+        { columnName: 'selectValue', dataType: 'INTEGER' },
+        { columnName: 'filterList', dataType: 'NVARCHAR(512)' },
+        { columnName: 'isRequired', dataType: 'INTEGER' },
+        { columnName: 'PRIMARY', dataType: 'KEY(listCode,code)' }
+    ]
+}
+const auditDisplayItems = {
+    tableName: 'auditDisplayItem',
+    tableFields: [
+        { columnName: 'shopId', dataType: 'INTEGER' },
+        { columnName: 'displayId', dataType: 'INTEGER' },
+        { columnName: 'displayName', dataType: 'NVARCHAR(250)' },
+        { columnName: 'displayNameVN', dataType: 'NVARCHAR(250)' },
+        { columnName: 'refId', dataType: 'INTEGER' },
+        { columnName: 'refName', dataType: 'NVARCHAR(250)' },
+        { columnName: 'id', dataType: 'INTEGER' },
+        { columnName: 'itemName', dataType: 'NVARCHAR(250)' },
+        { columnName: 'fieldSetting', dataType: 'NVARCHAR(250)' },
+        { columnName: 'kpi1', dataType: 'INTEGER' },
+        { columnName: 'kpi1Holder', dataType: 'NVARCHAR(60)' },
+        { columnName: 'kpi2', dataType: 'INTEGER' },
+        { columnName: 'kpi2Holder', dataType: 'NVARCHAR(60)' },
+        { columnName: 'kpi3', dataType: 'INTEGER' },
+        { columnName: 'kpi4', dataType: 'INTEGER' },
+        { columnName: 'kpi5', dataType: 'INTEGER' },
+        { columnName: 'kpi6', dataType: 'INTEGER' },
+        { columnName: 'kpi7', dataType: 'INTEGER' },
+        { columnName: 'isPhotos', dataType: 'INTEGER' },
+        { columnName: 'visit', dataType: 'INTEGER' },
+        { columnName: 'target', dataType: 'INTEGER' },
+        { columnName: 'displayItemId', dataType: 'INTEGER' },
+        { columnName: 'productId', dataType: 'INTEGER' },
+        { columnName: 'productName', dataType: 'NVARCHAR(250)' },
+        { columnName: 'groupId', dataType: 'INTEGER' },
+        { columnName: 'groupName', dataType: 'NVARCHAR(250)' },
+        { columnName: 'PRIMARY', dataType: 'KEY(id,shopId,displayId)' },
+    ]
+}
+const trackingCompetitor = {
+    tableName: 'trackingCompetitor', tableFields:
+        [
+            { columnName: 'competitorId', dataType: 'INTEGER' },
+            { columnName: 'competitorName', dataType: 'VARCHAR(250)' },
+            { columnName: 'categoryId', dataType: 'INTEGER' },
+            { columnName: 'groupCateId', dataType: 'INTEGER' },
+            { columnName: 'categoryCode', dataType: 'VARCHAR(32)' },
+            { columnName: 'categoryName', dataType: 'VARCHAR(250)' },
+            { columnName: 'subCatId', dataType: 'INTEGER' },
+            { columnName: 'subCatName', dataType: 'VARCHAR(250)' },
+            { columnName: 'orderBy', dataType: 'INTEGER' },
+            // { columnName: 'PRIMARY', dataType: 'KEY(competitorId,categoryId)' },
+        ]
+}
+const messenger = {
+    tableName: 'messenger',
+    tableFields:
+        [
+            { columnName: 'id', dataType: 'INTEGER PRIMARY KEY' },
+            { columnName: 'title', dataType: 'VARCHAR(250)' },
+            { columnName: 'body', dataType: 'VARCHAR(800)' },
+            { columnName: 'typeReport', dataType: 'VARCHAR(250)' },
+            { columnName: 'createdDate', dataType: 'VARCHAR(250)' },
+            { columnName: 'hyperLinks', dataType: 'VARCHAR(255)' },
+            { columnName: 'seen', dataType: 'INTEGER DEFAULT (0)' },
+        ]
+}
+const trackingDetail = {
+    tableName: 'trackingDetail', tableFields: [
+        { columnName: 'id', dataType: 'INTEGER PRIMARY KEY' },
+        { columnName: 'competitorId', dataType: 'INTEGER' },
+        { columnName: 'competitorName', dataType: 'VARCHAR(500)' },
+        { columnName: 'categoryId', dataType: 'INTEGER' },
+        { columnName: 'category', dataType: 'VARCHAR(500)' },
+        { columnName: 'category_viVN', dataType: 'NVARCHAR(500)' },
+        { columnName: 'trackingId', dataType: 'INTEGER' },
+        { columnName: 'trackingName', dataType: 'NVARCHAR(500)' },
+        { columnName: 'trackingMenu', dataType: 'NVARCHAR(500)' },
+        { columnName: 'yesNo', dataType: 'INTEGER' },
+        { columnName: 'textValue', dataType: 'INTEGER' },
+        { columnName: 'numberValue', dataType: 'INTEGER' },
+        { columnName: 'priceValue', dataType: 'INTEGER' },
+        { columnName: 'imageValue', dataType: 'INTEGER' },
+        { columnName: 'kpiId', dataType: 'INTEGER' },
+        { columnName: 'segmentId', dataType: 'INTEGER' },
+        { columnName: 'segment', dataType: 'VARCHAR(500)' },
+        { columnName: 'subCatId', dataType: 'INTEGER' },
+        { columnName: 'subCategory', dataType: 'VARCHAR(500)' },
+        { columnName: 'refId', dataType: 'INTEGER' },
+        { columnName: 'refName', dataType: 'NVARCHAR(500)' },
+        { columnName: 'isSum', dataType: 'INTEGER' },
+        { columnName: 'itemValues', dataType: 'NVARCHAR(500)' },
+        { columnName: 'orderBy', dataType: 'INTEGER' }
+    ]
+}
+const oosHistory = {
+    tableName: 'oosHistory',
+    tableFields: [
+        { columnName: 'shopId', dataType: 'INTEGER' },
+        { columnName: 'workDate', dataType: 'INTEGER' },
+        { columnName: 'productId', dataType: 'INTEGER' },
+        { columnName: 'oos', dataType: 'INTEGER' },
+        { columnName: 'quantity', dataType: 'INTEGER' },
+        { columnName: 'PRIMARY', dataType: 'KEY(shopId,workDate,productId)' },
+    ]
+}
+const displayHistory = {
+    tableName: 'displayHistory',
+    tableFields: [
+        { columnName: 'shopId', dataType: 'INTEGER' },
+        { columnName: 'workDate', dataType: 'INTEGER' },
+        { columnName: 'productId', dataType: 'INTEGER' },
+        { columnName: 'display', dataType: 'INTEGER' },
+        { columnName: 'quanityStock', dataType: 'INTEGER' },
+        { columnName: 'quanitySuggest', dataType: 'INTEGER' },
+        { columnName: 'rrp', dataType: 'DECIMAL' },
+        { columnName: 'note', dataType: 'NVARCHAR(500)' },
+        { columnName: 'noteProduct', dataType: 'NVARCHAR(500)' },
+        { columnName: 'notePOP', dataType: 'NVARCHAR(500)' },
+        { columnName: 'tagPOPID', dataType: 'INTEGER' },
+        { columnName: 'OOS', dataType: 'INTEGER' },
+        { columnName: 'employeeId', dataType: 'INTEGER' },
+        { columnName: 'PRIMARY', dataType: 'KEY(shopId,workDate,productId)' },
+    ]
+}
+const stockHistory = {
+    tableName: 'stockHistory',
+    tableFields: [
+        { columnName: 'shopId', dataType: 'INTEGER' },
+        { columnName: 'workDate', dataType: 'INTEGER' },
+        { columnName: 'categoryId', dataType: 'INTEGER' },
+        { columnName: 'productId', dataType: 'INTEGER' },
+        { columnName: 'stock', dataType: 'INTEGER' },
+        { columnName: 'haveBusiness', dataType: 'INTEGER' },
+        { columnName: 'PRIMARY', dataType: 'KEY(shopId,workDate,productId)' },
+    ]
+}
+const regions = {
+    tableName: 'regions', tableFields: [
+        { columnName: 'regionID', dataType: 'INTEGER' },
+        { columnName: 'region', dataType: 'VARCHAR(250)' },
+        { columnName: 'regionVN', dataType: 'NVARCHAR(250)' },
+        { columnName: 'provinceCode', dataType: 'INTEGER' },
+        { columnName: 'province', dataType: 'VARCHAR(250)' },
+        { columnName: 'provinceVN', dataType: 'VARCHAR(250)' },
+        { columnName: 'districtCode', dataType: 'INTEGER' },
+        { columnName: 'district', dataType: 'VARCHAR(250)' },
+        { columnName: 'districtVN', dataType: 'NVARCHAR(250)' },
+        { columnName: 'townCode', dataType: 'INTEGER' },
+        { columnName: 'town', dataType: 'VARCHAR(250)' },
+        { columnName: 'townVN', dataType: 'NVARCHAR(250)' },
+        { columnName: 'area', dataType: 'VARCHAR(250)' },
+        { columnName: 'areaVN', dataType: 'NVARCHAR(250)' },
+        { columnName: 'areaGFK', dataType: 'VARCHAR(250)' },
+    ]
+}
+const shopProfile = {
+    tableName: 'shopProfile', tableFields: [
+        { columnName: 'shopProfileId', dataType: 'INTEGER' },
+        { columnName: 'categoryId', dataType: 'INTEGER' },
+        { columnName: 'categoryName', dataType: 'VARCHAR(250)' },
+        { columnName: 'categoryType', dataType: 'NVARCHAR(250)' },
+        { columnName: 'itemId', dataType: 'INTEGER' },
+        { columnName: 'itemNameVN', dataType: 'NVARCHAR(250)' },
+        { columnName: 'textValue', dataType: 'INTEGER' },
+        { columnName: 'numberValue', dataType: 'INTEGER' },
+        { columnName: 'decimalValue', dataType: 'INTEGER' },
+        { columnName: 'dateValue', dataType: 'INTEGER' },
+        { columnName: 'yearValue', dataType: 'INTEGER' },
+        { columnName: 'selectValue', dataType: 'INTEGER' },
+        { columnName: 'functionInput', dataType: 'INTEGER' }
+    ]
+}
+const promotionList = {
+    tableName: 'promotionList', tableFields: [
+        { columnName: 'id', dataType: 'INTEGER PRIMARY KEY' },
+        { columnName: 'promotionCode', dataType: 'VARCHAR(32)' },
+        { columnName: 'promotionName', dataType: 'NVARCHAR(500)' },
+    ]
+}
+const displayTarget = {
+    tableName: 'displayTarget', tableFields: [
+        { columnName: 'shopId', dataType: 'INTEGER' },
+        { columnName: 'productId', dataType: 'INTERGET' },
+        { columnName: 'defaultValue', dataType: 'INTERGET' },
+        { columnName: 'displayLast', dataType: 'INTERGET' },
+        { columnName: 'priceLast', dataType: 'FLOAT' },
+        { columnName: 'posmList', dataType: 'TEXT' },
+        { columnName: 'PRIMARY', dataType: 'KEY(shopId,productId)' },
+    ]
+}
+const shopFormat = {
+    tableName: 'shopFormat', tableFields: [
+        { columnName: 'id', dataType: 'INTEGER PRIMARY KEY' },
+        { columnName: 'code', dataType: 'VARCHAR(32)' },
+        { columnName: 'name', dataType: 'NVARCHAR(500)' },
+    ]
+}
+const menulist = {
+    tableName: 'menulist',
+    tableFields:
+        [
+            { columnName: 'id', dataType: 'INTEGER PRIMARY KEY AUTOINCREMENT' },
+            { columnName: 'menuName', dataType: 'VARCHAR(250)' },
+            { columnName: 'menuNameVN', dataType: 'NVARCHAR(250)' },
+            { columnName: 'byShop', dataType: 'INTEGER' },
+            { columnName: 'pageName', dataType: 'VARCHAR(64)' },
+            { columnName: 'iconName', dataType: 'VARCHAR(64)' },
+            { columnName: 'iconType', dataType: 'VARCHAR(64)' },
+            { columnName: 'reportTime', dataType: 'INTEGER' },
+            { columnName: 'reportItem', dataType: 'NVARCHAR(8000)' },
+            { columnName: 'sortList', dataType: 'INTEGER' },
+            { columnName: 'tableName', dataType: 'VARCHAR(64)' },
+            { columnName: 'isAnotherRoute', dataType: 'INTEGER' },
+            { columnName: 'groupReport', dataType: 'NVARCHAR(64)' },
+            { columnName: 'sortGroup', dataType: 'INTEGER' }
+        ]
+}
+const taskList = {
+    tableName: 'taskList',
+    tableFields:
+        [
+            { columnName: 'id', dataType: 'INTEGER PRIMARY KEY AUTOINCREMENT' },
+            { columnName: 'shopId', dataType: 'INTEGER' },
+            { columnName: 'reportId', dataType: 'INTEGER' },
+            { columnName: 'fistTask', dataType: 'INTEGER' },//Cho phép làm không cần checkin
+            { columnName: 'taskDone', dataType: 'INTEGER' },
+            { columnName: 'taskAlter', dataType: 'NVARCHAR(2000)' },
+            { columnName: 'workDate', dataType: 'INTEGER' },
+            { columnName: 'UNIQUE', dataType: '(shopId,reportId)' },
+        ]
+}
+const taskListHistory = {
+    tableName: 'taskListHistory',
+    tableFields:
+        [
+            { columnName: 'id', dataType: 'INTEGER PRIMARY KEY AUTOINCREMENT' },
+            { columnName: 'shopId', dataType: 'INTEGER' },
+            { columnName: 'reportId', dataType: 'INTEGER' },
+            { columnName: 'fistTask', dataType: 'INTEGER' },//Cho phép làm không cần checkin
+            { columnName: 'taskDone', dataType: 'INTEGER' },
+            { columnName: 'taskAlter', dataType: 'NVARCHAR(2000)' },
+            { columnName: 'workDate', dataType: 'INTEGER' },
+            { columnName: 'UNIQUE', dataType: '(shopId,reportId,workDate)' },
+        ]
+}
+const posmGuid = {
+    tableName: 'posmGuid',
+    tableFields:
+        [
+            { columnName: 'id', dataType: 'INTEGER PRIMARY KEY AUTOINCREMENT' },
+            { columnName: 'productId', dataType: 'INTEGER' },
+            { columnName: 'posmId', dataType: 'INTEGER' },
+            { columnName: 'posmTarget', dataType: 'INTEGER' },//Cho phép làm không cần checkin
+            { columnName: 'posmDesc', dataType: 'NVARCHAR(2000)' },
+            { columnName: 'UNIQUE', dataType: '(productId,posmId)' }
+        ]
+}
+const capacity = {
+    tableName: 'capacity',
+    tableFields: [
+        { columnName: 'shopId', dataType: 'INTEGER' },
+        { columnName: 'workDate', dataType: 'INTEGER' },
+        { columnName: 'capacityValue', dataType: 'INTEGER' },
+        { columnName: 'note', dataType: 'NVARCHAR(2000)' },
+        { columnName: 'isUploaded', dataType: 'INT' },
+        { columnName: 'PRIMARY', dataType: 'KEY(shopId,workDate)' }
+    ]
+}
+export {
+    taskList, taskListHistory, posmGuid, displayTarget, menulist, storeList, masterList, mobileKPIList, products, promotionList, competitor, dealer, regions, trackingCompetitor, trackingDetail, oosHistory,
+    displayHistory, shopFormat, auditDisplayItems, messenger, stockHistory, posm, shopProfile, capacity
+};        
