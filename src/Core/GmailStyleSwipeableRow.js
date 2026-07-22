@@ -3,7 +3,7 @@ import { StyleSheet, Text, I18nManager } from 'react-native';
 import { RectButton } from 'react-native-gesture-handler';
 import Swipeable from 'react-native-gesture-handler/ReanimatedSwipeable';
 import Animated from 'react-native-reanimated';
-import Icon from 'react-native-vector-icons/MaterialIcons';
+import Icon from '@react-native-vector-icons/material-icons';
 import { useSelector } from 'react-redux';
 
 const AnimatedIcon = Animated.createAnimatedComponent(Icon);

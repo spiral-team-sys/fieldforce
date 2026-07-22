@@ -1918,6 +1918,7 @@ PODS:
     - Yoga
   - react-native-sqlite-storage (6.0.1):
     - React-Core
+  - react-native-vector-icons-material-icons (13.1.2)
   - react-native-video (6.19.2):
     - hermes-engine
     - RCTRequired
@@ -2829,28 +2830,6 @@ PODS:
     - ReactCommon/turbomodule/core
     - ReactNativeDependencies
     - Yoga
-  - RNVectorIcons (10.3.0):
-    - hermes-engine
-    - RCTRequired
-    - RCTTypeSafety
-    - React-Core
-    - React-Core-prebuilt
-    - React-debug
-    - React-Fabric
-    - React-featureflags
-    - React-graphics
-    - React-ImageManager
-    - React-jsi
-    - React-NativeModulesApple
-    - React-RCTFabric
-    - React-renderercss
-    - React-rendererdebug
-    - React-utils
-    - ReactCodegen
-    - ReactCommon/turbomodule/bridging
-    - ReactCommon/turbomodule/core
-    - ReactNativeDependencies
-    - Yoga
   - RNWorklets (0.11.1):
     - hermes-engine
     - RCTRequired
@@ -3019,6 +2998,7 @@ DEPENDENCIES:
   - react-native-pager-view (from `../node_modules/react-native-pager-view`)
   - react-native-safe-area-context (from `../node_modules/react-native-safe-area-context`)
   - react-native-sqlite-storage (from `../node_modules/react-native-sqlite-storage`)
+  - "react-native-vector-icons-material-icons (from `../node_modules/@react-native-vector-icons/material-icons`)"
   - react-native-video (from `../node_modules/react-native-video`)
   - react-native-view-shot (from `../node_modules/react-native-view-shot`)
   - react-native-webview (from `../node_modules/react-native-webview`)
@@ -3074,7 +3054,6 @@ DEPENDENCIES:
   - RNReanimated (from `../node_modules/react-native-reanimated`)
   - RNScreens (from `../node_modules/react-native-screens`)
   - RNShare (from `../node_modules/react-native-share`)
-  - RNVectorIcons (from `../node_modules/react-native-vector-icons`)
   - RNWorklets (from `../node_modules/react-native-worklets`)
   - TouchID (from `../node_modules/react-native-touch-id`)
   - VisionCamera (from `../node_modules/react-native-vision-camera`)
@@ -3222,6 +3201,8 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native-safe-area-context"
   react-native-sqlite-storage:
     :path: "../node_modules/react-native-sqlite-storage"
+  react-native-vector-icons-material-icons:
+    :path: "../node_modules/@react-native-vector-icons/material-icons"
   react-native-video:
     :path: "../node_modules/react-native-video"
   react-native-view-shot:
@@ -3330,8 +3311,6 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native-screens"
   RNShare:
     :path: "../node_modules/react-native-share"
-  RNVectorIcons:
-    :path: "../node_modules/react-native-vector-icons"
   RNWorklets:
     :path: "../node_modules/react-native-worklets"
   TouchID:
@@ -3418,6 +3397,7 @@ SPEC CHECKSUMS:
   react-native-pager-view: 6b98421fc9198e59349977100dc252bbd979cc16
   react-native-safe-area-context: fb5c8ee9f6dd62ef710611b3d370c501f42a4ac0
   react-native-sqlite-storage: 0c84826214baaa498796c7e46a5ccc9a82e114ed
+  react-native-vector-icons-material-icons: bc2d8d3847160ef62b3f66c671bcdcd50d362474
   react-native-video: db3a70efc9fa0c00f5499d7798283bf0585cbd37
   react-native-view-shot: 2829bd78c1fef42db12553bf85833e05a1a73609
   react-native-webview: fa32202d241bd953cb7aa323f266a43ff86dfac9
@@ -3473,7 +3453,6 @@ SPEC CHECKSUMS:
   RNReanimated: 230d297a3eebba7eb9fc7331afdcafb095373a4b
   RNScreens: 7118cd7715c226856125b5bece3c4d9abec90356
   RNShare: 7344a3a7d4e5df58c356ad0f79e4a3ef1325c635
-  RNVectorIcons: 97f26211c07d69e45b189f9dd0dbbe5e2d2b0b92
   RNWorklets: f0734080219ea54d479c179da498c9b24611faed
   SSZipArchive: c69881e8ac5521f0e622291387add5f60f30f3c4
   SwiftUIIntrospect: fee9aa07293ee280373a591e1824e8ddc869ba5d

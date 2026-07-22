@@ -19,6 +19,15 @@ import { showNotificationModalRef } from './src/Component/Notification/Modal/Not
 import CodePushManager from './src/Component/CodePush/CodePushManager';
 import CodePush from '@revopush/react-native-code-push';
 import { APPCHECK } from './src/Utils/Firebase/AppCheck/firebaseAppCheck';
+import {
+  configureReanimatedLogger,
+  ReanimatedLogLevel,
+} from 'react-native-reanimated';
+
+configureReanimatedLogger({
+  level: ReanimatedLogLevel.error,
+  strict: false,
+});
 
 LogBox.ignoreLogs(["Battery state `unknown` and monitoring disabled, this is normal for simulators and tvOS"]);
 
