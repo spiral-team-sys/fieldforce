@@ -2,7 +2,7 @@ import React, { Component, useRef } from 'react';
 import { Animated, StyleSheet, Text, View, I18nManager } from 'react-native';
 import { RectButton } from 'react-native-gesture-handler';
 import Swipeable from 'react-native-gesture-handler/Swipeable';
-import Icon from 'react-native-vector-icons/FontAwesome5'
+import Icon from '@react-native-vector-icons/fontawesome6';
 import { useSelector } from 'react-redux';
 
 const ActionPhotoRow = ({ children, cameraAction, fileAction, viewAction, isCamera = true, isFile = true, isViewPhoto = true }) => {

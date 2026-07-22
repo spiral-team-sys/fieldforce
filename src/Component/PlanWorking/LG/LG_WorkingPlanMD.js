@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { View, FlatList, StyleSheet, Switch, TextInput, TouchableOpacity, SafeAreaView, RefreshControl, Platform } from "react-native";
 import { HeaderCustom } from "../../../Content/HeaderCustom";
-import Icon from "react-native-vector-icons/FontAwesome5";
+import Icon from '@react-native-vector-icons/fontawesome6';
 import { SR_PLAN_GETLIST, PLANSR_ACTION } from "../../../Controller/PlanController";
 import { alertError, alertWarning, alertNotify, alertConfirm } from "../../../Core/Utility";
 import { LoadingView } from "../../../Control/ItemLoading/index";

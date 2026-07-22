@@ -7,7 +7,7 @@ import { DEFAULT_COLOR, URL_DOWNLOAD_MENULIST, URL_FIELD_COACHING } from '../Cor
 import ScreenOne from './WaveHeader/ScreenOne';
 import WavyHeader from './WaveHeader/WavyHeader';
 const delay = ms => new Promise(res => setTimeout(res, ms));
-import Icon from 'react-native-vector-icons/Ionicons'
+import Icon from '@react-native-vector-icons/ionicons';
 import { GetEmployeeInfo, Token } from '../Core/Helper';
 import base64 from 'react-native-base64'
 import * as Progress from 'react-native-progress';

@@ -4,7 +4,7 @@ import { checkNetwork, minWidthTab, } from '../../Core/Utility';
 import { debounce, groupDataByKey, MessageAction, ToastError } from '../../Core/Helper';
 import { deviceWidth } from '../../Themes/AppsStyle';
 import { insertTotalTrackingLG, getListDataTracking, getListCategoryTracking, getAllListTrackResLG } from '../../Controller/TrackingDetailController';
-import Icon from 'react-native-vector-icons/FontAwesome5'
+import Icon from '@react-native-vector-icons/fontawesome6';
 import { scaleSize } from '../../Themes/AppsStyle';
 import { useSelector } from 'react-redux';
 // import NumberFormat from "react-number-format";

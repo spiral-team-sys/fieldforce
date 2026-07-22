@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Text, View, TouchableOpacity, FlatList, Platform, Modal, StyleSheet, SafeAreaView } from "react-native";
-import Icon from 'react-native-vector-icons/FontAwesome5';
+import Icon from '@react-native-vector-icons/fontawesome6';
 import { Divider, Badge } from "@rneui/base";
 import { useSelector } from "react-redux";
 import { HeaderCustom } from "../../Content/HeaderCustom";

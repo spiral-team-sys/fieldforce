@@ -7,6 +7,7 @@ import { TODAY } from "../../../Core/Utility";
 import { Icon, Text } from "@rneui/base";
 import { deviceWidth } from "../../../Themes/AppsStyle";
 import moment from "moment";
+import CustomListView from "../../../Control/Custom/CustomListView";
 
 const DashboardAttendance = ({ navigation }) => {
     const { appcolor } = useSelector(state => state.GAppState);
@@ -40,9 +41,7 @@ const DashboardAttendance = ({ navigation }) => {
     // Handler
 
     // Action
-    const onScrollToIndexFailed = () => {
-        refList?.current?.scrollToOffset({ index: 4, animated: true, })
-    }
+
     //
     useEffect(() => {
         LoadData()
@@ -70,7 +69,7 @@ const DashboardAttendance = ({ navigation }) => {
         const renderArrow = () => (
             <TouchableOpacity style={styles.itemArrowMain} onPress={onArrowPress}>
                 <View style={styles.buttonArrow}>
-                    <Icon color={appcolor.primary} type="font-awesome-5" size={20} name={item.dayName} />
+                    <Icon color={appcolor.primary} type="ionicon" size={16} name='caret-back' />
                 </View>
             </TouchableOpacity>
         )
@@ -102,7 +101,6 @@ const DashboardAttendance = ({ navigation }) => {
                 horizontal
                 showsHorizontalScrollIndicator={false}
                 renderItem={renderItem}
-                onScrollToIndexFailed={onScrollToIndexFailed}
             />
         </View>
 

@@ -4,7 +4,7 @@ import { SafeAreaView, StyleSheet, Platform, View } from 'react-native';
 import Swiper from 'react-native-swiper';
 import { Image, Text, Button } from '@rneui/themed';
 import { PermissionsList, PermissionResult } from '../Controller/PermissionController';
-import Icon from 'react-native-vector-icons/FontAwesome5';
+import Icon from '@react-native-vector-icons/fontawesome6';
 import Permissions, { RESULTS, PERMISSIONS } from 'react-native-permissions';
 import { ACTION } from '../Redux/types';;
 import LoginWhirlPool from '../Component/WhirlPool/LoginWhirlPool';

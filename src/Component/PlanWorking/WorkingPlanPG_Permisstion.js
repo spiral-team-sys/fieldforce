@@ -7,7 +7,7 @@ import { alertWarning, alertConfirm, alertNotify, insets } from '../../Core/Util
 import { groupDataByKey, debounce, UUIDGenerator } from '../../Core/Helper'
 import moment from 'moment'
 import lodash from 'lodash'
-import Icon from 'react-native-vector-icons/FontAwesome5';
+import Icon from '@react-native-vector-icons/fontawesome6';
 import NativeCamera from '../../Control/NativeCamera';
 import UploadController from '../../Controller/UploadController';
 import { deviceWidth, styleDefault } from '../../Themes/AppsStyle';

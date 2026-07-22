@@ -6,7 +6,7 @@ import ModalItem from "../../Control/ModalItem";
 import { GET_ConfigSellOut, GET_RequiredSellOut } from "../../Controller/MasterController";
 import { groupDataByKey, checkIMEI, debounce } from "../../Core/Helper";
 // import NumberFormat from "react-number-format";
-import Icon from "react-native-vector-icons/FontAwesome5";
+import Icon from '@react-native-vector-icons/fontawesome6';
 import { typemodal } from "../../Core/KEYs";
 import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view";
 import { alertToast, alertWarning, onValidPhoneNumber, ConvertToInt, alertNotify } from "../../Core/Utility";

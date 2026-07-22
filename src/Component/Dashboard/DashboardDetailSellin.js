@@ -3,7 +3,7 @@ import { View, StyleSheet, FlatList, Text, Platform, TouchableOpacity, SafeAreaV
 import { useSelector } from 'react-redux';
 import { HeaderCustom } from '../../Content/HeaderCustom';
 import { formatNumber, groupDataByKey } from '../../Core/Helper';
-import Icon from 'react-native-vector-icons/FontAwesome5';
+import Icon from '@react-native-vector-icons/fontawesome6';
 import { Badge } from '@rneui/base';
 import { scaleSize } from '../../Themes/AppsStyle';
 

@@ -5,7 +5,7 @@ import {
     View,
     TouchableOpacity,
 } from 'react-native';
-import Icon from 'react-native-vector-icons/FontAwesome5';
+import Icon from '@react-native-vector-icons/fontawesome6';
 
 class LGTabBar extends React.Component {
     icons = [];

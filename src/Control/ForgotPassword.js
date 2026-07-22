@@ -1,7 +1,7 @@
 import React, { } from 'react';
 import { View } from 'react-native';
 import { Input, Text, Button } from '@rneui/themed';
-import Icon from 'react-native-vector-icons/FontAwesome5'
+import Icon from '@react-native-vector-icons/fontawesome6';
 import { scaleSize } from '../Themes/AppsStyle';
 import { useSelector } from 'react-redux';
 import LottieView from 'lottie-react-native';

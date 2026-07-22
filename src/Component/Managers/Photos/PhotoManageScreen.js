@@ -12,7 +12,7 @@ import {
 import { useSelector } from 'react-redux';
 import moment from 'moment';
 import { Calendar } from 'react-native-calendars';
-import Icon from 'react-native-vector-icons/FontAwesome5';
+import Icon from '@react-native-vector-icons/fontawesome6';
 import { HeaderCustom } from '../../../Content/HeaderCustom';
 import CustomListView from '../../../Control/Custom/CustomListView';
 import { getAllPhotosLocal, getPhotosNotUploadReport, uploadAllDataPhoto } from '../../../Controller/PhotoController';

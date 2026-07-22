@@ -1,9 +1,9 @@
 import React from "react";
 import { View, Text, TouchableOpacity, StyleSheet } from "react-native";
-import { Icon } from "@rneui/themed";
 import { deviceWidth } from "../../../../Core/Utility";
 import { useSelector } from "react-redux";
 import { fontWeightBold } from "../../../../Themes/AppsStyle";
+import SpiralIcon from "../../../../Control/Icon/SpiralIcon";
 
 const MenuLG = ({ item, onPress, viewHorizontal = false }) => {
     const { appcolor } = useSelector(state => state.GAppState)
@@ -15,11 +15,13 @@ const MenuLG = ({ item, onPress, viewHorizontal = false }) => {
         titleName: { fontSize: 12, fontWeight: fontWeightBold, color: appcolor.dark, width: '100%', textAlign: 'center' },
         subTitleName: { fontSize: 11, fontWeight: '500', color: appcolor.greylight, width: '100%', textAlign: 'center' }
     });
+    console.log(item.menuNameVN, item.iconName, item.iconType);
+
     return (
         <TouchableOpacity style={[styles.itemMain, viewHorizontal ? { height: (deviceWidth / 3.3) - 8 } : {}]} onPress={() => onPress(item)}>
             <View style={styles.itemContent}>
                 <View style={styles.iconContainer}>
-                    <Icon
+                    <SpiralIcon
                         color={appcolor.primary}
                         name={item.iconName}
                         type={item.iconType || "fontawesome"}

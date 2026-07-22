@@ -5,7 +5,7 @@ import { FlatList, Text, TouchableOpacity, View, ScrollView, KeyboardAvoidingVie
 import ActionSheet from "react-native-actions-sheet";
 //import DatePicker from "react-native-date-picker";
 ;
-import Icon from 'react-native-vector-icons/FontAwesome5';
+import Icon from '@react-native-vector-icons/fontawesome6';
 import { useSelector } from "react-redux";
 import FormGroup from "../../Content/FormGroup";
 import { HeaderCustom } from "../../Content/HeaderCustom";

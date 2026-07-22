@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { FlatList, View, StyleSheet, Text, Modal, TouchableOpacity, TextInput } from 'react-native'
 import PageHeader from '../Content/PageHeader'
-import Icon from 'react-native-vector-icons/FontAwesome5';
+import Icon from '@react-native-vector-icons/fontawesome6';
 
 import FormGroup from '../Content/FormGroup'
 import { getListImageAudit, getPhotoAudit, updateFSMValue, UploadPhotoTraining, UploadDataTraining } from '../Controller/TrainingController'

@@ -6,7 +6,7 @@ import FormGroup from "../../Content/FormGroup";
 import { Tabs, MaterialTabBar } from 'react-native-collapsible-tab-view'
 import { DEFAULT_COLOR } from "../../Core/URLs";
 ////import { NumericFormat } from "react-number-format";;
-import Icon from 'react-native-vector-icons/FontAwesome5'
+import Icon from '@react-native-vector-icons/fontawesome6';
 import { Divider } from '@rneui/themed';
 import { getStoreBySellIn } from '../../Controller/SellInController'
 import { Calendar } from "react-native-calendars";

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Text, View, TouchableOpacity, ScrollView, FlatList, Platform, StyleSheet } from "react-native";
-import Icon from 'react-native-vector-icons/FontAwesome5';
+import Icon from '@react-native-vector-icons/fontawesome6';
 import { useSelector } from "react-redux";
 import { DataSummary } from "../../../Controller/DashboardController";
 import { deviceHeight, deviceWidth, isFloat } from "../../../Core/Utility";

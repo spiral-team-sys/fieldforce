@@ -3,7 +3,7 @@ import { View, StyleSheet, Text, ScrollView, TouchableOpacity } from "react-nati
 import { GetDataIncentive } from "../../../Controller/DashboardController";
 import moment from 'moment';
 import { useSelector } from "react-redux";
-import Icon from 'react-native-vector-icons/FontAwesome5'
+import Icon from '@react-native-vector-icons/fontawesome6';
 import { Divider, Badge } from "@rneui/base";
 import { toCurrency } from '../../../Core/Utility'
 import { HeaderCustom } from "../../../Content/HeaderCustom";

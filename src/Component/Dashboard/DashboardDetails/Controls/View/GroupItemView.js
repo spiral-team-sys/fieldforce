@@ -4,8 +4,8 @@ import { Icon, Text } from "@rneui/base";
 import { useSelector } from "react-redux";
 import { deviceHeight } from "../../../../../Core/Utility";
 import { SubGroupItemView } from "./SubGroupItemView";
-import _ from 'lodash'
 import CustomListView from "../../../../../Control/Custom/CustomListView";
+import _ from 'lodash'
 
 export const GroupItemView = ({ dataMain, reload }) => {
     const { appcolor } = useSelector(state => state.GAppState)
@@ -14,7 +14,8 @@ export const GroupItemView = ({ dataMain, reload }) => {
     //
     const LoadData = async () => {
         await setData(dataMain)
-        await flashRef?.current?.scrollToIndex({ index: 0, animated: true })
+        if (dataMain && dataMain.length > 0)
+            await flashRef?.current?.scrollToIndex({ index: 0, animated: true })
     }
     // Handler
     const onShopGroup = async (item) => {

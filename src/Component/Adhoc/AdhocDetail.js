@@ -4,7 +4,7 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 import { deviceWidth, deviceHeight, } from '../../Themes/AppsStyle'
 import { SubmitAdhocSurvey, SubmitImageAdhocSurvey, } from '../../Controller/AdhocController';
 import { ListItem } from '@rneui/base';
-import Icon from 'react-native-vector-icons/FontAwesome5'
+import Icon from '@react-native-vector-icons/fontawesome6';
 import { alertConfirm, alertError, alertNotify, alertWarning, } from '../../Core/Utility'
 import { isNotInteger, ToastError, } from '../../Core/Helper'
 import FormGroup from '../../Content/FormGroup'

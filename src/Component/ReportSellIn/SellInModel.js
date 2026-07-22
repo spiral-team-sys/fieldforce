@@ -5,7 +5,7 @@ import { HeaderCustom } from '../../Content/HeaderCustom';
 import { getConfigSellIn } from '../../Controller/SellInController';
 import FormGroup from '../../Content/FormGroup';
 // import NumberFormat from "react-number-format";
-import Icon from 'react-native-vector-icons/FontAwesome5';
+import Icon from '@react-native-vector-icons/fontawesome6';
 import Swiper from 'react-native-swiper'
 
 const TYPE_SELLIN = {

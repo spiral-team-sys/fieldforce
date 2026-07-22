@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { View, StyleSheet, ScrollView, RefreshControl, Text, AppState, LogBox } from "react-native";
 import { APPDOWNLOAD, downloadAll } from '../../Controller/DownloadDataController';
-import Icon from 'react-native-vector-icons/FontAwesome5';
+import Icon from '@react-native-vector-icons/fontawesome6';
 import MenuHome from '../../Content/Beko/MenuHome';
 import { isExistAddColum, getLstMessengerNotSeen, getStoreList } from '../../Controller/WorkController';
 import { GetToken, ToastSuccess } from '../../Core/Helper';

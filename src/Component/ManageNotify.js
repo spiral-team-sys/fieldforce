@@ -4,7 +4,7 @@ import { getDataNotify, fetchDataNotify, readNotifyUpdate, makeReadAllNotify } f
 import { Avatar } from '@rneui/base';
 import { ColorRand, GetEmployeeInfo, StringTobase64, removeVietnameseTones } from '../Core/Helper';
 import moment from 'moment';
-import Icon from 'react-native-vector-icons/FontAwesome5';
+import Icon from '@react-native-vector-icons/fontawesome6';
 import WebViewUI from '../Content/WebViewUI';
 import { HeaderCustom } from '../Content/HeaderCustom'
 import { useSelector } from 'react-redux';

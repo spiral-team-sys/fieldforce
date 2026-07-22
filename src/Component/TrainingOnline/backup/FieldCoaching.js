@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { FlatList, View, StyleSheet, Text, Modal, TextInput, TouchableOpacity } from 'react-native'
-import Icon from 'react-native-vector-icons/FontAwesome5';
+import Icon from '@react-native-vector-icons/fontawesome6';
 import FormGroup from '../../Content/FormGroup'
 import { getListImageAudit, getPhotoAudit, updateFSMValue, UploadPhotoTraining, UploadDataTraining } from '../../Controller/TrainingController'
 import { Image } from '@rneui/themed';

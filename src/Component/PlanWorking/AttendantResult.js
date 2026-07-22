@@ -6,7 +6,7 @@ import { groupDataByKey } from "../../Core/Helper"
 import moment from 'moment';
 import { HeaderCustom } from "../../Content/HeaderCustom"
 import { LoadingView } from "../../Control/ItemLoading/index"
-import Icon from "react-native-vector-icons/FontAwesome5"
+import Icon from '@react-native-vector-icons/fontawesome6';
 import { URLDEFAULT, DEFAULT_COLOR } from "../../Core/URLs"
 import { Image } from '@rneui/themed'
 import CalendarStrip from "react-native-calendar-strip"

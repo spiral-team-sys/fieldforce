@@ -2,7 +2,7 @@ import React, { useEffect, useState, useRef } from "react";
 import { View, StyleSheet, Text, Platform, TouchableOpacity, SafeAreaView } from "react-native";
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { Input, Button, Image } from '@rneui/themed';
-import Icon from 'react-native-vector-icons/FontAwesome5'
+import Icon from '@react-native-vector-icons/fontawesome6';
 import * as Progress from 'react-native-progress'
 import DeviceInfo from 'react-native-device-info';
 import messaging from '@react-native-firebase/messaging';

@@ -1918,6 +1918,11 @@ PODS:
     - Yoga
   - react-native-sqlite-storage (6.0.1):
     - React-Core
+  - react-native-vector-icons-fontawesome (13.1.2)
+  - react-native-vector-icons-fontawesome5 (13.1.2)
+  - react-native-vector-icons-fontawesome6 (13.1.2)
+  - react-native-vector-icons-ionicons (13.1.2)
+  - react-native-vector-icons-material-design-icons (13.1.2)
   - react-native-vector-icons-material-icons (13.1.2)
   - react-native-video (6.19.2):
     - hermes-engine
@@ -2998,6 +3003,11 @@ DEPENDENCIES:
   - react-native-pager-view (from `../node_modules/react-native-pager-view`)
   - react-native-safe-area-context (from `../node_modules/react-native-safe-area-context`)
   - react-native-sqlite-storage (from `../node_modules/react-native-sqlite-storage`)
+  - "react-native-vector-icons-fontawesome (from `../node_modules/@react-native-vector-icons/fontawesome`)"
+  - "react-native-vector-icons-fontawesome5 (from `../node_modules/@react-native-vector-icons/fontawesome5`)"
+  - "react-native-vector-icons-fontawesome6 (from `../node_modules/@react-native-vector-icons/fontawesome6`)"
+  - "react-native-vector-icons-ionicons (from `../node_modules/@react-native-vector-icons/ionicons`)"
+  - "react-native-vector-icons-material-design-icons (from `../node_modules/@react-native-vector-icons/material-design-icons`)"
   - "react-native-vector-icons-material-icons (from `../node_modules/@react-native-vector-icons/material-icons`)"
   - react-native-video (from `../node_modules/react-native-video`)
   - react-native-view-shot (from `../node_modules/react-native-view-shot`)
@@ -3201,6 +3211,16 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native-safe-area-context"
   react-native-sqlite-storage:
     :path: "../node_modules/react-native-sqlite-storage"
+  react-native-vector-icons-fontawesome:
+    :path: "../node_modules/@react-native-vector-icons/fontawesome"
+  react-native-vector-icons-fontawesome5:
+    :path: "../node_modules/@react-native-vector-icons/fontawesome5"
+  react-native-vector-icons-fontawesome6:
+    :path: "../node_modules/@react-native-vector-icons/fontawesome6"
+  react-native-vector-icons-ionicons:
+    :path: "../node_modules/@react-native-vector-icons/ionicons"
+  react-native-vector-icons-material-design-icons:
+    :path: "../node_modules/@react-native-vector-icons/material-design-icons"
   react-native-vector-icons-material-icons:
     :path: "../node_modules/@react-native-vector-icons/material-icons"
   react-native-video:
@@ -3397,6 +3417,11 @@ SPEC CHECKSUMS:
   react-native-pager-view: 6b98421fc9198e59349977100dc252bbd979cc16
   react-native-safe-area-context: fb5c8ee9f6dd62ef710611b3d370c501f42a4ac0
   react-native-sqlite-storage: 0c84826214baaa498796c7e46a5ccc9a82e114ed
+  react-native-vector-icons-fontawesome: 9a819e97393c0e60e3ae9defbe28248002a8957c
+  react-native-vector-icons-fontawesome5: 041c95d7f795cccfde86720f6bd0e96eef2339bf
+  react-native-vector-icons-fontawesome6: 9014730aa0e219382da1f109d47d1a378215cbf8
+  react-native-vector-icons-ionicons: 6831196cf1486bfd26b715d749c5c9a7d67bc0eb
+  react-native-vector-icons-material-design-icons: a4b6ec02814573c09203a725ee3767a7e8d5eb77
   react-native-vector-icons-material-icons: bc2d8d3847160ef62b3f66c671bcdcd50d362474
   react-native-video: db3a70efc9fa0c00f5499d7798283bf0585cbd37
   react-native-view-shot: 2829bd78c1fef42db12553bf85833e05a1a73609

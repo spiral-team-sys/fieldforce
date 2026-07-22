@@ -4,7 +4,7 @@ import { FlatList, ScrollView, Text, TouchableOpacity, View } from "react-native
 import ActionSheet from "react-native-actions-sheet";
 import { useSelector } from "react-redux";
 import FormGroup from "../../Content/FormGroup";
-import Icon from 'react-native-vector-icons/FontAwesome5';
+import Icon from '@react-native-vector-icons/fontawesome6';
 import { deleteItemAceess, deleteNoteAccess, updateItemAceess, updateNoteAceess } from "../../Controller/AccessoriesController";
 import { deviceHeight, deviceWidth } from "../../Core/Utility";
 //import DatePicker from "react-native-date-picker";

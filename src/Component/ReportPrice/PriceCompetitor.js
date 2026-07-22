@@ -4,7 +4,7 @@ import { FlatList } from "react-native";
 import { updateItemPrice, getListUpload_MarketPrice, uploadMarketPrice, GetOnlyCompetitor, getHistoryMarketPrice, getListPriceCompetitor, dataCompetitorMarketPrice, } from "../../Controller/PriceController";
 import { _competitorId } from "../../Core/URLs";
 ////import { NumericFormat } from "react-number-format";;
-import Icon from "react-native-vector-icons/FontAwesome5";
+import Icon from '@react-native-vector-icons/fontawesome6';
 import moment from "moment";
 import { alertWarning, alertNotify, alertConfirm, checkNetwork, ConvertToInt, minWidthTab, } from "../../Core/Utility";
 import { useSelector } from "react-redux";

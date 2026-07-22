@@ -3,7 +3,7 @@ import React, { useEffect, useState, useCallback } from 'react';
 import { SafeAreaView, View, StyleSheet, TextInput, Platform, FlatList, RefreshControl, Modal, TouchableOpacity, KeyboardAvoidingView, LayoutAnimation, UIManager, Keyboard, ScrollView } from "react-native";
 import { Text, ListItem } from '@rneui/themed';
 import { ACTION_CONFIRM_PG, GetDataConfirmByPG } from '../../Controller/PlanController';
-import Icon from 'react-native-vector-icons/FontAwesome5';
+import Icon from '@react-native-vector-icons/fontawesome6';
 import CalendarStrip from 'react-native-calendar-strip';
 import moment from 'moment';
 import { groupDataByKey, isCoincidenceShift, debounce, isSameDate, GetEmployeeInfo, } from '../../Core/Helper';

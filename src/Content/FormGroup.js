@@ -1,8 +1,9 @@
 import React from 'react';
 import { View, TextInput, StyleSheet, TouchableOpacity, Platform } from "react-native"
-import { Text, Icon } from '@rneui/themed'
+import { Text } from '@rneui/base'
 import { useSelector } from 'react-redux';
 import { useInputStyle } from '../Hooks/styles/useInputStyle';
+import SpiralIcon from '../Control/Icon/SpiralIcon';
 
 const FormGroup = ({ title, value, defaultValue, placeholder, placeholderColor, editable, iconStyle,
     iconFunc, isSecure, handleChangeForm, iconName, iconRight, iconColor, rightFunc, maxLength,
@@ -22,7 +23,7 @@ const FormGroup = ({ title, value, defaultValue, placeholder, placeholderColor, 
         },
         title: { color: appcolor.dark, fontSize: 13, padding: 5, fontWeight: "700" },
         inputContainer: { width: '100%', flexDirection: 'row', justifyContent: 'flex-start', alignItems: 'center' },
-        icon: { paddingLeft: 8, color: appcolor.dark, paddingRight: 8 },
+        icon: { paddingLeft: 8, color: iconColor || appcolor.dark, paddingRight: 8 },
         warningContent: { marginBottom: 0, flexDirection: 'row', alignItems: 'center' },
         titleWarning: { fontSize: 11, color: appcolor.red, fontWeight: '400', fontStyle: 'italic' }
     })
@@ -32,7 +33,13 @@ const FormGroup = ({ title, value, defaultValue, placeholder, placeholderColor, 
             <View style={styles.inputContainer}>
                 {iconName && (
                     <TouchableOpacity onPress={iconFunc}>
-                        <Icon style={[styles.icon, iconStyle]} name={iconName} color={iconColor || appcolor.dark} size={15} type={iconType || "font-awesome-5"} />
+                        <SpiralIcon
+                            name={iconName}
+                            type={iconType || "font-awesome-5"}
+                            color={iconColor || appcolor.dark}
+                            style={[styles.icon, iconStyle]}
+                            size={16}
+                        />
                     </TouchableOpacity>
                 )}
                 <TextInput
@@ -64,12 +71,12 @@ const FormGroup = ({ title, value, defaultValue, placeholder, placeholderColor, 
                 />
                 {iconRight &&
                     <TouchableOpacity style={{ padding: 5 }} onPress={rightFunc} disabled={disabledRightFunc}>
-                        <Icon type={iconType || "font-awesome-5"} color={iconColorRight || appcolor.dark} style={[styles.icon, iconRightStyle]} name={iconRight} size={iconSizeRight || 18} />
+                        <SpiralIcon type={iconType || "font-awesome-5"} color={iconColorRight || appcolor.dark} style={[styles.icon, iconRightStyle]} name={iconRight} size={iconSizeRight || 18} />
                     </TouchableOpacity>
                 }
                 {Platform.OS == 'android' && useClearAndroid && editable &&
                     <TouchableOpacity onPress={() => onClearTextAndroid !== undefined && onClearTextAndroid('')}>
-                        <Icon color={iconColor || appcolor.dark} style={{ padding: 7 }} name='close' solid size={15} />
+                        <SpiralIcon color={iconColor || appcolor.dark} style={{ padding: 7 }} name='close' solid size={15} />
                     </TouchableOpacity>
                 }
             </View>

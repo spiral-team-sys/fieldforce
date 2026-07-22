@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { View, StyleSheet, ScrollView, RefreshControl, Text, AppState, LogBox, Modal } from "react-native";
 import { APPDOWNLOAD, downloadAll } from '../../Controller/DownloadDataController';
-import Icon from 'react-native-vector-icons/FontAwesome5';
+import Icon from '@react-native-vector-icons/fontawesome6';
 import { getLstMessengerNotSeen, getStoreList } from '../../Controller/WorkController';
 import { GetToken, ToastSuccess } from '../../Core/Helper';
 import Moment from 'moment';

@@ -1,7 +1,7 @@
 import React, { Fragment, useCallback, useEffect, useRef, useState } from "react";
 import { View, StyleSheet, FlatList, Text, RefreshControl, TouchableOpacity, Modal, SafeAreaView, StatusBar, Platform, ScrollView, Image } from "react-native";
 import { Badge, Divider, Icon as ICO } from '@rneui/themed';
-import Icon from 'react-native-vector-icons/FontAwesome5';
+import Icon from '@react-native-vector-icons/fontawesome6';
 import { getConfirmSellInList, getSellInByServer, getStoreBySellIn } from '../../Controller/SellInController';
 import { groupDataByKey, removeVietnameseTones, ToastError, ToastSuccess } from "../../Core/Helper";
 import { Calendar } from "react-native-calendars";

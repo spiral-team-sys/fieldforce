@@ -5,7 +5,7 @@ import {
 } from "react-native";
 import { Text, ListItem } from '@rneui/themed';
 import { SR_PLAN_GETLIST, PLANSR_ACTION } from '../../../Controller/PlanController';
-import Icon from 'react-native-vector-icons/FontAwesome5';
+import Icon from '@react-native-vector-icons/fontawesome6';
 import CalendarStrip from 'react-native-calendar-strip';
 import moment from 'moment';
 import { groupDataByKey } from '../../../Core/Helper';

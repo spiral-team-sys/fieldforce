@@ -3,7 +3,7 @@ import React, { useEffect, useRef, useState } from "react";
 import { DeviceEventEmitter, FlatList, KeyboardAvoidingView, Platform, Text, TouchableOpacity, View } from "react-native";
 import { MaterialTabBar, Tabs } from "react-native-collapsible-tab-view";
 import { Badge, Image } from '@rneui/themed';
-import Icon from 'react-native-vector-icons/FontAwesome5'
+import Icon from '@react-native-vector-icons/fontawesome6';
 import { useSelector } from "react-redux";
 import { HeaderCustom } from "../../../../Content/HeaderCustom";
 import { LoadingView } from "../../../../Control/ItemLoading";

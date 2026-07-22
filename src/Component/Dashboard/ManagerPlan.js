@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { View, StyleSheet, FlatList, Text } from "react-native";
 import { useSelector } from "react-redux";
-import Icon from 'react-native-vector-icons/FontAwesome5';
+import Icon from '@react-native-vector-icons/fontawesome6';
 import { HeaderCustom } from "../../Content/HeaderCustom";
 import { GetDataManagerPlan } from "../../Controller/DashboardController";
 import { GET_ListWeek } from "../../Controller/PlanController";

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { View, Text, StyleSheet, TouchableOpacity, Linking, Platform } from "react-native";
 import ActionSheet, { SheetManager } from 'react-native-actions-sheet';
-import Icon from 'react-native-vector-icons/FontAwesome5'
+import Icon from '@react-native-vector-icons/fontawesome6';
 import { useSelector } from 'react-redux';
 import { deviceHeight, deviceWidth } from '../Home';
 import { FlashList } from '@shopify/flash-list';

@@ -1,6 +1,6 @@
 import React, { useCallback, useRef, useState } from "react";
 import { FlatList, KeyboardAvoidingView, Platform, ScrollView, StyleSheet, Text, TextInput, TouchableOpacity, View } from "react-native";
-import Icon from 'react-native-vector-icons/FontAwesome5'
+import Icon from '@react-native-vector-icons/fontawesome6';
 import { useSelector } from "react-redux";
 import { updateDisplaySurvey } from "../../../Controller/DisplayController";
 import RNFS from 'react-native-fs'

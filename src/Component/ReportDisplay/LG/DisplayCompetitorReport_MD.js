@@ -8,7 +8,7 @@ import { useSelector } from 'react-redux';
 import { HeaderCustom } from '../../../Content/HeaderCustom';
 // import NumberFormat from "react-number-format";
 import { getListByCompetitorMD, updateDisplayCompetitor } from '../../../Controller/DisplayController'
-import Icon from 'react-native-vector-icons/FontAwesome5'
+import Icon from '@react-native-vector-icons/fontawesome6';
 import { Tabs, MaterialTabBar } from 'react-native-collapsible-tab-view'
 import { PhotoItems } from '../../EPSON/PhotoItems';
 import { deviceWidth } from '../../Home';

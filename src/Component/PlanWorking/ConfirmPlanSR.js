@@ -2,7 +2,7 @@ import React, { useEffect, useState, useCallback } from 'react';
 import { SafeAreaView, View, StyleSheet, TextInput, Platform, FlatList, RefreshControl, Modal, TouchableOpacity, KeyboardAvoidingView, Switch, LayoutAnimation, UIManager, Keyboard, ScrollView, Dimensions } from "react-native";
 import { Text, ListItem } from '@rneui/themed';
 import { ACTION_CONFIRM_SR, GetDataConfirmBySR } from '../../Controller/PlanController';
-import Icon from 'react-native-vector-icons/FontAwesome5';
+import Icon from '@react-native-vector-icons/fontawesome6';
 import CalendarStrip from 'react-native-calendar-strip';
 import moment from 'moment';
 import { groupDataByKey, isCoincidenceShift, debounce, isSameDate, GetEmployeeInfo, } from '../../Core/Helper';

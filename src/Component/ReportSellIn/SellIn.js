@@ -1,7 +1,7 @@
 import React, { Fragment, useEffect, useState } from "react";
 import { View, StyleSheet, FlatList, Text, RefreshControl, TouchableOpacity } from "react-native";
 import { Badge } from '@rneui/themed';
-import Icon from 'react-native-vector-icons/FontAwesome5'
+import Icon from '@react-native-vector-icons/fontawesome6';
 import CreateItemSellIn from "./CreateItemSellIn";
 import { getDataSellIn, deleteItemSellIn, dataUploadSellIn, uploadSellIn } from '../../Controller/SellInController';
 import { alertWarning, alertConfirm, alertNotify } from "../../Core/Utility";

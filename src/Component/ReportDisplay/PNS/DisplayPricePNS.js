@@ -1,7 +1,7 @@
 import React, { useCallback, useState, useEffect, useMemo } from "react";
 import { StyleSheet, TextInput, TouchableOpacity, View } from "react-native";
 import { Text } from '@rneui/themed';
-import Icon from "react-native-vector-icons/FontAwesome5";
+import Icon from '@react-native-vector-icons/fontawesome6';
 import { useSelector } from "react-redux";
 import { useFocusEffect } from '@react-navigation/native';
 import FormGroup from "../../../Content/FormGroup";

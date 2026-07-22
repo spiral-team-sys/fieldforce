@@ -11,7 +11,7 @@ import ActionSheet, { SheetManager } from "react-native-actions-sheet";
 import { Text } from '@rneui/themed';
 import { MaterialTabBar, Tabs } from "react-native-collapsible-tab-view";
 import { alertConfirm, deviceHeight, deviceWidth, minWidthTab } from "../../Core/Utility";
-import Icon from 'react-native-vector-icons/FontAwesome5'
+import Icon from '@react-native-vector-icons/fontawesome6';
 import _, { debounce } from "lodash";
 import { CalendarSelected } from "../../Control/CalendarSelected";
 import moment from "moment";

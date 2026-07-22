@@ -1,6 +1,6 @@
 import React from "react";
 import { Text, View, TouchableOpacity } from "react-native";
-import Icon from 'react-native-vector-icons/FontAwesome5';
+import Icon from '@react-native-vector-icons/fontawesome6';
 import { appcolor } from "../../Themes/AppColor";
 import { Divider } from "@rneui/base";
 import { useSelector } from "react-redux";

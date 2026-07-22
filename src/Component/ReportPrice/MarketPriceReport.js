@@ -5,7 +5,7 @@ import { FlatList } from 'react-native';
 import { getListMarketPrice, dataTabMarketPrice, updateItemPrice, getListUpload_MarketPrice, uploadMarketPrice, dataCompetitorMarketPrice, checkDataUpload, getHistoryMarketPrice, getListAllMarketPrice, uploadDataMarketPrice } from '../../Controller/PriceController';
 import { DEFAULT_COLOR, _competitorId } from '../../Core/URLs';
 ////import { NumericFormat } from "react-number-format";;
-// import Icon from 'react-native-vector-icons/FontAwesome5'
+// import Icon from '@react-native-vector-icons/fontawesome6';
 import { Icon, } from '@rneui/themed';
 import moment from 'moment';
 import { SearchBar, CheckBox } from '@rneui/themed';

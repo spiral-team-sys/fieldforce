@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import { Text, View, TouchableOpacity, FlatList, Modal, SafeAreaView, ImageBackground } from "react-native";
-import Icon from 'react-native-vector-icons/FontAwesome5';
+import Icon from '@react-native-vector-icons/fontawesome6';
 import { Divider } from "@rneui/base";
 import { useSelector } from "react-redux";
 import { groupDataByKey } from "../../Core/Helper";

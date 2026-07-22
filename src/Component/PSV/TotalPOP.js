@@ -3,7 +3,7 @@ import { View, Modal, Dimensions, TextInput, StatusBar, ActivityIndicator, Secti
 import { Button, Card, ListItem, Badge, Image, SearchBar, Input, Text } from '@rneui/themed';
 import { checkNetwork, deviceWidth, minWidthTab } from '../../Core/Utility';
 import { DEFAULT_COLOR, URL_DOWNLOAD_TOTALPOP, URL_DOWNLOAD_WARNINGPOP } from '../../Core/URLs';
-import Icon from 'react-native-vector-icons/Ionicons'
+import Icon from '@react-native-vector-icons/ionicons';
 import { GetEmployeeInfo, MessageInfo, Token, UUIDGenerator } from '../../Core/Helper';
 import * as Progress from 'react-native-progress';
 // import ScrollableTabView, { DefaultTabBar, ScrollableTabBar } from 'react-native-scrollable-tab-view';

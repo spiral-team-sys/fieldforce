@@ -1,7 +1,7 @@
 import React, { useRef, useState } from "react";
 import { FlatList, ImageBackground, Text, TouchableOpacity, View } from "react-native";
 import ActionSheet from "react-native-actions-sheet";
-import Icon from 'react-native-vector-icons/FontAwesome5';
+import Icon from '@react-native-vector-icons/fontawesome6';
 import ImageZoom from "../../Content/ImageZoom";
 import { MultipleShowImage } from "../../Control/MultipleShowImage";
 import { URLDEFAULT } from "../../Core/URLs";

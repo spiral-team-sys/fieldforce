@@ -3,7 +3,6 @@ import { DeviceEventEmitter, Modal, StyleSheet, View } from "react-native";
 import { useSelector, useDispatch } from "react-redux";
 import base64 from "react-native-base64";
 import DeviceInfo from "react-native-device-info";
-
 import {
     AppNameBuild,
     cuckooApp,
@@ -165,7 +164,6 @@ const MenuList = ({ navigation, route, menus }) => {
     }
 
     const SelectedComponent = componentMap[AppNameBuild];
-    const isFullMenu = false
     const numColumnsApps = [lgApp, psvApp, honorApp, cuckooApp, officeApp];
     const horizontalApps = [cuckooApp];
 

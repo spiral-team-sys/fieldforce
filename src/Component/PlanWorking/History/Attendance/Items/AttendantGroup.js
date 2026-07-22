@@ -1,6 +1,6 @@
 import React, { memo, useCallback, useMemo } from "react"
 import { View, Text, StyleSheet } from "react-native"
-import Icon from "react-native-vector-icons/FontAwesome5"
+import Icon from '@react-native-vector-icons/fontawesome6';
 import { useSelector } from "react-redux"
 import { fontWeightBold } from "../../../../../Themes/AppsStyle"
 import CustomListView from "../../../../../Control/Custom/CustomListView"

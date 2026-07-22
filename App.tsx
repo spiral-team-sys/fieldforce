@@ -56,16 +56,16 @@ const App: React.FC = () => {
       unsubOpened?.();
     };
   }, []);
-  useEffect(() => {
-    const checkSecurity = async () => {
-      const isSecure = await APPCHECK.verifyDeviceSecurity();
-      if (!isSecure) {
-        BackHandler.exitApp();
-      }
-    };
+  // useEffect(() => {
+  //   const checkSecurity = async () => {
+  //     const isSecure = await APPCHECK.verifyDeviceSecurity();
+  //     if (!isSecure) {
+  //       BackHandler.exitApp();
+  //     }
+  //   };
 
-    checkSecurity();
-  }, []);
+  //   checkSecurity();
+  // }, []);
   return (
     <GestureHandlerRootView style={{ flex: 1 }}>
       <SafeAreaProvider>

@@ -2,7 +2,7 @@ import { Dimensions, FlatList, Platform, Text, View, TouchableOpacity, StyleShee
 import React, { useEffect, useState } from 'react';
 import { AppNameBuild } from "../Core/URLs";
 import { getPhotosReport } from "../Controller/WorkController";
-import Icon from 'react-native-vector-icons/FontAwesome5'
+import Icon from '@react-native-vector-icons/fontawesome6';
 import { isIphoneX } from "../Core/is-iphone-x";
 import { deviceWidth } from "../Themes/AppsStyle";
 import { useSelector } from "react-redux";

@@ -7,7 +7,7 @@ import { CheckBox, Text } from '@rneui/themed';
 import _ from 'lodash';
 import { MaterialTabBar, Tabs } from "react-native-collapsible-tab-view";
 import { TODAY, alertConfirm, deviceHeight, deviceWidth, minWidthTab } from "../../Core/Utility";
-import Icon from "react-native-vector-icons/FontAwesome5";
+import Icon from '@react-native-vector-icons/fontawesome6';
 import FormGroup from "../../Content/FormGroup";
 import { LoadingView } from "../../Control/ItemLoading";
 import { REPORT } from "../../API/ReportAPI";

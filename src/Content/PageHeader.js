@@ -3,23 +3,23 @@ import { Text, Platform, TouchableOpacity, SafeAreaView, StyleSheet } from 'reac
 import { Header } from '@rneui/themed';
 import PropTypes from 'prop-types';
 import { CONTENT_COLOR, DEFAULT_COLOR } from '../Core/URLs';
-import Icon from 'react-native-vector-icons/FontAwesome5';
+import Icon from '@react-native-vector-icons/fontawesome6';
 
 const styles = StyleSheet.create({
-  headerAndroid: {
-    backgroundColor: 'transparent'
-  },
-  headerIos: {
-    height: 55,
-    backgroundColor: DEFAULT_COLOR
-  },
-  headerContainer: {
-    width: 40,
-    height: 40,
-    alignItems: 'center',
-    justifyContent: 'center',
-    bottom: Platform.OS === 'ios' ? 10 : 0
-  }
+    headerAndroid: {
+        backgroundColor: 'transparent'
+    },
+    headerIos: {
+        height: 55,
+        backgroundColor: DEFAULT_COLOR
+    },
+    headerContainer: {
+        width: 40,
+        height: 40,
+        alignItems: 'center',
+        justifyContent: 'center',
+        bottom: Platform.OS === 'ios' ? 10 : 0
+    }
 });
 
 export default class PageHeader extends PureComponent {

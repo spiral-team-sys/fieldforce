@@ -8,7 +8,7 @@ import PageHeader from '../../../Content/PageHeader';
 import { groupDataByKey, debounce } from '../../../Core/Helper'
 import * as ImagePicker from 'react-native-image-picker';
 import moment from 'moment'
-import Icon from 'react-native-vector-icons/FontAwesome5';
+import Icon from '@react-native-vector-icons/fontawesome6';
 import { useSelector } from 'react-redux';
 import { HeaderCustom } from '../../../Content/HeaderCustom';
 

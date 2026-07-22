@@ -13,7 +13,8 @@
     "clean:android": "cd android && ./gradlew clean && cd ../",
     "clean:ios": "cd ios && xcodebuild clean && cd ../",
     "clean:pod": "cd ios && pod deintegrate && pod install && cd ../",
-    "clean_file": "find . -type f -name '._*' -delete"
+    "clean_file": "find . -type f -name '._*' -delete",
+    "generate-icons": "node scripts/generate-icon/generate-icon-registry.js"
   },
   "dependencies": {
     "@archireport/react-native-svg-draw": "^3.2.2",
@@ -29,6 +30,11 @@
     "@react-native-firebase/app-check": "^25.1.0",
     "@react-native-firebase/messaging": "^25.1.0",
     "@react-native-vector-icons/common": "^13.0.1",
+    "@react-native-vector-icons/fontawesome": "^13.1.2",
+    "@react-native-vector-icons/fontawesome5": "^13.1.2",
+    "@react-native-vector-icons/fontawesome6": "^13.1.2",
+    "@react-native-vector-icons/ionicons": "^13.1.2",
+    "@react-native-vector-icons/material-design-icons": "^13.1.2",
     "@react-native-vector-icons/material-icons": "^13.1.2",
     "@react-native/new-app-screen": "0.86.0",
     "@react-navigation/drawer": "^7.13.2",

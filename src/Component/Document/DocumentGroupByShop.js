@@ -3,7 +3,7 @@
 import React, { useEffect, useState } from 'react'
 import { View, FlatList, Text, TouchableOpacity, StyleSheet, ScrollView } from "react-native"
 import { GetListDocument } from '../../Controller/DocumentController'
-import Icon from 'react-native-vector-icons/FontAwesome5'
+import Icon from '@react-native-vector-icons/fontawesome6';
 import { deviceWidth } from '../../Themes/AppsStyle'
 import { HeaderCustom } from '../../Content/HeaderCustom'
 import { useSelector } from 'react-redux'

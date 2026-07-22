@@ -6,7 +6,7 @@ import FormGroup from "../../../Content/FormGroup";
 import { HeaderCustom } from "../../../Content/HeaderCustom";
 import { deleteItemPhotoByGuiId, deleteItemPhotoDuplicate, getPhotoByGuiId, getPhotoByType, insertDisplaySituation, updateDisplaySituation } from "../../../Controller/DisplayController";
 import { MessageInfo, ToastSuccess, UUIDGenerator } from "../../../Core/Helper";
-import Icon from 'react-native-vector-icons/FontAwesome5';
+import Icon from '@react-native-vector-icons/fontawesome6';
 import ImageZoom from "../../../Content/ImageZoom";
 import moment from "moment";
 import NativeCamera from "../../../Control/NativeCamera";

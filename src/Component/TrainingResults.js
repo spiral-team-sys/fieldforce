@@ -4,7 +4,7 @@ import Clipboard from '@react-native-clipboard/clipboard'
 import PageHeader from '../Content/PageHeader'
 import RNQRGenerator from 'rn-qr-generator';
 import { Image } from '@rneui/themed';
-import Icon from 'react-native-vector-icons/FontAwesome5'
+import Icon from '@react-native-vector-icons/fontawesome6';
 import { appcolor } from '../Themes/AppColor';
 import { DEFAULT_COLOR, TRAINING_RESULT } from '../Core/URLs';
 import { alertNotify, deviceWidth } from '../Core/Utility';

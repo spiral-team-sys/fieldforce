@@ -6,7 +6,7 @@ import { URLDEFAULT } from '../../../Core/URLs'
 import { alertWarning, alertConfirm, alertNotify } from '../../../Core/Utility'
 import { groupDataByKey, debounce, UUIDGenerator } from '../../../Core/Helper'
 import moment from 'moment'
-import Icon from 'react-native-vector-icons/FontAwesome5';
+import Icon from '@react-native-vector-icons/fontawesome6';
 
 import NativeCamera from '../../../Control/NativeCamera';
 import UploadController from '../../../Controller/UploadController';

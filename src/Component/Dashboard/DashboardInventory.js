@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { View, Text, StyleSheet, TouchableOpacity, Modal, FlatList, SafeAreaView } from "react-native";
-import Icon from 'react-native-vector-icons/FontAwesome5'
+import Icon from '@react-native-vector-icons/fontawesome6';
 import { useSelector } from 'react-redux';
 import { HeaderCustom } from '../../Content/HeaderCustom';
 import { groupDataByKey } from '../../Core/Helper';

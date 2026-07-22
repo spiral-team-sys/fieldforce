@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Text, View, TouchableOpacity } from "react-native";
-import Icon from 'react-native-vector-icons/FontAwesome5';
+import Icon from '@react-native-vector-icons/fontawesome6';
 import { Divider } from "@rneui/base";
 import { useSelector } from "react-redux";
 import { DashboardDetailSellin } from "./DashboardDetailSellin";

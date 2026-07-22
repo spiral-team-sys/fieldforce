@@ -3,7 +3,7 @@ import { StyleSheet, View, Text, ScrollView, Platform, TouchableOpacity, Refresh
 import Clipboard from '@react-native-clipboard/clipboard'
 import RNQRGenerator from 'rn-qr-generator';
 import { Image } from '@rneui/themed';
-import Icon from 'react-native-vector-icons/FontAwesome5'
+import Icon from '@react-native-vector-icons/fontawesome6';
 import WebView from 'react-native-webview';
 import { onShareLocalFile, ToastSuccess } from '../../Core/Helper';
 import { HeaderCustom } from '../../Content/HeaderCustom'

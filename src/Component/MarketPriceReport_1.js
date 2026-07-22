@@ -6,7 +6,7 @@ import { getListMarketPrice, dataTabMarketPrice, updateItemPrice, getListUpload_
 // import ScrollableTabView, { ScrollableTabBar } from "react-native-scrollable-tab-view"
 import { DEFAULT_COLOR, _competitorId } from '../Core/URLs';
 ////import { NumericFormat } from "react-number-format";;
-import Icon from 'react-native-vector-icons/FontAwesome5'
+import Icon from '@react-native-vector-icons/fontawesome6';
 import moment from 'moment';
 import { SearchBar, CheckBox, Divider } from '@rneui/themed';
 import { alertWarning, alertNotify, alertConfirm, checkNetwork, ConvertToInt, minWidthTab, deviceWidth } from '../Core/Utility';

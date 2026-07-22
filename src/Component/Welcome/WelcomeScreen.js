@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { ActivityIndicator, AppState, InteractionManager, StyleSheet, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { useSelector } from "react-redux";
-import { deviceWidth, scaleSize } from "../../Themes/AppsStyle";
+import { deviceWidth } from "../../Themes/AppsStyle";
 import LottieView from "lottie-react-native";
 import { Text } from "@rneui/themed";
 import useApp from "../../Hooks/useApp";
@@ -62,7 +62,7 @@ const WelcomeScreen = ({ navigation }) => {
     const styles = StyleSheet.create({
         mainContainer: { flex: 1, justifyContent: 'center', backgroundColor: appcolor.primary },
         lottieContainer: { height: '30%' },
-        titleWelcome: { width: '100%', textAlign: 'center', fontSize: scaleSize(40), color: appcolor.light },
+        titleWelcome: { width: '100%', textAlign: 'center', fontSize: 42, color: appcolor.light },
         infoCompany: { position: 'absolute', bottom: 20, left: 20, right: 20, flex: 1, alignItems: 'center' },
         titleHead: { color: appcolor.light, fontSize: 15, fontWeight: '700' },
         titleSubText: { color: appcolor.light, fontSize: 12, fontWeight: '300', textAlign: 'center' },

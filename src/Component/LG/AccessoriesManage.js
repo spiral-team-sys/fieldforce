@@ -9,7 +9,7 @@ import FormGroup from "../../Content/FormGroup";
 import { Message, ToastError } from "../../Core/Helper";
 import Swiper from "react-native-swiper";
 import Moment from 'moment';
-import Icon from 'react-native-vector-icons/FontAwesome5';
+import Icon from '@react-native-vector-icons/fontawesome6';
 // import KeyboardSpacer from "react-native-keyboard-spacer";
 import GmailStyleSwipeableRow from "../../Core/GmailStyleSwipeableRow";
 import UploadController from "../../Controller/UploadController";
@@ -20,15 +20,15 @@ import moment from "moment";
 
 
 const styles = StyleSheet.create({
-  line: {
-    width: '100%',
-    height: 0.6,
-    backgroundColor: '#e9e9e9',
-    paddingStart: 10,
-    paddingEnd: 10,
-    marginBottom: 4,
-    marginTop: 4
-  }
+    line: {
+        width: '100%',
+        height: 0.6,
+        backgroundColor: '#e9e9e9',
+        paddingStart: 10,
+        paddingEnd: 10,
+        marginBottom: 4,
+        marginTop: 4
+    }
 });
 
 export const AccessoriesManage = ({ navigation, route }) => {

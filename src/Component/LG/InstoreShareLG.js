@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useState } from 'react';
 import { FlatList, View, Text, TextInput, Platform, KeyboardAvoidingView, } from "react-native"
 import { Capitalize, minWidthTab, } from '../../Core/Utility';
 import { groupDataByKey, MessageInfo, ToastError } from '../../Core/Helper';
-import Icon from 'react-native-vector-icons/FontAwesome5'
+import Icon from '@react-native-vector-icons/fontawesome6';
 import { deviceWidth, scaleSize } from '../../Themes/AppsStyle';
 import { insertPriceISLG, insertTotalTrackingLG, getListDataTracking, getListCategoryTracking } from '../../Controller/TrackingDetailController';
 import { useSelector } from 'react-redux';
