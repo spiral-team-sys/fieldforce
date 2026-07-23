@@ -1,0 +1,46 @@
+name: iOS Build
+
+on:
+  push:
+    branches:
+      - ci
+      - develop
+
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+
+    runs-on: macos-latest
+
+    defaults:
+      run:
+        shell: bash
+
+    steps:
+
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - run: npm ci
+
+      - name: Install CocoaPods
+        working-directory: ios
+        run: pod install
+
+      - name: Build iOS
+        run: |
+          xcodebuild \
+          -workspace ios/fieldforce.xcworkspace \
+          -scheme fieldforce \
+          -configuration Debug \
+          -sdk iphonesimulator \
+          -destination 'platform=iOS Simulator,name=iPhone 16' \
+          build
