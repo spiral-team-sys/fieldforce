@@ -1,0 +1,18 @@
+name: Notify
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  placeholder:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Placeholder
+        run: |
+          echo "=================================="
+          echo " Notify workflow - Coming Soon"
+          echo "=================================="
