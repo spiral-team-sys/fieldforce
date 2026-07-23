@@ -30,8 +30,6 @@ export const signifyApp = 'stt';
 export const mraApp = 'mra'
 export const honorApp = 'honor'
 export const tekaApp = 'teka'
-// 
-export const GOOGLE_API_KEY = "AIzaSyAgJtsjOIvLrReL55e9bFSuqnCc4dkM3T0"
 // Val use
 var url_root = '';
 var url_root_web = '';
@@ -461,7 +459,6 @@ export const URL_DOWNLOAD_HISTORY_MARKET = URLDEFAULT + 'sellouts/GetMarketHisto
 export const URL_DOWNLOAD_PRODUCT = URLDEFAULT + 'download/product';
 export const URL_REPORT = URLDEFAULT + 'WebPage/ProgressReport.aspx?';
 export const URL_REPORT_ATT_MEVN = URLDEFAULT + 'MEVNKpi';
-export const GOOGLE_GETADDRESS = `https://maps.googleapis.com/maps/api/geocode/json?key=${GOOGLE_API_KEY}&latlng=`
 export const URL_LATE_CONFIRM = URLDEFAULT + 'WebPage/ConfirmLateNote.aspx?';
 export const URL_UPLOAD_ATTENDANT = URLDEFAULT + 'attendants/upload'
 export const URL_GET_ATTENDANT = URLDEFAULT + 'attendants/lists'
