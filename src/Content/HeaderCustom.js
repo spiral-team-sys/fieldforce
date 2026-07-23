@@ -2,9 +2,10 @@ import React from 'react'
 import { View, TouchableOpacity, StyleSheet } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { useSelector } from 'react-redux';
-import { Text, Badge, Icon } from '@rneui/themed';
-import { fontWeightBold, scaleSize } from '../Themes/AppsStyle';
+import { Text, Badge } from '@rneui/themed';
+import { fontWeightBold } from '../Themes/AppsStyle';
 import { AppNameBuild, artApp, mitsuApp, demoApp, hafeleApp, CONTENT_COLOR, DEFAULT_COLOR, bekoApp, psvApp, daikinApp } from '../Core/URLs';
+import SpiralIcon from '../Control/Icon/SpiralIcon';
 
 export const HeaderCustom = ({ iconLeft, iconMiddle, iconRight, leftFunc, middleFunc, rightFunc, title, subTitle, titleRight, countNotify, isHome = false, rightType, leftType, middleType, disabled }) => {
     const { appcolor } = useSelector(state => state.GAppState)
@@ -72,12 +73,12 @@ export const HeaderCustom = ({ iconLeft, iconMiddle, iconRight, leftFunc, middle
     })
 
     return (
-        <View style={[styles.mainContainer, { paddingTop: insets.top }]}> 
+        <View style={[styles.mainContainer, { paddingTop: insets.top }]}>
             <View style={styles.headerRow}>
                 <View style={styles.leftView}>
                     {typeof leftFunc === "function" && (
                         <TouchableOpacity onPress={leftFunc} style={styles.leftAction}>
-                            <Icon
+                            <SpiralIcon
                                 name={iconLeft || 'chevron-left'}
                                 size={21}
                                 type={leftType || 'font-awesome-5'}
@@ -89,7 +90,7 @@ export const HeaderCustom = ({ iconLeft, iconMiddle, iconRight, leftFunc, middle
                     {typeof middleFunc === "function" ? (
                         <TouchableOpacity onPress={middleFunc} style={styles.middleAction}>
                             {iconMiddle &&
-                                <Icon name={iconMiddle}
+                                <SpiralIcon name={iconMiddle}
                                     type={middleType || "font-awesome-5"}
                                     size={20}
                                     style={{ marginEnd: 4 }}
@@ -107,7 +108,7 @@ export const HeaderCustom = ({ iconLeft, iconMiddle, iconRight, leftFunc, middle
                         <TouchableOpacity disabled={disabled} onPress={rightFunc} style={styles.rightAction}>
                             {<View>
                                 {typeof iconRight === 'string' &&
-                                    <Icon
+                                    <SpiralIcon
                                         size={21}
                                         type={rightType || 'font-awesome-5'}
                                         name={iconRight}

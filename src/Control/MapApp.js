@@ -1,8 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { View, TouchableOpacity, ScrollView, Text, Platform, StyleSheet, SafeAreaView } from 'react-native';
+import { View, TouchableOpacity, ScrollView, Text, Platform, StyleSheet } from 'react-native';
 import { Icon, Button } from '@rneui/themed';
-import { PROVIDER_GOOGLE, Marker } from 'react-native-maps';
-import MapView from 'react-native-maps'; // thư viện cũ là react-native-map-clustering
+import MapView, { PROVIDER_GOOGLE, Marker } from 'react-native-maps';
 import Geolocation from '@react-native-community/geolocation';
 import { useSelector, useDispatch } from 'react-redux';
 import ActionSheet, { SheetManager } from 'react-native-actions-sheet';
@@ -16,6 +15,7 @@ import { ButtonAction } from '../Component/Employee/Infomation/Control/ButtonAct
 import { removeVietnameseTones } from '../Core/Helper';
 import CustomListView from './Custom/CustomListView';
 import { SetShopInfo } from '../Redux/action';
+import { SafeAreaView } from 'react-native-safe-area-context';
 
 const DETAL_LOCATION = 0.005;
 export const MapApp = ({ navigation, route, slist }) => {
@@ -221,7 +221,7 @@ export const MapApp = ({ navigation, route, slist }) => {
 	// View
 	const styles = StyleSheet.create({
 		viewContainer: { flex: 1 },
-		mapview: { flex: 1, marginBottom: 0 },
+		mapview: { flex: 1 },
 		mainView: { width: '100%', paddingHorizontal: 8, backgroundColor: appcolor.light },
 		itemViewMain: { width: '100%', flexDirection: 'row', alignItems: 'center', padding: 8, backgroundColor: appcolor.light, marginBottom: 8, borderWidth: 0.5, borderColor: appcolor.surface, borderRadius: 8 },
 		contentTitle: { fontSize: 14, fontWeight: Platform.OS == 'android' ? '700' : '600', color: appcolor.dark },
@@ -289,7 +289,7 @@ export const MapApp = ({ navigation, route, slist }) => {
 	};
 
 	return (
-		<SafeAreaView style={styles.viewContainer}>
+		<View style={styles.viewContainer}>
 			<MapView
 				style={styles.mapview}
 				zoomEnabled
@@ -365,6 +365,6 @@ export const MapApp = ({ navigation, route, slist }) => {
 				</View>
 			</ActionSheet>
 
-		</SafeAreaView>
+		</View>
 	);
 };

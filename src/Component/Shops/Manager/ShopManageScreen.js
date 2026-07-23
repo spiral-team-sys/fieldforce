@@ -573,7 +573,7 @@ const ShopManageScreen = ({ navigation }) => {
             {menu.isOpen ? <TouchableOpacity style={styles.overflowView} onPress={onActionMenuFAB} /> : <View />}
             <FloatActionButton
                 info={menu}
-                containerStyle={{ bottom: 8 }}
+                containerStyle={{ bottom: 16 }}
                 showMenu={onActionMenuFAB}
             />
             <ViewPictures

@@ -1,14 +1,11 @@
 import React, { useEffect } from "react";
 import { StyleSheet, View } from "react-native";
 import { useSelector } from "react-redux";
-import { FadeInDown, FadeOutDown } from "react-native-reanimated";
 import { ActionItem } from "../../../../Control/ActionItem";
 import { fontWeightBold } from "../../../../Themes/AppsStyle";
 
 export const FloatActionButton = ({ visible = true, info, showMenu, containerStyle }) => {
-    const { appcolor, isEdit } = useSelector(state => state.GAppState)
-    const _fadeInDown = FadeInDown.duration(500).withInitialValues({ transform: [{ translateY: 420 }] })
-    const _fadeOutDown = FadeOutDown.duration(100).withInitialValues({ transform: [{ translateY: 420 }] })
+    const { appcolor } = useSelector(state => state.GAppState)
     // 
     useEffect(() => {
         return () => false
