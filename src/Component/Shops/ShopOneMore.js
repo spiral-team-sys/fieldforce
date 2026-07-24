@@ -38,6 +38,7 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 import { deviceWidth } from '../../Core/Utility';
 import { ATTENDANT_API } from '../../API/AttendantAPI';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
+import SpiralIcon from '../../Control/Icon/SpiralIcon';
 const ShopOneMore = ({ shops, navigation }) => {
   const insets = useSafeAreaInsets();
   const { appcolor, userinfo } = useSelector(state => state.GAppState);
@@ -111,8 +112,8 @@ const ShopOneMore = ({ shops, navigation }) => {
                 Platform.OS === 'ios'
                   ? Linking.openURL('App-Prefs:root=Privacy&path=LOCATION')
                   : openSettings().catch(() =>
-                      ToastError('cannot open settings'),
-                    );
+                    ToastError('cannot open settings'),
+                  );
               },
             );
             break;
@@ -178,11 +179,11 @@ const ShopOneMore = ({ shops, navigation }) => {
     const _distant =
       item.latitude > 0 && myLocation?.latitude > 0
         ? distanceBetween2Points(
-            myLocation.latitude,
-            myLocation.longitude,
-            item.latitude,
-            item.longitude,
-          )
+          myLocation.latitude,
+          myLocation.longitude,
+          item.latitude,
+          item.longitude,
+        )
         : null;
     const sourceImage =
       item.imageUrl !== null && item.imageUrl.indexOf('file://') === -1

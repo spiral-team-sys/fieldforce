@@ -40,6 +40,7 @@ import { URLDEFAULT } from '../../../Core/URLs';
 import { getStoreList } from '../../../Controller/WorkController';
 import { scaleSize } from '../../../Themes/AppsStyle';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
+import SpiralIcon from '../../../Control/Icon/SpiralIcon';
 
 const ShopOneMoreToshiba = ({ shops, navigation }) => {
   const insets = useSafeAreaInsets();
@@ -118,8 +119,8 @@ const ShopOneMoreToshiba = ({ shops, navigation }) => {
                 Platform.OS === 'ios'
                   ? Linking.openURL('App-Prefs:root=Privacy&path=LOCATION')
                   : openSettings().catch(() =>
-                      ToastError('cannot open settings'),
-                    );
+                    ToastError('cannot open settings'),
+                  );
               },
             );
             break;
@@ -194,16 +195,16 @@ const ShopOneMoreToshiba = ({ shops, navigation }) => {
     const _distant =
       item.latitude > 0 && myLocation?.latitude > 0
         ? distanceBetween2Points(
-            myLocation.latitude,
-            myLocation.longitude,
-            item.latitude,
-            item.longitude,
-          )
+          myLocation.latitude,
+          myLocation.longitude,
+          item.latitude,
+          item.longitude,
+        )
         : null;
     const sourceImage =
       item.imageUrl !== null &&
-      item.imageUrl.indexOf('file://') === -1 &&
-      !item.imageUrl.includes('http')
+        item.imageUrl.indexOf('file://') === -1 &&
+        !item.imageUrl.includes('http')
         ? URLDEFAULT + item.imageUrl
         : item.imageUrl;
     return index < 3 ? (

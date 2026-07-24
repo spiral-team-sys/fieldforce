@@ -29,6 +29,7 @@ import AttendanceList from '../../Content/Attendance/AttendanceList';
 import Attendant from '../../Content/Attendant';
 import KPIList from '../../Content/Menu/KPIList';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
+import SpiralIcon from '../../Control/Icon/SpiralIcon';
 
 const status = { TC: 1, KTC: 0 };
 export const ShopTask = ({
@@ -156,7 +157,7 @@ export const ShopTask = ({
             borderRadius: 16,
             backgroundColor:
               itemSelect.listCode == item.listCode &&
-              itemSelect.code == item.code
+                itemSelect.code == item.code
                 ? appcolor.primary
                 : appcolor.surface,
             marginHorizontal: 5,
@@ -170,7 +171,7 @@ export const ShopTask = ({
               textAlign: 'center',
               color:
                 itemSelect.listCode == item.listCode &&
-                itemSelect.code == item.code
+                  itemSelect.code == item.code
                   ? appcolor.white
                   : appcolor.dark,
             }}
@@ -253,7 +254,7 @@ export const ShopTask = ({
         CAMERA_NOTE,
         note === null
           ? itemSelect.name +
-              `${otherNote.note?.length > 0 ? ', ' + otherNote.note : ''}`
+          `${otherNote.note?.length > 0 ? ', ' + otherNote.note : ''}`
           : note,
       );
     else if (noteOption === ATTENDANT.OT) {
@@ -372,7 +373,7 @@ export const ShopTask = ({
       </View>
     );
   };
-  const RenderNoteSelect = ({}) => {
+  const RenderNoteSelect = ({ }) => {
     const actionPress = async item => {
       await setItemSelect(item);
       await setNote(null);
@@ -419,7 +420,7 @@ export const ShopTask = ({
                           borderRadius: 16,
                           backgroundColor:
                             itemSelect.listCode == item.listCode &&
-                            itemSelect.code == item.code
+                              itemSelect.code == item.code
                               ? appcolor.primary
                               : appcolor.surface,
                           marginHorizontal: 5,
@@ -433,7 +434,7 @@ export const ShopTask = ({
                             textAlign: 'center',
                             color:
                               itemSelect.listCode == item.listCode &&
-                              itemSelect.code == item.code
+                                itemSelect.code == item.code
                                 ? appcolor.white
                                 : appcolor.dark,
                           }}
@@ -635,40 +636,40 @@ export const ShopTask = ({
           )}
           {(noteOption === ATTENDANT.NOTE ||
             noteOption === ATTENDANT.SHOPNOTE) && (
-            <View
-              key="noteview"
-              style={{
-                width: deviceWidth,
-                height: deviceHeight / 3,
-                padding: 12,
-                marginBottom: 10,
-              }}
-            >
-              <Text
+              <View
+                key="noteview"
                 style={{
-                  marginLeft: 12,
-                  padding: 7,
-                  fontSize: scaleSize(18),
-                  fontWeight: 'bold',
-                  color: appcolor.primary,
+                  width: deviceWidth,
+                  height: deviceHeight / 3,
+                  padding: 12,
+                  marginBottom: 10,
                 }}
               >
-                {noteName}
-              </Text>
-              <FormGroup
-                title={'Nhập lý do'}
-                handleChangeForm={text => setNote(text)}
-                defaultValue={note}
-                editable
-                inputStyle={{ minHeight: 120 }}
-                numberOfLines={3}
-                multiline={true}
-                onClearTextAndroid={() => setNote('')}
-                placeholder="Nhập ghi chú ở đây"
-              />
-              {bottomButton()}
-            </View>
-          )}
+                <Text
+                  style={{
+                    marginLeft: 12,
+                    padding: 7,
+                    fontSize: scaleSize(18),
+                    fontWeight: 'bold',
+                    color: appcolor.primary,
+                  }}
+                >
+                  {noteName}
+                </Text>
+                <FormGroup
+                  title={'Nhập lý do'}
+                  handleChangeForm={text => setNote(text)}
+                  defaultValue={note}
+                  editable
+                  inputStyle={{ minHeight: 120 }}
+                  numberOfLines={3}
+                  multiline={true}
+                  onClearTextAndroid={() => setNote('')}
+                  placeholder="Nhập ghi chú ở đây"
+                />
+                {bottomButton()}
+              </View>
+            )}
           {(noteOption === ATTENDANT.SELECT ||
             noteOption === ATTENDANT.NOTEREPORT ||
             noteOption === ATTENDANT.KTC ||

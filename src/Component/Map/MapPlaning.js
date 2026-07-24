@@ -16,6 +16,7 @@ import { ShopProfile } from '../Component/Shops/ShopProfile';
 import { deviceWidth } from '../Core/Utility';
 import { scaleSize } from '../Themes/AppsStyle';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
+import SpiralIcon from '../../Control/Icon/SpiralIcon';
 const DETAL_LOCATION = 0.005;
 export const MapPlaning = ({ navigation, slist }) => {
   const insets = useSafeAreaInsets();

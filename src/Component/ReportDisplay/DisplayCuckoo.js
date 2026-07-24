@@ -23,6 +23,7 @@ import { isNotInteger, ToastError, ToastSuccess } from '../../Core/Helper';
 import { DEFAULT_COLOR } from '../../Core/URLs';
 import filter from 'lodash';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
+import SpiralIcon from '../../Control/Icon/SpiralIcon';
 
 const PRICE_VALUE = 1;
 const NET_VALUE = 2;
@@ -238,36 +239,36 @@ export const DisplayCuckoo = ({ navigation }) => {
       if (mPrice == null) {
         ToastError(
           'Sản phẩm thứ ' +
-            (i + 1) +
-            ' : ' +
-            item.productName +
-            '\nMục : ' +
-            textAlert +
-            '\nBạn chưa nhập giá trị!',
+          (i + 1) +
+          ' : ' +
+          item.productName +
+          '\nMục : ' +
+          textAlert +
+          '\nBạn chưa nhập giá trị!',
           'error',
           'top',
         );
       } else if (mPrice >= 1000) {
         ToastError(
           'Sản phẩm thứ ' +
-            (i + 1) +
-            ' : ' +
-            item.productName +
-            '\nMục ' +
-            textAlert +
-            '\nSố tiền không được lẻ, vui lòng nhập lại!',
+          (i + 1) +
+          ' : ' +
+          item.productName +
+          '\nMục ' +
+          textAlert +
+          '\nSố tiền không được lẻ, vui lòng nhập lại!',
           'error',
           'top',
         );
       } else {
         ToastError(
           'Sản phẩm thứ ' +
-            (i + 1) +
-            ' : ' +
-            item.productName +
-            '\nMục ' +
-            textAlert +
-            '\nNhập sai định dạng, vui lòng nhập lại!',
+          (i + 1) +
+          ' : ' +
+          item.productName +
+          '\nMục ' +
+          textAlert +
+          '\nNhập sai định dạng, vui lòng nhập lại!',
           'error',
           'top',
         );
@@ -633,8 +634,8 @@ export const DisplayCuckoo = ({ navigation }) => {
                     item.priceValue === null || isNaN(item.priceValue)
                       ? ''
                       : item.priceValue
-                          .toString()
-                          .replace(/\B(?=(\d{3})+(?!\d))/g, ',')
+                        .toString()
+                        .replace(/\B(?=(\d{3})+(?!\d))/g, ',')
                     //.toLocaleString("en-US")
                   }
                   blurOnSubmit={false}
@@ -695,8 +696,8 @@ export const DisplayCuckoo = ({ navigation }) => {
                     item.netValue === null || isNaN(item.netValue)
                       ? ''
                       : item.netValue
-                          .toString()
-                          .replace(/\B(?=(\d{3})+(?!\d))/g, ',')
+                        .toString()
+                        .replace(/\B(?=(\d{3})+(?!\d))/g, ',')
                     //.toLocaleString("en-US")
                   }
                   blurOnSubmit={false}
@@ -756,8 +757,8 @@ export const DisplayCuckoo = ({ navigation }) => {
                     item.fsmValue === null || isNaN(item.fsmValue)
                       ? ''
                       : item.fsmValue
-                          .toString()
-                          .replace(/\B(?=(\d{3})+(?!\d))/g, ',')
+                        .toString()
+                        .replace(/\B(?=(\d{3})+(?!\d))/g, ',')
                     //.toLocaleString("en-US")
                   }
                   blurOnSubmit={false}

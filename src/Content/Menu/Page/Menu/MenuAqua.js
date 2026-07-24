@@ -3,6 +3,7 @@ import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
 import { Divider, Icon } from '@rneui/themed';
 import { useSelector } from 'react-redux';
 import { fontWeightBold } from '../../../../Themes/AppsStyle';
+import SpiralIcon from '../../../../Control/Icon/SpiralIcon';
 
 const MenuAqua = ({ item, index = 0, onPress }) => {
   const { appcolor } = useSelector(state => state.GAppState);

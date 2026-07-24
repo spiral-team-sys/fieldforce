@@ -5,6 +5,7 @@ import moment from 'moment';
 import { useSelector } from 'react-redux';
 import { fontWeightBold } from '../../../../Themes/AppsStyle';
 import { ToastError } from '../../../../Core/Helper';
+import SpiralIcon from '../../../../Control/Icon/SpiralIcon';
 //////import DatePicker from "react-native-date-picker";;
 
 const DateChoose = ({
@@ -43,7 +44,7 @@ const DateChoose = ({
   const handlerCancel = () => {
     setOpen(false);
   };
-  useEffect(() => {}, []);
+  useEffect(() => { }, []);
 
   const styles = StyleSheet.create({
     containerStyle: { flex: 1 },

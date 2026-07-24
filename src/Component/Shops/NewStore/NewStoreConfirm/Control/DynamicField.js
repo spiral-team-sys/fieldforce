@@ -11,6 +11,7 @@ import {
   getSelectedOptions,
   getSelectedValue,
 } from '../StoreRequestUtils';
+import SpiralIcon from '../../../../../Control/Icon/SpiralIcon';
 
 const getFieldIcon = item => {
   switch (item.Ref_Code) {

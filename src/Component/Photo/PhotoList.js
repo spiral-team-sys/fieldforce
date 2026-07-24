@@ -45,6 +45,7 @@ import ActionSheet, { SheetManager } from 'react-native-actions-sheet';
 import { CameraRoll } from '@react-native-camera-roll/camera-roll';
 import FormGroup from '../../Content/FormGroup';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
+import SpiralIcon from '../../Control/Icon/SpiralIcon';
 
 if (
   Platform.OS === 'android' &&
@@ -478,10 +479,10 @@ export const PhotoList = ({ navigation, route }) => {
             itemSortFeild.sortFeild === 'shopId' ? 'photoDate' : 'shopName'
           ]
             ? item[
-                itemSortFeild.sortFeild === 'shopId' ? 'photoDate' : 'shopName'
-              ]
-                .toString()
-                .toUpperCase()
+              itemSortFeild.sortFeild === 'shopId' ? 'photoDate' : 'shopName'
+            ]
+              .toString()
+              .toUpperCase()
             : ''.toUpperCase();
           const textSearch = text.toUpperCase();
           return nameFilter.indexOf(textSearch) > -1;
@@ -624,7 +625,7 @@ export const PhotoList = ({ navigation, route }) => {
                 uri:
                   item.photoPath !== null &&
                   (item.photoPath.indexOf('file://') > -1 ||
-                  item.photoPath.indexOf('https://') > -1
+                    item.photoPath.indexOf('https://') > -1
                     ? item.photoPath
                     : URLDEFAULT + item.photoPath),
               }}
@@ -678,7 +679,7 @@ export const PhotoList = ({ navigation, route }) => {
         inputStyle={{ fontSize: 13, color: appcolor.dark }}
         placeholder="Tìm kiếm hình ảnh"
         editable
-        onEndEditing={() => {}}
+        onEndEditing={() => { }}
         onClearTextAndroid={filterPhoto}
         iconName="search"
         value={search}
@@ -1163,7 +1164,7 @@ const ModalEditImage = gestureHandlerRootHOC(
               heightViewShot: height * (deviceWidth / width),
             });
           },
-          () => {},
+          () => { },
         );
       } else {
         ToastError('Xảy ra lỗi khi lưu!', 'Lỗi');
@@ -1184,11 +1185,10 @@ const ModalEditImage = gestureHandlerRootHOC(
           const fileName = guiId + '.jpg';
           const viewShotBase64 = await viewShot.current.capture();
           const extension = Platform.OS === 'android' ? 'file://' : '';
-          const path = `${extension}${
-            Platform.OS === 'android'
+          const path = `${extension}${Platform.OS === 'android'
               ? RNFS.PicturesDirectoryPath
               : RNFS.LibraryDirectoryPath
-          }/${APPNAME}/`;
+            }/${APPNAME}/`;
           const file_path = `${path}${fileName}`;
 
           RNFS.mkdir(path).catch(err => {
@@ -1309,19 +1309,18 @@ const ModalEditImage = gestureHandlerRootHOC(
                         fontSize: 10,
                       }}
                     >
-                      {`${
-                        itemPhoto.shopName
-                      } [${itemPhoto.wShopCode?.toUpperCase()}]`}
+                      {`${itemPhoto.shopName
+                        } [${itemPhoto.wShopCode?.toUpperCase()}]`}
                     </Text>
                   </View>
                   {(URLDEFAULT.includes('spiral') ||
                     URLDEFAULT.includes('sucbat')) && (
-                    <Image
-                      source={require('../../Themes/Images/watermark.png')}
-                      resizeMode={'contain'}
-                      style={{ height: 300, opacity: 0.5, width: '100%' }}
-                    ></Image>
-                  )}
+                      <Image
+                        source={require('../../Themes/Images/watermark.png')}
+                        resizeMode={'contain'}
+                        style={{ height: 300, opacity: 0.5, width: '100%' }}
+                      ></Image>
+                    )}
                   <View style={{ paddingRight: 10, paddingBottom: 5 }}>
                     <Text
                       style={{

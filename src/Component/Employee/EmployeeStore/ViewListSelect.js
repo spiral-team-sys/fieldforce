@@ -22,6 +22,7 @@ import { MessageInfo, groupDataByKey } from '../../../Core/Helper';
 import { AppCreateAction } from '../../../Core/ReduxController';
 import { MapApp } from '../../../Control/MapApp';
 import { Linking } from 'react-native';
+import SpiralIcon from '../../../Control/Icon/SpiralIcon';
 
 export const ViewListSelect = ({ navigation, employees }) => {
   const { appcolor, kpiinfo, listDataStore } = useSelector(
@@ -49,9 +50,8 @@ export const ViewListSelect = ({ navigation, employees }) => {
     const listSelect = [];
     for (let i = 0; i < employees.length; i++) {
       const itemE = employees[i];
-      const KEYSTORE_REPORT = `D${moment(new Date()).format('YYYYMMDD')}S${
-        itemE.employeeId
-      }R${kpiinfo.id}N${'EMPLOYEESTORE'}`;
+      const KEYSTORE_REPORT = `D${moment(new Date()).format('YYYYMMDD')}S${itemE.employeeId
+        }R${kpiinfo.id}N${'EMPLOYEESTORE'}`;
       const json = await AsyncStorage.getItem(KEYSTORE_REPORT);
       const storeList = await JSON.parse(json);
       for (let j = 0; j < storeList?.length || 0; j++) {

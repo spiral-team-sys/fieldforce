@@ -38,6 +38,7 @@ import { _competitorId, _competitorName } from '../../Core/URLs';
 import { checkNetwork, minWidthTab } from '../../Core/Utility';
 import { deviceHeight, deviceWidth, scaleSize } from '../../Themes/AppsStyle';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
+import SpiralIcon from '../../Control/Icon/SpiralIcon';
 
 const PROVINCE = 'PROVINCE';
 const DISTRICT = 'DISTRICT';
@@ -100,7 +101,7 @@ export const TotalInventoryReport = ({ navigation, route }) => {
           const listProducts = await getAllProductStock();
           const isUpload =
             JSON.parse(item.listStock)?.length > 0 &&
-            JSON.parse(item.listStock)[0].IsUpload == 1
+              JSON.parse(item.listStock)[0].IsUpload == 1
               ? true
               : false;
           let DataStock = [...listProducts];
@@ -314,7 +315,7 @@ export const TotalInventoryReport = ({ navigation, route }) => {
         leftFunc={() => navigation.goBack()}
         rightFunc={
           Object.keys(dataSelect.itemWarehouse).length > 0 &&
-          data.isUpload === false
+            data.isUpload === false
             ? () => uploadAction()
             : null
         }
@@ -842,7 +843,7 @@ const RenderItemData = ({
                   editable={!isUpload}
                   selectTextOnFocus={!isUpload}
                   onChangeText={changeValueStock}
-                  // onEndEditing={editInputChange}
+                // onEndEditing={editInputChange}
                 />
               )}
             />

@@ -155,7 +155,7 @@ export const DashboardSellInTF = ({
         onPress={LoadData}
         style={styles.actionSync}
       >
-        <SpiralIconAnimation
+        <IconAnimation
           isLoop={isLoading}
           sourceIcon={require('../../../Themes/lotties/sync_load.json')}
         />

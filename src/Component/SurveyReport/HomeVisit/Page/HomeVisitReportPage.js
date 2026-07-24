@@ -23,6 +23,7 @@ import CustomTab from '../../../../Control/Custom/CustomTab';
 import { groupDataByKey } from '../../../../Core/Helper';
 import moment from 'moment';
 import _ from 'lodash';
+import SpiralIcon from '../../../../Control/Icon/SpiralIcon';
 
 const HomeVisitReportPage = ({
   navigation,
@@ -421,9 +422,8 @@ const HomeVisitReportPage = ({
         ]}
       >
         <Text style={styles.titleDetailName}>{item.ItemName}</Text>
-        <Text style={styles.valueText}>{`${listInputValue || item.Value} ${
-          item.DescriptionName || ''
-        }`}</Text>
+        <Text style={styles.valueText}>{`${listInputValue || item.Value} ${item.DescriptionName || ''
+          }`}</Text>
       </View>
     );
   };
@@ -452,9 +452,8 @@ const HomeVisitReportPage = ({
                   {item.titleName}
                 </Text>
               </View>
-              <Text style={styles.subTitleName}>{`Người thực hiện: ${
-                item.employeeAction || 'Chưa có thông tin'
-              }`}</Text>
+              <Text style={styles.subTitleName}>{`Người thực hiện: ${item.employeeAction || 'Chưa có thông tin'
+                }`}</Text>
             </View>
             <View style={styles.headerRight}>
               {item.isEdit == 1 && (

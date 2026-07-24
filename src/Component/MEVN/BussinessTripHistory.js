@@ -23,6 +23,7 @@ import * as Progress from 'react-native-progress';
 // //import NumberFormat from "react-number-format";
 import { Tabs, MaterialTabBar } from 'react-native-collapsible-tab-view';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
+import SpiralIcon from '../../Control/Icon/SpiralIcon';
 const VIEW_RESULT = 'VIEW RESULT';
 const VIEW_INPUT = 'VIEW INPUT';
 const VIEW_HIS = 'VIEW HISTORY';

@@ -33,6 +33,7 @@ import { useSelector } from 'react-redux';
 import { Icon } from '@rneui/themed';
 import { downloadAll } from '../../../Controller/DownloadDataController';
 import { toastInfo } from '../../../Utils/configToast';
+import SpiralIcon from '../../../Control/Icon/SpiralIcon';
 
 const LG_WorkingPlanASM = ({ navigation, route }) => {
   const appcolor = useSelector(state => state.GAppState.appcolor);
@@ -212,18 +213,18 @@ const LG_WorkingPlanASM = ({ navigation, route }) => {
       const filterShift =
         dataModal.type == 'SHIFT'
           ? dataModal.dataFilter.filter(
-              i =>
-                i.Name.toLowerCase().match(text.toLowerCase()) ||
-                i.ShiftCode.toLowerCase().match(text.toLowerCase()),
-            )
+            i =>
+              i.Name.toLowerCase().match(text.toLowerCase()) ||
+              i.ShiftCode.toLowerCase().match(text.toLowerCase()),
+          )
           : dataModal.type == 'NOTE'
-          ? dataModal.dataFilter.filter(
+            ? dataModal.dataFilter.filter(
               i =>
                 (i.title !== undefined &&
                   i.title.toLowerCase().match(text.toLowerCase())) ||
                 i.Ref_Code.toLowerCase().match(text.toLowerCase()),
             )
-          : dataModal.dataFilter.filter(
+            : dataModal.dataFilter.filter(
               i =>
                 i.ShopName !== undefined &&
                 i.ShopName.toLowerCase().match(text.toLowerCase()),
@@ -431,7 +432,7 @@ const LG_WorkingPlanASM = ({ navigation, route }) => {
   };
   const handlerUpdateStoreData = async () => {
     await setDownloading(true);
-    await downloadAll(() => {});
+    await downloadAll(() => { });
     await setDownloading(false);
   };
   const handleGoBack = () => {
@@ -699,8 +700,8 @@ const ViewItemStore = ({
     item.confirmShop == 1
       ? appcolor.success
       : item.confirmShop == -1
-      ? appcolor.danger
-      : appcolor.rejection;
+        ? appcolor.danger
+        : appcolor.rejection;
   const indexData = item.mainIndex;
   return (
     <View key={index} style={styles.itemShopView}>
@@ -786,8 +787,8 @@ const renderItemModal = (
     dataModal.type == 'SHIFT'
       ? item.Name
       : dataModal.type == 'NOTE'
-      ? item.title
-      : item.ShopName;
+        ? item.title
+        : item.ShopName;
   const chooseItem = () => {
     actionChooseItem(item, index, value, dataModal.type);
   };
@@ -840,8 +841,8 @@ const ModalItem = ({
     dataModal.type == 'SHIFT'
       ? 'Xin nghỉ phép'
       : dataModal.type == 'NOTE'
-      ? 'Lí do chuyển ca'
-      : 'Danh sách cửa hàng';
+        ? 'Lí do chuyển ca'
+        : 'Danh sách cửa hàng';
   return (
     <Modal animationType="slide" visible={dataModal.visibleModal}>
       <SafeAreaView style={{ flex: 1, backgroundColor: appcolor.light }}>

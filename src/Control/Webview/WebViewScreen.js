@@ -6,6 +6,7 @@ import LottieView from 'lottie-react-native';
 import { Icon, Text } from '@rneui/themed';
 import { useSelector } from 'react-redux';
 import { alertConfirm, ERROR_HTML } from '../../Core/Utility';
+import SpiralIcon from '../Icon/SpiralIcon';
 
 const INJECTEDJAVASCRIPT = `const meta = document.createElement('meta'); meta.setAttribute('content', 'width=device-width, initial-scale=0, maximum-scale=0, user-scalable=0'); meta.setAttribute('name', 'viewport'); document.getElementsByTagName('head')[0].appendChild(meta); `;
 

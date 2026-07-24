@@ -3,6 +3,7 @@ import { Platform, StyleSheet, TouchableOpacity, View } from 'react-native';
 import { Icon, Text } from '@rneui/themed';
 import { useSelector } from 'react-redux';
 import { fontWeightBold } from '../../../Themes/AppsStyle';
+import SpiralIcon from '../../Icon/SpiralIcon';
 
 export const PressItem = ({
   onPress,

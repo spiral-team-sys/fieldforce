@@ -19,6 +19,7 @@ import { ToastError } from '../../../../Core/Helper';
 import messaging from '@react-native-firebase/messaging';
 import moment from 'moment';
 import * as Progress from 'react-native-progress';
+import SpiralIcon from '../../../../Control/Icon/SpiralIcon';
 
 const LoginTraining = ({ onLoginCallBack }) => {
   const versionNumBuild = DeviceInfo.getBuildNumber();
@@ -144,7 +145,7 @@ const LoginTraining = ({ onLoginCallBack }) => {
                 style={{ fontSize: 15, color: appcolor.dark }}
                 returnKeyType="next"
                 autoCorrect={false}
-                onSubmitEditing={() => {}}
+                onSubmitEditing={() => { }}
                 blurOnSubmit={false}
                 placeholder="Tên đăng nhập"
                 placeholderTextColor="#c2c2c2"

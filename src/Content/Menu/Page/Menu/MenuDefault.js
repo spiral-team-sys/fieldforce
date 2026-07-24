@@ -6,6 +6,7 @@ import { useSelector } from 'react-redux';
 import { fontWeightBold } from '../../../../Themes/AppsStyle';
 import CustomListView from '../../../../Control/Custom/CustomListView';
 import _ from 'lodash';
+import SpiralIcon from '../../../../Control/Icon/SpiralIcon';
 
 const MenuDefault = ({ menus = [], onPress, onRefresh }) => {
   const { appcolor } = useSelector(state => state.GAppState);

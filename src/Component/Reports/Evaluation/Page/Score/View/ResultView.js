@@ -4,6 +4,7 @@ import { ScrollView, TouchableOpacity, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { LoadingView } from '../../../../../../Control/ItemLoading';
 import ScoringHeader from './ScoringHeader';
+import SpiralIcon from '../../../../../../Control/Icon/SpiralIcon';
 
 const ResultView = ({
   styles,

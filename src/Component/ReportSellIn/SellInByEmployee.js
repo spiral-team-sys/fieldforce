@@ -55,6 +55,7 @@ import { URLDEFAULT } from '../../Core/URLs';
 import ViewPictures from '../../Control/Gallary/ViewPictures';
 import CustomListView from '../../Control/Custom/CustomListView';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
+import SpiralIcon from '../../Control/Icon/SpiralIcon';
 
 const SellInByEmployee = ({ navigation, route }) => {
   const insets = useSafeAreaInsets();
@@ -336,7 +337,7 @@ const SellInByEmployee = ({ navigation, route }) => {
           loadData();
         } else ToastError(result.messager);
       },
-      () => {},
+      () => { },
       'Đồng ý',
       'Huỷ',
     );
@@ -372,7 +373,7 @@ const SellInByEmployee = ({ navigation, route }) => {
           } else if (typeof it.photos === 'string') {
             try {
               photos.push(...JSON.parse(it.photos || '[]'));
-            } catch {}
+            } catch { }
           }
         });
       photos = _.uniqBy(photos, 'photoPath');
@@ -416,7 +417,7 @@ const SellInByEmployee = ({ navigation, route }) => {
                     source={{
                       uri:
                         photo.photoPath?.includes('http') ||
-                        photo.photoPath?.includes('file://')
+                          photo.photoPath?.includes('file://')
                           ? photo.photoPath
                           : `${URLDEFAULT}${photo.photoPath}`,
                     }}
@@ -758,8 +759,8 @@ const SellInByEmployee = ({ navigation, route }) => {
       <LoadingView isLoading={loading} title={' '} />
       <View style={{ width: '100%', height: '100%' }}>
         {tabList !== null &&
-        tabList.length > 0 &&
-        tabList[0]?.statusOrder !== undefined ? (
+          tabList.length > 0 &&
+          tabList[0]?.statusOrder !== undefined ? (
           <View style={{ flex: 1 }}>
             {data !== null && data.length > 0 && (
               <Tabs.Container

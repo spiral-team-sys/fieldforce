@@ -10,8 +10,9 @@ import { useSelector } from 'react-redux';
 import { FlashList } from '@shopify/flash-list';
 import Video from 'react-native-video';
 import { deviceHeight, deviceWidth } from '../../Themes/AppsStyle';
+import SpiralIcon from '../Icon/SpiralIcon';
 
-const MultipleShowVideo = ({}) => {
+const MultipleShowVideo = ({ }) => {
   const insets = useSafeAreaInsets();
   const { appcolor } = useSelector(state => state.GAppState);
   const [dataVideo, setDataVideo] = useState([]);
@@ -143,9 +144,8 @@ const MultipleShowVideo = ({}) => {
       <SafeAreaView style={styles.mainContainer}>
         <View style={styles.contentHeader}>
           {dataVideo.length > 0 && (
-            <Text style={styles.titleCount}>{`${currentIndex + 1} / ${
-              dataVideo.length
-            }`}</Text>
+            <Text style={styles.titleCount}>{`${currentIndex + 1} / ${dataVideo.length
+              }`}</Text>
           )}
           <TouchableOpacity style={styles.viewHeader} onPress={onCloseSheet}>
             <Text style={styles.titleHeaderClose}>ĐÓNG</Text>

@@ -8,6 +8,7 @@ import { Icon } from '@rneui/themed';
 import { ColorRand } from '../../Core/Helper';
 import { GetDataDashboard } from '../../Controller/DashboardController';
 import { DashboardRouting } from '../../Content/Beko/DashboardRouting';
+import SpiralIcon from '../../Control/Icon/SpiralIcon';
 const tDay = new Date();
 const totalDay = new Date(tDay.getFullYear(), tDay.getMonth() + 1, 0).getDate();
 const currentDay = tDay.getDate();
@@ -54,8 +55,8 @@ export const TopViewWhirlPool = ({ navigation }) => {
           onPress={() =>
             item.pageName != null
               ? navigation.navigate('dashboardDetail', {
-                  listMonth: item?.listMonth,
-                })
+                listMonth: item?.listMonth,
+              })
               : null
           }
         >
@@ -181,8 +182,8 @@ export const TopViewWhirlPool = ({ navigation }) => {
                         currentDay > 20
                           ? appcolor.danger
                           : currentDay > 12
-                          ? appcolor.warning
-                          : appcolor.success,
+                            ? appcolor.warning
+                            : appcolor.success,
                       height: 28,
                     }}
                   ></View>

@@ -32,6 +32,7 @@ import {
   useSafeAreaInsets,
 } from 'react-native-safe-area-context';
 import moment from 'moment';
+import SpiralIcon from '../../Control/Icon/SpiralIcon';
 
 const TIMESHEET = {
   DATA_SHEET: 'TABLE0',
@@ -77,9 +78,8 @@ export const PGTimeSheet = ({ navigation }) => {
       if (await checkNetwork()) {
         setLoading(true);
         const jsonFilter = {
-          fromDate: `${filter.year}${
-            filter.month > 9 ? filter.month : '0' + filter.month
-          }01`,
+          fromDate: `${filter.year}${filter.month > 9 ? filter.month : '0' + filter.month
+            }01`,
           supId: null,
           employeeId: null,
         };
@@ -186,103 +186,103 @@ export const PGTimeSheet = ({ navigation }) => {
         >
           {userinfo.groupType === 'SUP'
             ? eData?.map((ditem, i) => {
-                if (ditem.week !== displayWeek.value) return;
-                return (
-                  <View
-                    key={`${i}$hiaj${ditem.employeeId}`}
-                    style={{
-                      width: deviceWidth / 7,
-                      padding: 3,
-                      alignItems: 'center',
-                      borderRightColor: appcolor.surface,
-                      borderRightWidth: 1,
-                      opacity: ditem.shift === '' ? 0.6 : 1,
-                      backgroundColor:
-                        ditem.shift === ''
-                          ? appcolor.grey
-                          : ditem.color !== ''
+              if (ditem.week !== displayWeek.value) return;
+              return (
+                <View
+                  key={`${i}$hiaj${ditem.employeeId}`}
+                  style={{
+                    width: deviceWidth / 7,
+                    padding: 3,
+                    alignItems: 'center',
+                    borderRightColor: appcolor.surface,
+                    borderRightWidth: 1,
+                    opacity: ditem.shift === '' ? 0.6 : 1,
+                    backgroundColor:
+                      ditem.shift === ''
+                        ? appcolor.grey
+                        : ditem.color !== ''
                           ? ditem.color
                           : appcolor.light,
+                  }}
+                >
+                  <TouchableOpacity
+                    onPress={() => {
+                      onDayPress(ditem);
                     }}
                   >
-                    <TouchableOpacity
-                      onPress={() => {
-                        onDayPress(ditem);
+                    <Text
+                      style={{
+                        color: appcolor.dark,
+                        fontSize: 10,
+                        fontWeight: 'bold',
+                        textAlign: 'center',
                       }}
                     >
-                      <Text
-                        style={{
-                          color: appcolor.dark,
-                          fontSize: 10,
-                          fontWeight: 'bold',
-                          textAlign: 'center',
-                        }}
-                      >
-                        {moment(ditem.workDate, 'YYYY-MM-DD').format('dd/DD')}
-                      </Text>
-                      {ditem.shift !== '' ? (
-                        <View style={{}}>
-                          <Badge
-                            textStyle={{ color: appcolor.light }}
-                            value={ditem.shift}
-                            badgeStyle={{
-                              backgroundColor: appcolor.dark,
-                              borderWidth: 0,
-                            }}
-                          />
-                          <Text
-                            style={{
-                              color: appcolor.dark,
-                              textAlign: 'center',
-                              fontSize: 10,
-                              fontWeight: '600',
-                            }}
-                          >
-                            {ditem.totalTime}
-                          </Text>
-                          <Text
-                            style={{
-                              color: appcolor.dark,
-                              textAlign: 'center',
-                              fontSize: 10,
-                              fontWeight: '600',
-                            }}
-                          >
-                            {ditem?.ot > 0 ? ditem?.ot : ''}
-                          </Text>
-                        </View>
-                      ) : (
-                        <View style={{ alignItems: 'center' }}>
-                          <Text
-                            style={{
-                              color: appcolor.dark,
-                              textAlign: 'center',
-                            }}
-                          >
-                            Thg
-                          </Text>
-                          <Text
-                            style={{
-                              color: appcolor.dark,
-                              textAlign: 'center',
-                            }}
-                          >
-                            {moment(ditem.workDate, 'YYYY-MM-DD').format('M')}
-                          </Text>
-                        </View>
-                      )}
-                    </TouchableOpacity>
-                  </View>
-                );
-              })
+                      {moment(ditem.workDate, 'YYYY-MM-DD').format('dd/DD')}
+                    </Text>
+                    {ditem.shift !== '' ? (
+                      <View style={{}}>
+                        <Badge
+                          textStyle={{ color: appcolor.light }}
+                          value={ditem.shift}
+                          badgeStyle={{
+                            backgroundColor: appcolor.dark,
+                            borderWidth: 0,
+                          }}
+                        />
+                        <Text
+                          style={{
+                            color: appcolor.dark,
+                            textAlign: 'center',
+                            fontSize: 10,
+                            fontWeight: '600',
+                          }}
+                        >
+                          {ditem.totalTime}
+                        </Text>
+                        <Text
+                          style={{
+                            color: appcolor.dark,
+                            textAlign: 'center',
+                            fontSize: 10,
+                            fontWeight: '600',
+                          }}
+                        >
+                          {ditem?.ot > 0 ? ditem?.ot : ''}
+                        </Text>
+                      </View>
+                    ) : (
+                      <View style={{ alignItems: 'center' }}>
+                        <Text
+                          style={{
+                            color: appcolor.dark,
+                            textAlign: 'center',
+                          }}
+                        >
+                          Thg
+                        </Text>
+                        <Text
+                          style={{
+                            color: appcolor.dark,
+                            textAlign: 'center',
+                          }}
+                        >
+                          {moment(ditem.workDate, 'YYYY-MM-DD').format('M')}
+                        </Text>
+                      </View>
+                    )}
+                  </TouchableOpacity>
+                </View>
+              );
+            })
             : eData?.length > 0 && (
-                <MonthPGView
-                  info={item}
-                  gridColl={7}
-                  onPressDay={onDayPress}
-                  eData={eData}
-                />
-              )}
+              <MonthPGView
+                info={item}
+                gridColl={7}
+                onPressDay={onDayPress}
+                eData={eData}
+              />
+            )}
         </ScrollView>
       </View>
     );

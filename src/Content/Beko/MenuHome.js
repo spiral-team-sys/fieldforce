@@ -15,6 +15,7 @@ import WebViewUI from '../../Content/WebViewUI';
 import DeviceInfo from 'react-native-device-info';
 import { AppNameBuild, TRAINEEKEY } from '../../Core/URLs';
 import base64 from 'react-native-base64';
+import SpiralIcon from '../../Control/Icon/SpiralIcon';
 //import { ACTION } from '../../Core/ReduxController';
 
 const MenuHome = ({ navigation, menus }) => {

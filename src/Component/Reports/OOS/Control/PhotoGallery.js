@@ -17,6 +17,7 @@ import { deviceHeight, optionConfirm } from '../../../../Core/Utility';
 import { MultipleShowImage } from '../../../../Control/MultipleShowImage';
 import { deletePhotoByList } from '../../../../Controller/PhotoController';
 import { fontWeightBold } from '../../../../Themes/AppsStyle';
+import SpiralIcon from '../../../../Control/Icon/SpiralIcon';
 
 export const PhotoGallery = ({ data, keyValue }) => {
   const { appcolor } = useSelector(state => state.GAppState);
@@ -60,29 +61,29 @@ export const PhotoGallery = ({ data, keyValue }) => {
       let options =
         dataPhoto.length > 1
           ? [
-              { text: 'Đóng' },
-              {
-                text: 'Xóa từng tấm',
-                onPress: () => {
-                  actionDeletePhoto('ONLY');
-                },
+            { text: 'Đóng' },
+            {
+              text: 'Xóa từng tấm',
+              onPress: () => {
+                actionDeletePhoto('ONLY');
               },
-              {
-                text: `Xóa tất cả ${dataPhoto.length} tấm`,
-                onPress: () => {
-                  actionDeletePhoto('ALL');
-                },
+            },
+            {
+              text: `Xóa tất cả ${dataPhoto.length} tấm`,
+              onPress: () => {
+                actionDeletePhoto('ALL');
               },
-            ]
+            },
+          ]
           : [
-              { text: 'Đóng' },
-              {
-                text: `Đồng ý`,
-                onPress: () => {
-                  actionDeletePhoto('ALL');
-                },
+            { text: 'Đóng' },
+            {
+              text: `Đồng ý`,
+              onPress: () => {
+                actionDeletePhoto('ALL');
               },
-            ];
+            },
+          ];
       optionConfirm(
         'Thông báo',
         `Bạn có muốn xóa hình ảnh ${itemHead.photoDesc} không ?`,

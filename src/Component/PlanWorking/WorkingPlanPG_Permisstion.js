@@ -130,7 +130,7 @@ const WorkingPlanPG_Permisstion = ({ navigation, route }) => {
       });
       setShiftRegistered(anonymous.shiftRegistered || {});
       setCurrentWeek(currentWeek);
-    } catch (e) {}
+    } catch (e) { }
     setRefreshing(false);
   };
   const callEffect = async (currentWeek = null) => {
@@ -181,7 +181,7 @@ const WorkingPlanPG_Permisstion = ({ navigation, route }) => {
       });
       setShiftRegistered(anonymous.shiftRegistered || {});
       setCurrentWeek(currentWeek);
-    } catch (e) {}
+    } catch (e) { }
     setRefreshing(false);
   };
   useEffect(() => {
@@ -263,7 +263,7 @@ const WorkingPlanPG_Permisstion = ({ navigation, route }) => {
       }
       const alertConfirmMsg =
         item.isAlertRequestCount === 1 &&
-        (type == SUBMIT_LATE || type == SUBMIT_EARLIER)
+          (type == SUBMIT_LATE || type == SUBMIT_EARLIER)
           ? `Bạn đã gửi ${item.requestCount} yêu cầu đi trễ/về sớm trong tháng này. Bạn có chắc chắn muốn tiếp tục gửi đề xuất thay đổi?`
           : 'Bạn có chắc chắn muốn gửi đề xuất thay đổi?';
       alertConfirm('Thông báo', alertConfirmMsg, async () => {
@@ -447,7 +447,7 @@ const WorkingPlanPG_Permisstion = ({ navigation, route }) => {
       const mainIndex = data[index].stt;
       data[index][key] = value;
       mainData[mainIndex][key] = value;
-    } catch (e) {}
+    } catch (e) { }
   };
   const addToModifedList = index => {
     const mainIndex = data[index].stt;
@@ -464,10 +464,10 @@ const WorkingPlanPG_Permisstion = ({ navigation, route }) => {
     return confirmedStatus === 1
       ? appcolor.helper
       : confirmedStatus === -1 || confirmedStatus === -2
-      ? appcolor.danger
-      : confirmedStatus === 3
-      ? appcolor.rejection
-      : appcolor.dark;
+        ? appcolor.danger
+        : confirmedStatus === 3
+          ? appcolor.rejection
+          : appcolor.dark;
   };
   const handleDisplayBS = async (
     type,
@@ -740,9 +740,8 @@ const WorkingPlanPG_Permisstion = ({ navigation, route }) => {
     if ((value || 0) + (totalLateTime || 0) > (typeOffset.remainingTime || 0)) {
       return {
         status: false,
-        messager: `Tổng thời gian cấn trừ phép không được vượt quá ${
-          typeOffset.remainingTime || 0
-        } giờ`,
+        messager: `Tổng thời gian cấn trừ phép không được vượt quá ${typeOffset.remainingTime || 0
+          } giờ`,
       };
     }
     return { status: true };
@@ -889,7 +888,7 @@ const WorkingPlanPG_Permisstion = ({ navigation, route }) => {
       await assignData(index, 'photoMore', JSON.stringify(photoMore));
       expanded[expandImage] = false;
       setMutate(e => !e);
-    } catch (e) {}
+    } catch (e) { }
   };
   const handleRemoveImage = async (item, indexImage) => {
     const nextList = (currentBS.list || []).filter(
@@ -1178,9 +1177,8 @@ const WorkingPlanPG_Permisstion = ({ navigation, route }) => {
                   { color: isVisiblePlan ? appcolor.primary : appcolor.dark },
                 ]}
                 numberOfLines={1}
-              >{`${
-                dateText.charAt(0).toUpperCase() + dateText.slice(1)
-              }`}</Text>
+              >{`${dateText.charAt(0).toUpperCase() + dateText.slice(1)
+                }`}</Text>
             </View>
             <SpiralIcon
               name={isVisiblePlan ? 'chevron-up' : 'chevron-down'}
@@ -1230,9 +1228,8 @@ const WorkingPlanPG_Permisstion = ({ navigation, route }) => {
                   style={styles.rowIcon}
                   color={appcolor.dark}
                 />
-                <Text style={styles.subTitleName}>{`Ca hiện tại: ${
-                  shiftTypeName || ''
-                }`}</Text>
+                <Text style={styles.subTitleName}>{`Ca hiện tại: ${shiftTypeName || ''
+                  }`}</Text>
               </View>
             ) : (
               <TouchableOpacity
@@ -1413,9 +1410,8 @@ const WorkingPlanPG_Permisstion = ({ navigation, route }) => {
                                 : appcolor.danger,
                             padding: 7,
                           }}
-                        >{`Ghi chú của quản lý: ${
-                          item.confirmNote || ''
-                        }`}</Text>
+                        >{`Ghi chú của quản lý: ${item.confirmNote || ''
+                          }`}</Text>
                       </View>
                     )}
                   <View style={styles.iconContainer}>
@@ -1511,9 +1507,8 @@ const WorkingPlanPG_Permisstion = ({ navigation, route }) => {
                               : appcolor.danger,
                           padding: 7,
                         }}
-                      >{`Ghi chú của quản lý: ${
-                        item.confirmNoteLate || ''
-                      }`}</Text>
+                      >{`Ghi chú của quản lý: ${item.confirmNoteLate || ''
+                        }`}</Text>
                     </View>
                   )}
                   <View
@@ -1616,9 +1611,8 @@ const WorkingPlanPG_Permisstion = ({ navigation, route }) => {
                               : appcolor.danger,
                           padding: 7,
                         }}
-                      >{`Ghi chú của quản lý: ${
-                        item.confirmNoteEarlier || ''
-                      }`}</Text>
+                      >{`Ghi chú của quản lý: ${item.confirmNoteEarlier || ''
+                        }`}</Text>
                     </View>
                   )}
                   <View
@@ -1704,9 +1698,8 @@ const WorkingPlanPG_Permisstion = ({ navigation, route }) => {
                       index={index}
                       styles={styles}
                       appcolor={appcolor}
-                      value={`Chọn loại phép${
-                        item.timeOffsetType ? `: ${typeOffset.Name}` : ''
-                      }`}
+                      value={`Chọn loại phép${item.timeOffsetType ? `: ${typeOffset.Name}` : ''
+                        }`}
                       isEditable={isOffsetEditable}
                       type={OFFSET}
                     />
@@ -1875,7 +1868,7 @@ const WorkingPlanPG_Permisstion = ({ navigation, route }) => {
               name="times"
               size={26}
               color={appcolor.dark}
-            ></SpiralIcon>
+            />
           </TouchableOpacity>
           <ImageBackground
             source={{ uri: urlIMV }}
@@ -1895,18 +1888,18 @@ const WorkingPlanPG_Permisstion = ({ navigation, route }) => {
           isConfirmPlan
             ? null
             : textCopyButton == 'Copy' && !disableCopyButton
-            ? 'copy'
-            : !disableCopyButton || checkSaveWeekNow
-            ? 'cloud-upload-alt'
-            : null
+              ? 'copy'
+              : !disableCopyButton || checkSaveWeekNow
+                ? 'cloud-upload-alt'
+                : null
         }
         leftFunc={() => navigation.goBack()}
         rightFunc={() => {
           textCopyButton == 'Copy'
             ? onCopySavePlan()
             : !disableCopyButton || checkSaveWeekNow
-            ? onCopySavePlan()
-            : null;
+              ? onCopySavePlan()
+              : null;
         }}
       />
       {currentWeek.label !== undefined && (
@@ -1982,10 +1975,10 @@ const WorkingPlanPG_Permisstion = ({ navigation, route }) => {
                 {currentBS.type === WEEK
                   ? 'Chọn Tuần'
                   : currentBS.type === SHIFT
-                  ? 'Chọn Ca Làm Việc'
-                  : currentBS.type == OFFSET
-                  ? 'Chọn loại phép'
-                  : 'Hình ảnh xác minh'}
+                    ? 'Chọn Ca Làm Việc'
+                    : currentBS.type == OFFSET
+                      ? 'Chọn loại phép'
+                      : 'Hình ảnh xác minh'}
               </Text>
               <TouchableOpacity
                 style={{ padding: 8 }}

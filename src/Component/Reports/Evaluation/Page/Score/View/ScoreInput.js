@@ -2,6 +2,7 @@ import { Icon, Text } from '@rneui/base';
 import React from 'react';
 import { TextInput, TouchableOpacity, View } from 'react-native';
 import CustomListView from '../../../../../../Control/Custom/CustomListView';
+import SpiralIcon from '../../../../../../Control/Icon/SpiralIcon';
 
 const PRESETS = [0, 1, 2, 3, 4, 5];
 

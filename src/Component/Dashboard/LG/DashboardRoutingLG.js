@@ -22,6 +22,7 @@ import { URLDEFAULT } from '../../../Core/URLs';
 import { colorList } from '../../../Core/Helper';
 import { ConvertSecondToTime } from '../../../Core/Utility';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
+import SpiralIcon from '../../../Control/Icon/SpiralIcon';
 export const DashboardRoutingLG = ({ navigation, data }) => {
   const insets = useSafeAreaInsets();
   const { appcolor } = useSelector(state => state.GAppState);
@@ -370,10 +371,10 @@ const Routing = ({ data, route }) => {
   const routeList = JSON.parse(data || '[]');
   var totalTime = routeList.length
     ? routeList
-        ?.map(o => o.Duration.value)
-        .reduce((a, c) => {
-          return a + c;
-        })
+      ?.map(o => o.Duration.value)
+      .reduce((a, c) => {
+        return a + c;
+      })
     : 0;
   totalTime = ConvertSecondToTime(totalTime);
   const rowTimeLine = ({ item, index }) => {

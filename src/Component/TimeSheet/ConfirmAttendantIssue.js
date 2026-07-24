@@ -33,6 +33,7 @@ import { deviceHeight, deviceWidth } from '../../Core/Utility';
 import { REPORT } from '../../API/ReportAPI';
 import { PhotoInput } from './Page/PhotoInput';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
+import SpiralIcon from '../../Control/Icon/SpiralIcon';
 
 const itemTimeSheet = [
   {
@@ -350,16 +351,16 @@ export const ConfirmAttendantIssue = ({ navigation, route }) => {
         </Text>
         {(data[item.nameData][0]?.totalRow > 0 ||
           data[item.nameData].length > 0) && (
-          <Badge
-            value={
-              item.code > 2
-                ? data[item.nameData][0]?.totalRow || 0
-                : data[item.nameData].length
-            }
-            status={'warning'}
-            containerStyle={{ position: 'absolute', top: -5, right: -5 }}
-          />
-        )}
+            <Badge
+              value={
+                item.code > 2
+                  ? data[item.nameData][0]?.totalRow || 0
+                  : data[item.nameData].length
+              }
+              status={'warning'}
+              containerStyle={{ position: 'absolute', top: -5, right: -5 }}
+            />
+          )}
       </TouchableOpacity>
     );
   };
@@ -396,8 +397,8 @@ export const ConfirmAttendantIssue = ({ navigation, route }) => {
       );
       MessageAction(
         'Bạn chắc chắn muốn ' +
-          (type == 3 ? 'xác nhận' : 'từ chối') +
-          ` tất cả (${data.dataSubmit.length}) đề xuất của nhân viên?`,
+        (type == 3 ? 'xác nhận' : 'từ chối') +
+        ` tất cả (${data.dataSubmit.length}) đề xuất của nhân viên?`,
         async () => {
           setLoading(true);
           try {
@@ -407,11 +408,9 @@ export const ConfirmAttendantIssue = ({ navigation, route }) => {
               const isSkipReason =
                 Number(it.isCountExplain) === 1 ||
                 Number(it.isCountExplain) === 2;
-              const notify = `Người quản lí ${userinfo.groupType || ''} đã ${
-                type == 3 ? 'đồng ý' : 'từ chối'
-              } đề xuất chấm công ngày ${it.workDate}${
-                type === 3 || isSkipReason ? '' : ' với lí do : '
-              }`;
+              const notify = `Người quản lí ${userinfo.groupType || ''} đã ${type == 3 ? 'đồng ý' : 'từ chối'
+                } đề xuất chấm công ngày ${it.workDate}${type === 3 || isSkipReason ? '' : ' với lí do : '
+                }`;
               const payload = JSON.stringify({
                 reportId: kpiinfo.id,
                 employeeId: it.employeeId,
@@ -522,10 +521,10 @@ export const ConfirmAttendantIssue = ({ navigation, route }) => {
                   indexTab.code == 2
                     ? data.dataSubmit
                     : indexTab.code == 3
-                    ? data.dataConfirm
-                    : indexTab.code == 4
-                    ? data.dataReject
-                    : data.dataLock
+                      ? data.dataConfirm
+                      : indexTab.code == 4
+                        ? data.dataReject
+                        : data.dataLock
                 }
                 keyExtractor={(_, index) => index.toString()}
                 style={{
@@ -566,8 +565,8 @@ export const ConfirmAttendantIssue = ({ navigation, route }) => {
                 indexTab.code == 3
                   ? data.dataConfirm
                   : indexTab.code == 4
-                  ? data.dataReject
-                  : data.dataLock
+                    ? data.dataReject
+                    : data.dataLock
               }
               keyExtractor={(_, index) => index.toString()}
               style={{
@@ -966,10 +965,10 @@ const RenderItemTimeSheet = ({
       if (note === '') {
         ToastError(
           'Nhập ghi chú khi ' +
-            (type == 3 ? 'đồng ý' : 'từ chối') +
-            ', ngày ' +
-            item.workDate +
-            '!!!',
+          (type == 3 ? 'đồng ý' : 'từ chối') +
+          ', ngày ' +
+          item.workDate +
+          '!!!',
         );
         return;
       } else if (note.replace(/ /g, '').length < 5) {
@@ -999,12 +998,12 @@ const RenderItemTimeSheet = ({
     );
     MessageAction(
       'Bạn chắc chắn muốn ' +
-        (type == 3 ? 'đồng ý' : 'từ chối') +
-        ' đề xuất của nhân viên : ' +
-        item.employeeName +
-        ' ngày : ' +
-        item.workDate +
-        '?',
+      (type == 3 ? 'đồng ý' : 'từ chối') +
+      ' đề xuất của nhân viên : ' +
+      item.employeeName +
+      ' ngày : ' +
+      item.workDate +
+      '?',
       async () => {
         const result = await UpdateSuggestTimeSheet(dataSubmit);
         if (result.statusId === 200) {
@@ -1206,11 +1205,10 @@ const RenderItemTimeSheet = ({
             item.subNoteLevel1 != null &&
             item.subNoteLevel1 != '' && (
               <FormGroup
-                value={`${
-                  item.titleNoteLevel1
+                value={`${item.titleNoteLevel1
                     ? item.titleNoteLevel1
                     : 'Quản lí ghi chú : '
-                }${item.subNoteLevel1 || ''}`}
+                  }${item.subNoteLevel1 || ''}`}
                 containerStyle={{
                   marginLeft: 5,
                   marginRight: 5,
@@ -1227,30 +1225,29 @@ const RenderItemTimeSheet = ({
             item.confirmNote != '' &&
             item.confirmNote) ||
             indexTab.code == 2) && (
-            <FormGroup
-              value={
-                indexTab.code == 2
-                  ? note
-                  : `${
-                      item.titleNoteLevel2
-                        ? item.titleNoteLevel2
-                        : 'Quản lí ghi chú : '
+              <FormGroup
+                value={
+                  indexTab.code == 2
+                    ? note
+                    : `${item.titleNoteLevel2
+                      ? item.titleNoteLevel2
+                      : 'Quản lí ghi chú : '
                     }${item.confirmNote || ''}`
-              }
-              containerStyle={{
-                marginLeft: 5,
-                marginRight: 5,
-                borderWidth: 0.8,
-                marginBottom: 0,
-                padding: 5,
-                color: appcolor.dark,
-              }}
-              editable={indexTab.code == 2 ? true : false}
-              placeholder={'Nhập ghi chú'}
-              placeholderColor={appcolor.placeholderText}
-              handleChangeForm={text => setNote(text)}
-            />
-          )}
+                }
+                containerStyle={{
+                  marginLeft: 5,
+                  marginRight: 5,
+                  borderWidth: 0.8,
+                  marginBottom: 0,
+                  padding: 5,
+                  color: appcolor.dark,
+                }}
+                editable={indexTab.code == 2 ? true : false}
+                placeholder={'Nhập ghi chú'}
+                placeholderColor={appcolor.placeholderText}
+                handleChangeForm={text => setNote(text)}
+              />
+            )}
         </View>
         <ViewPhotoEvidence
           key={`photoById_${item.tabId}_${item.attendantId}`}

@@ -25,6 +25,7 @@ import {
 } from '../../Core/Helper';
 import { checkNetwork, deviceHeight, deviceWidth } from '../../Core/Utility';
 import dvhcvn from '../../Themes/filedata/dvhcvn.json';
+import SpiralIcon from '../../Control/Icon/SpiralIcon';
 
 const PROVINCE = 'Tỉnh/Thành phố';
 const DISTRICT = 'Quận/Huyện';
@@ -143,7 +144,7 @@ export const UploadShopInfo = ({ navigation, route }) => {
           async () => {
             await navigation.goBack();
           },
-          async () => {},
+          async () => { },
         );
         // console.log(shopUpdate);
       },
@@ -256,8 +257,8 @@ export const UploadShopInfo = ({ navigation, route }) => {
         type === PROVINCE
           ? 'dataProvinceF'
           : type === DISTRICT
-          ? 'dataDistrictF'
-          : 'dataTownF'
+            ? 'dataDistrictF'
+            : 'dataTownF'
       ].filter(i =>
         removeVietnameseTones(i.name.toLowerCase()).match(
           removeVietnameseTones(value.toLowerCase()),
@@ -266,9 +267,9 @@ export const UploadShopInfo = ({ navigation, route }) => {
     } else {
       dataFilter =
         dataModalAddress[
-          type === PROVINCE
-            ? 'dataProvinceF'
-            : type === DISTRICT
+        type === PROVINCE
+          ? 'dataProvinceF'
+          : type === DISTRICT
             ? 'dataDistrictF'
             : 'dataTownF'
         ];

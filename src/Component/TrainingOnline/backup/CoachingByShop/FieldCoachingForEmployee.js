@@ -18,6 +18,7 @@ import FormGroup from '../../../Content/FormGroup';
 import ActionSheet, { SheetManager } from 'react-native-actions-sheet';
 import _ from 'lodash';
 import { FieldCoachingDetails } from './FieldCoachingDetails';
+import SpiralIcon from '../../../../Control/Icon/SpiralIcon';
 
 export const FieldCoachingForEmployee = ({ navigation }) => {
   const { appcolor, shopinfo, kpiinfo } = useSelector(state => state.GAppState);

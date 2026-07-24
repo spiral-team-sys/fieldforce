@@ -8,6 +8,7 @@ import { TouchableOpacity } from 'react-native';
 import _ from 'lodash';
 import { saveJsonData } from '../../../../Controller/ReportController';
 import { TODAY } from '../../../../Core/Utility';
+import SpiralIcon from '../../../../Control/Icon/SpiralIcon';
 
 const QuestionItem = React.memo(
   ({ data, item, index, onAnswerPress, onFlagQuestion }) => {

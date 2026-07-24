@@ -13,6 +13,7 @@ import {
 import ViewPictures from '../../../../../Control/Gallary/ViewPictures';
 import { deletePhotoByList } from '../../../../../Controller/PhotoController';
 import moment from 'moment';
+import SpiralIcon from '../../../../../Control/Icon/SpiralIcon';
 
 const ItemCapture = ({ dataRegister }) => {
   const { appcolor, kpiinfo, shopinfo } = useSelector(state => state.GAppState);
@@ -38,14 +39,14 @@ const ItemCapture = ({ dataRegister }) => {
     } else {
       dataRegister.isAllowGallery
         ? optionConfirm(
-            'Chọn hình ảnh',
-            'Bạn muốn chụp mới hay chọn từ thư viện?',
-            [
-              { text: 'Chụp mới', onPress: onCapturePicture },
-              { text: 'Thư viện', onPress: onSelectFromGallery },
-              { text: 'Hủy', style: 'cancel' },
-            ],
-          )
+          'Chọn hình ảnh',
+          'Bạn muốn chụp mới hay chọn từ thư viện?',
+          [
+            { text: 'Chụp mới', onPress: onCapturePicture },
+            { text: 'Thư viện', onPress: onSelectFromGallery },
+            { text: 'Hủy', style: 'cancel' },
+          ],
+        )
         : onCapturePicture();
     }
   };

@@ -26,6 +26,7 @@ import { deletePhoto } from "../../Controller/PhotoController";
 import FormGroup from "../../Content/FormGroup";
 import LottieView from "lottie-react-native";
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
+import SpiralIcon from "../../Control/Icon/SpiralIcon";
 
 if (Platform.OS === "android" && UIManager.setLayoutAnimationEnabledExperimental) {
     UIManager.setLayoutAnimationEnabledExperimental(true);
@@ -763,19 +764,19 @@ export const FieldCoachingFSMReport = ({ navigation, route }) => {
                                                         {
                                                             !isUploaded &&
                                                             <TouchableOpacity onPress={() => takePhoto(it.id)} style={{ flexDirection: 'row', width: '48%', padding: 3, marginRight: 2, justifyContent: 'center', alignItems: 'center', borderRadius: 10, backgroundColor: appcolor.surface }}>
-                                                                <SpiralIcon name='camera' color={appcolor.primary} type='ionicon' size={22}></SpiralIcon>
+                                                                <SpiralIcon name='camera' color={appcolor.primary} type='ionicon' size={22} />
                                                             </TouchableOpacity>
                                                         }
                                                         {
                                                             !isUploaded &&
                                                             <TouchableOpacity onPress={() => chosesPhoto(it.id)} style={{ flexDirection: 'row', width: '48%', padding: 3, marginRight: 2, justifyContent: 'center', alignItems: 'center', borderRadius: 10, backgroundColor: appcolor.surface }}>
-                                                                <SpiralIcon name='attach-outline' color={appcolor.primary} type='ionicon' size={22}></SpiralIcon>
+                                                                <SpiralIcon name='attach-outline' color={appcolor.primary} type='ionicon' size={22} />
                                                             </TouchableOpacity>
                                                         }
                                                         <TouchableOpacity onPress={() => handleShowPhoto(it.id)} style={{ flexDirection: 'row', width: '48%', padding: 3, justifyContent: 'center', alignItems: 'center', borderRadius: 10, backgroundColor: appcolor.surface }}>
                                                             <View style={{ flex: 1 }}>
                                                                 <Badge badgeStyle={{ position: 'absolute', top: 0, right: 5, }} value={totalImage?.length || 0} />
-                                                                <SpiralIcon name='images' color={appcolor.primary} type='ionicon' size={22}></SpiralIcon>
+                                                                <SpiralIcon name='images' color={appcolor.primary} type='ionicon' size={22} />
                                                             </View>
                                                         </TouchableOpacity>
                                                     </View>
@@ -867,19 +868,19 @@ export const FieldCoachingFSMReport = ({ navigation, route }) => {
                                                 {
                                                     !isUploaded &&
                                                     <TouchableOpacity onPress={() => takePhoto()} style={{ flexDirection: 'row', width: '48%', padding: 3, marginRight: 2, justifyContent: 'center', alignItems: 'center', borderRadius: 10, backgroundColor: appcolor.surface }}>
-                                                        <SpiralIcon name='camera' color={appcolor.primary} type='ionicon' size={22}></SpiralIcon>
+                                                        <SpiralIcon name='camera' color={appcolor.primary} type='ionicon' size={22} />
                                                     </TouchableOpacity>
                                                 }
                                                 {
                                                     !isUploaded &&
                                                     <TouchableOpacity onPress={() => chosesPhoto()} style={{ flexDirection: 'row', width: '48%', padding: 3, marginRight: 2, justifyContent: 'center', alignItems: 'center', borderRadius: 10, backgroundColor: appcolor.surface }}>
-                                                        <SpiralIcon name='attach-outline' color={appcolor.primary} type='ionicon' size={22}></SpiralIcon>
+                                                        <SpiralIcon name='attach-outline' color={appcolor.primary} type='ionicon' size={22} />
                                                     </TouchableOpacity>
                                                 }
                                                 <TouchableOpacity onPress={() => handleShowPhoto()} style={{ flexDirection: 'row', width: '48%', padding: 3, justifyContent: 'center', alignItems: 'center', borderRadius: 10, backgroundColor: appcolor.surface }}>
                                                     <View style={{ flex: 1 }}>
                                                         <Badge badgeStyle={{ position: 'absolute', top: 0, right: 5, }} value={contentSelect.listPByContent?.length || 0} />
-                                                        <SpiralIcon name='images' color={appcolor.primary} type='ionicon' size={22}></SpiralIcon>
+                                                        <SpiralIcon name='images' color={appcolor.primary} type='ionicon' size={22} />
                                                     </View>
                                                 </TouchableOpacity>
                                             </View>

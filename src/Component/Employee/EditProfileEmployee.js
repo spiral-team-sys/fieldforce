@@ -46,6 +46,7 @@ import { StyleSheet } from 'react-native';
 import LoadingDefault from '../../Control/ItemLoading/LoadingDefault';
 import DeviceCheckModal from './DeviceCheckModal';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
+import SpiralIcon from '../../Control/Icon/SpiralIcon';
 // const HEADER_SIZE = Platform.OS == 'android' ? 10 : (isIphoneX() ? 50 : 20);
 
 const EditProfileEmployee = ({ navigation, route }) => {
@@ -261,9 +262,8 @@ const EditProfileEmployee = ({ navigation, route }) => {
       const itemUpload = [
         {
           employeeId: employeeProfile.employeeId,
-          fullName: `${employeeProfile.lastName || ''} ${
-            employeeProfile.fisrtName || ''
-          }`,
+          fullName: `${employeeProfile.lastName || ''} ${employeeProfile.fisrtName || ''
+            }`,
           fisrtName: employeeProfile.fisrtName || '',
           lastName: employeeProfile.lastName || '',
           gender: genderId,
@@ -280,7 +280,7 @@ const EditProfileEmployee = ({ navigation, route }) => {
               : '',
           toDate:
             employeeProfile.workingStatusName != 'Nhân viên chính thức' &&
-            employeeProfile.workingStatusId !== 3
+              employeeProfile.workingStatusId !== 3
               ? todateConvert
                 ? todateConvert
                 : fromdateConvert
@@ -307,13 +307,11 @@ const EditProfileEmployee = ({ navigation, route }) => {
             photoUpload.push({ photo: fileName, photoPath: fileName });
           }
         });
-        const notifyContent = `Quản lí ${
-          userinfo.employeeName
-        } đã cho nhân viên ${employeeProfile.lastName || ''} ${
-          employeeProfile.fisrtName || ''
-        } nghỉ việc vào ngày ${fromdateConvert} lúc ${moment(new Date()).format(
-          'HH:mm',
-        )}.`;
+        const notifyContent = `Quản lí ${userinfo.employeeName
+          } đã cho nhân viên ${employeeProfile.lastName || ''} ${employeeProfile.fisrtName || ''
+          } nghỉ việc vào ngày ${fromdateConvert} lúc ${moment(new Date()).format(
+            'HH:mm',
+          )}.`;
         const itemConfirm = {
           confirm: 1,
           employeeId: employeeProfile.employeeId,
@@ -380,9 +378,8 @@ const EditProfileEmployee = ({ navigation, route }) => {
         if (result) {
           setEmployeeProfile(data => ({
             ...data,
-            fullName: `${employeeProfile.lastName || ''} ${
-              employeeProfile.fisrtName || ''
-            }`,
+            fullName: `${employeeProfile.lastName || ''} ${employeeProfile.fisrtName || ''
+              }`,
           }));
           setLoadData(true);
           await setProgress(false);
@@ -403,14 +400,14 @@ const EditProfileEmployee = ({ navigation, route }) => {
       needCheck && employeeProfile.checkIMEI !== 1
         ? 'Quản lí đã bật kiểm tra thiết bị của bạn'
         : !needCheck && employeeProfile.checkIMEI === 1
-        ? 'Quản lí đã tắt kiểm tra thiết bị của bạn'
-        : 'Quản lí đã cập nhật thay đổi kiểm tra thiết bị của bạn';
+          ? 'Quản lí đã tắt kiểm tra thiết bị của bạn'
+          : 'Quản lí đã cập nhật thay đổi kiểm tra thiết bị của bạn';
     const contentNotify =
       needCheck && employeeProfile.checkIMEI !== 1
         ? 'Từ bây giờ bạn sẽ bị giới hạn đăng nhập trên một số thiết bị đã đăng kí. Nếu bạn đăng nhập trên thiết bị khác, bạn sẽ không thể truy cập vào ứng dụng cho đến khi quản lí cho phép.'
         : !needCheck && employeeProfile.checkIMEI === 1
-        ? 'Từ bây giờ bạn có thể đăng nhập trên nhiều thiết bị khác nhau mà không bị giới hạn.'
-        : 'Quản lí đã cập nhật thay đổi kiểm tra thiết bị của bạn, vui lòng liên hệ với quản lí để biết thêm chi tiết.';
+          ? 'Từ bây giờ bạn có thể đăng nhập trên nhiều thiết bị khác nhau mà không bị giới hạn.'
+          : 'Quản lí đã cập nhật thay đổi kiểm tra thiết bị của bạn, vui lòng liên hệ với quản lí để biết thêm chi tiết.';
 
     const jsonUpload = {
       userId: employeeProfile.employeeId,
@@ -499,10 +496,10 @@ const EditProfileEmployee = ({ navigation, route }) => {
     mode === 'GENDER'
       ? SheetManager.show('ref_genderSheet')
       : mode === 'WORKING_REASON'
-      ? SheetManager.show('ref_reasonSheet')
-      : mode === 'DETAIL_REASON'
-      ? SheetManager.show('ref_detailReasonSheet')
-      : SheetManager.show('ref_workStatusSheet');
+        ? SheetManager.show('ref_reasonSheet')
+        : mode === 'DETAIL_REASON'
+          ? SheetManager.show('ref_detailReasonSheet')
+          : SheetManager.show('ref_workStatusSheet');
   }, []);
 
   //Handle change WorkingStatus
@@ -745,29 +742,25 @@ const EditProfileEmployee = ({ navigation, route }) => {
         );
         const costViolate = item?.salaryDefault
           ? (countDayResign > contractNoticeDays
-              ? contractNoticeDays
-              : dateLate) *
-            (item?.salaryDefault / 30)
+            ? contractNoticeDays
+            : dateLate) *
+          (item?.salaryDefault / 30)
           : 0;
         // item.alertItem = `*Cảnh báo vi phạm thời gian báo trước: \n- Số ngày nhân viên cần báo trước: ${contractNoticeDays} ngày\n- Số ngày nhân viên báo trước: ${countDayResign} ngày\n- Số ngày vi phạm: ${dateLate} ngày\n- Ngày nghỉ sớm nhất đúng quy định: ${dateLimit}`
         setAlertResign(
-          `*Cảnh báo vi phạm thời gian báo trước: \n- Số ngày nhân viên cần báo trước: ${contractNoticeDays} ngày\n- Số ngày nhân viên báo trước: ${countDayResign} ngày\n- Số ngày vi phạm: ${
-            dateLate > contractNoticeDays ? contractNoticeDays : dateLate
-          } ngày\n- Ngày nghỉ sớm nhất đúng quy định: ${dateLimit}\n${
-            costViolate > 0
-              ? `- Mức phạt vi phạm: ${costViolate.toLocaleString('vi-VN', {
-                  style: 'currency',
-                  currency: 'VND',
-                })}`
-              : ''
-          }${
-            item?.noteResignByEmployee ? `\n- ${item.noteResignByEmployee}` : ''
+          `*Cảnh báo vi phạm thời gian báo trước: \n- Số ngày nhân viên cần báo trước: ${contractNoticeDays} ngày\n- Số ngày nhân viên báo trước: ${countDayResign} ngày\n- Số ngày vi phạm: ${dateLate > contractNoticeDays ? contractNoticeDays : dateLate
+          } ngày\n- Ngày nghỉ sớm nhất đúng quy định: ${dateLimit}\n${costViolate > 0
+            ? `- Mức phạt vi phạm: ${costViolate.toLocaleString('vi-VN', {
+              style: 'currency',
+              currency: 'VND',
+            })}`
+            : ''
+          }${item?.noteResignByEmployee ? `\n- ${item.noteResignByEmployee}` : ''
           }`,
         );
       } else {
         setAlertResign(
-          `${
-            item?.noteResignByEmployee ? `\n- ${item.noteResignByEmployee}` : ''
+          `${item?.noteResignByEmployee ? `\n- ${item.noteResignByEmployee}` : ''
           }`,
         );
       }
@@ -1135,8 +1128,8 @@ const EditProfileEmployee = ({ navigation, route }) => {
           isShowDelete
             ? null
             : isKeyboardVisible
-            ? Keyboard.dismiss()
-            : uploadAction()
+              ? Keyboard.dismiss()
+              : uploadAction()
         }
         iconRight={'cloud-upload-alt'}
       />
@@ -1150,12 +1143,12 @@ const EditProfileEmployee = ({ navigation, route }) => {
                 source={
                   employeeProfile.photo !== null
                     ? {
-                        uri:
-                          employeeProfile.photo &&
-                          (employeeProfile.photo.includes('file://')
-                            ? employeeProfile.photo
-                            : URLDEFAULT + employeeProfile.photo),
-                      }
+                      uri:
+                        employeeProfile.photo &&
+                        (employeeProfile.photo.includes('file://')
+                          ? employeeProfile.photo
+                          : URLDEFAULT + employeeProfile.photo),
+                    }
                     : require('../../Themes/Images/noimage.png')
                 }
                 title={employeeProfile.fisrtName?.substring(0, 1) || 'S'}
@@ -1218,9 +1211,8 @@ const EditProfileEmployee = ({ navigation, route }) => {
         >
           <ScrollView showsVerticalScrollIndicator={false}>
             <ItemInput
-              value={`${employeeProfile.lastName || ''} ${
-                employeeProfile.fisrtName || ''
-              }`}
+              value={`${employeeProfile.lastName || ''} ${employeeProfile.fisrtName || ''
+                }`}
               title={'Họ và Tên'}
               field={'fullName'}
               editable={false}
@@ -1355,55 +1347,34 @@ const EditProfileEmployee = ({ navigation, route }) => {
 
             {(employeeProfile.workingStatusName !== 'Nhân viên chính thức' ||
               workingStatusId !== 2) && (
-              <View>
-                {employeeProfile.contractNoticeDays > 0 &&
-                  alertResign?.length > 0 &&
-                  workingStatusId == 3 && (
-                    <Text
-                      style={{
-                        fontSize: 14,
-                        color: appcolor.danger,
-                        marginBottom: 8,
-                        marginHorizontal: 4,
-                      }}
-                    >
-                      {alertResign}
-                    </Text>
-                  )}
+                <View>
+                  {employeeProfile.contractNoticeDays > 0 &&
+                    alertResign?.length > 0 &&
+                    workingStatusId == 3 && (
+                      <Text
+                        style={{
+                          fontSize: 14,
+                          color: appcolor.danger,
+                          marginBottom: 8,
+                          marginHorizontal: 4,
+                        }}
+                      >
+                        {alertResign}
+                      </Text>
+                    )}
 
-                <View
-                  style={{
-                    flex: 1,
-                    flexDirection: 'row',
-                    justifyContent: 'space-between',
-                  }}
-                >
-                  <ItemInput
-                    value={employeeProfile.workingStatusName || ''}
-                    title={'Từ ngày/đến ngày'}
-                    field={'date'}
-                    editable={false}
-                    appcolor={appcolor}
-                    styles={styles}
-                    workingStatusId={workingStatusId}
-                    dataCalendar={dataCalendar}
-                    openSheet={openSheet}
-                    onChangeText={handleChangeField}
-                    onEndEditing={handleEndEditingField}
-                  />
-                </View>
-
-                {(employeeProfile.workingStatusName == 'Nghỉ việc' ||
-                  workingStatusId === 3) &&
-                  listReason.length > 0 && (
+                  <View
+                    style={{
+                      flex: 1,
+                      flexDirection: 'row',
+                      justifyContent: 'space-between',
+                    }}
+                  >
                     <ItemInput
-                      value={employeeProfile.reasonName || ''}
-                      title={'Lí do nghỉ'}
-                      placeholder={'chọn lí do nghỉ'}
-                      field={'workingStatusReason'}
-                      sheetMode={'WORKING_REASON'}
+                      value={employeeProfile.workingStatusName || ''}
+                      title={'Từ ngày/đến ngày'}
+                      field={'date'}
                       editable={false}
-                      isMultiline={true}
                       appcolor={appcolor}
                       styles={styles}
                       workingStatusId={workingStatusId}
@@ -1412,18 +1383,19 @@ const EditProfileEmployee = ({ navigation, route }) => {
                       onChangeText={handleChangeField}
                       onEndEditing={handleEndEditingField}
                     />
-                  )}
+                  </View>
 
-                {(employeeProfile.workingStatusName == 'Nghỉ việc' ||
-                  workingStatusId === 3) &&
-                  lstReport?.isShowResign === 1 && (
-                    <View style={{ width: '100%' }}>
+                  {(employeeProfile.workingStatusName == 'Nghỉ việc' ||
+                    workingStatusId === 3) &&
+                    listReason.length > 0 && (
                       <ItemInput
-                        value={employeeProfile.notes || ''}
-                        title={'Lí do chi tiết'}
-                        placeholder={'Nhập lí do chi tiết'}
-                        field={'notes'}
-                        editable={true}
+                        value={employeeProfile.reasonName || ''}
+                        title={'Lí do nghỉ'}
+                        placeholder={'chọn lí do nghỉ'}
+                        field={'workingStatusReason'}
+                        sheetMode={'WORKING_REASON'}
+                        editable={false}
+                        isMultiline={true}
                         appcolor={appcolor}
                         styles={styles}
                         workingStatusId={workingStatusId}
@@ -1432,45 +1404,65 @@ const EditProfileEmployee = ({ navigation, route }) => {
                         onChangeText={handleChangeField}
                         onEndEditing={handleEndEditingField}
                       />
+                    )}
 
-                      <ItemInput
-                        value={employeeProfile.confirmNote || ''}
-                        title={'Quản lí ghi chú'}
-                        placeholder={'Nhập ghi chú'}
-                        field={'confirmNote'}
-                        editable={true}
-                        appcolor={appcolor}
-                        styles={styles}
-                        workingStatusId={workingStatusId}
-                        dataCalendar={dataCalendar}
-                        openSheet={openSheet}
-                        onChangeText={handleChangeField}
-                        onEndEditing={handleEndEditingField}
-                      />
+                  {(employeeProfile.workingStatusName == 'Nghỉ việc' ||
+                    workingStatusId === 3) &&
+                    lstReport?.isShowResign === 1 && (
+                      <View style={{ width: '100%' }}>
+                        <ItemInput
+                          value={employeeProfile.notes || ''}
+                          title={'Lí do chi tiết'}
+                          placeholder={'Nhập lí do chi tiết'}
+                          field={'notes'}
+                          editable={true}
+                          appcolor={appcolor}
+                          styles={styles}
+                          workingStatusId={workingStatusId}
+                          dataCalendar={dataCalendar}
+                          openSheet={openSheet}
+                          onChangeText={handleChangeField}
+                          onEndEditing={handleEndEditingField}
+                        />
 
-                      <View style={styles.itemInputPhoto}>
-                        <Text style={styles.itemInputPhotoText}>
-                          {'Đơn xin nghỉ'}
-                        </Text>
-                        <View style={styles.itemInputPhotoList}>
-                          <CustomListView
-                            horizontal={true}
-                            data={listPhotoItem}
-                            extraData={listPhotoItem}
-                            renderItem={({ item, index }) => (
-                              <RenderItemPhoto
-                                item={item}
-                                index={index}
-                                listPhotoItem={listPhotoItem}
-                              />
-                            )}
-                          />
+                        <ItemInput
+                          value={employeeProfile.confirmNote || ''}
+                          title={'Quản lí ghi chú'}
+                          placeholder={'Nhập ghi chú'}
+                          field={'confirmNote'}
+                          editable={true}
+                          appcolor={appcolor}
+                          styles={styles}
+                          workingStatusId={workingStatusId}
+                          dataCalendar={dataCalendar}
+                          openSheet={openSheet}
+                          onChangeText={handleChangeField}
+                          onEndEditing={handleEndEditingField}
+                        />
+
+                        <View style={styles.itemInputPhoto}>
+                          <Text style={styles.itemInputPhotoText}>
+                            {'Đơn xin nghỉ'}
+                          </Text>
+                          <View style={styles.itemInputPhotoList}>
+                            <CustomListView
+                              horizontal={true}
+                              data={listPhotoItem}
+                              extraData={listPhotoItem}
+                              renderItem={({ item, index }) => (
+                                <RenderItemPhoto
+                                  item={item}
+                                  index={index}
+                                  listPhotoItem={listPhotoItem}
+                                />
+                              )}
+                            />
+                          </View>
                         </View>
                       </View>
-                    </View>
-                  )}
-              </View>
-            )}
+                    )}
+                </View>
+              )}
           </ScrollView>
           {isShowDelete && (
             <TouchableOpacity
@@ -1597,7 +1589,7 @@ const EditProfileEmployee = ({ navigation, route }) => {
                     {
                       backgroundColor:
                         item.WorkingStatusName ==
-                        employeeProfile.workingStatusName
+                          employeeProfile.workingStatusName
                           ? appcolor.primary
                           : appcolor.surface,
                     },
@@ -1608,7 +1600,7 @@ const EditProfileEmployee = ({ navigation, route }) => {
                       fontSize: 12,
                       color:
                         item.WorkingStatusName ==
-                        employeeProfile.workingStatusName
+                          employeeProfile.workingStatusName
                           ? appcolor.white
                           : appcolor.dark,
                     }}
@@ -1856,18 +1848,18 @@ const ItemInput = memo(
               (field === 'mobile'
                 ? value
                 : field === 'workingDate'
-                ? moment(value).format('DD/MM/YYYY')
-                : value) || ''
+                  ? moment(value).format('DD/MM/YYYY')
+                  : value) || ''
             }
             keyboardType={field === 'mobile' ? 'numeric' : 'default'}
             iconRight={
               field === 'workingStatusName' ||
-              field === 'workingStatusReason' ||
-              field === 'detailReasonName'
+                field === 'workingStatusReason' ||
+                field === 'detailReasonName'
                 ? 'caret-down'
                 : field === 'gender'
-                ? 'venus-mars'
-                : null
+                  ? 'venus-mars'
+                  : null
             }
             rightFunc={() => openSheet(sheetMode)}
             editable={editable}

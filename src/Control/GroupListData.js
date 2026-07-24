@@ -9,6 +9,7 @@ import {
 import { useSelector } from 'react-redux';
 import { Icon, Text } from '@rneui/themed';
 import _ from 'lodash';
+import SpiralIcon from './Icon/SpiralIcon';
 
 export const GroupListData = ({
   dataMain,

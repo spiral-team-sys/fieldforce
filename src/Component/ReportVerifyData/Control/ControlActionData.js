@@ -18,6 +18,7 @@ import { ItemInput } from './ItemInput';
 import { deletePhoto } from '../../../Controller/PhotoController';
 import { UUIDGenerator } from '../../../Core/Helper';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
+import SpiralIcon from '../../../Control/Icon/SpiralIcon';
 
 const imageOptions = {
   mediaType: 'photo',
@@ -422,8 +423,8 @@ export const ControlActionData = ({
                   statusVerify == 'ONLINE'
                     ? appcolor.success
                     : statusVerify == 'OFFLINE'
-                    ? appcolor.red
-                    : appcolor.dark,
+                      ? appcolor.red
+                      : appcolor.dark,
               }}
               onPress={() => handlerChangeStatus(mode.UPDATESTATUS)}
             >
@@ -434,8 +435,8 @@ export const ControlActionData = ({
                     statusVerify == 'ONLINE'
                       ? appcolor.success
                       : statusVerify == 'OFFLINE'
-                      ? appcolor.red
-                      : appcolor.dark,
+                        ? appcolor.red
+                        : appcolor.dark,
                 }}
               >
                 {statusVerify || 'Trạng thái'}
@@ -502,10 +503,10 @@ export const ControlActionData = ({
             {modeValue == mode.VAT
               ? `VAT - ${itemChild.ProductName}`
               : modeValue == mode.CRM
-              ? `CRM - ${itemChild.ProductName}`
-              : modeValue == mode.FSM
-              ? `FSM - ${itemChild.ProductName}`
-              : `Biên nhận - ${itemChild.ProductName}`}
+                ? `CRM - ${itemChild.ProductName}`
+                : modeValue == mode.FSM
+                  ? `FSM - ${itemChild.ProductName}`
+                  : `Biên nhận - ${itemChild.ProductName}`}
           </Text>
           {/* Header Action */}
           <View style={styles.actionCamera}>

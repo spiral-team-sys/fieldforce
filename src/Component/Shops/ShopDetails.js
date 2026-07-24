@@ -30,6 +30,7 @@ import { useIsFocused } from '@react-navigation/native';
 import { LOCATION_INFO } from '../../Utils/LocationInfo';
 import { UpdateShopInfo } from '../../Controller/ShopController';
 import ViewPictures from '../../Control/Gallary/ViewPictures';
+import SpiralIcon from '../../Control/Icon/SpiralIcon';
 
 const ShopDetails = ({ navigation }) => {
   const { appcolor, shopinfo } = useSelector(state => state.GAppState);

@@ -28,6 +28,7 @@ import { ImageReviewEdit } from '../../Content/ImageReviewEdit';
 import ImageZoom from '../../Content/ImageZoom';
 import { QueryStringSql } from '../../Core/SqliteDbContext';
 import { taskList } from '../../Core/Table';
+import SpiralIcon from '../../Control/Icon/SpiralIcon';
 
 export const PhotoEdit = ({ navigation, route }) => {
   const [photo, setPhoto] = useState([]);

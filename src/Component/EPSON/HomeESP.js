@@ -62,6 +62,7 @@ import { AppCreateAction } from '../../Core/ReduxController';
 import { TODAY } from '../../Core/Utility';
 import Login from './../Login';
 import { RemoveUser } from '../../Controller/UserController';
+import SpiralIcon from '../../Control/Icon/SpiralIcon';
 
 class HomeEPS extends PureComponent {
   constructor(props) {
@@ -469,7 +470,7 @@ class HomeEPS extends PureComponent {
         inactiveDotOpacity={0.4}
         inactiveDotScale={0.6}
         tappableDots={true}
-        // renderDots={}
+      // renderDots={}
       />
     );
   }
@@ -539,8 +540,8 @@ class HomeEPS extends PureComponent {
       title =
         this.state.chartList.length > 0
           ? this.state.chartListFull[0].chartName +
-            ' ' +
-            this.state.chartList[index].pageName
+          ' ' +
+          this.state.chartList[index].pageName
           : '';
     }
 

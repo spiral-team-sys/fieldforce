@@ -29,6 +29,7 @@ import { SearchData } from '../../Control/SearchData/SearchData';
 import CustomTab from '../../Control/Custom/CustomTab';
 import moment from 'moment';
 import _ from 'lodash';
+import SpiralIcon from '../../Control/Icon/SpiralIcon';
 
 export const EmployeeManager = ({ navigation, route }) => {
   const { appcolor, kpiinfo } = useSelector(state => state.GAppState);

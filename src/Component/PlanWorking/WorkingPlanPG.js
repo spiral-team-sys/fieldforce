@@ -15,6 +15,7 @@ import { GetPhotosEvident, deletePhoto } from '../../Controller/PhotoController'
 import { useSelector } from 'react-redux';
 import { LoadingView } from '../../Control/ItemLoading';
 import FormGroup from '../../Content/FormGroup';
+import SpiralIcon from '../../Control/Icon/SpiralIcon';
 
 const expandImage = 'IMAGE_SELECTION_EXPAND_MODAL'
 
@@ -748,7 +749,7 @@ const WorkingPlanPG = ({ navigation, route }) => {
             {showIMV &&
                 <View style={{ width: '100%', height: '100%', borderRadius: 5 }}>
                     <TouchableOpacity onPress={() => setShowIMV(false)} style={{ position: 'absolute', top: 20, right: 15, zIndex: 2 }}>
-                        <SpiralIcon type='font-awesome-5' name='times' size={35} color={appcolor.dark} ></SpiralIcon>
+                        <SpiralIcon type='font-awesome-5' name='times' size={35} color={appcolor.dark} />
                     </TouchableOpacity>
                     <ImageBackground source={{ uri: urlIMV }} style={{ width: '100%', height: '100%', borderRadius: 5, zIndex: 1 }} resizeMode={'contain'} />
                 </View>

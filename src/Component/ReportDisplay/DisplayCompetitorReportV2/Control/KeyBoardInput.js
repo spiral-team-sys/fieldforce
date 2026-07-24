@@ -9,6 +9,7 @@ import {
 import { deviceHeight, deviceWidth } from '../../../Home';
 import { useSelector } from 'react-redux';
 import { Icon } from '@rneui/themed';
+import SpiralIcon from '../../../../Control/Icon/SpiralIcon';
 
 export const KeyboardInput = ({ onSelectNum, disableKeyboard }) => {
   const { appcolor } = useSelector(state => state.GAppState);
@@ -35,19 +36,19 @@ export const KeyboardInput = ({ onSelectNum, disableKeyboard }) => {
           style={
             item === '0'
               ? [
-                  styles.button,
-                  styles.zeroButton,
-                  { backgroundColor: '#DDDDDD' },
-                ]
+                styles.button,
+                styles.zeroButton,
+                { backgroundColor: '#DDDDDD' },
+              ]
               : [
-                  styles.button,
-                  {
-                    backgroundColor:
-                      item == ' ' || item == '_'
-                        ? appcolor.transparent
-                        : '#DDDDDD',
-                  },
-                ]
+                styles.button,
+                {
+                  backgroundColor:
+                    item == ' ' || item == '_'
+                      ? appcolor.transparent
+                      : '#DDDDDD',
+                },
+              ]
           }
         >
           {item == '_' ? (

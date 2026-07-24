@@ -44,6 +44,7 @@ import {
   styleDefault,
 } from '../../Themes/AppsStyle';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
+import SpiralIcon from '../../Control/Icon/SpiralIcon';
 
 const inputFields = [
   'quanity',
@@ -206,8 +207,8 @@ export const DisplayPriceReport = ({ navigation }) => {
       lstReport?.isMultiSendData == 1
         ? 0
         : lstRes.length > 0
-        ? lstRes[0].upload
-        : 0;
+          ? lstRes[0].upload
+          : 0;
     let day = parseInt(moment(new Date()).format('YYYYMMDD'));
     if (workinfo.workDate === day) {
       await setStatus(isUpload);
@@ -340,12 +341,12 @@ export const DisplayPriceReport = ({ navigation }) => {
             if (lstPhoto.length < it.numberIMG) {
               ToastError(
                 itT.name ||
-                  itT.categoryName +
-                    ': Vui lòng chụp ' +
-                    it.numberIMG +
-                    ' tấm hình cho ' +
-                    it.nameVN +
-                    ', ',
+                itT.categoryName +
+                ': Vui lòng chụp ' +
+                it.numberIMG +
+                ' tấm hình cho ' +
+                it.nameVN +
+                ', ',
               );
               return;
             }
@@ -378,10 +379,10 @@ export const DisplayPriceReport = ({ navigation }) => {
               ? lstReport?.minPrice
               : 1000) ||
             item.price %
-              (lstReport?.minPrice && lstReport?.minPrice !== ''
-                ? lstReport?.minPrice
-                : 1000) >
-              0)
+            (lstReport?.minPrice && lstReport?.minPrice !== ''
+              ? lstReport?.minPrice
+              : 1000) >
+            0)
         ) {
           ToastError(
             `Giá sản phẩm ${item.productName} - ${item.categoryName} - ${item.division} sai định dạng`,
@@ -612,7 +613,7 @@ export const DisplayPriceReport = ({ navigation }) => {
         await loadDataShow();
         await setReload(reload + 1);
       },
-      async () => {},
+      async () => { },
     );
   };
 
@@ -683,8 +684,7 @@ export const DisplayPriceReport = ({ navigation }) => {
     if (Status !== 1) {
       const currentItem = data.dataTabByCompe[currentTab.objTab?.index || 0];
       MessageAction(
-        `Bạn có muốn xoá dữ liệu ngành hàng ${currentItem.categoryName} hãng ${
-          currentItem.division || _competitorName
+        `Bạn có muốn xoá dữ liệu ngành hàng ${currentItem.categoryName} hãng ${currentItem.division || _competitorName
         } đã nhập không ?`,
         async () => {
           await clearAllDataDisplay(workinfo, currentItem.categoryId);

@@ -5,6 +5,7 @@ import { Avatar, Icon, Text } from '@rneui/themed';
 import { useSelector } from 'react-redux';
 import { ICON_NOTIFY } from '../Core/URLs';
 import { deviceHeight } from '../Core/Utility';
+import SpiralIcon from '../Control/Icon/SpiralIcon';
 
 export const Notification = ({ props }) => {
   const { navigation, data, onClose } = props;

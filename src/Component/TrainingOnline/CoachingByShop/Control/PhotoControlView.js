@@ -5,6 +5,7 @@ import { TODAY, deviceWidth } from '../../../../Core/Utility';
 import { View } from 'react-native';
 import { Badge, Icon, Text } from '@rneui/base';
 import _ from 'lodash';
+import SpiralIcon from '../../../../Control/Icon/SpiralIcon';
 
 export const PhotoControlView = ({
   isUploaded,

@@ -21,6 +21,7 @@ import base64 from 'react-native-base64';
 import { TRAINEEKEY } from '../../Core/URLs';
 import FormGroup from '../../Content/FormGroup';
 import _ from 'lodash';
+import SpiralIcon from '../../../Control/Icon/SpiralIcon';
 
 if (
   Platform.OS === 'android' &&
@@ -237,7 +238,7 @@ const TrainingList = ({ navigation, route }) => {
           key="groupListIssue"
           keyExtractor={(_item, index) => index.toString()}
           data={dataMain.dataGroupTraining}
-          onScrollToIndexFailed={() => {}}
+          onScrollToIndexFailed={() => { }}
           renderItem={renderItemGroup}
           showsHorizontalScrollIndicator={false}
         />

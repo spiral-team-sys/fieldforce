@@ -24,6 +24,7 @@ import _ from 'lodash';
 import { Message, ToastError, ToastSuccess } from '../../Core/Helper';
 import { checkNetwork } from '../../Core/Utility';
 import { fontWeightBold } from '../../Themes/AppsStyle';
+import SpiralIcon from '../../Control/Icon/SpiralIcon';
 
 export const ApproachReport = ({ navigation }) => {
   const [data, setData] = useState([]);
@@ -369,8 +370,8 @@ const MenuButton = ({ visible = true, info, Status, handlerChange }) => {
               info.isOpen
                 ? 'chevron-down-outline'
                 : info.type !== null && info.type.length > 0
-                ? 'close'
-                : 'settings'
+                  ? 'close'
+                  : 'settings'
             }
             onPress={() => handleSelectMenu()}
           />

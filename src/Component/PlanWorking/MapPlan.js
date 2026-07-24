@@ -20,6 +20,7 @@ import ActionSheet, { SheetManager } from 'react-native-actions-sheet';
 import { ShopProfile } from '../../Component/Shops/ShopProfile';
 import { scaleSize } from '../../Themes/AppsStyle';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
+import SpiralIcon from '../../Control/Icon/SpiralIcon';
 //import { ACTION } from '../../Core/ReduxController';
 const DETAL_LOCATION = 0.005;
 export const MapPlan = ({ navigation, route }) => {

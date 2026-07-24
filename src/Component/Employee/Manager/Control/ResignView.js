@@ -23,6 +23,7 @@ import { SafeAreaView } from 'react-native';
 import { ScrollView } from 'react-native';
 import { MultipleShowImage } from '../../../../Control/MultipleShowImage';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
+import SpiralIcon from '../../../../Control/Icon/SpiralIcon';
 
 export const ResignView = ({
   title,

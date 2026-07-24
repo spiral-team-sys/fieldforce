@@ -10,6 +10,7 @@ import { checkLinkType, Message } from '../../Core/Helper';
 import CustomListView from '../Custom/CustomListView';
 import { deletePhoto } from '../../Controller/PhotoController';
 import _ from 'lodash';
+import SpiralIcon from '../Icon/SpiralIcon';
 
 const ViewPictures = ({
   visible = false,
@@ -174,11 +175,10 @@ const ViewPictures = ({
     const photoTypeNumber = Number(image?.photoType);
     const photoType =
       image?.reportId == 1 &&
-      image?.photoType != null &&
-      !Number.isNaN(photoTypeNumber)
-        ? `${photoTypeNumber % 2 > 0 ? 'CHECK OUT' : 'CHECK IN'} ${
-            photoTypeNumber + 1
-          }`
+        image?.photoType != null &&
+        !Number.isNaN(photoTypeNumber)
+        ? `${photoTypeNumber % 2 > 0 ? 'CHECK OUT' : 'CHECK IN'} ${photoTypeNumber + 1
+        }`
         : image?.photoType;
     return (
       <View style={styles.countContainer}>

@@ -17,6 +17,7 @@ import ViewPictures from '../../../Control/Gallary/ViewPictures';
 import CustomListView from '../../../Control/Custom/CustomListView';
 import CustomTab from '../../../Control/Custom/CustomTab';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
+import SpiralIcon from '../../../Control/Icon/SpiralIcon';
 
 
 export const InputDisplayReport = ({ navigation, appcolor, workinfo, kpiinfo, data, select, Status, isClear, showProgress, reload, currentTab }) => {
@@ -146,7 +147,7 @@ export const InputDisplayReport = ({ navigation, appcolor, workinfo, kpiinfo, da
                         <TouchableOpacity
                             onPress={() => handleTakePicture(it)}
                             style={[styles.headerButton, { width: lstReport?.isNoteBySKU == 1 ? '49%' : '34%' }]}>
-                            <SpiralIcon name='camera' color={appcolor.primary} type='ionicon' size={25}></SpiralIcon>
+                            <SpiralIcon name='camera' color={appcolor.primary} type='ionicon' size={25} />
                             <Text style={styles.headerButtonText}>Chụp hình</Text>
                         </TouchableOpacity>
                         <View style={styles.headerDivider} />
@@ -155,7 +156,7 @@ export const InputDisplayReport = ({ navigation, appcolor, workinfo, kpiinfo, da
                             style={[styles.headerButton, { width: lstReport?.isNoteBySKU == 1 ? '49%' : '34%' }]}>
                             <View style={{ flex: 1, }}>
                                 <Badge badgeStyle={{ position: 'absolute', top: -5, right: -2 }} value={totalPhoto} />
-                                <SpiralIcon name='image' color={appcolor.primary} type='ionicon' size={25}></SpiralIcon>
+                                <SpiralIcon name='image' color={appcolor.primary} type='ionicon' size={25} />
                                 <Text style={styles.headerButtonText}>Xem hình</Text>
                             </View>
                         </TouchableOpacity>
@@ -164,7 +165,7 @@ export const InputDisplayReport = ({ navigation, appcolor, workinfo, kpiinfo, da
                             <TouchableOpacity
                                 onPress={() => handlerShowNote(it.displayRef)}
                                 style={[styles.headerButton, { width: '34%' }]}>
-                                <SpiralIcon name='create-outline' color={appcolor.primary} type='ionicon' size={25}></SpiralIcon>
+                                <SpiralIcon name='create-outline' color={appcolor.primary} type='ionicon' size={25} />
                                 <Text style={styles.headerButtonText}>Ghi chú</Text>
                             </TouchableOpacity>
                         }
@@ -478,7 +479,7 @@ const RenderItemData = memo(({ item, details, isClear, totalRow, appcolor, worki
                                 {totalPhoto > 0 && <View style={{ position: 'absolute', top: -5, right: -5 }}>
                                     <Badge value={totalPhoto} />
                                 </View>}
-                                <SpiralIcon name='camera' color={appcolor.primary} type='ionicon' size={25}></SpiralIcon>
+                                <SpiralIcon name='camera' color={appcolor.primary} type='ionicon' size={25} />
                             </TouchableOpacity>
                         }
 

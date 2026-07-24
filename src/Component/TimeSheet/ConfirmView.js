@@ -20,6 +20,7 @@ const TIMESHEET = {
   GALLERY: 'Gallery',
 };
 import { deviceWidth } from '../../Core/Utility';
+import SpiralIcon from '../../Control/Icon/SpiralIcon';
 const widthImage = deviceWidth / 2 - 28;
 
 export const ConfirmView = ({ data, onLock }) => {
@@ -136,7 +137,7 @@ export const ConfirmView = ({ data, onLock }) => {
           marginEnd: 7,
         }}
       >
-        <TouchableOpacity onPress={() => {}}>
+        <TouchableOpacity onPress={() => { }}>
           <Image
             style={{ minWidth: 100, minHeight: 100 }}
             source={{ uri: photoPath }}

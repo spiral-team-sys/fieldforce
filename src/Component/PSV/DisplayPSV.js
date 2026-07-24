@@ -62,6 +62,7 @@ import { connect } from 'react-redux';
 import { HeaderCustom } from '../../Content/HeaderCustom';
 import ActionSheet from 'react-native-actions-sheet';
 import { Tabs, MaterialTabBar } from 'react-native-collapsible-tab-view';
+import SpiralIcon from '../../Control/Icon/SpiralIcon';
 
 const modalRef = createRef();
 const styles = StyleSheet.create({
@@ -238,8 +239,8 @@ class DisplayPSV extends PureComponent {
       this.setState({
         dataDisplay: this.state.dataDisplay.map(i =>
           i.workId === this.props.workinfo.workId &&
-          i.divisionId === item.divisionId &&
-          i.categoryId === item.categoryId
+            i.divisionId === item.divisionId &&
+            i.categoryId === item.categoryId
             ? { ...i, quantity: mQuantity }
             : i,
         ),
@@ -274,7 +275,7 @@ class DisplayPSV extends PureComponent {
       this.setState({
         dataDisplay: this.state.dataDisplay.map(i =>
           i.workId === this.props.workinfo.workId &&
-          i.productId === item.productId
+            i.productId === item.productId
             ? { ...i, price: mPrice, quanity: mQuantity }
             : i,
         ),
@@ -347,7 +348,7 @@ class DisplayPSV extends PureComponent {
     let mDataFilter = [];
     const isCompetitor =
       this.state.competitorSelect !== '' &&
-      this.state.competitorSelect !== _competitorName
+        this.state.competitorSelect !== _competitorName
         ? true
         : false;
     if (str !== null && str !== undefined && str.length > 0) {
@@ -392,8 +393,8 @@ class DisplayPSV extends PureComponent {
     if (Array.isArray(mDisplayUpload) && mDisplayUpload.length == 0) {
       alertWarning(
         'Vui lòng làm đẩy đủ báo cáo ' +
-          _competitorName +
-          ' trước khi gửi báo cáo',
+        _competitorName +
+        ' trước khi gửi báo cáo',
       );
       return;
     }
@@ -805,8 +806,8 @@ class DisplayPSV extends PureComponent {
             this.state.isOldDay
               ? ''
               : !this.state.isUpload
-              ? 'cloud-upload-alt'
-              : 'check'
+                ? 'cloud-upload-alt'
+                : 'check'
           }
           iconMiddle={
             this.state.isOldDay ? '' : !this.state.isUpload ? 'trash' : ''
@@ -815,15 +816,15 @@ class DisplayPSV extends PureComponent {
             this.state.isOldDay
               ? null
               : !this.state.isUpload
-              ? () => this.actionUploadData()
-              : () => {}
+                ? () => this.actionUploadData()
+                : () => { }
           }
           middleFunc={
             this.state.isOldDay
               ? null
               : !this.state.isUpload
-              ? () => this.clearAllData()
-              : null
+                ? () => this.clearAllData()
+                : null
           }
         />
         <View

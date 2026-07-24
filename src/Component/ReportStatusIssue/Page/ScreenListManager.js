@@ -28,8 +28,9 @@ import {
 import { FloatActionButton, TypeFAB } from '../../../Control/FAB';
 import { ISSUEAPI } from '../../../API/IssueAPI';
 import moment from 'moment';
+import SpiralIcon from '../../../Control/Icon/SpiralIcon';
 
-export const ScreenListManager = ({}) => {
+export const ScreenListManager = ({ }) => {
   const { appcolor, kpiinfo } = useSelector(state => state.GAppState);
   const [isLoading, setLoading] = useState(false);
   const [openReupdate, _setOpenReupdate] = useState({
@@ -353,9 +354,8 @@ export const ScreenListManager = ({}) => {
           </View>
         </View>
         <PhotoView photos={photos} indexMain={index} />
-        <Text style={styles.titleTimer}>{`Cập nhật bởi: ${
-          item.createByName
-        } - ${moment(item.createdDate).fromNow()}`}</Text>
+        <Text style={styles.titleTimer}>{`Cập nhật bởi: ${item.createByName
+          } - ${moment(item.createdDate).fromNow()}`}</Text>
       </TouchableOpacity>
     );
   };
@@ -418,9 +418,8 @@ export const ScreenListManager = ({}) => {
               data,
               e => e.issueStatus == item.issueStatus,
             );
-            const titleHead = `${item.issueStatusName}${
-              _dataIssues.length > 0 ? ` (${_dataIssues.length})` : ''
-            }`;
+            const titleHead = `${item.issueStatusName}${_dataIssues.length > 0 ? ` (${_dataIssues.length})` : ''
+              }`;
             return (
               <Tabs.Tab
                 key={`tabiis_${index}`}

@@ -23,6 +23,7 @@ import { NumPad_V2 } from '../../../Control/NumPad_V2';
 import ActionSheet, { SheetManager } from 'react-native-actions-sheet';
 import { deviceHeight } from '../../Home';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
+import SpiralIcon from '../../../Control/Icon/SpiralIcon';
 
 export const TrackingCompetitor = ({ navigation, route, reload, Status, toolAction }) => {
     const insets = useSafeAreaInsets()
@@ -480,9 +481,9 @@ export const TrackingCompetitor = ({ navigation, route, reload, Status, toolActi
                                                         <View style={{ flexDirection: 'row', justifyContent: 'center', alignItems: 'center', marginRight: 5 }}>
                                                             {
                                                                 Status != 1 ?
-                                                                    <SpiralIcon name='camera' color={appcolor.primary} type='ionicon' size={16}></SpiralIcon>
+                                                                    <SpiralIcon name='camera' color={appcolor.primary} type='ionicon' size={16} />
                                                                     :
-                                                                    <SpiralIcon name='images' color={appcolor.primary} type='ionicon' size={16}></SpiralIcon>
+                                                                    <SpiralIcon name='images' color={appcolor.primary} type='ionicon' size={16} />
                                                             }
                                                             <Text style={{ color: appcolor.dark, fontSize: 12, paddingLeft: 3 }}>{Status != 1 ? 'Chụp hình' : 'Xem hình'}</Text>
                                                         </View>
@@ -494,7 +495,7 @@ export const TrackingCompetitor = ({ navigation, route, reload, Status, toolActi
                                                                 onPress={() => takePhoto(it.tabName)}
                                                                 style={{ flexDirection: 'row', minHeight: 30, marginRight: 2, padding: 3, justifyContent: 'center', alignItems: 'center', borderRadius: 6, backgroundColor: appcolor.surface }}>
                                                                 <View style={{ flexDirection: 'row', justifyContent: 'center', alignItems: 'center' }}>
-                                                                    <SpiralIcon name='camera' color={appcolor.primary} type='ionicon' size={16}></SpiralIcon>
+                                                                    <SpiralIcon name='camera' color={appcolor.primary} type='ionicon' size={16} />
                                                                     <Text style={{ color: appcolor.dark, fontSize: 12, paddingLeft: 3 }}>Chụp hình</Text>
                                                                 </View>
                                                             </TouchableOpacity>
@@ -504,7 +505,7 @@ export const TrackingCompetitor = ({ navigation, route, reload, Status, toolActi
                                                             style={{ minHeight: 30, padding: 3, paddingVertical: 5, marginRight: 3, borderRadius: 6, backgroundColor: appcolor.surface }}>
                                                             <Badge badgeStyle={{ position: 'absolute', top: -8, right: -8 }} value={totalPhoto} />
                                                             <View style={{ flexDirection: 'row', justifyContent: 'center', alignItems: 'center' }}>
-                                                                <SpiralIcon name='images' color={appcolor.primary} type='ionicon' size={16}></SpiralIcon>
+                                                                <SpiralIcon name='images' color={appcolor.primary} type='ionicon' size={16} />
                                                                 <Text style={{ color: appcolor.dark, fontSize: 12, paddingLeft: 3 }}>Xem hình</Text>
                                                             </View>
                                                         </TouchableOpacity>

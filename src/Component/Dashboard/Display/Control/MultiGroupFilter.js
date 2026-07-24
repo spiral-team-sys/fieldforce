@@ -5,6 +5,7 @@ import { Icon, Text } from '@rneui/base';
 import { useSelector } from 'react-redux';
 import { fontWeightBold } from '../../../../Themes/AppsStyle';
 import _ from 'lodash';
+import SpiralIcon from '../../../../Control/Icon/SpiralIcon';
 
 const MultiGroupFilter = ({
   isReloadFilter = false,

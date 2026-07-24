@@ -21,6 +21,7 @@ import ActionSheet, { SheetManager } from 'react-native-actions-sheet';
 import { MessageInfo } from '../../../Core/Helper';
 import { AppCreateAction } from '../../../Core/ReduxController';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
+import SpiralIcon from '../../../Control/Icon/SpiralIcon';
 
 export const ViewStore = ({ navigation, route }) => {
   const insets = useSafeAreaInsets();
@@ -38,9 +39,8 @@ export const ViewStore = ({ navigation, route }) => {
   const dispatch = useDispatch();
 
   const loadData = async () => {
-    const KEYSTORE_REPORT = `D${moment(new Date()).format('YYYYMMDD')}S${
-      route.params?.employeeId
-    }R${kpiinfo.id}N${'EMPLOYEESTORE'}`;
+    const KEYSTORE_REPORT = `D${moment(new Date()).format('YYYYMMDD')}S${route.params?.employeeId
+      }R${kpiinfo.id}N${'EMPLOYEESTORE'}`;
     const json = await AsyncStorage.getItem(KEYSTORE_REPORT);
     const storeList = await JSON.parse(json);
     const dataEmployee = route.params.item;
@@ -118,9 +118,8 @@ export const ViewStore = ({ navigation, route }) => {
     data.dataStoreF.map(it => {
       it.IsChose = 0;
     });
-    const KEYSTORE_REPORT = `D${moment(new Date()).format('YYYYMMDD')}S${
-      route.params?.employeeId
-    }R${kpiinfo.id}N${'EMPLOYEESTORE'}`;
+    const KEYSTORE_REPORT = `D${moment(new Date()).format('YYYYMMDD')}S${route.params?.employeeId
+      }R${kpiinfo.id}N${'EMPLOYEESTORE'}`;
     AsyncStorage.removeItem(KEYSTORE_REPORT);
   };
 
@@ -182,9 +181,8 @@ export const ViewStore = ({ navigation, route }) => {
     dispatch(AppCreateAction.SetListDataStore(item));
   };
   const saveToStorage = async () => {
-    const KEYSTORE_REPORT = `D${moment(new Date()).format('YYYYMMDD')}S${
-      route.params.employeeId
-    }R${kpiinfo.id}N${'EMPLOYEESTORE'}`;
+    const KEYSTORE_REPORT = `D${moment(new Date()).format('YYYYMMDD')}S${route.params.employeeId
+      }R${kpiinfo.id}N${'EMPLOYEESTORE'}`;
     await AsyncStorage.setItem(
       KEYSTORE_REPORT,
       JSON.stringify(data.dataStoreF),

@@ -18,6 +18,7 @@ import {
 import { AppNameBuild, TRAINEEKEY } from '../../../Core/URLs';
 import { deviceWidth } from '../../../Core/Utility';
 import { SetKpiInfo } from '../../../Redux/action';
+import SpiralIcon from '../../../Control/Icon/SpiralIcon';
 
 export const MenuHomePSV = ({ navigation, menus }) => {
   const { appcolor } = useSelector(state => state.GAppState);

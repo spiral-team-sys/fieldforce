@@ -14,6 +14,7 @@ import { Icon, Text } from '@rneui/base';
 import { deviceHeight } from '../../../Themes/AppsStyle';
 import { IconAnimation } from '../../../Control/IconAnimation/IconAnimation';
 import { useFocusEffect } from '@react-navigation/native';
+import SpiralIcon from '../../../Control/Icon/SpiralIcon';
 
 export const DashboardAttendantToshiba = ({
   navigation,
@@ -172,7 +173,7 @@ export const DashboardAttendantToshiba = ({
               onPress={isLoading ? null : LoadData}
               style={styles.actionSync}
             >
-              <SpiralIconAnimation
+              <IconAnimation
                 isLoop={isLoading}
                 sourceIcon={require('../../../Themes/lotties/sync_load.json')}
               />

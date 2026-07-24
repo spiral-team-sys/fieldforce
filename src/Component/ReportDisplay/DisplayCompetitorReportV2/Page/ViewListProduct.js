@@ -30,6 +30,7 @@ import { Icon } from '@rneui/themed';
 import { MenuButton } from '../Control/MenuButton';
 import { InputNewProduct } from '../Control/InputNewProduct';
 import { fontWeightBold } from '../../../../Themes/AppsStyle';
+import SpiralIcon from '../../../../Control/Icon/SpiralIcon';
 
 const listInputDefault = [
   {
@@ -324,9 +325,8 @@ export const ViewListProduct = ({ navigation, route, Status }) => {
             padding: 2,
           }}
         >
-          <Text style={styles.titleInputStyle}>{`${index + 1}. ${
-            item.modelName
-          }`}</Text>
+          <Text style={styles.titleInputStyle}>{`${index + 1}. ${item.modelName
+            }`}</Text>
           {item.isAddProduct == 1 && item.upload !== 1 && (
             <SpiralIcon
               name="minus-circle"
@@ -539,8 +539,8 @@ export const ViewListProduct = ({ navigation, route, Status }) => {
         handleChangeForm={onSearchData}
         onClearTextAndroid={onSearchData}
         useClearAndroid={true}
-        // onFocus={onFocusSearch}
-        // onEndEditing={onFocusSearch}
+      // onFocus={onFocusSearch}
+      // onEndEditing={onFocusSearch}
       />
 
       {data.dataTab !== undefined &&
@@ -573,9 +573,8 @@ export const ViewListProduct = ({ navigation, route, Status }) => {
                 data.dataShow,
                 e => e.divisionId == item.divisionId,
               );
-              const titleHead = `${item.division}${
-                _dataProduct.length > 0 ? ` (${_dataProduct.length})` : ``
-              }`;
+              const titleHead = `${item.division}${_dataProduct.length > 0 ? ` (${_dataProduct.length})` : ``
+                }`;
               return (
                 <Tabs.Tab
                   key={`tabCompe_${item.divisionId}`}

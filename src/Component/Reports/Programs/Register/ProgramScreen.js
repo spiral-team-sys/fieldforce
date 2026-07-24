@@ -24,6 +24,7 @@ import { formatNumber, removeVietnameseTones } from '../../../../Core/Helper';
 import CustomTab from '../../../../Control/Custom/CustomTab';
 import moment from 'moment';
 import _ from 'lodash';
+import SpiralIcon from '../../../../Control/Icon/SpiralIcon';
 
 const ProgramScreen = ({ navigation }) => {
   const insets = useSafeAreaInsets();
@@ -207,22 +208,19 @@ const ProgramScreen = ({ navigation }) => {
         </View>
         <View style={styles.viewInfo}>
           <View style={styles.itemInfo}>
-            <Text style={styles.subTitleName}>{`${
-              item.t1 || `Hình thức thưởng`
-            }`}</Text>
+            <Text style={styles.subTitleName}>{`${item.t1 || `Hình thức thưởng`
+              }`}</Text>
             <Text style={styles.subTitleValue}>
               {item.awardValue
-                ? `${formatNumber(item.awardValue, ',')} ${
-                    item.awardTypeName || ''
-                  }`
+                ? `${formatNumber(item.awardValue, ',')} ${item.awardTypeName || ''
+                }`
                 : '--'}
             </Text>
           </View>
           {item.targetAmount > 0 && (
             <View style={styles.itemInfo}>
-              <Text style={styles.subTitleName}>{`${
-                item.t2 || `Doanh số mục tiêu`
-              }`}</Text>
+              <Text style={styles.subTitleName}>{`${item.t2 || `Doanh số mục tiêu`
+                }`}</Text>
               <Text style={styles.subTitleValue}>{`${formatNumber(
                 item.targetAmount,
                 ', ',
@@ -231,9 +229,8 @@ const ProgramScreen = ({ navigation }) => {
           )}
           {item.totalAwardValue > 0 && (
             <View style={styles.itemInfo}>
-              <Text style={styles.subTitleName}>{`${
-                item.t3 || `Tổng thưởng`
-              }`}</Text>
+              <Text style={styles.subTitleName}>{`${item.t3 || `Tổng thưởng`
+                }`}</Text>
               <Text style={styles.subTitleValue}>{`${formatNumber(
                 item.totalAwardValue,
                 ',',
@@ -262,9 +259,8 @@ const ProgramScreen = ({ navigation }) => {
                   styles.titleConfirm,
                   { color: appcolor[item.confirmColor] },
                 ]}
-              >{`${item.confirmStatus || ''} ${
-                item.confirmDate ? moment(item.confirmDate).fromNow() : ''
-              }`}</Text>
+              >{`${item.confirmStatus || ''} ${item.confirmDate ? moment(item.confirmDate).fromNow() : ''
+                }`}</Text>
             </View>
           </View>
         ) : (
@@ -320,7 +316,7 @@ const ProgramScreen = ({ navigation }) => {
             data={['DETAILS']}
             renderItem={() => {
               return (
-                <ProgramDetails item={itemDetail} onShowDocument={() => {}} />
+                <ProgramDetails item={itemDetail} onShowDocument={() => { }} />
               );
             }}
             bottomView={{ paddingBottom: 8 }}

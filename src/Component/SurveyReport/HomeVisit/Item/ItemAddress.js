@@ -19,6 +19,7 @@ import Geolocation from '@react-native-community/geolocation';
 import { LocationAPI } from '../../../../API/LocationAPI';
 import { LOCATION_INFO } from '../../../../Utils/LocationInfo';
 import { SafeAreaProvider, SafeAreaView } from 'react-native-safe-area-context';
+import SpiralIcon from '../../../../Control/Icon/SpiralIcon';
 
 const ItemAddress = ({ item, onUpdateItem }) => {
   const { appcolor, shopinfo } = useSelector(state => state.GAppState);
@@ -76,9 +77,9 @@ const ItemAddress = ({ item, onUpdateItem }) => {
     const parsed = parseAddressValue(item?.Value);
     const regionId = Number(
       item?.regionId ??
-        item?.RegionId ??
-        parsed?.regionId ??
-        parsed?.district?.level2_id,
+      item?.RegionId ??
+      parsed?.regionId ??
+      parsed?.district?.level2_id,
     );
     return Number.isFinite(regionId) ? regionId : null;
   };
@@ -93,33 +94,33 @@ const ItemAddress = ({ item, onUpdateItem }) => {
 
   const filteredProvinces = normalizeText(searchProvince)
     ? provinces.filter(x =>
-        normalizeText(x?.name).includes(normalizeText(searchProvince)),
-      )
+      normalizeText(x?.name).includes(normalizeText(searchProvince)),
+    )
     : provinces;
 
   const filteredDistricts = normalizeText(searchDistrict)
     ? districts.filter(x =>
-        normalizeText(x?.name).includes(normalizeText(searchDistrict)),
-      )
+      normalizeText(x?.name).includes(normalizeText(searchDistrict)),
+    )
     : districts;
 
   const getItemCoordinate = () => {
     const parsed = parseAddressValue(item?.Value);
     const latitude = Number(
       item?.Latitude ??
-        item?.latitude ??
-        item?.Lat ??
-        item?.lat ??
-        parsed?.latitude ??
-        parsed?.Latitude,
+      item?.latitude ??
+      item?.Lat ??
+      item?.lat ??
+      parsed?.latitude ??
+      parsed?.Latitude,
     );
     const longitude = Number(
       item?.Longitude ??
-        item?.longitude ??
-        item?.Lng ??
-        item?.lng ??
-        parsed?.longitude ??
-        parsed?.Longitude,
+      item?.longitude ??
+      item?.Lng ??
+      item?.lng ??
+      parsed?.longitude ??
+      parsed?.Longitude,
     );
     if (!Number.isFinite(latitude) || !Number.isFinite(longitude)) return null;
     return { latitude, longitude };
@@ -667,8 +668,8 @@ const ItemAddress = ({ item, onUpdateItem }) => {
                   {modalStep === 'province'
                     ? 'Chọn Tỉnh/Thành phố'
                     : modalStep === 'district'
-                    ? `Chọn Quận/Huyện/Phường - ${selectedProvince?.name}`
-                    : `Nhập Địa Chỉ - ${selectedDistrict?.name}, ${selectedProvince?.name}`}
+                      ? `Chọn Quận/Huyện/Phường - ${selectedProvince?.name}`
+                      : `Nhập Địa Chỉ - ${selectedDistrict?.name}, ${selectedProvince?.name}`}
                 </Text>
                 <TouchableOpacity
                   onPress={closeModal}

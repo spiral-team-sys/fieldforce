@@ -30,6 +30,7 @@ import CustomListView from '../../Control/Custom/CustomListView';
 import ViewPictures from '../../Control/Gallary/ViewPictures';
 import { GroupListData } from '../../Control/GroupListData';
 import { fontWeightBold } from '../../Themes/AppsStyle';
+import SpiralIcon from '../../Control/Icon/SpiralIcon';
 
 // ─── Constants ────────────────────────────────────────────────────────────────
 
@@ -72,9 +73,9 @@ const computeAlertItem = (item, dateCheck, dateResign) => {
     `- Ngày nghỉ sớm nhất đúng quy định: ${dateLimit}`,
     costViolate > 0
       ? `- Mức phạt vi phạm: ${costViolate.toLocaleString('vi-VN', {
-          style: 'currency',
-          currency: 'VND',
-        })}`
+        style: 'currency',
+        currency: 'VND',
+      })}`
       : '',
     item?.noteResignByEmployee ? `- ${item.noteResignByEmployee}` : '',
   ]
@@ -92,10 +93,10 @@ const processItems = rawArr =>
     alertItem:
       item.contractNoticeDays > 0
         ? computeAlertItem(
-            item,
-            moment(item.createdDate).format('YYYY-MM-DD'),
-            moment(item.fromDate, 'YYYYMMDD').format('YYYY-MM-DD'),
-          )
+          item,
+          moment(item.createdDate).format('YYYY-MM-DD'),
+          moment(item.fromDate, 'YYYYMMDD').format('YYYY-MM-DD'),
+        )
         : null,
   }));
 
@@ -165,7 +166,7 @@ export const ConfirmsResigns = ({ navigation, route, isShowHeader = true }) => {
             loadData();
           }
         },
-        () => {},
+        () => { },
       );
     },
     [userinfo.groupType, loadData],
@@ -192,9 +193,8 @@ export const ConfirmsResigns = ({ navigation, route, isShowHeader = true }) => {
         ...item,
         confirm,
         confirmContent: confirm === 1 ? 'Đồng ý' : 'Từ chối',
-        notifyContent: `Quản lí ${userinfo.employeeName} đã ${
-          confirm === 1 ? 'Đồng ý' : 'Từ chối'
-        } yêu cầu xin nghỉ việc vào ${moment().format('YYYY-MM-DD HH:mm')}.`,
+        notifyContent: `Quản lí ${userinfo.employeeName} đã ${confirm === 1 ? 'Đồng ý' : 'Từ chối'
+          } yêu cầu xin nghỉ việc vào ${moment().format('YYYY-MM-DD HH:mm')}.`,
         confirmDate: moment().format('YYYY-MM-DD HH:mm'),
       };
       if (
@@ -206,7 +206,7 @@ export const ConfirmsResigns = ({ navigation, route, isShowHeader = true }) => {
         MessageAction2(
           'Bạn chưa nhập ghi chú về việc vi phạm thời gian báo trước theo hợp đồng lao động. Bạn có chắc chắn muốn tiếp tục đồng ý cho nhân viên nghỉ việc không ?',
           () => uploadAction(payload),
-          () => {},
+          () => { },
         );
       } else {
         uploadAction(payload);
@@ -267,10 +267,10 @@ export const ConfirmsResigns = ({ navigation, route, isShowHeader = true }) => {
             alertItem:
               updated.contractNoticeDays > 0
                 ? computeAlertItem(
-                    updated,
-                    moment(updated.createdDate).format('YYYY-MM-DD'),
-                    date,
-                  )
+                  updated,
+                  moment(updated.createdDate).format('YYYY-MM-DD'),
+                  date,
+                )
                 : null,
           };
         }),
@@ -375,8 +375,8 @@ const ResignCard = memo(
       item.confirm === 3
         ? appcolor.warning
         : item.confirm === 1
-        ? appcolor.success
-        : appcolor.danger;
+          ? appcolor.success
+          : appcolor.danger;
 
     const renderPhoto = ({ item: ph, index }) => (
       <TouchableOpacity onPress={() => onSelectImage(item._photos, index)}>
@@ -400,8 +400,8 @@ const ResignCard = memo(
                   item.confirm === 3
                     ? 'clock'
                     : item.confirm === 1
-                    ? 'check-circle'
-                    : 'times-circle'
+                      ? 'check-circle'
+                      : 'times-circle'
                 }
                 type="font-awesome-5"
                 size={13}

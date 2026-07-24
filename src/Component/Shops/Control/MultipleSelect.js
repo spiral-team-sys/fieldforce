@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
 import { useSelector } from 'react-redux';
 import { Icon } from '@rneui/themed';
+import SpiralIcon from '../../../Control/Icon/SpiralIcon';
 
 const MultipleSelect = ({
   titleName,
@@ -32,10 +33,10 @@ const MultipleSelect = ({
     const styleView =
       item.isChoose == 1
         ? {
-            ...styles.itemContent,
-            borderWidth: 1,
-            borderColor: appcolor.primary,
-          }
+          ...styles.itemContent,
+          borderWidth: 1,
+          borderColor: appcolor.primary,
+        }
         : styles.itemContent;
     const styleTitle =
       item.isChoose == 1

@@ -38,6 +38,7 @@ import { FlashList } from '@shopify/flash-list';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { REPORT } from '../../API/ReportAPI';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
+import SpiralIcon from '../../Control/Icon/SpiralIcon';
 const SHIFT_MODE = {
   ON: 'ON',
   OFF: 'OFF',
@@ -303,8 +304,8 @@ export const MonthlyPlan = ({ navigation }) => {
         ? item.isCheckMinimal == 2
           ? true
           : planShiftOn.length > 0
-          ? true
-          : false
+            ? true
+            : false
         : false;
     const statusCheck =
       planShiftOn.length < (item.minimalStore || 0) ? false : true;
@@ -314,10 +315,10 @@ export const MonthlyPlan = ({ navigation }) => {
       item.isSendSystem == 3
         ? appcolor.blue
         : planstatus === 3
-        ? appcolor.yellow
-        : planstatus === 1
-        ? appcolor.success
-        : appcolor.transparent;
+          ? appcolor.yellow
+          : planstatus === 1
+            ? appcolor.success
+            : appcolor.transparent;
 
     return (
       <View
@@ -652,14 +653,14 @@ export const MonthlyPlan = ({ navigation }) => {
       editItem.planData =
         shiftDefaulOff !== null
           ? JSON.stringify([
-              {
-                ShopId: userinfo.employeeId,
-                ShiftType: SHIFT_MODE.OFF,
-                ShiftCode: shiftDefaulOff,
-                Status: 3,
-                Note: note,
-              },
-            ])
+            {
+              ShopId: userinfo.employeeId,
+              ShiftType: SHIFT_MODE.OFF,
+              ShiftCode: shiftDefaulOff,
+              Status: 3,
+              Note: note,
+            },
+          ])
           : null;
       _calendar[indexUpdate] = editItem;
       setCalendar(_calendar);
@@ -1357,8 +1358,8 @@ export const MonthlyPlan = ({ navigation }) => {
                 // disabled={(mode === SHIFT_MODE.ON && listShopSelect.dailyshopSelect?.length === 0 && !isNoneShop) || (mode === SHIFT_MODE.OFF && shiftDefaulOff === null) ? true : false}
                 disabled={
                   mode === SHIFT_MODE.ON &&
-                  listShopSelect.dailyshopSelect?.length === 0 &&
-                  !isNoneShop
+                    listShopSelect.dailyshopSelect?.length === 0 &&
+                    !isNoneShop
                     ? true
                     : false
                 }
@@ -1377,8 +1378,7 @@ export const MonthlyPlan = ({ navigation }) => {
                   Xác nhận{' '}
                   {(mode === SHIFT_MODE.ON ? shiftDefaulOn : shiftDefaulOff) !==
                     null &&
-                    `(${
-                      mode === SHIFT_MODE.ON ? shiftDefaulOn : shiftDefaulOff
+                    `(${mode === SHIFT_MODE.ON ? shiftDefaulOn : shiftDefaulOff
                     })`}
                 </Text>
               </TouchableOpacity>
@@ -1665,8 +1665,8 @@ const ONPlan = ({ props }) => {
                           color: isSelected
                             ? appcolor.white
                             : item.total > 4
-                            ? appcolor.danger
-                            : appcolor.dark,
+                              ? appcolor.danger
+                              : appcolor.dark,
                           fontSize: scaleSize(12),
                           flexGrow: 1,
                         }}
@@ -1679,8 +1679,8 @@ const ONPlan = ({ props }) => {
                           color: isSelected
                             ? appcolor.white
                             : item.total > 4
-                            ? appcolor.danger
-                            : appcolor.dark,
+                              ? appcolor.danger
+                              : appcolor.dark,
                           fontSize: 12,
                         }}
                       >
@@ -1699,8 +1699,8 @@ const ONPlan = ({ props }) => {
                             color: isSelected
                               ? appcolor.white
                               : item.actualFrequency < item.monthlyFrequency
-                              ? appcolor.tomato
-                              : appcolor.dark,
+                                ? appcolor.tomato
+                                : appcolor.dark,
                           }}
                         >{`${item.frequencyView}${item.actualFrequency}`}</Text>
                       </View>
@@ -1835,7 +1835,7 @@ const OFFPlan = ({ props }) => {
     </View>
   );
 };
-const WeekItem = ({}) => {
+const WeekItem = ({ }) => {
   const { appcolor } = useSelector(state => state.GAppState);
   return (
     <View style={{ flexDirection: 'row', borderBottomWidth: 0.2 }}>

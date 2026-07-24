@@ -25,6 +25,7 @@ import {
 } from '../../Controller/SellOutController';
 import { LoadingView } from '../../Control/ItemLoading';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
+import SpiralIcon from '../../Control/Icon/SpiralIcon';
 
 if (
   Platform.OS === 'android' &&
@@ -105,7 +106,7 @@ export const HomeInstoreShare = ({ navigation, route }) => {
         iconRight="cloud-upload-alt"
         iconMiddle="filter"
         middleFunc={() => SheetManager.show('SheetInstoreShare')}
-        // rightFunc={(this.state.lockReport) ? null : () => this.uploadSellout()}
+      // rightFunc={(this.state.lockReport) ? null : () => this.uploadSellout()}
       />
       <LoadingView isLoading={isLoading} title={'Đang cập nhật dữ liệu'} />
       {!isLoading && (

@@ -5,6 +5,7 @@ import { Icon, Text } from '@rneui/themed';
 import moment from 'moment';
 import { useSelector } from 'react-redux';
 import { fontWeightBold } from '../../../../Themes/AppsStyle';
+import SpiralIcon from '../../../../Control/Icon/SpiralIcon';
 
 const TimeChoose = ({
   visible = true,
@@ -38,8 +39,8 @@ const TimeChoose = ({
       isAccepted
         ? roundedMoment.toDate()
         : dateValue
-        ? new Date(dateValue)
-        : moment().startOf('day').toDate(),
+          ? new Date(dateValue)
+          : moment().startOf('day').toDate(),
     );
     setOpen(false);
   };

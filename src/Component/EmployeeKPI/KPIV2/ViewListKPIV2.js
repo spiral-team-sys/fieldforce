@@ -24,6 +24,7 @@ import _ from 'lodash';
 import { getPhotoByType } from '../../../Controller/DisplayController';
 import { Badge } from '@rneui/base';
 import { UUIDGenerator } from '../../../Core/Helper';
+import SpiralIcon from '../../../Control/Icon/SpiralIcon';
 
 if (
   Platform.OS === 'android' &&
@@ -479,70 +480,70 @@ export const ViewListKPIV2 = ({
           const dataHistoryByGroup =
             dataKPIHistory?.length > 0
               ? dataKPIHistory?.filter(
-                  ith =>
-                    ith.GroupId == it.GroupId &&
-                    ith.SubGroupId == it.SubGroupId,
-                )
+                ith =>
+                  ith.GroupId == it.GroupId &&
+                  ith.SubGroupId == it.SubGroupId,
+              )
               : [];
           return (
             <View key={'ViewGroup_' + idx} style={styles.groupWrap}>
               {(dataGroup?.length > 1 ||
                 configTableData?.showGroupDetail == 1) && (
-                <View>
-                  <TouchableOpacity
-                    onPress={() => onPressShow(it)}
-                    style={styles.groupHeader}
-                  >
-                    <View style={styles.groupHeaderLeft}>
-                      <Text style={styles.groupHeaderTitle}>
-                        {it.SubGroupName}
-                      </Text>
-                      {it.Decription && (
-                        <Text style={styles.groupHeaderDesc}>
-                          {it.Decription}
-                        </Text>
-                      )}
-                    </View>
-                    <View style={styles.groupHeaderRight}>
-                      {configData.byShop == 0 && (
-                        <Text style={styles.groupHeaderTotal}>
-                          ({totalByGroup || 0})
-                        </Text>
-                      )}
-                      <SpiralIcon
-                        name={
-                          it.isShowDetail ? 'chevron-down' : 'chevron-right'
-                        }
-                        type="font-awesome-5"
-                        size={20}
-                        color={appcolor.dark}
-                      />
-                    </View>
-                  </TouchableOpacity>
-                  {dataHistoryByGroup?.length > 0 && (
-                    <View style={styles.groupHistoryWrap}>
-                      <TouchableOpacity
-                        onPress={() => handleSelectHistory(dataHistoryByGroup)}
-                        style={styles.groupHistoryBtn}
-                      >
-                        <Text style={styles.groupHistoryText}>
-                          Lịch sử chấm điểm
+                  <View>
+                    <TouchableOpacity
+                      onPress={() => onPressShow(it)}
+                      style={styles.groupHeader}
+                    >
+                      <View style={styles.groupHeaderLeft}>
+                        <Text style={styles.groupHeaderTitle}>
+                          {it.SubGroupName}
                         </Text>
                         {it.Decription && (
                           <Text style={styles.groupHeaderDesc}>
                             {it.Decription}
                           </Text>
                         )}
-                      </TouchableOpacity>
-                    </View>
-                  )}
-                </View>
-              )}
+                      </View>
+                      <View style={styles.groupHeaderRight}>
+                        {configData.byShop == 0 && (
+                          <Text style={styles.groupHeaderTotal}>
+                            ({totalByGroup || 0})
+                          </Text>
+                        )}
+                        <SpiralIcon
+                          name={
+                            it.isShowDetail ? 'chevron-down' : 'chevron-right'
+                          }
+                          type="font-awesome-5"
+                          size={20}
+                          color={appcolor.dark}
+                        />
+                      </View>
+                    </TouchableOpacity>
+                    {dataHistoryByGroup?.length > 0 && (
+                      <View style={styles.groupHistoryWrap}>
+                        <TouchableOpacity
+                          onPress={() => handleSelectHistory(dataHistoryByGroup)}
+                          style={styles.groupHistoryBtn}
+                        >
+                          <Text style={styles.groupHistoryText}>
+                            Lịch sử chấm điểm
+                          </Text>
+                          {it.Decription && (
+                            <Text style={styles.groupHeaderDesc}>
+                              {it.Decription}
+                            </Text>
+                          )}
+                        </TouchableOpacity>
+                      </View>
+                    )}
+                  </View>
+                )}
               <View
                 style={[
                   it.isShowDetail ||
-                  (dataGroup?.length == 1 &&
-                    configTableData?.showGroupDetail !== 1)
+                    (dataGroup?.length == 1 &&
+                      configTableData?.showGroupDetail !== 1)
                     ? styles.groupShowDetail
                     : styles.groupShowDetailNone,
                 ]}

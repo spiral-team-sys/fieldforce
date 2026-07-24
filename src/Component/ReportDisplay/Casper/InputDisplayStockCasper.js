@@ -30,6 +30,7 @@ import { Icon } from '@rneui/themed';
 import { LoadingView } from '../../../Control/ItemLoading';
 import { FlashList } from '@shopify/flash-list';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
+import SpiralIcon from '../../../Control/Icon/SpiralIcon';
 
 export const InputDisplayStockCasper = ({
   navigation,
@@ -498,18 +499,18 @@ const RenderItemInput = ({
     itemInput.displayType == 'fsmValue'
       ? item.fsmValue || ''
       : itemInput.displayType == 'price'
-      ? item.price || ''
-      : itemInput.displayType == 'quanity'
-      ? item.quanity === 0
-        ? 0
-        : item.quanity || ''
-      : itemInput.displayType == 'quantityStock'
-      ? item.quantityStock === 0
-        ? 0
-        : item.quantityStock || ''
-      : item.quantitySuggest === 0
-      ? 0
-      : item.quantitySuggest || '',
+        ? item.price || ''
+        : itemInput.displayType == 'quanity'
+          ? item.quanity === 0
+            ? 0
+            : item.quanity || ''
+          : itemInput.displayType == 'quantityStock'
+            ? item.quantityStock === 0
+              ? 0
+              : item.quantityStock || ''
+            : item.quantitySuggest === 0
+              ? 0
+              : item.quantitySuggest || '',
   );
   const [_, setmutate] = useState();
   // useEffect(() => {
@@ -613,7 +614,7 @@ const RenderItemInput = ({
                 backgroundColor:
                   (itemInput.displayType === 'fsmValue' &&
                     item.fsmValueError === 1) ||
-                  (itemInput.displayType === 'price' && item.priceError === 1)
+                    (itemInput.displayType === 'price' && item.priceError === 1)
                     ? appcolor.warning
                     : appcolor.light,
               },
@@ -623,8 +624,8 @@ const RenderItemInput = ({
               itemInput.displayType === 'fsmValue'
                 ? 'Tiền thưởng'
                 : itemInput.displayType === 'price'
-                ? 'Giá'
-                : 'Số lượng'
+                  ? 'Giá'
+                  : 'Số lượng'
             }
             placeholderTextColor={appcolor.greydark}
             editable={item.upload !== 1}

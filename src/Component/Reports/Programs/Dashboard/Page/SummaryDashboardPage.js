@@ -26,6 +26,7 @@ import {
   getDeliveryRows,
 } from '../Control/summaryDeliveryData';
 import SummarySaleCard from '../Item/SummarySaleCard';
+import SpiralIcon from '../../../../../Control/Icon/SpiralIcon';
 
 const SummaryDashboardPage = ({
   appcolor,
@@ -45,15 +46,15 @@ const SummaryDashboardPage = ({
     filterSort?.status === 'PASS'
       ? 'Pass'
       : filterSort?.status === 'FAIL'
-      ? 'Fail'
-      : 'Tất cả';
+        ? 'Fail'
+        : 'Tất cả';
 
   const currentSortLabel =
     filterSort?.sortBy === 'SHOP'
       ? 'Shop'
       : filterSort?.sortBy === 'PROGRAM'
-      ? 'Chương trình'
-      : 'Nhân viên';
+        ? 'Chương trình'
+        : 'Nhân viên';
 
   const styles = StyleSheet.create({
     body: { flexGrow: 1, padding: 10, paddingBottom: 28 },

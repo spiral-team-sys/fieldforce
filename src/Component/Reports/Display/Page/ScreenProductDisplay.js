@@ -48,6 +48,7 @@ import { KeyboardAvoidingView } from 'react-native';
 import { SearchData } from '../../../../Control/SearchData/SearchData';
 import _ from 'lodash';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
+import SpiralIcon from '../../../../Control/Icon/SpiralIcon';
 
 const DisplayRow = React.memo(
   ({
@@ -117,9 +118,8 @@ const DisplayRow = React.memo(
           </TouchableOpacity>
         )}
         <View style={{ ...styles.infoView, width: infoWidth }}>
-          <Text style={styles.titleHead}>{`${index + 1}. ${
-            item.ProductName
-          }`}</Text>
+          <Text style={styles.titleHead}>{`${index + 1}. ${item.ProductName
+            }`}</Text>
           {item.ProductCode && (
             <Text
               style={styles.titleContent}
@@ -128,9 +128,8 @@ const DisplayRow = React.memo(
           {!menuIsOpenCamera && (
             <View style={styles.contentChooseItem}>
               {resultAreaList !== '' && (
-                <Text style={styles.displayAreaText}>{`${
-                  resultAreaList || ''
-                }`}</Text>
+                <Text style={styles.displayAreaText}>{`${resultAreaList || ''
+                  }`}</Text>
               )}
               {item.isPosition == 1 &&
                 (displayValue || 0) > 0 &&
@@ -148,9 +147,8 @@ const DisplayRow = React.memo(
                       size={18}
                       color={appcolor.placeholderText}
                     />
-                    <Text style={styles.displayAreaText}>{`Vị trí: ${
-                      item.DisplayArea || ''
-                    }`}</Text>
+                    <Text style={styles.displayAreaText}>{`Vị trí: ${item.DisplayArea || ''
+                      }`}</Text>
                   </TouchableOpacity>
                 )}
               {item.noteNoDisplay == 1 && displayValue == 0 && (
@@ -167,9 +165,8 @@ const DisplayRow = React.memo(
                     size={18}
                     color={appcolor.placeholderText}
                   />
-                  <Text style={styles.displayAreaText}>{`Ghi chú: ${
-                    item.NoteProduct || ''
-                  }`}</Text>
+                  <Text style={styles.displayAreaText}>{`Ghi chú: ${item.NoteProduct || ''
+                    }`}</Text>
                 </TouchableOpacity>
               )}
             </View>
@@ -232,7 +229,7 @@ const DisplayRow = React.memo(
   },
 );
 
-export const ScreenProductDisplay = ({}) => {
+export const ScreenProductDisplay = ({ }) => {
   const insets = useSafeAreaInsets();
   const { appcolor, shopinfo, kpiinfo, isEdit, isLoading, isStartDisplay } =
     useSelector(state => state.GAppState);
@@ -1251,68 +1248,66 @@ export const ScreenProductDisplay = ({}) => {
                 {dataTab.length == 0
                   ? null
                   : dataTab.map((item, index) => {
-                      const _dataProduct =
-                        dataByTab[item[configPage.keyTab]] || [];
-                      const titleHead = `${item[configPage.keyTabName]} (${
-                        Array.isArray(_dataProduct) ? _dataProduct.length : 0
+                    const _dataProduct =
+                      dataByTab[item[configPage.keyTab]] || [];
+                    const titleHead = `${item[configPage.keyTabName]} (${Array.isArray(_dataProduct) ? _dataProduct.length : 0
                       })`;
-                      const isDataView =
-                        _dataProduct !== null && _dataProduct.length > 0;
-                      const noteValue = item.Note || null;
-                      return (
-                        <Tabs.Tab
-                          key={`tabiis_${index}`}
-                          label={titleHead}
-                          name={titleHead}
-                        >
-                          <View style={styles.contentMain}>
-                            {isDataView && isEdit && (
-                              <View style={styles.headViewMain}>
-                                <View style={styles.subViewPosition} />
-                                <Text style={styles.titleGroupName}>
-                                  {item.SubCategoryName}
-                                </Text>
-                                <HeaderAction
-                                  key={`headermain-${index}`}
-                                  isNote
-                                  item={item}
-                                  keyGroup={indexGroup.groupName}
-                                  keyValue={item[configPage.keyTab]}
-                                  keyName={item[configPage.keyTabName]}
-                                  handlerNote={actionChangeNote}
-                                />
-                              </View>
-                            )}
-                            {isDataView && noteValue && (
-                              <Text
-                                style={styles.titleNote}
-                              >{`Ghi chú: ${noteValue}`}</Text>
-                            )}
-                            <FlashList
-                              ref={listRef}
-                              key={`${indexGroup.groupId}_${
-                                item[configPage.keyTabName]
+                    const isDataView =
+                      _dataProduct !== null && _dataProduct.length > 0;
+                    const noteValue = item.Note || null;
+                    return (
+                      <Tabs.Tab
+                        key={`tabiis_${index}`}
+                        label={titleHead}
+                        name={titleHead}
+                      >
+                        <View style={styles.contentMain}>
+                          {isDataView && isEdit && (
+                            <View style={styles.headViewMain}>
+                              <View style={styles.subViewPosition} />
+                              <Text style={styles.titleGroupName}>
+                                {item.SubCategoryName}
+                              </Text>
+                              <HeaderAction
+                                key={`headermain-${index}`}
+                                isNote
+                                item={item}
+                                keyGroup={indexGroup.groupName}
+                                keyValue={item[configPage.keyTab]}
+                                keyName={item[configPage.keyTabName]}
+                                handlerNote={actionChangeNote}
+                              />
+                            </View>
+                          )}
+                          {isDataView && noteValue && (
+                            <Text
+                              style={styles.titleNote}
+                            >{`Ghi chú: ${noteValue}`}</Text>
+                          )}
+                          <FlashList
+                            ref={listRef}
+                            key={`${indexGroup.groupId}_${item[configPage.keyTabName]
                               }_${index}`}
-                              keyExtractor={(it, _index) =>
-                                it.ProductId.toString()
-                              }
-                              data={_dataProduct}
-                              extraData={flashListExtraData}
-                              renderItem={renderItem}
-                              estimatedItemSize={92}
-                              contentContainerStyle={{ paddingHorizontal: 8 }}
-                              ListFooterComponent={
-                                <View style={bottomViewStyle} />
-                              }
-                              showsVerticalScrollIndicator={false}
-                              keyboardShouldPersistTaps="handled"
-                              nestedScrollEnabled
-                              onScroll={onScroll}
-                            />
-                          </View>
-                        </Tabs.Tab>
-                      );
-                    })}
+                            keyExtractor={(it, _index) =>
+                              it.ProductId.toString()
+                            }
+                            data={_dataProduct}
+                            extraData={flashListExtraData}
+                            renderItem={renderItem}
+                            estimatedItemSize={92}
+                            contentContainerStyle={{ paddingHorizontal: 8 }}
+                            ListFooterComponent={
+                              <View style={bottomViewStyle} />
+                            }
+                            showsVerticalScrollIndicator={false}
+                            keyboardShouldPersistTaps="handled"
+                            nestedScrollEnabled
+                            onScroll={onScroll}
+                          />
+                        </View>
+                      </Tabs.Tab>
+                    );
+                  })}
               </Tabs.Container>
             ) : (
               <View />
@@ -1328,7 +1323,7 @@ export const ScreenProductDisplay = ({}) => {
             >
               <View style={styles.contentActionItem}>
                 {configPage.isInputArea &&
-                itemChooseAction?.item?.keyValue == 'DisplayArea' ? (
+                  itemChooseAction?.item?.keyValue == 'DisplayArea' ? (
                   <InputItem
                     isShow
                     key={`chooseitem-${itemChooseAction.index}`}

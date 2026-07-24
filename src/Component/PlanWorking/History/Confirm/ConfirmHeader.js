@@ -2,6 +2,7 @@ import React from 'react';
 import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
 import { Icon } from '@rneui/themed';
 import { deviceWidth } from '../../../../Themes/AppsStyle';
+import SpiralIcon from '../../../../Control/Icon/SpiralIcon';
 
 const HEADER_TABS = [
   {
@@ -59,13 +60,13 @@ const ConfirmHeader = React.memo(({ appcolor, onSelectItem, menuSelected }) => (
             styles.headerItem,
             isSelected
               ? {
-                  backgroundColor: appcolor.primary,
-                  elevation: 4,
-                  shadowColor: appcolor.primary,
-                  shadowOffset: { width: 0, height: 3 },
-                  shadowOpacity: 0.35,
-                  shadowRadius: 5,
-                }
+                backgroundColor: appcolor.primary,
+                elevation: 4,
+                shadowColor: appcolor.primary,
+                shadowOffset: { width: 0, height: 3 },
+                shadowOpacity: 0.35,
+                shadowRadius: 5,
+              }
               : { backgroundColor: appcolor.surface, elevation: 0 },
           ]}
         >

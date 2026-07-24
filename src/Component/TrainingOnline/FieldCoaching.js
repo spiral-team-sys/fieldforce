@@ -26,6 +26,7 @@ import { Message, ToastError, ToastSuccess } from '../../Core/Helper';
 import { SafeAreaView } from 'react-native';
 import moment from 'moment';
 import NativeCamera from '../../Control/NativeCamera';
+import SpiralIcon from '../../Control/Icon/SpiralIcon';
 
 const FieldCoaching = ({ navigation, route }) => {
   const { appcolor, workinfo, kpiinfo } = useSelector(state => state.GAppState);

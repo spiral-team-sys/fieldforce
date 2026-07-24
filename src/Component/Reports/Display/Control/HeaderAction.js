@@ -19,6 +19,7 @@ import { PhotoGallery } from './PhotoGallery';
 import { fontWeightBold } from '../../../../Themes/AppsStyle';
 import { ACTION } from '../../../../Redux/types';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
+import SpiralIcon from '../../../../Control/Icon/SpiralIcon';
 
 export const HeaderAction = forwardRef((props, _ref) => {
   const insets = useSafeAreaInsets();

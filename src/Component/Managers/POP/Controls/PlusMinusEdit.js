@@ -5,6 +5,7 @@ import { useSelector } from 'react-redux';
 import FormGroup from '../../../../Content/FormGroup';
 import { fontWeightBold } from '../../../../Themes/AppsStyle';
 import { ToastError } from '../../../../Core/Helper';
+import SpiralIcon from '../../../../Control/Icon/SpiralIcon';
 
 const PlusMinusEdit = ({
   title = null,
@@ -103,9 +104,8 @@ const PlusMinusEdit = ({
   });
   if (!isEditable)
     return (
-      <Text style={styles.titleNumberItem}>{`${title}: ${
-        itemEdit[keyValue] || 0
-      }`}</Text>
+      <Text style={styles.titleNumberItem}>{`${title}: ${itemEdit[keyValue] || 0
+        }`}</Text>
     );
   if (itemEdit.Quantity == 0) return <View />;
   return (

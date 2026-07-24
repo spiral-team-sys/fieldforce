@@ -28,6 +28,7 @@ import {
 import { groupDataByKey, Message, ToastError } from '../../../Core/Helper';
 import { deviceHeight, deviceWidth, minWidthTab } from '../../../Core/Utility';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
+import SpiralIcon from '../../../Control/Icon/SpiralIcon';
 
 export const InputReport = ({ navigation, route, Status }) => {
   const insets = useSafeAreaInsets();
@@ -533,16 +534,16 @@ const RenderItemInput = ({
         ? 0
         : item.fsmValue || ''
       : itemInput.displayType == 'priceValue'
-      ? item.priceValue === 0
-        ? 0
-        : item.priceValue || ''
-      : itemInput.displayType == 'netValue'
-      ? item.netValue === 0
-        ? 0
-        : item.netValue || ''
-      : item.quantity === 0
-      ? 0
-      : item.quantity || '',
+        ? item.priceValue === 0
+          ? 0
+          : item.priceValue || ''
+        : itemInput.displayType == 'netValue'
+          ? item.netValue === 0
+            ? 0
+            : item.netValue || ''
+          : item.quantity === 0
+            ? 0
+            : item.quantity || '',
   );
   const [_, setmutate] = useState();
 
@@ -677,10 +678,10 @@ const RenderItemInput = ({
               backgroundColor:
                 (itemInput.displayType === 'fsmValue' &&
                   item.isFsmValueError === 1) ||
-                (itemInput.displayType === 'netValue' &&
-                  item.isNetValue === 1) ||
-                (itemInput.displayType === 'priceValue' &&
-                  item.isPriceError === 1)
+                  (itemInput.displayType === 'netValue' &&
+                    item.isNetValue === 1) ||
+                  (itemInput.displayType === 'priceValue' &&
+                    item.isPriceError === 1)
                   ? appcolor.warning
                   : appcolor.light,
             }}
@@ -689,10 +690,10 @@ const RenderItemInput = ({
               itemInput.displayType === 'fsmValue'
                 ? 'Tiền thưởng'
                 : itemInput.displayType === 'priceValue'
-                ? 'Giá'
-                : itemInput.displayType === 'netValue'
-                ? 'Giá'
-                : 'Số lượng'
+                  ? 'Giá'
+                  : itemInput.displayType === 'netValue'
+                    ? 'Giá'
+                    : 'Số lượng'
             }
             placeholderTextColor={appcolor.greydark}
             editable={item.upload !== 1}

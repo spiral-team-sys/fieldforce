@@ -6,6 +6,7 @@ import { Icon, Text } from '@rneui/base';
 import { IconAnimation } from '../../../Control/IconAnimation/IconAnimation';
 import { ProgressPercent } from '../../../Control/ProgressPercent';
 import { fontWeightBold } from '../../../Themes/AppsStyle';
+import SpiralIcon from '../../../Control/Icon/SpiralIcon';
 
 export const DashboardAttendant = ({
   navigation,
@@ -145,7 +146,7 @@ export const DashboardAttendant = ({
             onPress={isLoading ? null : LoadData}
             style={styles.actionSync}
           >
-            <SpiralIconAnimation
+            <IconAnimation
               isLoop={isLoading}
               sourceIcon={require('../../../Themes/lotties/sync_load.json')}
             />

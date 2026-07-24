@@ -15,6 +15,7 @@ import { LogDataToServer } from '../../../API/NotificationAPI';
 import _ from 'lodash';
 import { useSelector } from 'react-redux';
 import { MessageAction2 } from '../../../Core/Helper';
+import SpiralIcon from '../../../Control/Icon/SpiralIcon';
 
 export const VideoPlay = ({ navigation, route }) => {
   const { appcolor } = useSelector(state => state.GAppState);
@@ -66,19 +67,19 @@ export const VideoPlay = ({ navigation, route }) => {
         data.currentTime >= duration.numDuration
           ? 100
           : (Math.floor(data.currentTime) / Math.floor(duration.numDuration)) *
-            100;
+          100;
       currentTimeRef.currentMinute =
         data.currentTime >= duration.numDuration
           ? duration.minuteDuration
           : Math.floor(data.currentTime / 60) == 0
-          ? '00'
-          : Math.floor(data.currentTime / 60);
+            ? '00'
+            : Math.floor(data.currentTime / 60);
       currentTimeRef.currentSeconds =
         data.currentTime >= duration.numDuration
           ? duration.secondsDuration
           : Math.floor(data.currentTime % 60) < 10
-          ? '0' + Math.floor(data.currentTime % 60)
-          : Math.floor(data.currentTime % 60);
+            ? '0' + Math.floor(data.currentTime % 60)
+            : Math.floor(data.currentTime % 60);
 
       if (
         configView.ConditionView > 0 &&
@@ -161,14 +162,14 @@ export const VideoPlay = ({ navigation, route }) => {
       valueSlider >= duration.numDuration
         ? duration.minuteDuration
         : Math.floor(valueSlider / 60) == 0
-        ? '00'
-        : Math.floor(valueSlider / 60);
+          ? '00'
+          : Math.floor(valueSlider / 60);
     currentTimeRef.currentSeconds =
       valueSlider >= duration.numDuration
         ? duration.secondsDuration
         : Math.floor(valueSlider % 60) < 10
-        ? '0' + Math.floor(valueSlider % 60)
-        : Math.floor(valueSlider % 60);
+          ? '0' + Math.floor(valueSlider % 60)
+          : Math.floor(valueSlider % 60);
 
     refVideo.current.seek(slideValue);
     setMutate(e => !e);
@@ -297,9 +298,8 @@ export const VideoPlay = ({ navigation, route }) => {
                     }}
                   >
                     <Text style={{ color: '#fff', fontSize: 14 }}>
-                      {`${currentTimeRef.currentMinute || '00'}:${
-                        currentTimeRef.currentSeconds || '00'
-                      }`}
+                      {`${currentTimeRef.currentMinute || '00'}:${currentTimeRef.currentSeconds || '00'
+                        }`}
                     </Text>
                   </View>
                   <View

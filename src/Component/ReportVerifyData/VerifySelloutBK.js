@@ -46,6 +46,7 @@ import { IconAnimation } from '../../Control/IconAnimation/IconAnimation';
 import { MutipleItemSelected } from '../../Control/MutipleItemSelected';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { toastError } from '../../Utils/configToast';
+import SpiralIcon from '../../Control/Icon/SpiralIcon';
 
 const parseJsonArray = value => {
   if (Array.isArray(value)) {
@@ -176,8 +177,7 @@ export const VerifySelloutBK = ({ navigation }) => {
       } else {
         toastError(
           'Lỗi',
-          `Lỗi kết nối hệ thống: ${
-            response?.messager || 'Không thể tải dữ liệu'
+          `Lỗi kết nối hệ thống: ${response?.messager || 'Không thể tải dữ liệu'
           }`,
         );
       }
@@ -287,8 +287,8 @@ const ViewListItemVerify = ({
     const normalizedSearch = search.trim().toLowerCase();
     const visibleItems = normalizedSearch
       ? arr.filter(item =>
-          item.productName?.toLowerCase().includes(normalizedSearch),
-        )
+        item.productName?.toLowerCase().includes(normalizedSearch),
+      )
       : arr;
 
     setCurrentTab(selectedTab);
@@ -1162,8 +1162,7 @@ const ViewListItemVerify = ({
           showsVerticalScrollIndicator={false}
           key={'listItem'}
           keyExtractor={(item, index) =>
-            `${
-              item.detailId || item.guiId || `${item.shopId}_${item.sellDate}`
+            `${item.detailId || item.guiId || `${item.shopId}_${item.sellDate}`
             }_${index}`
           }
           data={listItemByTab}
@@ -1436,7 +1435,7 @@ const ViewInputSellout = ({
               value={
                 itemConfig.serialOnlyNumber == 1
                   ? itemInfo.currentItem[itemM.ref_Name]?.replace(/\D/g, '') ||
-                    ''
+                  ''
                   : itemInfo.currentItem[itemM.ref_Name] || ''
               }
               handleChangeForm={text => handleOnChangeInput(itemM, text)}

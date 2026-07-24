@@ -19,6 +19,7 @@ import { insertItemAceess } from '../../Controller/AccessoriesController';
 import { ToastError, UUIDGenerator } from '../../Core/Helper';
 import { deviceHeight, deviceWidth } from '../../Core/Utility';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
+import SpiralIcon from '../../Control/Icon/SpiralIcon';
 
 const AccessoriesModal = ({ closedModal, loadDataAccessories, data }) => {
   const insets = useSafeAreaInsets();
@@ -105,29 +106,29 @@ const AccessoriesModal = ({ closedModal, loadDataAccessories, data }) => {
           item.dateValue == 1
             ? item.dateVal
             : item.decimalValue == 1
-            ? item.decimalVal
-              ? item.decimalVal.toString()
-              : ''
-            : item.numberValue == 1
-            ? item.numberVal
-              ? item.numberVal.toString()
-              : ''
-            : item.yearValue == 1
-            ? item.yearVal
-              ? item.yearVal.toString()
-              : ''
-            : item.selectValue == 1
-            ? item.selectVal
-            : item.textValue == 1
-            ? item.textVal
-            : ''
+              ? item.decimalVal
+                ? item.decimalVal.toString()
+                : ''
+              : item.numberValue == 1
+                ? item.numberVal
+                  ? item.numberVal.toString()
+                  : ''
+                : item.yearValue == 1
+                  ? item.yearVal
+                    ? item.yearVal.toString()
+                    : ''
+                  : item.selectValue == 1
+                    ? item.selectVal
+                    : item.textValue == 1
+                      ? item.textVal
+                      : ''
         }
         keyboardType={
           item.dateValue == 1 || item.yearValue == 1 || item.selectValue == 1
             ? null
             : item.textValue === 1
-            ? 'default'
-            : 'decimal-pad'
+              ? 'default'
+              : 'decimal-pad'
         }
         editable={
           item.dateValue == 1 || item.yearValue == 1 || item.selectValue == 1
@@ -163,16 +164,16 @@ const AccessoriesModal = ({ closedModal, loadDataAccessories, data }) => {
           item.textValue === 1
             ? 'Nhập ghi chú ở đây'
             : item.dateValue === 1
-            ? 'Chọn ngày'
-            : item.yearValue === 1
-            ? 'chọn năm'
-            : item.numberValue === 1
-            ? 'Nhập ' + item.itemNameVN
-            : item.decimalValue === 1
-            ? 'Nhập ' + item.itemNameVN
-            : item.selectValue === 1
-            ? 'Chọn người bán'
-            : null
+              ? 'Chọn ngày'
+              : item.yearValue === 1
+                ? 'chọn năm'
+                : item.numberValue === 1
+                  ? 'Nhập ' + item.itemNameVN
+                  : item.decimalValue === 1
+                    ? 'Nhập ' + item.itemNameVN
+                    : item.selectValue === 1
+                      ? 'Chọn người bán'
+                      : null
         }
       />
     );
@@ -197,7 +198,7 @@ const AccessoriesModal = ({ closedModal, loadDataAccessories, data }) => {
       </View>
     );
   };
-  const RenderItemType = ({}) => {
+  const RenderItemType = ({ }) => {
     const itemType =
       data.dataItemType.filter(
         it => it.shopProfileId === categoryTypeSelect.shopProfileId,

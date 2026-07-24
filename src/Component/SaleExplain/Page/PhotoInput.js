@@ -19,6 +19,7 @@ import {
 } from '../../../Controller/PhotoController';
 import { URLDEFAULT } from '../../../Core/URLs';
 import ViewPictures from '../../../Control/Gallary/ViewPictures';
+import SpiralIcon from '../../../Control/Icon/SpiralIcon';
 
 const PHOTO_SIZE = 96;
 
@@ -60,12 +61,12 @@ export const PhotoInput = ({
       photo:
         item.photo ||
         '/uploaded/' +
-          (item.photoDate || currentPhotoDate) +
-          '/' +
-          item.photoPath.substring(
-            item.photoPath.lastIndexOf('/') + 1,
-            item.photoPath?.length,
-          ),
+        (item.photoDate || currentPhotoDate) +
+        '/' +
+        item.photoPath.substring(
+          item.photoPath.lastIndexOf('/') + 1,
+          item.photoPath?.length,
+        ),
       photoDate: item.photoDate || currentPhotoDate,
       photoType: photoType || kpiinfo.id.toString(),
       guid: item.guid || _guid,

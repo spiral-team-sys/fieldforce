@@ -21,6 +21,7 @@ import { URLDEFAULT } from "../../../Core/URLs";
 import { deletePhoto } from "../../../Controller/PhotoController";
 import { LoadingView } from "../../../Control/ItemLoading";
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
+import SpiralIcon from "../../../Control/Icon/SpiralIcon";
 
 if (Platform.OS === "android" && UIManager.setLayoutAnimationEnabledExperimental) {
     UIManager.setLayoutAnimationEnabledExperimental(true);

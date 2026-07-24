@@ -12,6 +12,7 @@ import { fontWeightBold } from '../../../../Themes/AppsStyle';
 import InputFields from '../../../../Control/Input/InputFields';
 import { optionConfirm } from '../../../../Core/Utility';
 import moment from 'moment';
+import SpiralIcon from '../../../../Control/Icon/SpiralIcon';
 
 const ByDateItem = ({ item, index }) => {
   const { appcolor } = useSelector(state => state.GAppState);
@@ -157,9 +158,8 @@ const ByDateItem = ({ item, index }) => {
           <View>
             {!isValidField(item.updatedDate) &&
               isValidField(item.createdDate) && (
-                <Text style={styles.subTitleTime}>{`Tạo bởi ${
-                  item.createdByName
-                }: ${moment(item.createdDate).fromNow()}`}</Text>
+                <Text style={styles.subTitleTime}>{`Tạo bởi ${item.createdByName
+                  }: ${moment(item.createdDate).fromNow()}`}</Text>
               )}
             {isValidField(item.updatedDate) && (
               <Text style={styles.subTitleTime}>{`Câp nhật ${moment(

@@ -23,6 +23,7 @@ import { RegisterWorkLate } from './Register/RegisterWorkLate';
 import { RegisterOffWork } from './Register/RegisterOffWork';
 import CustomListView from '../../../../Control/Custom/CustomListView';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
+import SpiralIcon from '../../../../Control/Icon/SpiralIcon';
 
 export const PlanDetailByDay = ({ dataDetails, itemDay, onCallBackData }) => {
   const insets = useSafeAreaInsets();

@@ -16,6 +16,7 @@ import {
 } from '../../../Controller/DownloadDataController';
 import { GetMenu } from '../../../Controller/UserController';
 import { ToastSuccess } from '../../../Core/Helper';
+import SpiralIcon from '../../../Control/Icon/SpiralIcon';
 
 const HomeAqua = ({ navigation, isReloadData }) => {
   const { appcolor } = useSelector(state => state.GAppState);
@@ -31,7 +32,7 @@ const HomeAqua = ({ navigation, isReloadData }) => {
     });
   };
 
-  useEffect(() => {}, [isReloadData]);
+  useEffect(() => { }, [isReloadData]);
 
   const styles = StyleSheet.create({
     mainContainer: { flex: 1, backgroundColor: appcolor.primary },

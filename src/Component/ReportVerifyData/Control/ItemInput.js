@@ -5,6 +5,7 @@ import { useSelector } from 'react-redux';
 import FormGroup from '../../../Content/FormGroup';
 import { ScanCode } from './ScanCode';
 import { deviceWidth } from '../../../Themes/AppsStyle';
+import SpiralIcon from '../../../Control/Icon/SpiralIcon';
 
 export const ItemInput = ({
   titleName,

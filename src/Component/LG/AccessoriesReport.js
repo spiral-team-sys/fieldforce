@@ -22,6 +22,7 @@ import AccessoriesModal from './AccessoriesModal';
 import AccessoriesResRow from './AccessoriesResRow';
 import { HeaderCustom } from '../../Content/HeaderCustom';
 import { LoadingView } from '../../Control/ItemLoading/index';
+import SpiralIcon from '../../Control/Icon/SpiralIcon';
 
 const AccessoriesReport = ({ navigation, route }) => {
   const { appcolor, kpiinfo, workinfo } = useSelector(state => state.GAppState);

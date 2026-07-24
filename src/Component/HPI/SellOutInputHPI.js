@@ -48,6 +48,7 @@ import { LoadingView } from '../../Control/ItemLoading';
 import _ from 'lodash';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
+import SpiralIcon from '../../Control/Icon/SpiralIcon';
 
 if (
   Platform.OS === 'android' &&
@@ -516,18 +517,18 @@ export const SellOutInputHPI = ({ navigation, route }) => {
             filter?.segment !== undefined
               ? _.filter(currentdata, { segmentId: filter?.segment?.id })
               : filter?.cate !== undefined
-              ? _.filter(currentdata, { categoryId: filter?.cate.id })
-              : currentdata;
+                ? _.filter(currentdata, { categoryId: filter?.cate.id })
+                : currentdata;
           break;
         case 'product':
           currentdata =
             filter?.subsegment !== undefined
               ? _.filter(currentdata, { subSegment: filter?.subsegment?.name })
               : filter?.segment !== undefined
-              ? _.filter(currentdata, { segment: filter?.segment?.name })
-              : filter?.cate !== undefined
-              ? _.filter(currentdata, { category: filter?.cate.name })
-              : currentdata;
+                ? _.filter(currentdata, { segment: filter?.segment?.name })
+                : filter?.cate !== undefined
+                  ? _.filter(currentdata, { category: filter?.cate.name })
+                  : currentdata;
           break;
         default:
           break;

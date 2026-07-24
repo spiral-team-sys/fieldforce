@@ -53,6 +53,7 @@ import { MultipleShowImage } from '../../../Control/MultipleShowImage';
 import { URLDEFAULT } from '../../../Core/URLs';
 import UploadController from '../../../Controller/UploadController';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
+import SpiralIcon from '../../../Control/Icon/SpiralIcon';
 
 if (
   Platform.OS === 'android' &&
@@ -263,9 +264,8 @@ export const ScoreKPIV2 = ({ navigation }) => {
       if (listKPICheck.length > 0) {
         return {
           valid: false,
-          message: `Chưa nhập ghi chú nhóm ${
-            item.groupName
-          }\nKPI: ${listKPICheck.join('\n')}`,
+          message: `Chưa nhập ghi chú nhóm ${item.groupName
+            }\nKPI: ${listKPICheck.join('\n')}`,
         };
       }
     }
@@ -861,9 +861,8 @@ export const ScoreKPIV2 = ({ navigation }) => {
       item[`${item[item.g1 || 'WorkDate']}${item[item.g2 || 'GroupId']}`];
     const keyLayer3 =
       item[
-        `${item[item.g1 || 'WorkDate']}${item[item.g2 || 'GroupId']}${
-          item[item.g3 || 'SubGroupId']
-        }`
+      `${item[item.g1 || 'WorkDate']}${item[item.g2 || 'GroupId']}${item[item.g3 || 'SubGroupId']
+      }`
       ];
     return (
       <View
@@ -1082,14 +1081,14 @@ export const ScoreKPIV2 = ({ navigation }) => {
             configKPI.isLockSend == 1
               ? null
               : !isShowResult
-              ? configData.isLockSend == 1
-                ? null
-                : dateKPI.value == TODAY
-                ? UploadData
-                : configData.isLockHistory == 1
-                ? null
-                : UploadData
-              : null
+                ? configData.isLockSend == 1
+                  ? null
+                  : dateKPI.value == TODAY
+                    ? UploadData
+                    : configData.isLockHistory == 1
+                      ? null
+                      : UploadData
+                : null
           }
           leftFunc={isShowResult == false ? showFilterData : handleGoBack}
         />
@@ -1380,14 +1379,14 @@ export const ScoreKPIV2 = ({ navigation }) => {
           configKPI.isLockSend == 1
             ? null
             : !isShowResult
-            ? configData.isLockSend == 1
-              ? null
-              : dateKPI.value == TODAY
-              ? UploadData
-              : configData.isLockHistory == 1
-              ? null
-              : UploadData
-            : null
+              ? configData.isLockSend == 1
+                ? null
+                : dateKPI.value == TODAY
+                  ? UploadData
+                  : configData.isLockHistory == 1
+                    ? null
+                    : UploadData
+              : null
         }
         leftFunc={isShowResult == false ? showFilterData : handleGoBack}
       />

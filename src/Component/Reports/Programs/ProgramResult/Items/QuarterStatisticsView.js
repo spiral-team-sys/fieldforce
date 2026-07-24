@@ -9,6 +9,7 @@ import {
 import { Icon, Text } from '@rneui/base';
 import { PieChart } from 'react-native-charts-wrapper';
 import { useSelector } from 'react-redux';
+import SpiralIcon from '../../../../../Control/Icon/SpiralIcon';
 
 const QuarterStatisticsView = ({
   programs = [],

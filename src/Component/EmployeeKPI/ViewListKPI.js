@@ -13,6 +13,7 @@ import { Icon } from '@rneui/base';
 import { useSelector } from 'react-redux';
 import FormGroup from '../../Content/FormGroup';
 import { deviceHeight } from '../../Core/Utility';
+import SpiralIcon from '../../Control/Icon/SpiralIcon';
 
 if (
   Platform.OS === 'android' &&

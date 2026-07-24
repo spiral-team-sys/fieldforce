@@ -15,6 +15,7 @@ import { useSelector } from 'react-redux';
 import FormGroup from '../../Content/FormGroup';
 import { GetDataAllRegion } from '../../Controller/ShopController';
 import { RegionSelected } from './RegionSelected';
+import SpiralIcon from '../Icon/SpiralIcon';
 
 const TYPE = {
   REGION: 'REGION',
@@ -150,35 +151,35 @@ export const RegionMain = ({
 
     const lstProvince = itemByProvinceCode.provinceCode
       ? mData?.table1?.filter(
-          i => i.area == itemByRegionArea.area && i.provinceCode !== null,
-        )
+        i => i.area == itemByRegionArea.area && i.provinceCode !== null,
+      )
       : mData?.table1?.filter(it => it.provinceCode !== null);
     const lstDistrict = itemByDistrictCode.districtCode
       ? mData?.table2?.filter(
-          i =>
-            i.provinceCode == itemByDistrictCode.provinceCode &&
-            i.districtCode !== null,
-        )
+        i =>
+          i.provinceCode == itemByDistrictCode.provinceCode &&
+          i.districtCode !== null,
+      )
       : itemByProvinceCode.provinceCode
-      ? mData?.table2?.filter(
+        ? mData?.table2?.filter(
           i =>
             i.provinceCode == itemByProvinceCode.provinceCode &&
             i.districtCode !== null,
         )
-      : [];
+        : [];
     const lstTown = itemByTownCode.townCode
       ? mData?.table3?.filter(
-          i =>
-            i.districtCode == itemByTownCode.districtCode &&
-            i.townCode !== null,
-        )
+        i =>
+          i.districtCode == itemByTownCode.districtCode &&
+          i.townCode !== null,
+      )
       : itemByDistrictCode.districtCode
-      ? mData?.table3?.filter(
+        ? mData?.table3?.filter(
           i =>
             i.districtCode == itemByDistrictCode.districtCode &&
             i.townCode !== null,
         )
-      : [];
+        : [];
 
     const currentRegion = {
       regionId: regionIdSelect,
@@ -271,9 +272,9 @@ export const RegionMain = ({
         const arrProvince = itemRegion.provinceCode
           ? data.province
           : dataMain.province.filter(
-              i =>
-                i.provinceCode == item.provinceCode && i.districtCode !== null,
-            );
+            i =>
+              i.provinceCode == item.provinceCode && i.districtCode !== null,
+          );
         const lstTown = dataMain.town.filter(
           i => i.districtCode == item.districtCode && i.townCode !== null,
         );

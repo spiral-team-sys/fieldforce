@@ -21,6 +21,7 @@ import { ToastSuccess } from '../../../../Core/Helper';
 import { SheetManager } from 'react-native-actions-sheet';
 import LessonSheet from '../Sheet/LessonSheet';
 import { Icon } from '@rneui/base';
+import SpiralIcon from '../../../../Control/Icon/SpiralIcon';
 
 const activeList = {
   ALL: '0',
@@ -324,10 +325,10 @@ const TrainingApp = ({ navigation, route }) => {
                     item.status == 0
                       ? appcolor.surface
                       : item.status == 1
-                      ? appcolor.warning
-                      : item.status == 2
-                      ? appcolor.danger
-                      : appcolor.success,
+                        ? appcolor.warning
+                        : item.status == 2
+                          ? appcolor.danger
+                          : appcolor.success,
                 },
               ]}
             >

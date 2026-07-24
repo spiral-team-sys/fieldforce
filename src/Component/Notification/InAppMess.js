@@ -20,6 +20,7 @@ import { GetToken } from '../../Core/Helper';
 import { AppNameBuild } from '../../Core/URLs';
 import deviceInfoModule from 'react-native-device-info';
 import base64 from 'react-native-base64';
+import SpiralIcon from '../../Control/Icon/SpiralIcon';
 
 export const InAppMess = ({ props }) => {
   const [inAppMess, setinAppMess] = useState({});
@@ -137,9 +138,8 @@ export const InAppMess = ({ props }) => {
                 <style>
                     img {width: 100%;}
                 </style>
-                </head><body style="font-size:${
-                  Platform.OS === 'android' ? '350%;' : '100%'
-                } ">
+                </head><body style="font-size:${Platform.OS === 'android' ? '350%;' : '100%'
+            } ">
                     ${inAppMess?.content}
                     <div style="text-align:end;color:red;width:100%;font-style:italic">
                     Đã đăng ${moment(inAppMess?.createdDate).calendar()}
@@ -243,8 +243,8 @@ const ButtonAction = ({ element, close, onPostLog }) => {
     element.name === 'SkipButton'
       ? appcolor.danger
       : element.name === 'ReadButton'
-      ? appcolor.primary
-      : appcolor.surface;
+        ? appcolor.primary
+        : appcolor.surface;
   const styles = StyleSheet.create({
     buttonClose: {
       flexGrow: 0.3,

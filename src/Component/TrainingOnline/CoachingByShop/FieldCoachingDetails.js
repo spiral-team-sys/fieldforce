@@ -15,6 +15,7 @@ import {
 } from '../../../Core/Helper';
 import { LoadingView } from '../../../Control/ItemLoading';
 import { COACHING } from '../../../API/CoachingAPI';
+import SpiralIcon from '../../../Control/Icon/SpiralIcon';
 
 export const FieldCoachingDetails = ({
   itemCoaching,
@@ -225,9 +226,8 @@ export const FieldCoachingDetails = ({
           <Text style={styles.headerView}>{`${item.GroupName}`}</Text>
         )}
         <View style={{ width: '100%', flexDirection: 'row' }}>
-          <Text style={styles.titleView}>{`${index + 1}. ${
-            item.ItemName || item.itemName || ''
-          }`}</Text>
+          <Text style={styles.titleView}>{`${index + 1}. ${item.ItemName || item.itemName || ''
+            }`}</Text>
           <FormGroup
             editable={(itemCoaching?.isUploaded || 0) == 0}
             nonBorder

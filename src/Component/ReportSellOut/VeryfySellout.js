@@ -18,6 +18,7 @@ import { HeaderCustom } from '../../Content/HeaderCustom';
 import { AppCreateAction } from "../../Core/ReduxController";
 import { connect } from "react-redux";
 import { bindActionCreators } from "@reduxjs/toolkit";
+import SpiralIcon from "../../Control/Icon/SpiralIcon";
 
 const styles = StyleSheet.create({
     separator: {
@@ -425,7 +426,7 @@ class VeryfySellout extends PureComponent {
                                             this.state.selectedStatus === '' ? this.state.arrShow[0].name : this.state.selectedStatus
                                         }
                                     </Text>
-                                    <SpiralIcon containerStyle={{ width: '25%' }} type='ionicon' name='funnel-outline' size={28}></SpiralIcon>
+                                    <SpiralIcon containerStyle={{ width: '25%' }} type='ionicon' name='funnel-outline' size={28} />
                                 </View>
                             </TouchableOpacity>
                         }

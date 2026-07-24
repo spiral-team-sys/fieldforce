@@ -13,6 +13,7 @@ import _ from 'lodash';
 import FormGroup from '../../Content/FormGroup';
 import { ACTION_CONFIRM_SR } from '../../Controller/PlanController';
 import CustomListView from '../../Control/Custom/CustomListView';
+import SpiralIcon from '../../Control/Icon/SpiralIcon';
 
 export const ConfirmPlanWeekly = ({ navigation, route }) => {
   const { appcolor } = useSelector(state => state.GAppState);
@@ -257,9 +258,8 @@ export const ConfirmPlanWeekly = ({ navigation, route }) => {
               borderRadius: 5,
             }}
           >
-            <Text style={styles.dayView}>{`${index + 1}. ${
-              item.employeeName
-            }`}</Text>
+            <Text style={styles.dayView}>{`${index + 1}. ${item.employeeName
+              }`}</Text>
             {item.isShowView == 1 && (
               <View style={{ flexDirection: 'row' }}>
                 <SpiralIcon
@@ -310,8 +310,8 @@ export const ConfirmPlanWeekly = ({ navigation, route }) => {
       item.ConfirmPlan == -1
         ? { borderEndWidth: 10, borderEndColor: appcolor.danger }
         : item.ConfirmPlan == 1
-        ? { borderEndWidth: 10, borderEndColor: appcolor.success }
-        : {};
+          ? { borderEndWidth: 10, borderEndColor: appcolor.success }
+          : {};
     return (
       <View key={`it_pl_${index}`}>
         <View style={{ flexDirection: 'row' }}>

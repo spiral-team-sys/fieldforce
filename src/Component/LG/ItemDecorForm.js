@@ -14,6 +14,7 @@ import { deletePhoto, InsertPhotosItem } from "../../Controller/PhotoController"
 import { getPhotosByGuiId } from "../../Controller/WorkController"
 import { ToastError, UUIDGenerator } from "../../Core/Helper"
 import { deviceHeight, deviceWidth } from "../Home"
+import SpiralIcon from "../../Control/Icon/SpiralIcon"
 
 export const ItemDecorForm = ({ item, index, template, data, KeyStore }) => {
     const { appcolor, workinfo } = useSelector(state => state.GAppState)
@@ -460,7 +461,7 @@ const ViewPhotoDecor = ({ guiId, item, handleShowImage }) => {
                                 onPress={() => takePhoto()}
                                 style={{ flexDirection: 'row', minHeight: 30, width: '40%', marginRight: 2, justifyContent: 'center', alignItems: 'center', borderRadius: 10, backgroundColor: appcolor.grayLight }}>
                                 <View style={{}}>
-                                    <SpiralIcon name='camera' color={appcolor.primary} type='ionicon' size={22}></SpiralIcon>
+                                    <SpiralIcon name='camera' color={appcolor.primary} type='ionicon' size={22} />
                                 </View>
                             </TouchableOpacity>
                             <TouchableOpacity
@@ -468,7 +469,7 @@ const ViewPhotoDecor = ({ guiId, item, handleShowImage }) => {
                                 style={{ flexDirection: 'row', minHeight: 30, width: '40%', justifyContent: 'center', alignItems: 'center', borderRadius: 10, backgroundColor: appcolor.grayLight }}>
 
                                 <View style={{ flex: 1 }}>
-                                    <SpiralIcon name='attach' color={appcolor.primary} type='ionicon' size={22}></SpiralIcon>
+                                    <SpiralIcon name='attach' color={appcolor.primary} type='ionicon' size={22} />
                                 </View>
                             </TouchableOpacity>
                         </View>

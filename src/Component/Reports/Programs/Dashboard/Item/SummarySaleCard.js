@@ -2,6 +2,7 @@ import React from 'react';
 import { StyleSheet, TouchableOpacity, View } from 'react-native';
 import { Icon, Text } from '@rneui/base';
 import { formatNumber } from '../../../../../Core/Helper';
+import SpiralIcon from '../../../../../Control/Icon/SpiralIcon';
 
 const SummarySaleCard = ({ appcolor, metrics = {}, onPress }) => {
   const styles = StyleSheet.create({

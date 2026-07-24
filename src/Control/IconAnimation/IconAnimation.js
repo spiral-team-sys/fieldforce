@@ -1,6 +1,5 @@
 import LottieView from 'lottie-react-native';
 import React, { useEffect, useRef } from 'react';
-import { useSelector } from 'react-redux';
 
 export const IconAnimation = ({ isLoop, sourceIcon }) => {
   const ref = useRef();

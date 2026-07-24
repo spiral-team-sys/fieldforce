@@ -21,6 +21,7 @@ import { GetByListCode } from '../../Controller/MasterController';
 import { checkLockReport } from '../../Controller/ShopController';
 import moment from 'moment';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
+import SpiralIcon from '../../Control/Icon/SpiralIcon';
 
 const styles = StyleSheet.create({
     container: {
@@ -336,7 +337,7 @@ const DisplayPriceReportLG = ({ navigation, route }) => {
                             onPress={() => handlerTakePhoto(it.categoryName)}
                             style={{ flexDirection: 'row', height: 40, width: '45%', marginRight: 2, justifyContent: 'center' }}>
                             <View style={{ marginLeft: 15 }}>
-                                <SpiralIcon name='camera' color={appcolor.primary} type='ionicon' size={25}></SpiralIcon>
+                                <SpiralIcon name='camera' color={appcolor.primary} type='ionicon' size={25} />
                                 <Text style={{ width: '100%', textAlign: 'center', color: appcolor.dark, fontSize: scaleSize(12) }}>Chụp hình</Text>
                             </View>
                             <Badge value={totalPhoto} />
@@ -345,7 +346,7 @@ const DisplayPriceReportLG = ({ navigation, route }) => {
                         <TouchableOpacity
                             onPress={() => handlerNote(it.categoryName)}
                             style={{ height: 40, width: '45%', marginRight: 2 }}>
-                            <SpiralIcon name='create-outline' color={appcolor.primary} type='ionicon' size={25}></SpiralIcon>
+                            <SpiralIcon name='create-outline' color={appcolor.primary} type='ionicon' size={25} />
                             <Text style={{ width: '100%', textAlign: 'center', color: appcolor.dark, fontSize: scaleSize(12) }}>Ghi chú</Text>
                         </TouchableOpacity>
                     </View>

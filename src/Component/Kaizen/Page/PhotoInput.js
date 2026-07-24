@@ -20,6 +20,7 @@ import {
 import { MultipleShowImage } from '../../../Control/MultipleShowImage';
 import { URLDEFAULT } from '../../../Core/URLs';
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import SpiralIcon from '../../../Control/Icon/SpiralIcon';
 
 const { width } = Dimensions.get('window');
 const ITEM_WIDTH = width / 4;

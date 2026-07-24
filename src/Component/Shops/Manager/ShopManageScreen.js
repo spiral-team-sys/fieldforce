@@ -43,6 +43,7 @@ import _ from 'lodash';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { toastError, toastSuccess } from '../../../Utils/configToast';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
+import SpiralIcon from '../../../Control/Icon/SpiralIcon';
 
 const SHOP_EXPLAIN_PHOTO_TYPE = 'SHOP_EXPLAIN';
 
@@ -718,25 +719,25 @@ const ShopManageScreen = ({ navigation }) => {
       item.latitude == 0
         ? 'Không xác định'
         : `${formatNumber(
-            distanceBetween2Points(
-              item.latitude,
-              item.longitude,
-              myLocation.latitude,
-              myLocation.longitude,
-            ).toFixed(0),
-            ',',
-          )} km`;
+          distanceBetween2Points(
+            item.latitude,
+            item.longitude,
+            myLocation.latitude,
+            myLocation.longitude,
+          ).toFixed(0),
+          ',',
+        )} km`;
     //
     const dataTarget = JSON.parse(item.dataTarget || '[]');
     const strTarget =
       dataTarget.length > 0
         ? _.join(
-            _.map(
-              dataTarget,
-              i => `${i.type} - ${formatNumber(i.amount, ',')}`,
-            ),
-            ' | ',
-          )
+          _.map(
+            dataTarget,
+            i => `${i.type} - ${formatNumber(i.amount, ',')}`,
+          ),
+          ' | ',
+        )
         : null;
     return (
       <View style={styles.itemContainer}>

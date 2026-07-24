@@ -4,6 +4,7 @@ import { useSelector } from 'react-redux';
 import FormGroup from '../../../Content/FormGroup';
 import { formatPhone } from '../../../Core/Helper';
 import { Icon } from '@rneui/themed';
+import SpiralIcon from '../../../Control/Icon/SpiralIcon';
 
 export const InputByCode = ({
   itemInput,
@@ -95,8 +96,8 @@ export const InputByCode = ({
               >
                 {dataSelect?.length > 0
                   ? dataSelect?.map((it, idx) => {
-                      return (idx == 0 ? '' : '\n') + it.ProductName;
-                    })
+                    return (idx == 0 ? '' : '\n') + it.ProductName;
+                  })
                   : 'Chọn ' + itemInput.nameVN}
               </Text>
               <SpiralIcon

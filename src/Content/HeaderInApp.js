@@ -16,6 +16,7 @@ import {
   signifyApp,
 } from '../Core/URLs';
 import { useSelector } from 'react-redux';
+import SpiralIcon from '../Control/Icon/SpiralIcon';
 export const HeaderInApp = ({
   iconLeft,
   iconMiddle,

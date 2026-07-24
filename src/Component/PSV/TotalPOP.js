@@ -237,13 +237,13 @@ class TotalPOP extends Component {
       lstShow: this.state.lstShow.map(itp =>
         itp.title.name === item.groupName
           ? {
-              ...itp,
-              data: itp.data.map(it =>
-                it.popId === item.popId
-                  ? { ...it, damagedInWarehouse: text === '' ? '' : text }
-                  : it,
-              ),
-            }
+            ...itp,
+            data: itp.data.map(it =>
+              it.popId === item.popId
+                ? { ...it, damagedInWarehouse: text === '' ? '' : text }
+                : it,
+            ),
+          }
           : itp,
       ),
       lstFirst: this.state.lstFirst.map(it =>
@@ -390,56 +390,56 @@ class TotalPOP extends Component {
       )}
       {(this.props.route.params.kpiId === 1 ||
         this.props.route.params.kpiId === 3) && (
-        <View
-          style={{ width: '100%', flexDirection: 'row', alignItems: 'center' }}
-        >
-          <View style={{ width: '30%', paddingLeft: 10 }}>
-            <Image
-              style={{ width: 100, height: 100 }}
-              source={{ uri: item.image }}
-              PlaceholderContent={<ActivityIndicator />}
-            />
-          </View>
+          <View
+            style={{ width: '100%', flexDirection: 'row', alignItems: 'center' }}
+          >
+            <View style={{ width: '30%', paddingLeft: 10 }}>
+              <Image
+                style={{ width: 100, height: 100 }}
+                source={{ uri: item.image }}
+                PlaceholderContent={<ActivityIndicator />}
+              />
+            </View>
 
-          <View style={{ flexDirection: 'column', width: '70%' }}>
-            <View
-              style={{
-                flexDirection: 'row',
-                width: '100%',
-                padding: 5,
-                alignItems: 'center',
-              }}
-            >
-              <Text
+            <View style={{ flexDirection: 'column', width: '70%' }}>
+              <View
                 style={{
-                  fontSize: 13,
-                  color: 'black',
-                  fontWeight: '700',
-                  textAlign: 'left',
-                  width: '62%',
+                  flexDirection: 'row',
+                  width: '100%',
+                  padding: 5,
+                  alignItems: 'center',
                 }}
               >
-                {item.popName}
-              </Text>
-              <Text
-                style={{
-                  fontSize: 13,
-                  color: 'black',
-                  fontWeight: '600',
-                  width: '38%',
-                  textAlign: 'left',
-                  borderWidth: 1,
-                  borderRadius: 7,
-                  borderColor: 'lightgray',
-                  padding: 10,
-                }}
-              >
-                {item.quantity}
-              </Text>
+                <Text
+                  style={{
+                    fontSize: 13,
+                    color: 'black',
+                    fontWeight: '700',
+                    textAlign: 'left',
+                    width: '62%',
+                  }}
+                >
+                  {item.popName}
+                </Text>
+                <Text
+                  style={{
+                    fontSize: 13,
+                    color: 'black',
+                    fontWeight: '600',
+                    width: '38%',
+                    textAlign: 'left',
+                    borderWidth: 1,
+                    borderRadius: 7,
+                    borderColor: 'lightgray',
+                    padding: 10,
+                  }}
+                >
+                  {item.quantity}
+                </Text>
+              </View>
             </View>
           </View>
-        </View>
-      )}
+        )}
       {this.props.route.params.kpiId === 4 && (
         <View
           style={{ width: '100%', flexDirection: 'row', alignItems: 'center' }}
@@ -914,20 +914,20 @@ class TotalPOP extends Component {
           >
             {(this.props.route.params.kpiId === 4 ||
               this.props.route.params.kpiId === 1) && (
-              <Button
-                buttonStyle={{
-                  backgroundColor: '#fff',
-                  borderColor: 'black',
-                  borderWidth: 1,
-                  marginRight: 10,
-                  width: this.props.route.params.kpiId === 4 ? '80%' : '98%',
-                }}
-                containerStyle={{ height: 50, marginLeft: 10 }}
-                titleStyle={{ fontSize: 14, fontWeight: '600', color: 'black' }}
-                title={this.state.wareHouseName}
-                onPress={() => this._bottomSheet.show()}
-              />
-            )}
+                <Button
+                  buttonStyle={{
+                    backgroundColor: '#fff',
+                    borderColor: 'black',
+                    borderWidth: 1,
+                    marginRight: 10,
+                    width: this.props.route.params.kpiId === 4 ? '80%' : '98%',
+                  }}
+                  containerStyle={{ height: 50, marginLeft: 10 }}
+                  titleStyle={{ fontSize: 14, fontWeight: '600', color: 'black' }}
+                  title={this.state.wareHouseName}
+                  onPress={() => this._bottomSheet.show()}
+                />
+              )}
             <SearchBar
               containerStyle={{
                 backgroundColor: '#fff',
@@ -965,7 +965,7 @@ class TotalPOP extends Component {
                   name="cart-outline"
                   size={35}
                   onPress={e => this.ShowMyCart()}
-                ></SpiralIcon>
+                />
                 {number > 0 && (
                   <Badge
                     value={number > 99 ? '99+' : number}

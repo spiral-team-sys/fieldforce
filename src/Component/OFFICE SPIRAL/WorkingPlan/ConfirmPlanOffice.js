@@ -29,6 +29,7 @@ import FormGroup from '../../../Content/FormGroup';
 import _ from 'lodash';
 import { SearchData } from '../../../Control/SearchData/SearchData';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
+import SpiralIcon from '../../../Control/Icon/SpiralIcon';
 
 export const ConfirmPlanOffice = ({ navigation }) => {
   const insets = useSafeAreaInsets();

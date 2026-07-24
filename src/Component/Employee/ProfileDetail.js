@@ -14,6 +14,7 @@ import { TimingView } from '../../Control/TimingView';
 import { EmployeeSOTrend } from './EmployeeSOTrend';
 import { LoadingView } from '../../Control/ItemLoading/index';
 import { URLDEFAULT } from '../../Core/URLs';
+import SpiralIcon from '../../Control/Icon/SpiralIcon';
 
 export const ProfileDetail = ({ navigation, route }) => {
   const { appcolor } = useSelector(state => state.GAppState);

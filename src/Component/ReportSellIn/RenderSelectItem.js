@@ -1,6 +1,7 @@
 import React from 'react';
 import { View, TouchableOpacity } from 'react-native';
 import { Icon, Text } from '@rneui/themed';
+import SpiralIcon from '../../Control/Icon/SpiralIcon';
 
 const RenderSelectItem = ({
   typeView,

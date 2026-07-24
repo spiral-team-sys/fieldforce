@@ -20,6 +20,7 @@ import {
 import { MultipleShowImage } from '../../../Control/MultipleShowImage';
 import { URLDEFAULT } from '../../../Core/URLs';
 import ViewPictures from '../../../Control/Gallary/ViewPictures';
+import SpiralIcon from '../../../Control/Icon/SpiralIcon';
 
 const { width } = Dimensions.get('window');
 const ITEM_WIDTH = width / 4;
@@ -194,9 +195,9 @@ export const PhotoInput = ({
   const renderItem = ({ item, index }) => {
     const isImageSystem =
       item.photoPath &&
-      item.photoPath.indexOf('file://') == -1 &&
-      item.photoPath.indexOf('https://') == -1 &&
-      item.photoPath.includes('uploaded')
+        item.photoPath.indexOf('file://') == -1 &&
+        item.photoPath.indexOf('https://') == -1 &&
+        item.photoPath.includes('uploaded')
         ? 1
         : 0;
     const imageUrl =

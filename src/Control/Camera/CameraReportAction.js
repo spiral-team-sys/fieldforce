@@ -27,6 +27,7 @@ import { useSelector } from 'react-redux';
 import CustomListView from '../Custom/CustomListView';
 import LoadingDefault from '../ItemLoading/LoadingDefault';
 import _ from 'lodash';
+import SpiralIcon from '../Icon/SpiralIcon';
 
 const CameraReportAction = forwardRef((props, _ref) => {
   const { onPreview, onClose } = props;

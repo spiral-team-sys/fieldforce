@@ -16,6 +16,7 @@ import { DashboardSynthesis } from '../DashboardSynthesis';
 import { fontWeightBold } from '../../../Themes/AppsStyle';
 import CustomListView from '../../../Control/Custom/CustomListView';
 import ListTime from './List/ListTime';
+import SpiralIcon from '../../../Control/Icon/SpiralIcon';
 
 const DATE = new Date();
 const ProgressReport = ({ navigation, route }) => {
@@ -452,9 +453,8 @@ const ProgressReport = ({ navigation, route }) => {
               arr?.map((item, index) => {
                 return (
                   <RenderItemReport
-                    key={`item_report_${
-                      item.ShopId || item.CategoryName
-                    }_${index}`}
+                    key={`item_report_${item.ShopId || item.CategoryName
+                      }_${index}`}
                     item={item}
                     index={index}
                     arr={arr}

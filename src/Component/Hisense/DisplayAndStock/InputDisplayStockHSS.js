@@ -19,6 +19,7 @@ import { GetByListCode } from "../../../Controller/MasterController";
 import NativeCamera from "../../../Control/NativeCamera";
 import { REPORT } from "../../../API/ReportAPI";
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
+import SpiralIcon from "../../../Control/Icon/SpiralIcon";
 
 export const InputDisplayStockHSS = memo(({ navigation, route, Status, listInput, reloadView, lstReport }) => {
     const insets = useSafeAreaInsets()
@@ -437,7 +438,7 @@ const HeaderTab = ({ listDataByCate, listPhotoByCategory, itemTab, onUpdateNote,
                         onPress={() => handleSelectButton(true)}
                         style={{ flexDirection: 'row', backgroundColor: isShowNote ? appcolor.primary : appcolor.light, paddingLeft: 5, minHeight: 30, padding: 3, justifyContent: 'center', alignItems: 'center', borderRadius: 6, }}>
                         <View style={{ flexDirection: 'row', paddingLeft: 3, justifyContent: 'center', alignItems: 'center' }}>
-                            <SpiralIcon name='comment-alt' color={isShowNote ? appcolor.white : appcolor.primary} type='font-awesome-5' size={16}></SpiralIcon>
+                            <SpiralIcon name='comment-alt' color={isShowNote ? appcolor.white : appcolor.primary} type='font-awesome-5' size={16} />
                             <Text style={{ color: isShowNote ? appcolor.white : appcolor.dark, fontSize: 12, paddingLeft: 5 }}>Ghi chú</Text>
                         </View>
                     </TouchableOpacity>
@@ -449,7 +450,7 @@ const HeaderTab = ({ listDataByCate, listPhotoByCategory, itemTab, onUpdateNote,
                             onPress={() => handleSelectButton(false)}
                             style={{ flexDirection: 'row', minHeight: 30, backgroundColor: isShowNote ? appcolor.light : appcolor.primary, padding: 3, marginLeft: 3, justifyContent: 'center', alignItems: 'center', borderRadius: 6, }}>
                             <View style={{ flexDirection: 'row', paddingLeft: 5, justifyContent: 'center', alignItems: 'center' }}>
-                                <SpiralIcon name='library-outline' color={isShowNote ? appcolor.primary : appcolor.white} type='ionicon' size={16}></SpiralIcon>
+                                <SpiralIcon name='library-outline' color={isShowNote ? appcolor.primary : appcolor.white} type='ionicon' size={16} />
                                 <Text style={{ color: isShowNote ? appcolor.dark : appcolor.white, fontSize: 12, paddingLeft: 3 }}>Quầy kệ {(inputShelves !== null && inputShelves !== undefined && inputShelves !== '') ? (': ' + (inputShelves == 0 ? 0 : inputShelves || '')) : ''}</Text>
                             </View>
                         </TouchableOpacity>
@@ -468,9 +469,9 @@ const HeaderTab = ({ listDataByCate, listPhotoByCategory, itemTab, onUpdateNote,
                             <View style={{ flexDirection: 'row', justifyContent: 'center', alignItems: 'center', marginRight: 5 }}>
                                 {
                                     Status != 1 ?
-                                        <SpiralIcon name='camera' color={appcolor.primary} type='ionicon' size={16}></SpiralIcon>
+                                        <SpiralIcon name='camera' color={appcolor.primary} type='ionicon' size={16} />
                                         :
-                                        <SpiralIcon name='images' color={appcolor.primary} type='ionicon' size={16}></SpiralIcon>
+                                        <SpiralIcon name='images' color={appcolor.primary} type='ionicon' size={16} />
                                 }
                                 <Text style={{ color: appcolor.dark, fontSize: 12, paddingLeft: 3 }}>{Status != 1 ? 'Chụp hình' : 'Xem hình'}</Text>
                             </View>
@@ -483,7 +484,7 @@ const HeaderTab = ({ listDataByCate, listPhotoByCategory, itemTab, onUpdateNote,
                                     onPress={() => takePhoto(itemTab.displayRef)}
                                     style={{ flexDirection: 'row', minHeight: 30, marginRight: 2, padding: 3, justifyContent: 'center', alignItems: 'center', borderRadius: 6, backgroundColor: appcolor.light }}>
                                     <View style={{ flexDirection: 'row', justifyContent: 'center', alignItems: 'center' }}>
-                                        <SpiralIcon name='camera' color={appcolor.primary} type='ionicon' size={16}></SpiralIcon>
+                                        <SpiralIcon name='camera' color={appcolor.primary} type='ionicon' size={16} />
                                         <Text style={{ color: appcolor.dark, fontSize: 12, paddingLeft: 3 }}>Chụp hình</Text>
                                     </View>
                                 </TouchableOpacity>
@@ -494,7 +495,7 @@ const HeaderTab = ({ listDataByCate, listPhotoByCategory, itemTab, onUpdateNote,
                                 style={{ minHeight: 30, padding: 3, paddingVertical: 5, marginRight: 3, borderRadius: 6, backgroundColor: appcolor.light }}>
                                 <Badge badgeStyle={{ position: 'absolute', top: -8, right: -8 }} value={totalPhoto} />
                                 <View style={{ flexDirection: 'row', justifyContent: 'center', alignItems: 'center' }}>
-                                    <SpiralIcon name='images' color={appcolor.primary} type='ionicon' size={16}></SpiralIcon>
+                                    <SpiralIcon name='images' color={appcolor.primary} type='ionicon' size={16} />
                                     <Text style={{ color: appcolor.dark, fontSize: 12, paddingLeft: 3 }}>Xem hình</Text>
                                 </View>
                             </TouchableOpacity>

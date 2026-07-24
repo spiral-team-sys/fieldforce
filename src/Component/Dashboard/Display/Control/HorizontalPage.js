@@ -13,6 +13,7 @@ import { removeVietnameseTones } from '../../../../Core/Helper';
 import { FlashList } from '@shopify/flash-list';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import _ from 'lodash';
+import SpiralIcon from '../../../../Control/Icon/SpiralIcon';
 
 const HorizontalPage = ({ navigation, route }) => {
   const { appcolor } = useSelector(state => state.GAppState);
@@ -262,15 +263,15 @@ const HorizontalPage = ({ navigation, route }) => {
       return value1 > value2
         ? 'caret-up'
         : value1 == value2
-        ? 'ellipse'
-        : 'caret-down';
+          ? 'ellipse'
+          : 'caret-down';
     };
     const colorStatus = (value1, value2) => {
       return value1 > value2
         ? appcolor.success
         : value1 == value2
-        ? appcolor.greylight
-        : appcolor.redgray;
+          ? appcolor.greylight
+          : appcolor.redgray;
     };
 
     return (
@@ -410,9 +411,8 @@ const HorizontalPage = ({ navigation, route }) => {
             size={18}
             color={appcolor.dark}
           />
-          <Text style={styles.titleTableView}>{`Danh sách SKU thay đổi ${
-            infoTable.groupName
-          } - ${infoTable.keyFilterName || 'Tất cả hãng'}`}</Text>
+          <Text style={styles.titleTableView}>{`Danh sách SKU thay đổi ${infoTable.groupName
+            } - ${infoTable.keyFilterName || 'Tất cả hãng'}`}</Text>
         </TouchableOpacity>
         <View style={styles.viewStatus}>
           <SpiralIcon

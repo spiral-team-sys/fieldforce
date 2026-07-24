@@ -15,6 +15,7 @@ import ProgressCircleSnail from '../../Content/ProgressCircleSnail';
 import FBCollage from 'react-native-fb-collage';
 import ActionFilter from './ActionFilter';
 import moment from 'moment';
+import SpiralIcon from '../../Control/Icon/SpiralIcon';
 
 const styles = StyleSheet.create({
   styleRow: {

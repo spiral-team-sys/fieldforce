@@ -22,6 +22,7 @@ import { LoadingView } from '../../Control/ItemLoading/index';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { DashboardRouting } from '../../Content/Beko/DashboardRouting';
 import { DashboardRoutingLG } from '../Dashboard/LG/DashboardRoutingLG';
+import SpiralIcon from '../../Control/Icon/SpiralIcon';
 const CALENDAR_DATA = 'CALENDAR_DATA';
 
 const typeButton = {
@@ -249,7 +250,7 @@ export const LGCenterTab = ({ navigation }) => {
     titleView: { fontSize: 14, fontWeight: '600', color: appcolor.light },
     titleNonView: { fontSize: 14, fontWeight: '600', color: appcolor.dark },
   });
-  const RenderButton = ({}) => {
+  const RenderButton = ({ }) => {
     const dataButtonMenu =
       dataMenu !== undefined && dataMenu !== null
         ? dataMenu[0]?.menuList || ''

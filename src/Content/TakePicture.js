@@ -48,6 +48,7 @@ import { bindActionCreators } from '@reduxjs/toolkit';
 import { HeaderCustom } from './HeaderCustom';
 import { CountTimeAutoTake } from '../Control/CountTimeAutoTake';
 import RNFS from 'react-native-fs';
+import SpiralIcon from '../Control/Icon/SpiralIcon';
 
 class TakePicture extends Component {
   timeoutID = null;
@@ -62,7 +63,7 @@ class TakePicture extends Component {
       photo: '',
       type:
         this.props.route.params.reportId === 1 ||
-        this.props.route.params.photoType === EMPLOYEE_TYPE_PHOTO
+          this.props.route.params.photoType === EMPLOYEE_TYPE_PHOTO
           ? RNCamera.Constants.Type.front
           : RNCamera.Constants.Type.back,
       flash: RNCamera.Constants.FlashMode.off,
@@ -132,8 +133,8 @@ class TakePicture extends Component {
                 Platform.OS === 'ios'
                   ? Linking.openURL('App-Prefs:root=Privacy&path=LOCATION')
                   : openSettings().catch(() =>
-                      console.warn('cannot open settings'),
-                    );
+                    console.warn('cannot open settings'),
+                  );
               },
             );
             break;
@@ -157,15 +158,15 @@ class TakePicture extends Component {
               'Thông báo',
               Platform.OS === 'ios'
                 ? 'Vui lòng cho phép App sử dụng Dịch vụ định vị, Quyền riêng tư -> Dịch vụ định vị -> tìm đến App ' +
-                    APPNAME +
-                    ' -> tích chọn khi dùng Ứng dụng & chính xác cao'
+                APPNAME +
+                ' -> tích chọn khi dùng Ứng dụng & chính xác cao'
                 : 'Vui lòng cho phép chức năng vị trí trong phần cài đặt của thiết bị',
               () => {
                 Platform.OS === 'ios'
                   ? Linking.openURL('App-Prefs:root=Privacy&path=LOCATION')
                   : openSettings().catch(() =>
-                      console.warn('cannot open settings'),
-                    );
+                    console.warn('cannot open settings'),
+                  );
               },
             );
             break;
@@ -245,15 +246,15 @@ class TakePicture extends Component {
             'Thông báo',
             Platform.OS === 'ios'
               ? 'Vui lòng cho phép App sử dụng camera, Quyền riêng tư -> camera -> tìm đến App ' +
-                  APPNAME +
-                  ' -> cho phép (Bật).'
+              APPNAME +
+              ' -> cho phép (Bật).'
               : 'Vui lòng cho phép sử dụng chụp hình trong phần cài đặt của thiết bị',
             () => {
               Platform.OS === 'ios'
                 ? Linking.openURL('App-Prefs:root=Privacy&path=LOCATION')
                 : openSettings().catch(() =>
-                    console.warn('cannot open settings'),
-                  );
+                  console.warn('cannot open settings'),
+                );
             },
           );
         }
@@ -274,15 +275,15 @@ class TakePicture extends Component {
             'Thông báo',
             Platform.OS === 'ios'
               ? 'Vui lòng bật Dịch vụ định vị, Quyền riêng tư -> camera -> tìm đến App ' +
-                  APPNAME +
-                  ' -> cho phép (Bật).'
+              APPNAME +
+              ' -> cho phép (Bật).'
               : 'Vui lòng cho phép chức năng chụp hình trong phần cài đặt của thiết bị',
             () => {
               Platform.OS === 'ios'
                 ? Linking.openURL('App-Prefs:root=Privacy&path=LOCATION')
                 : openSettings().catch(() =>
-                    console.warn('cannot open settings'),
-                  );
+                  console.warn('cannot open settings'),
+                );
             },
           );
           break;
@@ -297,15 +298,15 @@ class TakePicture extends Component {
             'Thông báo',
             Platform.OS === 'ios'
               ? 'Vui lòng cho phép App sử dụng camera, Quyền riêng tư -> camera -> tìm đến App ' +
-                  APPNAME +
-                  ' -> cho phép (Bật).'
+              APPNAME +
+              ' -> cho phép (Bật).'
               : 'Vui lòng cho phép sử dụng chụp hình trong phần cài đặt của thiết bị',
             () => {
               Platform.OS === 'ios'
                 ? Linking.openURL('App-Prefs:root=Privacy&path=LOCATION')
                 : openSettings().catch(() =>
-                    console.warn('cannot open settings'),
-                  );
+                  console.warn('cannot open settings'),
+                );
             },
           );
           break;
@@ -337,8 +338,8 @@ class TakePicture extends Component {
         if (this.state.countGetLoction > 4) {
           MessageAction2(
             'Hệ thống ghi nhận vị trí bạn chấm công đang cách cửa hàng hơn ' +
-              this.state.distanceLimit +
-              'm, bạn muốn tiếp tục chấm công hay lấy lại vị trí ?',
+            this.state.distanceLimit +
+            'm, bạn muốn tiếp tục chấm công hay lấy lại vị trí ?',
             () => {
               this.getLocationLast();
             },
@@ -387,8 +388,8 @@ class TakePicture extends Component {
         if (this.state.countGetLoction > 4) {
           MessageAction2(
             'Hệ thống ghi nhận vị trí bạn chấm công đang cách cửa hàng hơn ' +
-              this.state.distanceLimit +
-              'm, bạn muốn lấy lại vị trí ?',
+            this.state.distanceLimit +
+            'm, bạn muốn lấy lại vị trí ?',
             () => {
               this.getLocationLast();
               this.props.navigation.goBack();
@@ -496,7 +497,7 @@ class TakePicture extends Component {
     faces.map(item => {
       item.bounds.origin.y + item.bounds.size.height >
         Dimensions.get('screen').height - 100 ||
-      item.bounds.origin.x + item.bounds.size.width >
+        item.bounds.origin.x + item.bounds.size.width >
         Dimensions.get('screen').width
         ? isNotOk()
         : isOk();
@@ -516,7 +517,7 @@ class TakePicture extends Component {
     faces.map(item => {
       ((item.bounds.origin.x + item.bounds.size.width) * 100) /
         Dimensions.get('screen').width <
-      60
+        60
         ? isNotOk()
         : isOk();
     });
@@ -525,7 +526,7 @@ class TakePicture extends Component {
     faces.map(item => {
       ((item.bounds.origin.x + item.bounds.size.width) * 100) /
         Dimensions.get('screen').width >
-      82
+        82
         ? isNotOk()
         : isOk();
     });
@@ -614,11 +615,10 @@ class TakePicture extends Component {
       photoData.uri?.length,
     );
     const extension = Platform.OS === 'android' ? 'file://' : '';
-    const path = `${extension}${
-      RNFS.DocumentDirectoryPath
+    const path = `${extension}${RNFS.DocumentDirectoryPath
         ? RNFS.DocumentDirectoryPath
         : RNFS.LibraryDirectoryPath
-    }/Camera/`;
+      }/Camera/`;
     const pathFile = `${path}${name}`;
     const base64Data = photoData.base64;
     try {
@@ -704,10 +704,8 @@ class TakePicture extends Component {
             this.state.statusDistance === 2
           ) {
             MessageInfo(
-              ` Vị trí của bạn so với vị trí cửa hàng lớn hơn ${
-                this.state.distanceLimit
-              }m vui lòng đến gần cửa hàng hơn, Khoảng cách giữa bạn và cửa hàng hiện là: \n\n${distance} Mét\nHay\n${
-                distance / 1000
+              ` Vị trí của bạn so với vị trí cửa hàng lớn hơn ${this.state.distanceLimit
+              }m vui lòng đến gần cửa hàng hơn, Khoảng cách giữa bạn và cửa hàng hiện là: \n\n${distance} Mét\nHay\n${distance / 1000
               } Kilomet`,
             );
             return;
@@ -819,8 +817,8 @@ class TakePicture extends Component {
     this.checkDetectFace(
       faces,
       2,
-      () => {},
-      () => {},
+      () => { },
+      () => { },
     );
   };
   renderFaces = () => (
@@ -893,8 +891,8 @@ class TakePicture extends Component {
       cameraConfig?.cameraId == 'front'
         ? RNCamera.Constants.Type.front
         : cameraConfig?.cameraId == 'back'
-        ? RNCamera.Constants.Type.back
-        : this.state.type;
+          ? RNCamera.Constants.Type.back
+          : this.state.type;
     const type = typeCameraId;
     const isEnabled = this.state.isEnabled;
     const flashmode = this.state.flash;
@@ -994,8 +992,8 @@ class TakePicture extends Component {
                   </View>
                 )}
                 {this.state.longitudePo !== 0 &&
-                this.props.route.params?.QRCode !== 1 &&
-                this.state?.statusDistance === null ? (
+                  this.props.route.params?.QRCode !== 1 &&
+                  this.state?.statusDistance === null ? (
                   <View style={camerestyles.bottomButtons}>
                     <TouchableOpacity onPress={this.takePicture}>
                       <SpiralIcon name="camera" size={60} color="orange" />

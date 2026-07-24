@@ -44,6 +44,7 @@ import { PROGRAM_KEY } from '../../../../Core/KEYs';
 import { getDataPhotoByGUID } from '../../../../Controller/ReportController';
 import moment from 'moment';
 import _ from 'lodash';
+import SpiralIcon from '../../../../Control/Icon/SpiralIcon';
 
 const UploadDeliverySlipScreen = ({ navigation, route }) => {
   const { data, dataSend } = route?.params || {};
@@ -69,9 +70,8 @@ const UploadDeliverySlipScreen = ({ navigation, route }) => {
   const LoadData = async () => {
     await setConfig(JSON.parse(kpiinfo.reportItem || '{}'));
     const defaultModelList = JSON.parse(data?.modelList || '[]');
-    const storageKey = `${PROGRAM_KEY.DELIVERY_SLIP}_${
-      data?.shopId || shopinfo.shopId
-    }_${TODAY}_${data?.programId}`;
+    const storageKey = `${PROGRAM_KEY.DELIVERY_SLIP}_${data?.shopId || shopinfo.shopId
+      }_${TODAY}_${data?.programId}`;
     const savedModelList = await AsyncStorage.getItem(storageKey);
     const modelList = savedModelList
       ? JSON.parse(savedModelList)
@@ -126,8 +126,7 @@ const UploadDeliverySlipScreen = ({ navigation, route }) => {
             result.messager || 'Gửi phiếu xuất thành công',
           );
           await AsyncStorage.removeItem(
-            `${PROGRAM_KEY.DELIVERY_SLIP}_${
-              data?.shopId || shopinfo.shopId
+            `${PROGRAM_KEY.DELIVERY_SLIP}_${data?.shopId || shopinfo.shopId
             }_${TODAY}_${data?.programId}`,
           );
           //
@@ -250,7 +249,7 @@ const UploadDeliverySlipScreen = ({ navigation, route }) => {
         'Hình ảnh',
         'Bạn có thể chụp ảnh hoặc chọn ảnh từ thư viện để thêm vào phiếu xuất',
         [
-          { text: 'Huỷ', onPress: () => {}, style: 'cancel' },
+          { text: 'Huỷ', onPress: () => { }, style: 'cancel' },
           {
             text: 'Chụp hình',
             onPress: () => {
@@ -308,8 +307,7 @@ const UploadDeliverySlipScreen = ({ navigation, route }) => {
   const saveDataToStorage = async dataUpdate => {
     handlerSummaryData();
     await AsyncStorage.setItem(
-      `${PROGRAM_KEY.DELIVERY_SLIP}_${
-        data?.shopId || shopinfo.shopId
+      `${PROGRAM_KEY.DELIVERY_SLIP}_${data?.shopId || shopinfo.shopId
       }_${TODAY}_${data?.programId}`,
       JSON.stringify(dataUpdate || {}),
     );

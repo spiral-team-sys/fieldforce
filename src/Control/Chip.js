@@ -3,6 +3,7 @@ import { View, TouchableOpacity, Text } from 'react-native';
 import { Icon } from '@rneui/themed';
 import { useSelector } from 'react-redux';
 import { scaleSize } from '../Themes/AppsStyle';
+import SpiralIcon from './Icon/SpiralIcon';
 
 export const Chip = ({
   ChipStyle,

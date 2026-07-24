@@ -10,6 +10,7 @@ import {
 } from '../../../Themes/AppsStyle';
 import { TableGroupData } from './Control/TableGroupData';
 import { _competitorName } from '../../../Core/URLs';
+import SpiralIcon from '../../../Control/Icon/SpiralIcon';
 
 export const DashboardDisplayShareByType = ({ info, navigation }) => {
   const { appcolor } = useSelector(state => state.GAppState);

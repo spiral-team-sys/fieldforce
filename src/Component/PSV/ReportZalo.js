@@ -14,6 +14,7 @@ import { REPORT } from '../../API/ReportAPI';
 import { Icon } from '@rneui/themed';
 import CustomListView from '../../Control/Custom/CustomListView';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
+import SpiralIcon from '../../Control/Icon/SpiralIcon';
 
 const TOUCH_HIT_SLOP = { top: 8, bottom: 8, left: 8, right: 8 };
 

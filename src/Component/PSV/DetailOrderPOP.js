@@ -14,6 +14,7 @@ import { useSelector } from 'react-redux';
 import { HeaderCustom } from '../../Content/HeaderCustom';
 import { Tabs, MaterialTabBar } from 'react-native-collapsible-tab-view'
 import { deviceWidth } from '../../Core/Utility';
+import SpiralIcon from '../../Control/Icon/SpiralIcon';
 
 export const DetailOrderPOP = ({ navigation, route }) => {
     const [steps, setSteps] = useState([])
@@ -231,7 +232,7 @@ export const DetailOrderPOP = ({ navigation, route }) => {
                         buttonStyle={{ backgroundColor: DEFAULT_COLOR, alignContent: 'center' }}
                         containerStyle={{ width: '47%', borderRadius: 10, height: 55, alignContent: 'center' }}
                         icon={
-                            <SpiralIcon type='ionicon' name='camera' size={35} color={'#fff'}></SpiralIcon>
+                            <SpiralIcon type='ionicon' name='camera' size={35} color={'#fff'} />
                         }
                         onPress={() => {
                             navigation.navigate('damageNote', route.params);
@@ -244,7 +245,7 @@ export const DetailOrderPOP = ({ navigation, route }) => {
                         buttonStyle={{ backgroundColor: DEFAULT_COLOR, alignContent: 'center' }}
                         containerStyle={{ width: '47%', borderRadius: 10, height: 55, alignContent: 'center' }}
                         icon={
-                            <SpiralIcon type='ionicon' name='save' size={35} color={'#fff'}></SpiralIcon>
+                            <SpiralIcon type='ionicon' name='save' size={35} color={'#fff'} />
                         }
                         onPress={() => ConfirmOrder()}
                     >

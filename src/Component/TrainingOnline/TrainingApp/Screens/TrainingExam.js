@@ -33,6 +33,7 @@ import { TouchableOpacity } from 'react-native';
 import TimerComponent from '../Components/TimerComponent';
 import { FlashList } from '@shopify/flash-list';
 import { Icon } from '@rneui/base';
+import SpiralIcon from '../../../../Control/Icon/SpiralIcon';
 
 const TrainingExam = ({ navigation, route }) => {
   const { appcolor, kpiinfo, tokenAutoLogin } = useSelector(
@@ -152,7 +153,7 @@ const TrainingExam = ({ navigation, route }) => {
       return true;
     });
     return () => {
-      BackHandler.removeEventListener('hardwareBackPress', () => {});
+      BackHandler.removeEventListener('hardwareBackPress', () => { });
     };
   }, []);
 

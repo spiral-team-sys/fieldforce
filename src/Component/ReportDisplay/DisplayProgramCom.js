@@ -30,6 +30,7 @@ import {
 import SearchableDropdown from 'react-native-searchable-dropdown';
 import { Message } from '../../Core/Helper';
 import { uploadAllDataPhoto } from '../../Controller/PhotoController';
+import SpiralIcon from '../../Control/Icon/SpiralIcon';
 
 export default class DisplayProgram extends Component {
   constructor(props) {
@@ -112,9 +113,9 @@ export default class DisplayProgram extends Component {
       if (isnew == 1 || lstItemsProgram.length - 1 === i) {
         let itemsHave = Array.isArray(resDisplay)
           ? resDisplay.filter(
-              itemRes =>
-                itemRes.displayRef === refName && itemRes.displayComment !== '',
-            )
+            itemRes =>
+              itemRes.displayRef === refName && itemRes.displayComment !== '',
+          )
           : [];
         refName != '' &&
           MapArr.push({
@@ -260,13 +261,13 @@ export default class DisplayProgram extends Component {
       lstShow: this.state.lstShow.map(itemShow =>
         itemShow.title.name === item.refName
           ? {
-              ...itemShow,
-              data: itemShow.data.map(itemS =>
-                itemS.id === item.itemId
-                  ? { ...itemS, quanity: text != '' ? parseInt(text) : '' }
-                  : itemS,
-              ),
-            }
+            ...itemShow,
+            data: itemShow.data.map(itemS =>
+              itemS.id === item.itemId
+                ? { ...itemS, quanity: text != '' ? parseInt(text) : '' }
+                : itemS,
+            ),
+          }
           : itemShow,
       ),
     });

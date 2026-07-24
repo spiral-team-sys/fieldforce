@@ -9,6 +9,7 @@ import {
 import { useSelector } from 'react-redux';
 import { fontWeightBold } from '../../../../../Themes/AppsStyle';
 import moment from 'moment';
+import SpiralIcon from '../../../../../Control/Icon/SpiralIcon';
 
 const ItemScanID = ({
   navigation,
@@ -20,7 +21,7 @@ const ItemScanID = ({
   const { appcolor } = useSelector(state => state.GAppState);
   const [_mutate, setMutate] = useState(false);
 
-  const LoadData = async () => {};
+  const LoadData = async () => { };
 
   const onGetInformation = async data => {
     const arrayInfo = data.split('|');

@@ -21,6 +21,7 @@ import { toastSuccess } from '../../../../Utils/configToast';
 import ItemProgramResult from './Items/ItemProgramResult';
 import QuarterStatisticsView from './Items/QuarterStatisticsView';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
+import SpiralIcon from '../../../../Control/Icon/SpiralIcon';
 
 const ProgramResultScreen = ({ navigation }) => {
   const insets = useSafeAreaInsets();
@@ -401,9 +402,8 @@ const ProgramResultScreen = ({ navigation }) => {
     setShopSearchText('');
     setSelectedStatus({
       title: item.StatusTitle,
-      subtitle: `${selectedProgram?.title || ''} · ${
-        selectedType?.Title || ''
-      }`,
+      subtitle: `${selectedProgram?.title || ''} · ${selectedType?.Title || ''
+        }`,
       shops: item.shops,
       color: item.ColorTheme || 'primary',
     });
@@ -1070,9 +1070,8 @@ const ProgramResultScreen = ({ navigation }) => {
 
           <View style={styles.sectionHeader}>
             <Text style={styles.sectionTitle}>Loại kết quả</Text>
-            <Text style={styles.sectionMeta}>{`${
-              selectedProgram?.typeData.length || 0
-            } loại`}</Text>
+            <Text style={styles.sectionMeta}>{`${selectedProgram?.typeData.length || 0
+              } loại`}</Text>
           </View>
           <ScrollView
             horizontal

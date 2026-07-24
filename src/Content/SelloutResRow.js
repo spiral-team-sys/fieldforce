@@ -12,6 +12,7 @@ import { useSelector } from 'react-redux';
 import { toCurrency } from '../Core/Utility';
 import LottieView from 'lottie-react-native';
 import NativeCamera from '../Control/NativeCamera';
+import SpiralIcon from '../Control/Icon/SpiralIcon';
 
 export const SelloutResRow = ({
   item,
@@ -165,9 +166,8 @@ export const SelloutResRow = ({
                   <Text
                     style={{ color: appcolor.dark, fontSize: scaleSize(18) }}
                   >
-                    {`${item.division || ''} ${item.productCode} ${
-                      item.productName
-                    }`}
+                    {`${item.division || ''} ${item.productCode} ${item.productName
+                      }`}
                   </Text>
                   {item.price > 0 && (
                     <Text
@@ -183,9 +183,8 @@ export const SelloutResRow = ({
                   <Text
                     style={{ fontSize: scaleSize(12), color: appcolor.dark }}
                   >
-                    {`${item.category} ${item.subcategory || ''}/${
-                      item.segment
-                    }`}
+                    {`${item.category} ${item.subcategory || ''}/${item.segment
+                      }`}
                   </Text>
                   {item.serial !== undefined &&
                     item.serial !== '' &&
@@ -208,11 +207,10 @@ export const SelloutResRow = ({
                       fontStyle: 'italic',
                     }}
                   >
-                    {`Khách hàng ${item.customer || ''} ${item.address || ''} ${
-                      item.phone || ''
-                    } ${item.sellComment || ''} ${Moment(
-                      item.reportDate?.toString() || new Date(),
-                    ).format('YYYY-MM-DD')} `}
+                    {`Khách hàng ${item.customer || ''} ${item.address || ''} ${item.phone || ''
+                      } ${item.sellComment || ''} ${Moment(
+                        item.reportDate?.toString() || new Date(),
+                      ).format('YYYY-MM-DD')} `}
                   </Text>
                 </View>
               </View>

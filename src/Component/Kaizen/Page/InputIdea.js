@@ -30,6 +30,7 @@ import { deviceHeight, deviceWidth } from '../../../Themes/AppsStyle';
 import { Icon } from '@rneui/themed';
 import { TODAY } from '../../../Core/Utility';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
+import SpiralIcon from '../../../Control/Icon/SpiralIcon';
 
 const template = {
   current: null,
@@ -215,9 +216,8 @@ const InputIdea = ({ dataInput, reload }) => {
                 title={item.nameVN}
                 defaultValue={
                   itemInput[item.ref_Name]
-                    ? `${
-                        itemSelect.id == 100 ? '' : `${itemSelect.groupName} : `
-                      }${itemSelect.nameVN}`
+                    ? `${itemSelect.id == 100 ? '' : `${itemSelect.groupName} : `
+                    }${itemSelect.nameVN}`
                     : '--Chọn--'
                 }
                 multiline={true}

@@ -9,6 +9,7 @@ import { InsertPhotosItem } from '../Controller/PhotoController';
 import { GetEmployeeInfo } from '../Core/Helper';
 import { useSelector } from 'react-redux';
 import NativeCamera from '../Control/NativeCamera';
+import SpiralIcon from '../Control/Icon/SpiralIcon';
 
 const styles = StyleSheet.create({
   title: {
@@ -61,8 +62,8 @@ export const SelloutVerifyRow = ({
       shopCode: itemRes.shopId + '',
       guiId:
         itemRes.guiId === null ||
-        itemRes.guiId === 'null' ||
-        itemRes.guiId === ''
+          itemRes.guiId === 'null' ||
+          itemRes.guiId === ''
           ? empId + '_' + itemRes.serial
           : itemRes.guiId,
       photoDesc: itemRes.serial,
@@ -89,8 +90,8 @@ export const SelloutVerifyRow = ({
           shopCode: itemRes.shopId + '',
           guid:
             itemRes.guiId === null ||
-            itemRes.guiId === 'null' ||
-            itemRes.guiId === ''
+              itemRes.guiId === 'null' ||
+              itemRes.guiId === ''
               ? empId + '_' + itemRes.serial
               : itemRes.guiId,
           photoDesc: itemRes.serial,
@@ -112,8 +113,8 @@ export const SelloutVerifyRow = ({
       shopId: itemRes.shopId,
       guiId:
         itemRes.guiId === null ||
-        itemRes.guiId === 'null' ||
-        itemRes.guiId === ''
+          itemRes.guiId === 'null' ||
+          itemRes.guiId === ''
           ? empId + '_' + itemRes.serial
           : itemRes.guiId,
       photoDate: parseInt(Moment(new Date()).format('YYYYMMDD')),
@@ -195,8 +196,8 @@ export const SelloutVerifyRow = ({
                     item.imeiStatus === 2
                       ? 'green'
                       : item.imeiStatus === 1
-                      ? 'orange'
-                      : 'red',
+                        ? 'orange'
+                        : 'red',
                 }}
               >
                 {item.optional}
@@ -212,8 +213,8 @@ export const SelloutVerifyRow = ({
                     item.imeiStatus === 2
                       ? 'green'
                       : item.imeiStatus === 1
-                      ? 'orange'
-                      : 'red',
+                        ? 'orange'
+                        : 'red',
                 }}
               >
                 {item.tribeReason}
@@ -229,8 +230,8 @@ export const SelloutVerifyRow = ({
                     item.imeiStatus === 2
                       ? 'green'
                       : item.imeiStatus === 1
-                      ? 'orange'
-                      : 'red',
+                        ? 'orange'
+                        : 'red',
                 }}
               >
                 {item.imeiVerify}

@@ -17,6 +17,7 @@ import FormGroup from '../../../Content/FormGroup';
 import _ from 'lodash';
 import { Modal } from 'react-native';
 import { formatNumber } from '../../../Core/Helper';
+import SpiralIcon from '../../../Control/Icon/SpiralIcon';
 
 export const DashBoardTargetTF = ({
   navigation,
@@ -200,50 +201,43 @@ export const DashBoardTargetTF = ({
   };
   const getColumnValue = (item, column) => {
     if (column == 1) {
-      return `${
-        item.actualByDay == '_'
-          ? ''
-          : item.actualByDay
+      return `${item.actualByDay == '_'
+        ? ''
+        : item.actualByDay
           ? isFloat(item.actualByDay)
             ? item.actualByDay
             : formatNumber(item.actualByDay, ',')
           : 0
-      }${item.unit1 ? item.unit1 : ''}${
-        item.isHideTarget == 1
+        }${item.unit1 ? item.unit1 : ''}${item.isHideTarget == 1
           ? ''
-          : `/${
-              item.targetByDay
-                ? isFloat(item.targetByDay)
-                  ? item.targetByDay
-                  : formatNumber(item.targetByDay, ',')
-                : 0
-            }`
-      }${item.unit4 ? item.unit4 : ''}`;
+          : `/${item.targetByDay
+            ? isFloat(item.targetByDay)
+              ? item.targetByDay
+              : formatNumber(item.targetByDay, ',')
+            : 0
+          }`
+        }${item.unit4 ? item.unit4 : ''}`;
     }
     if (column == 2) {
-      return `${
-        item.actualByWeek == '_'
-          ? ''
-          : item.actualByWeek
+      return `${item.actualByWeek == '_'
+        ? ''
+        : item.actualByWeek
           ? isFloat(item.actualByWeek)
             ? item.actualByWeek
             : formatNumber(item.actualByWeek, ',')
           : 0
-      }${item.unit2 ? item.unit2 : ''}${
-        item.isHideTarget == 1
+        }${item.unit2 ? item.unit2 : ''}${item.isHideTarget == 1
           ? ''
-          : `/${
-              item.targetByWeek
-                ? isFloat(item.targetByWeek)
-                  ? item.targetByWeek
-                  : formatNumber(item.targetByWeek, ',')
-                : 0
-            }`
-      }${item.unit5 ? item.unit5 : ''}`;
+          : `/${item.targetByWeek
+            ? isFloat(item.targetByWeek)
+              ? item.targetByWeek
+              : formatNumber(item.targetByWeek, ',')
+            : 0
+          }`
+        }${item.unit5 ? item.unit5 : ''}`;
     }
-    return `${item.actualByMonth || 0}${item.unit3 ? item.unit3 : ''}${
-      item.isHideTarget == 1 ? '' : `/${item.targetByMonth || 0}`
-    }${item.unit6 ? item.unit6 : ''}`;
+    return `${item.actualByMonth || 0}${item.unit3 ? item.unit3 : ''}${item.isHideTarget == 1 ? '' : `/${item.targetByMonth || 0}`
+      }${item.unit6 ? item.unit6 : ''}`;
   };
   const UIByCate = () => {
     var uiDashboard = [];
@@ -262,37 +256,34 @@ export const DashBoardTargetTF = ({
       dataDashboard.dashboardMain?.length <= 3;
     if (isFewItems) {
       dataDashboard.dashboardMain?.forEach((item, index) => {
-        const widthDay = `${
-          ((item.actualByDay * (item.unit1 == 'B' ? 1000000000 : 1) || 0) *
-            100) /
-            (item.targetByDay * (item.unit4 == 'B' ? 1000000000 : 1)) >
+        const widthDay = `${((item.actualByDay * (item.unit1 == 'B' ? 1000000000 : 1) || 0) *
+          100) /
+          (item.targetByDay * (item.unit4 == 'B' ? 1000000000 : 1)) >
           100
-            ? 100
-            : ((item.actualByDay * (item.unit1 == 'B' ? 1000000000 : 1) || 0) *
-                100) /
-              (item.targetByDay * (item.unit4 == 'B' ? 1000000000 : 1))
-        }%`;
-        const widthWeek = `${
-          ((item.actualByWeek * (item.unit2 == 'B' ? 1000000000 : 1) || 0) *
+          ? 100
+          : ((item.actualByDay * (item.unit1 == 'B' ? 1000000000 : 1) || 0) *
             100) /
-            (item.targetByWeek * (item.unit5 == 'B' ? 1000000000 : 1)) >
+          (item.targetByDay * (item.unit4 == 'B' ? 1000000000 : 1))
+          }%`;
+        const widthWeek = `${((item.actualByWeek * (item.unit2 == 'B' ? 1000000000 : 1) || 0) *
+          100) /
+          (item.targetByWeek * (item.unit5 == 'B' ? 1000000000 : 1)) >
           100
-            ? 100
-            : ((item.actualByWeek * (item.unit2 == 'B' ? 1000000000 : 1) || 0) *
-                100) /
-              (item.targetByWeek * (item.unit5 == 'B' ? 1000000000 : 1))
-        }%`;
-        const widthMonth = `${
-          ((item.actualByMonth * (item.unit3 == 'B' ? 1000000000 : 1) || 0) *
+          ? 100
+          : ((item.actualByWeek * (item.unit2 == 'B' ? 1000000000 : 1) || 0) *
             100) /
-            (item.targetByMonth * (item.unit6 == 'B' ? 1000000000 : 1)) >
+          (item.targetByWeek * (item.unit5 == 'B' ? 1000000000 : 1))
+          }%`;
+        const widthMonth = `${((item.actualByMonth * (item.unit3 == 'B' ? 1000000000 : 1) || 0) *
+          100) /
+          (item.targetByMonth * (item.unit6 == 'B' ? 1000000000 : 1)) >
           100
-            ? 100
-            : ((item.actualByMonth * (item.unit3 == 'B' ? 1000000000 : 1) ||
-                0) *
-                100) /
-              (item.targetByMonth * (item.unit6 == 'B' ? 1000000000 : 1))
-        }%`;
+          ? 100
+          : ((item.actualByMonth * (item.unit3 == 'B' ? 1000000000 : 1) ||
+            0) *
+            100) /
+          (item.targetByMonth * (item.unit6 == 'B' ? 1000000000 : 1))
+          }%`;
         const listStoreInactive = JSON.parse(item.listStoreInactive || '[]');
         const labels = [
           item.titleC1 || 'Ngày',
@@ -362,47 +353,41 @@ export const DashBoardTargetTF = ({
     uiDashboard.push(
       <View key="e92" style={styles.viewMain}>
         <Text style={styles.titleHeadName} />
-        <Text style={[styles.titleHeadValue, { color: getCellColor(1) }]}>{`${
-          dataDashboard.dashboardMain?.[0]?.titleC1 || 'Ngày'
-        }`}</Text>
-        <Text style={[styles.titleHeadValue, { color: getCellColor(2) }]}>{`${
-          dataDashboard.dashboardMain?.[0]?.titleC2 || 'Tuần'
-        }`}</Text>
-        <Text style={[styles.titleHeadValue, { color: getCellColor(3) }]}>{`${
-          dataDashboard.dashboardMain?.[0]?.titleC3 || 'Tháng'
-        }`}</Text>
+        <Text style={[styles.titleHeadValue, { color: getCellColor(1) }]}>{`${dataDashboard.dashboardMain?.[0]?.titleC1 || 'Ngày'
+          }`}</Text>
+        <Text style={[styles.titleHeadValue, { color: getCellColor(2) }]}>{`${dataDashboard.dashboardMain?.[0]?.titleC2 || 'Tuần'
+          }`}</Text>
+        <Text style={[styles.titleHeadValue, { color: getCellColor(3) }]}>{`${dataDashboard.dashboardMain?.[0]?.titleC3 || 'Tháng'
+          }`}</Text>
       </View>,
     );
     dataDashboard.dashboardMain?.forEach((item, index) => {
-      const widthDay = `${
-        ((item.actualByDay * (item.unit1 == 'B' ? 1000000000 : 1) || 0) * 100) /
-          (item.targetByDay * (item.unit4 == 'B' ? 1000000000 : 1)) >
+      const widthDay = `${((item.actualByDay * (item.unit1 == 'B' ? 1000000000 : 1) || 0) * 100) /
+        (item.targetByDay * (item.unit4 == 'B' ? 1000000000 : 1)) >
         100
-          ? 100
-          : ((item.actualByDay * (item.unit1 == 'B' ? 1000000000 : 1) || 0) *
-              100) /
-            (item.targetByDay * (item.unit4 == 'B' ? 1000000000 : 1))
-      }%`;
-      const widthWeek = `${
-        ((item.actualByWeek * (item.unit2 == 'B' ? 1000000000 : 1) || 0) *
+        ? 100
+        : ((item.actualByDay * (item.unit1 == 'B' ? 1000000000 : 1) || 0) *
           100) /
-          (item.targetByWeek * (item.unit5 == 'B' ? 1000000000 : 1)) >
+        (item.targetByDay * (item.unit4 == 'B' ? 1000000000 : 1))
+        }%`;
+      const widthWeek = `${((item.actualByWeek * (item.unit2 == 'B' ? 1000000000 : 1) || 0) *
+        100) /
+        (item.targetByWeek * (item.unit5 == 'B' ? 1000000000 : 1)) >
         100
-          ? 100
-          : ((item.actualByWeek * (item.unit2 == 'B' ? 1000000000 : 1) || 0) *
-              100) /
-            (item.targetByWeek * (item.unit5 == 'B' ? 1000000000 : 1))
-      }%`;
-      const widthMonth = `${
-        ((item.actualByMonth * (item.unit3 == 'B' ? 1000000000 : 1) || 0) *
+        ? 100
+        : ((item.actualByWeek * (item.unit2 == 'B' ? 1000000000 : 1) || 0) *
           100) /
-          (item.targetByMonth * (item.unit6 == 'B' ? 1000000000 : 1)) >
+        (item.targetByWeek * (item.unit5 == 'B' ? 1000000000 : 1))
+        }%`;
+      const widthMonth = `${((item.actualByMonth * (item.unit3 == 'B' ? 1000000000 : 1) || 0) *
+        100) /
+        (item.targetByMonth * (item.unit6 == 'B' ? 1000000000 : 1)) >
         100
-          ? 100
-          : ((item.actualByMonth * (item.unit3 == 'B' ? 1000000000 : 1) || 0) *
-              100) /
-            (item.targetByMonth * (item.unit6 == 'B' ? 1000000000 : 1))
-      }%`;
+        ? 100
+        : ((item.actualByMonth * (item.unit3 == 'B' ? 1000000000 : 1) || 0) *
+          100) /
+        (item.targetByMonth * (item.unit6 == 'B' ? 1000000000 : 1))
+        }%`;
       const listStoreInactive = JSON.parse(item.listStoreInactive || '[]');
       uiDashboard.push(
         <View
@@ -571,8 +556,8 @@ export const DashBoardTargetTF = ({
               {dataDashboard.dashboardMain?.length > 0
                 ? dataDashboard.dashboardMain?.[0]?.title
                 : showEmptyState
-                ? 'Thống kê'
-                : ''}
+                  ? 'Thống kê'
+                  : ''}
             </Text>
           </TouchableOpacity>
           <TouchableOpacity
@@ -589,7 +574,7 @@ export const DashBoardTargetTF = ({
               overflow: 'hidden',
             }}
           >
-            <SpiralIconAnimation
+            <IconAnimation
               isLoop={isLoading}
               sourceIcon={require('../../../Themes/lotties/sync_load.json')}
             />

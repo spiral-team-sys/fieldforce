@@ -5,6 +5,7 @@ import { useSelector } from 'react-redux';
 import { FlashList } from '@shopify/flash-list';
 import { fontWeightBold } from '../../../../../Themes/AppsStyle';
 import _ from 'lodash';
+import SpiralIcon from '../../../../../Control/Icon/SpiralIcon';
 
 export const ScreenMain = ({ title, dashboardData, onShowDetail }) => {
   const { appcolor } = useSelector(state => state.GAppState);

@@ -9,6 +9,7 @@ import DeviceInfo from 'react-native-device-info';
 import { GetEmployeeInfo, Token } from '../../Core/Helper';
 import { AppNameBuild, TRAINEEKEY } from '../../Core/URLs';
 import { SetKpiInfo } from '../../Redux/action';
+import SpiralIcon from '../../Control/Icon/SpiralIcon';
 
 export const LGMenuHome = ({ navigation, menus }) => {
   const [menulist, setMenu] = useState(menus);

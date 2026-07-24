@@ -51,6 +51,7 @@ import NativeCamera from '../../Control/NativeCamera';
 import { Linking } from 'react-native';
 import { toastError } from '../../Utils/configToast';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
+import SpiralIcon from '../../Control/Icon/SpiralIcon';
 
 if (
   Platform.OS === 'android' &&
@@ -151,31 +152,27 @@ export const EmployeeResigns = ({ navigation, route }) => {
         );
         const costViolate = config?.salaryDefault
           ? (countDayResign > contractNoticeDays
-              ? contractNoticeDays
-              : dateLate) *
-            (config?.salaryDefault / 30)
+            ? contractNoticeDays
+            : dateLate) *
+          (config?.salaryDefault / 30)
           : 0;
-        let contentAlert = `*Cảnh báo vi phạm thời gian báo trước: \n- Số ngày nhân viên cần báo trước: ${contractNoticeDays} ngày\n- Số ngày nhân viên báo trước: ${countDayResign} ngày\n- Số ngày vi phạm: ${
-          dateLate > contractNoticeDays ? contractNoticeDays : dateLate
-        } ngày\n- Ngày nghỉ sớm nhất đúng quy định: ${dateLimit}\n${
-          costViolate > 0
+        let contentAlert = `*Cảnh báo vi phạm thời gian báo trước: \n- Số ngày nhân viên cần báo trước: ${contractNoticeDays} ngày\n- Số ngày nhân viên báo trước: ${countDayResign} ngày\n- Số ngày vi phạm: ${dateLate > contractNoticeDays ? contractNoticeDays : dateLate
+          } ngày\n- Ngày nghỉ sớm nhất đúng quy định: ${dateLimit}\n${costViolate > 0
             ? `- Mức phạt vi phạm: ${costViolate.toLocaleString('vi-VN', {
-                style: 'currency',
-                currency: 'VND',
-              })}`
+              style: 'currency',
+              currency: 'VND',
+            })}`
             : ''
-        }${
-          config?.noteResignByEmployee
+          }${config?.noteResignByEmployee
             ? `\n- ${config.noteResignByEmployee}`
             : ''
-        }`;
+          }`;
         setAlertResignDate(contentAlert);
       } else {
         setAlertResignDate(
-          `${
-            config?.noteResignByEmployee
-              ? `\n- ${config.noteResignByEmployee}`
-              : ''
+          `${config?.noteResignByEmployee
+            ? `\n- ${config.noteResignByEmployee}`
+            : ''
           }`,
         );
       }
@@ -1075,15 +1072,15 @@ export const EmployeeResigns = ({ navigation, route }) => {
           !isResigned
             ? 'cloud-upload-alt'
             : data.dataResigns?.confirm === 3
-            ? 'trash'
-            : null
+              ? 'trash'
+              : null
         }
         rightFunc={() =>
           !isResigned
             ? uploadAction()
             : data.dataResigns?.confirm === 3
-            ? deleteResign()
-            : null
+              ? deleteResign()
+              : null
         }
       />
 
@@ -1104,8 +1101,8 @@ export const EmployeeResigns = ({ navigation, route }) => {
                     data.dataResigns?.confirm == 1
                       ? appcolor.success
                       : data.dataResigns?.confirm == 0
-                      ? appcolor.danger
-                      : appcolor.warning
+                        ? appcolor.danger
+                        : appcolor.warning
                   }
                   name={getConfirmIcon(data.dataResigns?.confirm)}
                   type="font-awesome"
@@ -1120,8 +1117,8 @@ export const EmployeeResigns = ({ navigation, route }) => {
                         data.dataResigns?.confirm == 1
                           ? appcolor.success
                           : data.dataResigns?.confirm == 0
-                          ? appcolor.danger
-                          : appcolor.warning,
+                            ? appcolor.danger
+                            : appcolor.warning,
                     },
                   ]}
                 >
@@ -1141,8 +1138,8 @@ export const EmployeeResigns = ({ navigation, route }) => {
                           data.dataResigns?.confirm == 1
                             ? appcolor.success
                             : data.dataResigns?.confirm == 0
-                            ? appcolor.danger
-                            : appcolor.warning,
+                              ? appcolor.danger
+                              : appcolor.warning,
                       },
                     ]}
                   >
@@ -1425,12 +1422,12 @@ export const EmployeeResigns = ({ navigation, route }) => {
                           source={
                             it.photoPath
                               ? {
-                                  uri:
-                                    isResigned &&
+                                uri:
+                                  isResigned &&
                                     it.photoPath.includes('uploaded')
-                                      ? URLDEFAULT + it.photoPath
-                                      : it.photoPath || '',
-                                }
+                                    ? URLDEFAULT + it.photoPath
+                                    : it.photoPath || '',
+                              }
                               : require('../../Themes/Images/noimage.png')
                           }
                           style={styles.image}
@@ -1469,7 +1466,7 @@ export const EmployeeResigns = ({ navigation, route }) => {
                         <Text style={styles.fileInfo}>
                           {(data.dataFile?.size >= 1000000
                             ? (data.dataFile?.size / 1000000).toFixed(2) +
-                              'MB, '
+                            'MB, '
                             : (data.dataFile.size / 1000).toFixed(2) + 'KB, ') +
                             'PDF tài liệu'}
                         </Text>

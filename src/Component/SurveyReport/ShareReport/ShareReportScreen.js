@@ -15,6 +15,7 @@ import {
 } from './ShareHelper';
 import moment from 'moment';
 import _ from 'lodash';
+import SpiralIcon from '../../../Control/Icon/SpiralIcon';
 
 const ShareReportScreen = ({ navigation }) => {
   const { appcolor, kpiinfo, shopinfo } = useSelector(state => state.GAppState);
@@ -295,7 +296,7 @@ const ShareReportScreen = ({ navigation }) => {
             const parsedValue = toValueString(valueArray);
             return parsedValue || '-';
           }
-        } catch (error) {}
+        } catch (error) { }
       }
       return textValue || '-';
     }
@@ -327,8 +328,8 @@ const ShareReportScreen = ({ navigation }) => {
     const groups =
       Array.isArray(groupReportName) && groupReportName.length > 0
         ? groupReportName
-            .map(itemGroup => itemGroup.GroupName || 'Chi tiết')
-            .map(groupName => [groupName, reportByGroup[groupName] || []])
+          .map(itemGroup => itemGroup.GroupName || 'Chi tiết')
+          .map(groupName => [groupName, reportByGroup[groupName] || []])
         : Object.entries(reportByGroup);
     const groupLabels = groups.map(([groupName]) => groupName);
     const activeIndex = Math.min(selectedIndex, Math.max(groups.length - 1, 0));
@@ -354,9 +355,8 @@ const ShareReportScreen = ({ navigation }) => {
           <View key={`${selectedGroup[0]}-${activeIndex}`}>
             {selectedGroup[1].map((itemReport, indexReport) => (
               <View
-                key={`${selectedGroup[0]}-${
-                  itemReport.ItemName || 'item'
-                }-${indexReport}`}
+                key={`${selectedGroup[0]}-${itemReport.ItemName || 'item'
+                  }-${indexReport}`}
               >
                 <View style={styles.detailsRow}>
                   <Text style={styles.detailsLabel}>

@@ -10,6 +10,7 @@ import { useSelector } from 'react-redux';
 import { Icon } from '@rneui/themed';
 import { fontWeightBold } from '../../../../Themes/AppsStyle';
 import FormGroup from '../../../../Content/FormGroup';
+import SpiralIcon from '../../../../Control/Icon/SpiralIcon';
 
 const FILTER_SECTIONS = [
   {
@@ -359,7 +360,7 @@ export const FilterStatusVerify = ({
                 style={[
                   styles.statusButton,
                   selectedType === item.unverifiedType &&
-                    styles.statusButtonActive,
+                  styles.statusButtonActive,
                 ]}
                 activeOpacity={0.85}
                 onPress={() => onSelectFilter(item.unverifiedType)}
@@ -368,7 +369,7 @@ export const FilterStatusVerify = ({
                   style={[
                     styles.statusLabel,
                     selectedType === item.unverifiedType &&
-                      styles.statusLabelActive,
+                    styles.statusLabelActive,
                   ]}
                 >
                   Chưa gửi
@@ -379,7 +380,7 @@ export const FilterStatusVerify = ({
                 style={[
                   styles.statusButton,
                   selectedType === item.verifiedType &&
-                    styles.statusButtonActive,
+                  styles.statusButtonActive,
                 ]}
                 activeOpacity={0.85}
                 onPress={() => onSelectFilter(item.verifiedType)}
@@ -388,7 +389,7 @@ export const FilterStatusVerify = ({
                   style={[
                     styles.statusLabel,
                     selectedType === item.verifiedType &&
-                      styles.statusLabelActive,
+                    styles.statusLabelActive,
                   ]}
                 >
                   Đã gửi

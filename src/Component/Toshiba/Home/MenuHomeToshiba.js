@@ -20,6 +20,7 @@ import { GetMenu } from '../../../Controller/UserController';
 import { fontWeightBold, scaleSize } from '../../../Themes/AppsStyle';
 import { getStoreList } from '../../../Controller/WorkController';
 import ShopOneMoreToshiba from '../Shops/ShopOneMoreToshiba';
+import SpiralIcon from '../../../Control/Icon/SpiralIcon';
 
 {
   /* userinfo.dropCategory : đóng danh sách shop Bên ngoài */
@@ -204,12 +205,11 @@ export const MenuHomeToshiba = ({ navigation, isLoading, downloadData }) => {
       justifyContent: 'center',
     },
     indicator: {
-      width: `${
-        100 -
+      width: `${100 -
         (dataMenu.length <= 4
           ? 0
           : dataMenu.length * 10 - (dataMenu.length >= 10 ? 30 : 8))
-      }%`,
+        }%`,
       height: 6,
       borderRadius: 8,
       backgroundColor: appcolor.primary,
@@ -325,7 +325,7 @@ export const MenuHomeToshiba = ({ navigation, isLoading, downloadData }) => {
             <ScrollView
               showsVerticalScrollIndicator={false}
               style={{ height: '100%' }}
-              // refreshControl={<RefreshControl refreshing={false} onRefresh={downloadData} />}
+            // refreshControl={<RefreshControl refreshing={false} onRefresh={downloadData} />}
             >
               <ShopOneMoreToshiba
                 shops={shops}

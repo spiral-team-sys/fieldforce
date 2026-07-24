@@ -4,6 +4,7 @@ import { useSelector } from 'react-redux';
 import useNotification from '../../../../Hooks/useNotification';
 import { Avatar, Icon, Text } from '@rneui/base';
 import { URLDEFAULT } from '../../../../Core/URLs';
+import SpiralIcon from '../../../../Control/Icon/SpiralIcon';
 
 const HeaderView = ({ navigation }) => {
   const { appcolor, userinfo } = useSelector(state => state.GAppState);
@@ -21,8 +22,8 @@ const HeaderView = ({ navigation }) => {
     currentHour < 12
       ? 'Chào buổi sáng,'
       : currentHour < 18
-      ? 'Chào buổi chiều,'
-      : 'Chào buổi tối,';
+        ? 'Chào buổi chiều,'
+        : 'Chào buổi tối,';
 
   // View
   const styles = StyleSheet.create({

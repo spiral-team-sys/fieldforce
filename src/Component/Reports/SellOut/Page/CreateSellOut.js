@@ -35,6 +35,7 @@ import {
   getSummaryRowsFromConfig,
   buildSellOutSaveItem,
 } from '../Utils/sellOutCreateHelper';
+import SpiralIcon from '../../../../Control/Icon/SpiralIcon';
 
 // #region constants
 const FORM_INIT = {

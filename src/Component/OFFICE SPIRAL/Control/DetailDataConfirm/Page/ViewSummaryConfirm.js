@@ -4,6 +4,7 @@ import { Icon, Text } from '@rneui/themed';
 import { deviceWidth } from '../../../../../Core/Utility';
 import { useSelector } from 'react-redux';
 import _ from 'lodash';
+import SpiralIcon from '../../../../../Control/Icon/SpiralIcon';
 
 export const ViewSummaryConfirm = ({
   itemMain,

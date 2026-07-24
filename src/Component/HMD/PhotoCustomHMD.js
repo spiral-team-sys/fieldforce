@@ -4,6 +4,7 @@ import { ListItem, Icon, Badge } from '@rneui/themed';
 import { AppNameBuild, DEFAULT_COLOR } from "../../Core/URLs";
 import { getPhotosReport } from "../../Controller/WorkController";
 import { isIphoneX } from "../../Core/is-iphone-x";
+import SpiralIcon from "../../Control/Icon/SpiralIcon";
 
 export const PhotoCustomHMD = ({ Photos, Workinfo, DisplayId, Props, ReportId, Status, NoChange, HeightHeader, combine, navigation, DisplayItem }) => {
 

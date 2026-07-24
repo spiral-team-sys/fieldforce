@@ -14,6 +14,7 @@ import { SearchData } from '../../../../Control/SearchData/SearchData';
 import { fontWeightBold } from '../../../../Themes/AppsStyle';
 import { SafeAreaProvider, SafeAreaView } from 'react-native-safe-area-context';
 import { normalizeText, parseJsonArray, parseTextValues } from './ItemHelpers';
+import SpiralIcon from '../../../../Control/Icon/SpiralIcon';
 
 const ItemProducts = ({ item, onUpdateItem }) => {
   const { appcolor } = useSelector(state => state.GAppState);

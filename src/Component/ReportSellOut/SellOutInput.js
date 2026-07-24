@@ -15,6 +15,7 @@ import { CategoryContext } from '../../Controller/CategoryController';
 import { scaleSize } from '../../Themes/AppsStyle';
 import { NumPad } from '../../Control/NumPad';
 import { CategoryControl } from '../../Control/CategoryControl';
+import SpiralIcon from '../../Control/Icon/SpiralIcon';
 export const SellOutInput = React.forwardRef((props, refParent) => {
   const { appcolor, workinfo, kpiinfo } = useSelector(state => state.GAppState);
   const template = JSON.parse(kpiinfo?.reportItem || '{}');
@@ -23,7 +24,7 @@ export const SellOutInput = React.forwardRef((props, refParent) => {
     setSelected({});
     return () => false;
   }, []);
-  const onSeletedItem = (item, key) => {};
+  const onSeletedItem = (item, key) => { };
   const DisplayUI = () => {
     let Layout = [];
     for (const [key, item] of Object.entries(template)) {

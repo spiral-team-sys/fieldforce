@@ -4,6 +4,7 @@ import { Icon, Text } from '@rneui/themed';
 import { useSelector } from 'react-redux';
 import { GetUrl } from '../../../../../Core/Helper';
 import ViewPictures from '../../../../../Control/Gallary/ViewPictures';
+import SpiralIcon from '../../../../../Control/Icon/SpiralIcon';
 
 const PhotoField = ({
   item,

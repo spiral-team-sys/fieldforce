@@ -7,6 +7,7 @@ import { Icon, Text } from '@rneui/themed';
 import { GroupListTown } from './GroupListTown';
 import { fontWeightBold } from '../../../../../../Themes/AppsStyle';
 import { SET_EmployeeInfo } from '../../../../../../Redux/action';
+import SpiralIcon from '../../../../../../Control/Icon/SpiralIcon';
 
 export const GroupListDistrict = ({ type, keyValue, keyInfo, dataDetails }) => {
   const { appcolor, employeeInfo } = useSelector(state => state.GAppState);

@@ -14,6 +14,7 @@ import { removeDuplicate } from '../../../Core/Utility';
 import { fontWeightBold, styleDefault } from '../../../Themes/AppsStyle';
 import { SafeAreaProvider, SafeAreaView } from 'react-native-safe-area-context';
 import { Avatar } from '@rneui/base';
+import SpiralIcon from '../../../Control/Icon/SpiralIcon';
 
 const ProductManagerScreen = ({ navigation }) => {
   const { appcolor, kpiinfo } = useSelector(state => state.GAppState);
@@ -71,9 +72,8 @@ const ProductManagerScreen = ({ navigation }) => {
     if (text && text.length > 0) {
       const lower = text.toLowerCase();
       const filtered = rootProduct.filter(item => {
-        const nameProduct = `${item.productName} ${item.productCode} ${
-          item?.subCategory || ''
-        } ${item?.segment || ''}`.toLowerCase();
+        const nameProduct = `${item.productName} ${item.productCode} ${item?.subCategory || ''
+          } ${item?.segment || ''}`.toLowerCase();
         return nameProduct.includes(lower);
       });
       setDetail(filtered);
@@ -214,9 +214,8 @@ const ProductManagerScreen = ({ navigation }) => {
       <View style={styles.productInfo}>
         <Text style={styles.productName}>{item.productName}</Text>
         <Text style={styles.productMeta}>{item.productCode}</Text>
-        <Text style={styles.productMeta}>{`${item.subCategory || ''} ${
-          item.segment || ''
-        }`}</Text>
+        <Text style={styles.productMeta}>{`${item.subCategory || ''} ${item.segment || ''
+          }`}</Text>
       </View>
       <Text style={styles.productPrice}>
         {formatNumber(item.price, ',') || 0}

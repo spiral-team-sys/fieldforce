@@ -8,6 +8,7 @@ import { scaleSize } from '../../../Themes/AppsStyle';
 import moment, { min } from 'moment';
 import { BORDER_WIDTH } from './UtilityOffice';
 import { SummaryPlanMonth } from '../Summary/SummaryPlanMonth';
+import SpiralIcon from '../../../Control/Icon/SpiralIcon';
 
 export const CalendarView = ({ dataPlanMonth, changeMonth, onDetailDay }) => {
   const { appcolor } = useSelector(state => state.GAppState);

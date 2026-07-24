@@ -31,6 +31,7 @@ import _ from 'lodash';
 import CustomListView from '../../Control/Custom/CustomListView';
 import { CommonActions } from '@react-navigation/native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
+import SpiralIcon from '../../Control/Icon/SpiralIcon';
 
 const TYPE_STORELIST = 'TYPE_STORELIST';
 const TYPE_ORDER_NO = 'TYPE_ORDER_NO';
@@ -137,7 +138,7 @@ const ItemProductsSellIn = ({ navigation, route }) => {
     const amountValue =
       quantityValue > 0
         ? quantityValue *
-          (inputPriceValue > 0 ? inputPriceValue : originalPrice)
+        (inputPriceValue > 0 ? inputPriceValue : originalPrice)
         : 0;
 
     const selectItem = () => {
@@ -430,8 +431,8 @@ const ItemProductsSellIn = ({ navigation, route }) => {
                       }}
                       value={formatNumber(
                         item?.priceValue?.toString() ||
-                          inputValues[`${item.id}_price`] ||
-                          '',
+                        inputValues[`${item.id}_price`] ||
+                        '',
                         ',',
                       )}
                       keyboardType={'number-pad'}
@@ -537,7 +538,7 @@ const ItemProductsSellIn = ({ navigation, route }) => {
           key={'nasdha' + index}
           activeOpacity={
             listReport.isMultiProduct === 1 &&
-            dataModalBS.typeSelect === TYPE_PRODUCTS
+              dataModalBS.typeSelect === TYPE_PRODUCTS
               ? 1
               : 0.5
           }
@@ -548,9 +549,9 @@ const ItemProductsSellIn = ({ navigation, route }) => {
             style={{
               backgroundColor:
                 item.id == itemSave.ShopId ||
-                item.id == itemSave.DealerId ||
-                item.id == itemSave.CategoryId ||
-                item.id == itemSave.ProductId
+                  item.id == itemSave.DealerId ||
+                  item.id == itemSave.CategoryId ||
+                  item.id == itemSave.ProductId
                   ? appcolor.primary
                   : appcolor.surface,
               borderRadius: 5,
@@ -563,9 +564,9 @@ const ItemProductsSellIn = ({ navigation, route }) => {
                 fontSize: 14,
                 color:
                   item.id == itemSave.ShopId ||
-                  item.id == itemSave.DealerId ||
-                  item.id == itemSave.CategoryId ||
-                  item.id == itemSave.ProductId
+                    item.id == itemSave.DealerId ||
+                    item.id == itemSave.CategoryId ||
+                    item.id == itemSave.ProductId
                     ? appcolor.white
                     : appcolor.dark,
               }}
@@ -951,7 +952,7 @@ const ItemProductsSellIn = ({ navigation, route }) => {
               marginBottom: 0,
               width:
                 listReport.isMultiProduct === 1 &&
-                dataModalBS.typeSelect == TYPE_PRODUCTS
+                  dataModalBS.typeSelect == TYPE_PRODUCTS
                   ? '80%'
                   : '100%',
               fontSize: 13,

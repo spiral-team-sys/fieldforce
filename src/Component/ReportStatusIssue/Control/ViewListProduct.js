@@ -8,6 +8,7 @@ import FormGroup from '../../../Content/FormGroup';
 import _ from 'lodash';
 import { groupDataByKey, removeVietnameseTones } from '../../../Core/Helper';
 import { DEFAULT_LIGHT_COLOR } from '../../../Core/URLs';
+import SpiralIcon from '../../../Control/Icon/SpiralIcon';
 
 export const ViewListProduct = ({
   dataProducts,
@@ -229,22 +230,22 @@ export const ViewListProduct = ({
               containerStyle={
                 search.isSearch
                   ? {
-                      margin: 8,
-                      padding: Platform.OS == 'android' ? 3 : 5,
-                      paddingHorizontal: 8,
-                      borderRadius: 20,
-                      backgroundColor: appcolor.primary,
-                      borderWidth: 0.5,
-                    }
+                    margin: 8,
+                    padding: Platform.OS == 'android' ? 3 : 5,
+                    paddingHorizontal: 8,
+                    borderRadius: 20,
+                    backgroundColor: appcolor.primary,
+                    borderWidth: 0.5,
+                  }
                   : {
-                      margin: 8,
-                      padding: Platform.OS == 'android' ? 3 : 5,
-                      paddingHorizontal: 8,
-                      borderRadius: 20,
-                      backgroundColor: appcolor.light,
-                      borderWidth: 0.5,
-                      borderColor: appcolor.primary,
-                    }
+                    margin: 8,
+                    padding: Platform.OS == 'android' ? 3 : 5,
+                    paddingHorizontal: 8,
+                    borderRadius: 20,
+                    backgroundColor: appcolor.light,
+                    borderWidth: 0.5,
+                    borderColor: appcolor.primary,
+                  }
               }
               inputStyle={
                 search.isSearch
@@ -254,8 +255,8 @@ export const ViewListProduct = ({
               handleChangeForm={onSearchData}
               onClearTextAndroid={onSearchData}
               useClearAndroid={true}
-              // onFocus={onFocusSearch}
-              // onEndEditing={onFocusSearch}
+            // onFocus={onFocusSearch}
+            // onEndEditing={onFocusSearch}
             />
           )}
           {!loading && (

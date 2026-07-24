@@ -8,6 +8,7 @@ import {
 } from 'react-native';
 import { Icon } from '@rneui/themed';
 import { useSelector } from 'react-redux';
+import SpiralIcon from './Icon/SpiralIcon';
 const ReviewPhoto = React.forwardRef((props, ref) => {
   const { photoinfo, appcolor } = useSelector(state => state.GAppState);
   const [count, setCount] = useState(30);

@@ -30,6 +30,7 @@ import { HeaderCustom } from '../../Content/HeaderCustom';
 import { ToastError, UUIDGenerator } from '../../Core/Helper';
 import { taskList } from '../../Core/Table';
 import { QueryStringSql } from '../../Core/SqliteDbContext';
+import SpiralIcon from '../../Control/Icon/SpiralIcon';
 
 export const PhotoTag = ({ navigation }) => {
   const [photo, setPhoto] = useState([]);
@@ -200,8 +201,8 @@ export const PhotoTag = ({ navigation }) => {
           style={{
             display:
               (maxValue !== 0 && maxValue === photo?.length) ||
-              upload ||
-              TODAY !== workinfo.workDate
+                upload ||
+                TODAY !== workinfo.workDate
                 ? 'none'
                 : 'flex',
             flexGrow: 0.2,

@@ -18,6 +18,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import LottieView from 'lottie-react-native';
 import { scaleSize } from '../../../Themes/AppsStyle';
 import { APPNAME } from '../../../Core/URLs';
+import SpiralIcon from '../../../Control/Icon/SpiralIcon';
 
 const delay = ms => new Promise(res => setTimeout(res, ms));
 const versionApp = DeviceInfo.getVersion();

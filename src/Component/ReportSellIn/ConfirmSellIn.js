@@ -13,6 +13,7 @@ import { getSellInByServer } from '../../Controller/SellInController';
 import { LoadingView } from '../../Control/ItemLoading';
 import { deviceHeight } from '../Home';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
+import SpiralIcon from '../../Control/Icon/SpiralIcon';
 
 export const ConfirmSellIn = ({ navigation, route }) => {
   const insets = useSafeAreaInsets();
@@ -205,8 +206,8 @@ export const ConfirmSellIn = ({ navigation, route }) => {
         dataCalendar.endDate
           ? dataCalendar.endDate
           : dataCalendar.startDate
-          ? dataCalendar.startDate
-          : new Date(),
+            ? dataCalendar.startDate
+            : new Date(),
       ).format('YYYYMMDD'),
     );
     setSearch('');
@@ -253,8 +254,8 @@ export const ConfirmSellIn = ({ navigation, route }) => {
                   dataCalendar.endDate
                     ? dataCalendar.endDate
                     : dataCalendar.startDate
-                    ? dataCalendar.startDate
-                    : new Date(),
+                      ? dataCalendar.startDate
+                      : new Date(),
                 ).format('DD/MM/yyyy')}
             </Text>
           </TouchableOpacity>

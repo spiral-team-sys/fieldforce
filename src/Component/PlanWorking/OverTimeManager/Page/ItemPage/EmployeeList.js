@@ -13,6 +13,7 @@ import { SearchData } from '../../../../../Control/SearchData/SearchData';
 import { FlashList } from '@shopify/flash-list';
 import _ from 'lodash';
 import { fontWeightBold } from '../../../../../Themes/AppsStyle';
+import SpiralIcon from '../../../../../Control/Icon/SpiralIcon';
 
 export const EmployeeList = ({ data, info, callIndex }) => {
   const { appcolor } = useSelector(state => state.GAppState);
@@ -95,9 +96,8 @@ export const EmployeeList = ({ data, info, callIndex }) => {
         </View>
         <View style={{ width: '90%' }}>
           <TouchableOpacity key={`spi_${index}`} onPress={onPress}>
-            <Text style={styles.titleMain}>{`${index + 1}. ${
-              item.EmployeeName
-            }`}</Text>
+            <Text style={styles.titleMain}>{`${index + 1}. ${item.EmployeeName
+              }`}</Text>
             <Text
               style={styles.subTitleMain}
             >{`Mã nhân viên: ${item.EmployeeCode}`}</Text>

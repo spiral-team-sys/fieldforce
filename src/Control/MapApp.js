@@ -25,6 +25,7 @@ import { removeVietnameseTones } from '../Core/Helper';
 import CustomListView from './Custom/CustomListView';
 import { SetShopInfo } from '../Redux/action';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
+import SpiralIcon from './Icon/SpiralIcon';
 
 const DETAL_LOCATION = 0.005;
 export const MapApp = ({ navigation, route, slist }) => {

@@ -12,6 +12,7 @@ import { FlashList } from '@shopify/flash-list';
 import LoadingViewLG from '../../../../Control/ItemLoading/LoadingViewLG';
 import moment from 'moment';
 import { ToastError } from '../../../../Core/Helper';
+import SpiralIcon from '../../../../Control/Icon/SpiralIcon';
 
 const PrepareExam = ({ navigation, route }) => {
   const { appcolor } = useSelector(state => state.GAppState);
@@ -347,13 +348,12 @@ const PrepareExam = ({ navigation, route }) => {
         ]}
         onPress={onDoExam}
       >
-        <Text style={styles.textDoExam}>{`${
-          isDoing
+        <Text style={styles.textDoExam}>{`${isDoing
             ? 'Tiếp tục làm bài'
             : dataExam.isAllowExam
-            ? 'Bắt đầu ngay'
-            : 'Khoá bài làm'
-        }`}</Text>
+              ? 'Bắt đầu ngay'
+              : 'Khoá bài làm'
+          }`}</Text>
       </TouchableOpacity>
     </View>
   );

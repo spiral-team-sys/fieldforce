@@ -41,6 +41,7 @@ import { LoadingView } from '../../Control/ItemLoading/index';
 import SelloutModel from '../../Content/SelloutModel';
 import CustomListView from '../../Control/Custom/CustomListView';
 import _ from 'lodash';
+import SpiralIcon from '../../Control/Icon/SpiralIcon';
 
 const Sellout = props => {
   const { appcolor, shopinfo, kpiinfo, workinfo } = useSelector(

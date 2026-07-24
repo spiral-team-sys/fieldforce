@@ -2,6 +2,7 @@ import React, { memo, useMemo } from 'react';
 import { ActivityIndicator, StyleSheet, View } from 'react-native';
 import { Icon, Text } from '@rneui/themed';
 import LinearGradient from 'react-native-linear-gradient';
+import SpiralIcon from '../../../../../Control/Icon/SpiralIcon';
 
 const DashboardSlide = ({ appcolor, children, item, loading }) => {
   const styles = useMemo(() => createStyles(appcolor), [appcolor]);

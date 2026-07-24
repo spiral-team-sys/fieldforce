@@ -8,6 +8,7 @@ import { Button, Icon, Input, Text } from '@rneui/base';
 import { fontWeightBold } from '../../Themes/AppsStyle';
 import { toastError, toastInfo } from '../../Utils/configToast';
 import { SendEmailPass } from '../../Controller/UserController';
+import SpiralIcon from '../../Control/Icon/SpiralIcon';
 
 const ForgotPasswordScreen = ({ navigation, route }) => {
   const { appcolor } = useSelector(state => state.GAppState);
@@ -53,7 +54,7 @@ const ForgotPasswordScreen = ({ navigation, route }) => {
     return true;
   };
   //
-  useEffect(() => {}, []);
+  useEffect(() => { }, []);
   //
   const styles = StyleSheet.create({
     mainContainer: { flex: 1, backgroundColor: appcolor.light },

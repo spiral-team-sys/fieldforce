@@ -37,6 +37,7 @@ const tabs = [
 ];
 import RNFS from 'react-native-fs';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
+import SpiralIcon from '../../Control/Icon/SpiralIcon';
 const DecorForm = ({ navigation }) => {
   const [data, setData] = useState({});
   const [currentPage, setCurrentPage] = useState(0);
@@ -183,26 +184,26 @@ const DecorForm = ({ navigation }) => {
             item?.groupId !== lastitem?.groupId ||
             (item.cate === lastitem.cate &&
               item?.groupId !== lastitem?.groupId)) && (
-            <View>
-              <Text
-                style={{
-                  fontWeight: '700',
-                  color: appcolor.primary,
-                  fontSize: 12,
-                }}
-              >
-                {item.groupName}
-              </Text>
-              <View
-                style={{
-                  marginBottom: 7,
-                  borderWidth: 1,
-                  borderColor: appcolor.surface,
-                  width: '100%',
-                }}
-              />
-            </View>
-          )}
+              <View>
+                <Text
+                  style={{
+                    fontWeight: '700',
+                    color: appcolor.primary,
+                    fontSize: 12,
+                  }}
+                >
+                  {item.groupName}
+                </Text>
+                <View
+                  style={{
+                    marginBottom: 7,
+                    borderWidth: 1,
+                    borderColor: appcolor.surface,
+                    width: '100%',
+                  }}
+                />
+              </View>
+            )}
           <ItemDecorForm
             key={'itemQK_' + index}
             item={item}
@@ -381,10 +382,10 @@ const DecorForm = ({ navigation }) => {
           !data.isLockReport
             ? () => onSummit()
             : () => {
-                ToastSuccess(
-                  'Bạn đã hoàn thành chấm công nên không thể gửi dữ liệu báo cáo',
-                );
-              }
+              ToastSuccess(
+                'Bạn đã hoàn thành chấm công nên không thể gửi dữ liệu báo cáo',
+              );
+            }
         }
         iconMiddle="poll-h"
         middleFunc={() => (!data.isLockReport ? openSheet() : null)}

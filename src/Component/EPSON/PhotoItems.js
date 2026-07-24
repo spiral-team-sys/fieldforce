@@ -34,6 +34,7 @@ import ViewShot, { captureRef } from 'react-native-view-shot';
 import { APPNAME, URLDEFAULT } from '../../Core/URLs';
 import Svg, { Text as SvgText } from 'react-native-svg';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
+import SpiralIcon from '../../Control/Icon/SpiralIcon';
 // isDrawInfo : Thêm thông tin shop vào hình ảnh chụp
 export const PhotoItems = ({ navigation, route, usedHeader = true }) => {
   const insets = useSafeAreaInsets();
@@ -157,7 +158,7 @@ export const PhotoItems = ({ navigation, route, usedHeader = true }) => {
           widthViewShot: deviceWidth,
         });
       },
-      () => {},
+      () => { },
     );
   };
   const takePhoto = async item => {
@@ -271,10 +272,10 @@ export const PhotoItems = ({ navigation, route, usedHeader = true }) => {
                     item?.fileUpload == 1 && item?.dataUpload == 1
                       ? appcolor.success
                       : item?.fileUpload == 1 && item?.dataUpload == 0
-                      ? appcolor.warning
-                      : item?.fileUpload == 0 && item?.dataUpload == 1
-                      ? appcolor.tomato
-                      : appcolor.greydark
+                        ? appcolor.warning
+                        : item?.fileUpload == 0 && item?.dataUpload == 1
+                          ? appcolor.tomato
+                          : appcolor.greydark
                   }
                   name={item?.fileUpload > 0 ? 'check-circle' : 'circle'}
                 />
@@ -517,7 +518,7 @@ export const PhotoItems = ({ navigation, route, usedHeader = true }) => {
             title={dataKPIData?.menuNameVN || kpiinfo.menuNameVN}
             rightFunc={
               !locked &&
-              parseInt(moment(new Date()).format('YYYYMMDD')) ==
+                parseInt(moment(new Date()).format('YYYYMMDD')) ==
                 workinfo.workDate
                 ? () => onUpload()
                 : null

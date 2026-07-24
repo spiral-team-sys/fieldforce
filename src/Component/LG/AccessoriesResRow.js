@@ -21,6 +21,7 @@ import { deviceHeight, deviceWidth } from '../../Core/Utility';
 import { debounce, ToastError } from '../../Core/Helper';
 import GmailStyleSwipeableRow from '../../Core/GmailStyleSwipeableRow';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
+import SpiralIcon from '../../Control/Icon/SpiralIcon';
 
 const AccessoriesResRow = ({
   itemData,
@@ -304,31 +305,31 @@ const AccessoriesResRow = ({
               itemData.dateValue == 1
                 ? itemData.dateVal
                 : itemData.decimalValue == 1
-                ? itemData.decimalVal
-                  ? itemData.decimalVal.toString()
-                  : ''
-                : itemData.numberValue == 1
-                ? itemData.numberVal
-                  ? itemData.numberVal.toString()
-                  : ''
-                : itemData.yearValue == 1
-                ? itemData.yearVal
-                  ? itemData.yearVal.toString()
-                  : ''
-                : itemData.selectValue == 1
-                ? itemData.selectVal
-                : itemData.textValue == 1
-                ? itemData.textVal
-                : ''
+                  ? itemData.decimalVal
+                    ? itemData.decimalVal.toString()
+                    : ''
+                  : itemData.numberValue == 1
+                    ? itemData.numberVal
+                      ? itemData.numberVal.toString()
+                      : ''
+                    : itemData.yearValue == 1
+                      ? itemData.yearVal
+                        ? itemData.yearVal.toString()
+                        : ''
+                      : itemData.selectValue == 1
+                        ? itemData.selectVal
+                        : itemData.textValue == 1
+                          ? itemData.textVal
+                          : ''
             }
             keyboardType={
               itemData.dateValue == 1 ||
-              itemData.yearValue == 1 ||
-              itemData.selectValue == 1
+                itemData.yearValue == 1 ||
+                itemData.selectValue == 1
                 ? null
                 : itemData.textValue === 1
-                ? 'default'
-                : 'numeric'
+                  ? 'default'
+                  : 'numeric'
             }
             editable={
               itemData.upload == 1
@@ -336,13 +337,13 @@ const AccessoriesResRow = ({
                 : itemData.dateValue == 1 ||
                   itemData.yearValue == 1 ||
                   itemData.selectValue == 1
-                ? false
-                : true
+                  ? false
+                  : true
             }
             iconRight={
               itemData.dateValue == 1 ||
-              itemData.yearValue == 1 ||
-              itemData.selectValue == 1
+                itemData.yearValue == 1 ||
+                itemData.selectValue == 1
                 ? 'caret-down'
                 : null
             }
@@ -352,7 +353,7 @@ const AccessoriesResRow = ({
               (itemData.dateValue == 1 ||
                 itemData.yearValue == 1 ||
                 itemData.selectValue == 1) &&
-              itemData.upload == 0
+                itemData.upload == 0
                 ? rightFunction()
                 : null
             }
@@ -361,8 +362,8 @@ const AccessoriesResRow = ({
             handleChangeForm={text => handleChangeItem(text, itemData)}
             onClearTextAndroid={() =>
               itemData.dateValue == 1 ||
-              itemData.yearValue == 1 ||
-              itemData.selectValue == 1
+                itemData.yearValue == 1 ||
+                itemData.selectValue == 1
                 ? null
                 : handleChangeItem('', itemData)
             }
@@ -370,16 +371,16 @@ const AccessoriesResRow = ({
               itemData.textValue === 1
                 ? 'Nhập ghi chú ở đây'
                 : itemData.dateValue === 1
-                ? 'Chọn ngày'
-                : itemData.yearValue === 1
-                ? 'chọn năm'
-                : itemData.numberValue === 1
-                ? 'Nhập ' + itemData.itemNameVN
-                : itemData.decimalValue === 1
-                ? 'Nhập ' + itemData.itemNameVN
-                : itemData.selectValue === 1
-                ? 'Chọn người bán'
-                : null
+                  ? 'Chọn ngày'
+                  : itemData.yearValue === 1
+                    ? 'chọn năm'
+                    : itemData.numberValue === 1
+                      ? 'Nhập ' + itemData.itemNameVN
+                      : itemData.decimalValue === 1
+                        ? 'Nhập ' + itemData.itemNameVN
+                        : itemData.selectValue === 1
+                          ? 'Chọn người bán'
+                          : null
             }
           />
         </View>

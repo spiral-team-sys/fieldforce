@@ -39,6 +39,7 @@ import LinearGradient from 'react-native-linear-gradient';
 import { HeaderCustom } from '../Content/HeaderCustom';
 import ImageViewer from 'react-native-image-zoom-viewer';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
+import SpiralIcon from './Icon/SpiralIcon';
 
 const TOUCH_HIT_SLOP = { top: 8, bottom: 8, left: 8, right: 8 };
 const getDisplayPhotoPath = photoPath => {
@@ -278,7 +279,7 @@ export const MultipleShowImage = ({
                 ? deviceHeight
                 : height * (deviceWidth / width);
           },
-          () => {},
+          () => { },
         );
       }),
     );
@@ -547,9 +548,8 @@ export const MultipleShowImage = ({
   return (
     <SafeAreaView style={[styles.mainContainer, containerStyle]}>
       <View style={styles.contentHeader}>
-        <Text style={styles.titleCountPhoto}>{`${pageNum + 1}/${
-          listItem.filter(it => it.photoPath)?.length
-        }`}</Text>
+        <Text style={styles.titleCountPhoto}>{`${pageNum + 1}/${listItem.filter(it => it.photoPath)?.length
+          }`}</Text>
         <TouchableOpacity
           activeOpacity={0.7}
           hitSlop={TOUCH_HIT_SLOP}
@@ -804,7 +804,7 @@ const ShowImage = ({
           </View>
         )}
         {item?.photoPath?.includes('uploaded') ||
-        item.photoPath.indexOf('https://') > -1 ? (
+          item.photoPath.indexOf('https://') > -1 ? (
           <CacheImage
             source={{
               uri: getDisplayPhotoPath(item.photoPath),
@@ -829,12 +829,12 @@ const ShowImage = ({
             </View>
             {(URLDEFAULT.includes('spiral') ||
               URLDEFAULT.includes('sucbat')) && (
-              <ImageBackground
-                source={require('../Themes/Images/watermark.png')}
-                resizeMode={'contain'}
-                style={styles.watermark}
-              />
-            )}
+                <ImageBackground
+                  source={require('../Themes/Images/watermark.png')}
+                  resizeMode={'contain'}
+                  style={styles.watermark}
+                />
+              )}
             <View style={styles.bottomTextWrap}>
               {item.timeView && (
                 <Text style={styles.overlayTextRight}>
@@ -943,7 +943,7 @@ const ModalEditImage = gestureHandlerRootHOC(
               heightViewShot: height * (deviceWidth / width),
             });
           },
-          () => {},
+          () => { },
         );
       } else {
         alert('Xảy ra lỗi khi lưu!');
@@ -963,14 +963,13 @@ const ModalEditImage = gestureHandlerRootHOC(
           const fileName = guiId + '.jpg';
           const viewShotBase64 = await viewShot.current.capture();
           const extension = Platform.OS === 'android' ? 'file://' : '';
-          const path = `${extension}${
-            Platform.OS === 'android'
+          const path = `${extension}${Platform.OS === 'android'
               ? RNFS.PicturesDirectoryPath
               : RNFS.LibraryDirectoryPath
-          }/${APPNAME}/`;
+            }/${APPNAME}/`;
           const file_path = `${path}${fileName}`;
 
-          RNFS.mkdir(path).catch(() => {});
+          RNFS.mkdir(path).catch(() => { });
           RNFS.writeFile(file_path, viewShotBase64, 'base64').catch(error => {
             alert(JSON.stringify(error));
           });
@@ -1036,19 +1035,18 @@ const ModalEditImage = gestureHandlerRootHOC(
                       {`${itemPhoto.address}`}
                     </Text>
                     <Text style={styles.overlayTextLeft}>
-                      {`${
-                        itemPhoto.shopName
-                      } [${itemPhoto.wShopCode?.toUpperCase()}]`}
+                      {`${itemPhoto.shopName
+                        } [${itemPhoto.wShopCode?.toUpperCase()}]`}
                     </Text>
                   </View>
                   {(URLDEFAULT.includes('spiral') ||
                     URLDEFAULT.includes('sucbat')) && (
-                    <Image
-                      source={require('../Themes/Images/watermark.png')}
-                      resizeMode={'contain'}
-                      style={styles.watermark}
-                    ></Image>
-                  )}
+                      <Image
+                        source={require('../Themes/Images/watermark.png')}
+                        resizeMode={'contain'}
+                        style={styles.watermark}
+                      ></Image>
+                    )}
                   <View style={styles.bottomTextWrap}>
                     <Text style={styles.overlayTextRight}>
                       {`${itemPhoto.photoFullTime}`}

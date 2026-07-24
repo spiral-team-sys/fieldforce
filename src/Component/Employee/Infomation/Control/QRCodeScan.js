@@ -14,6 +14,7 @@ import {
   useCameraPermission,
 } from 'react-native-vision-camera';
 import LottieView from 'lottie-react-native';
+import SpiralIcon from '../../../../Control/Icon/SpiralIcon';
 const ROI_SIZE = 180;
 
 export const QRCodeScan = ({ navigation, route }) => {

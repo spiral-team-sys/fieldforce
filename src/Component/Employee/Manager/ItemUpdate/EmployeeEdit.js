@@ -34,6 +34,7 @@ import moment from 'moment';
 import { Employee } from '../../../../Controller/EmployeeController';
 import { DeviceEventEmitter } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
+import SpiralIcon from '../../../../Control/Icon/SpiralIcon';
 
 export const EmployeeEdit = ({ itemEdit, onClose }) => {
   const insets = useSafeAreaInsets();
@@ -84,9 +85,9 @@ export const EmployeeEdit = ({ itemEdit, onClose }) => {
     const fileNameAvartar =
       employee.photo !== null
         ? employee.photo.substring(
-            employee.photo.lastIndexOf('/') + 1,
-            employee.photo.length,
-          )
+          employee.photo.lastIndexOf('/') + 1,
+          employee.photo.length,
+        )
         : null;
     const fromDateValue =
       employee.fromDate !== null
@@ -147,13 +148,11 @@ export const EmployeeEdit = ({ itemEdit, onClose }) => {
           }
         });
       }
-      const notifyContent = `Quản lí ${
-        userinfo.employeeName
-      } đã cho nhân viên ${employee.lastName || ''} ${
-        employee.fisrtName || ''
-      } nghỉ việc vào ngày ${employee.fromDate} lúc ${moment(new Date()).format(
-        'HH:mm',
-      )}.`;
+      const notifyContent = `Quản lí ${userinfo.employeeName
+        } đã cho nhân viên ${employee.lastName || ''} ${employee.fisrtName || ''
+        } nghỉ việc vào ngày ${employee.fromDate} lúc ${moment(new Date()).format(
+          'HH:mm',
+        )}.`;
       const itemConfirm = {
         confirm: 1,
         employeeId: employee.employeeId,

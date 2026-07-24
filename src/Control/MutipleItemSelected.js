@@ -7,6 +7,7 @@ import _ from 'lodash';
 import { TYPE } from '../Component/BusinessTrips/UtilityBusiness';
 import { type } from '../Core/Utility';
 import { removeVietnameseTones } from '../Core/Helper';
+import SpiralIcon from './Icon/SpiralIcon';
 
 export const MutipleItemSelected = ({
   titleName,
@@ -356,17 +357,17 @@ export const MutipleItemSelected = ({
     const isSelected =
       isViewMulti == true && typeof defaultValue == 'object'
         ? defaultValue.length > 0 &&
-          defaultValue?.findIndex(it => it.code == item.code) !== -1
+        defaultValue?.findIndex(it => it.code == item.code) !== -1
         : (item.itemName || item.name) == defaultValue ||
-          (mulipleChoose &&
-            (itemSelect.itemName || itemSelect.name) ==
-              (item.itemName || item.name));
+        (mulipleChoose &&
+          (itemSelect.itemName || itemSelect.name) ==
+          (item.itemName || item.name));
     const styleView = isSelected
       ? [
-          styles.itemContent,
-          styles.selectedItemContent,
-          { borderColor: colorSelected },
-        ]
+        styles.itemContent,
+        styles.selectedItemContent,
+        { borderColor: colorSelected },
+      ]
       : styles.itemContent;
 
     const styleTitle = isSelected

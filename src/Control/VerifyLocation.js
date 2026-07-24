@@ -5,6 +5,7 @@ import MapView, { PROVIDER_GOOGLE, Marker } from 'react-native-maps';
 import Geolocation from '@react-native-community/geolocation';
 import { isDecimal } from 'geolib';
 import { useSelector } from 'react-redux';
+import SpiralIcon from './Icon/SpiralIcon';
 
 const DETAL_LOCATION = 0.005;
 

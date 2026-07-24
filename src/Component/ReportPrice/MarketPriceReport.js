@@ -51,6 +51,7 @@ import { scaleSize } from '../../Themes/AppsStyle';
 import { Keyboard } from 'react-native';
 import FormGroup from '../../Content/FormGroup';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
+import SpiralIcon from '../../Control/Icon/SpiralIcon';
 const delay = ms => new Promise(res => setTimeout(res, ms));
 const PRICE_VALUE = 1;
 const NET_VALUE = 2;
@@ -982,36 +983,36 @@ const ViewItem = ({
       if (mPrice == null) {
         ToastError(
           'Sản phẩm thứ ' +
-            (index + 1) +
-            ' : ' +
-            item.productName +
-            '\nMục : ' +
-            textAlert +
-            ', chưa nhập giá trị!',
+          (index + 1) +
+          ' : ' +
+          item.productName +
+          '\nMục : ' +
+          textAlert +
+          ', chưa nhập giá trị!',
           'Error',
           'top',
         );
       } else if (mPrice >= 1000) {
         ToastError(
           'Sản phẩm thứ ' +
-            (index + 1) +
-            ' : ' +
-            item.productName +
-            '\nMục : ' +
-            textAlert +
-            ', Số tiền không được lẻ!',
+          (index + 1) +
+          ' : ' +
+          item.productName +
+          '\nMục : ' +
+          textAlert +
+          ', Số tiền không được lẻ!',
           'Error',
           'top',
         );
       } else {
         ToastError(
           'Sản phẩm thứ ' +
-            (index + 1) +
-            ' : ' +
-            item.productName +
-            '\nMục : ' +
-            textAlert +
-            ', Nhập sai định dạng!',
+          (index + 1) +
+          ' : ' +
+          item.productName +
+          '\nMục : ' +
+          textAlert +
+          ', Nhập sai định dạng!',
           'Error',
           'top',
         );
@@ -1230,10 +1231,10 @@ const RenderInputNumber = ({
               {
                 backgroundColor:
                   dataColor == undefined ||
-                  (dataColor.type != type &&
-                    dataColor.index != itemIndex &&
-                    dataColor.categoryId != itemInput.categoryId &&
-                    dataColor.competitorId != itemInput.competitorId)
+                    (dataColor.type != type &&
+                      dataColor.index != itemIndex &&
+                      dataColor.categoryId != itemInput.categoryId &&
+                      dataColor.competitorId != itemInput.competitorId)
                     ? appcolor.grey
                     : appcolor.warning,
               },

@@ -8,6 +8,7 @@ import { scaleSize } from '../../../../Themes/AppsStyle';
 import { isIphoneX } from '../../../../Core/is-iphone-x';
 import { ViewListStoreKPI } from './ViewListStoreKPI';
 import { formatNumber } from '../../../../Core/Helper';
+import SpiralIcon from '../../../../Control/Icon/SpiralIcon';
 
 const HEADER_SIZE = Platform.OS == 'android' ? 10 : isIphoneX() ? 50 : 20;
 

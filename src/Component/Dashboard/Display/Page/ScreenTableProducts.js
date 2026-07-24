@@ -13,6 +13,7 @@ import { SearchData } from '../../../../Control/SearchData/SearchData';
 import { removeVietnameseTones } from '../../../../Core/Helper';
 import { FlashList } from '@shopify/flash-list';
 import _ from 'lodash';
+import SpiralIcon from '../../../../Control/Icon/SpiralIcon';
 
 export const ScreenTableProducts = ({ navigation, data, groupName }) => {
   const { appcolor } = useSelector(state => state.GAppState);
@@ -249,15 +250,15 @@ export const ScreenTableProducts = ({ navigation, data, groupName }) => {
       return value1 > value2
         ? 'caret-up'
         : value1 == value2
-        ? 'ellipse'
-        : 'caret-down';
+          ? 'ellipse'
+          : 'caret-down';
     };
     const colorStatus = (value1, value2) => {
       return value1 > value2
         ? appcolor.success
         : value1 == value2
-        ? appcolor.greylight
-        : appcolor.redgray;
+          ? appcolor.greylight
+          : appcolor.redgray;
     };
 
     return (

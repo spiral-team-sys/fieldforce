@@ -8,6 +8,7 @@ import { EmployeeAPI } from '../API/EmployeeAPI';
 import { Divider, Icon } from '@rneui/themed';
 import { Logout, onSignOut } from '../Controller/UserController';
 import Clipboard from '@react-native-clipboard/clipboard';
+import SpiralIcon from '../Control/Icon/SpiralIcon';
 function LockDevice(props) {
   const deviceId = getUniqueId();
   const [appState, setAppState] = useState(AppState.currentState);

@@ -5,6 +5,7 @@ import { Icon, Text } from '@rneui/themed';
 import { useSelector } from 'react-redux';
 import { deviceWidth, fontWeightBold } from '../../../../../Themes/AppsStyle';
 import { BORDER_WIDTH } from '../../UtilityOffice';
+import SpiralIcon from '../../../../../Control/Icon/SpiralIcon';
 
 export const WorkLate = ({ dataDetail, itemMain }) => {
   const { appcolor } = useSelector(state => state.GAppState);

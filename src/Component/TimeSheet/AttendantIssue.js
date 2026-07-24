@@ -44,6 +44,7 @@ import { Overlay } from '@rneui/base';
 import { deletePhoto } from '../../Controller/PhotoController';
 import ViewPictures from '../../Control/Gallary/ViewPictures';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
+import SpiralIcon from '../../Control/Icon/SpiralIcon';
 
 const itemTimeSheet = [
   {
@@ -374,16 +375,16 @@ export const AttendantIssue = ({ navigation, route }) => {
         </Text>
         {(data[item.nameData][0]?.totalRow > 0 ||
           data[item.nameData].length > 0) && (
-          <Badge
-            value={
-              item.code > 2
-                ? data[item.nameData][0]?.totalRow || 0
-                : data[item.nameData].length
-            }
-            status={'warning'}
-            containerStyle={{ position: 'absolute', top: -5, right: -5 }}
-          />
-        )}
+            <Badge
+              value={
+                item.code > 2
+                  ? data[item.nameData][0]?.totalRow || 0
+                  : data[item.nameData].length
+              }
+              status={'warning'}
+              containerStyle={{ position: 'absolute', top: -5, right: -5 }}
+            />
+          )}
       </TouchableOpacity>
     );
   };
@@ -462,12 +463,12 @@ export const AttendantIssue = ({ navigation, route }) => {
                 indexTab.code == 1
                   ? data.dataDefault
                   : indexTab.code == 2
-                  ? data.dataSubmit
-                  : indexTab.code == 3
-                  ? data.dataConfirm
-                  : indexTab.code == 4
-                  ? data.dataReject
-                  : data.dataLock
+                    ? data.dataSubmit
+                    : indexTab.code == 3
+                      ? data.dataConfirm
+                      : indexTab.code == 4
+                        ? data.dataReject
+                        : data.dataLock
               }
               keyExtractor={(_, index) => index.toString()}
               style={{
@@ -506,8 +507,8 @@ export const AttendantIssue = ({ navigation, route }) => {
                 indexTab.code == 3
                   ? data.dataConfirm
                   : indexTab.code == 4
-                  ? data.dataReject
-                  : data.dataLock
+                    ? data.dataReject
+                    : data.dataLock
               }
               keyExtractor={(_, index) => index.toString()}
               style={{
@@ -991,10 +992,9 @@ const RenderItemTimeSheet = ({
       (!isValidTime24(item.TimeCO_Update) && item.TimeCO_Update != null)
     ) {
       MessageInfo(
-        `Thời gian "${
-          !isValidTime24(item.TimeCI_Update) && item.TimeCI_Update != null
-            ? 'Check IN'
-            : 'Check OUT'
+        `Thời gian "${!isValidTime24(item.TimeCI_Update) && item.TimeCI_Update != null
+          ? 'Check IN'
+          : 'Check OUT'
         }" không hợp lệ, vui lòng nhập lại theo định dạng HH:mm`,
       );
       return;
@@ -1151,7 +1151,7 @@ const RenderItemTimeSheet = ({
                   keyboardType="number-pad"
                   onEndEditing={() => handlerEndEditTime(item)}
                   handleChangeForm={onEditValueCI}
-                  // handleChangeForm={(value) => handlerEditTime(value, item, 'CI')} multiline
+                // handleChangeForm={(value) => handlerEditTime(value, item, 'CI')} multiline
                 />
               </View>
               <View style={{ flex: 1 }}>
@@ -1311,11 +1311,9 @@ const RenderItemTimeSheet = ({
             (configCheckTimeStore.isEditShopEmpty && !itemShop.ShopId)) &&
           (!itemShop.TimeCI_Update || !itemShop.TimeCO_Update)
         ) {
-          hasShopWithoutTime = `Ngày ${item.workDate} cửa hàng ${
-            itemShop.ShopCode || ''
-          } thời gian ${
-            !itemShop.TimeCI_Update ? '"Check IN"' : '"Check OUT"'
-          } chưa được nhập, vui lòng kiểm tra lại!!!`;
+          hasShopWithoutTime = `Ngày ${item.workDate} cửa hàng ${itemShop.ShopCode || ''
+            } thời gian ${!itemShop.TimeCI_Update ? '"Check IN"' : '"Check OUT"'
+            } chưa được nhập, vui lòng kiểm tra lại!!!`;
           break;
         }
       }
@@ -1354,10 +1352,8 @@ const RenderItemTimeSheet = ({
           'Cảnh báo',
           `Tổng thời gian làm việc chỉ có ${Math.floor(
             checkTimeUpdate.totalMinutes / 60,
-          )}h${
-            checkTimeUpdate.totalMinutes % 60
-          }p, không đủ 4h theo quy định của ca ${currentShift}, ngày ${
-            item.workDate
+          )}h${checkTimeUpdate.totalMinutes % 60
+          }p, không đủ 4h theo quy định của ca ${currentShift}, ngày ${item.workDate
           }!!!`,
         );
         return;
@@ -1380,12 +1376,10 @@ const RenderItemTimeSheet = ({
         ) {
           toastError(
             'Cảnh báo',
-            `Ngày ${item.workDate} ${
-              itemShop.shopId ? `cửa hàng ${itemShop.ShopCode} ` : ''
-            }có thời gian ${
-              !isValidTime24(itemShop.TimeCI_Update) && itemShop.TimeCI_Update
-                ? '"Check IN" không hợp lệ'
-                : '"Check OUT" không hợp lệ'
+            `Ngày ${item.workDate} ${itemShop.shopId ? `cửa hàng ${itemShop.ShopCode} ` : ''
+            }có thời gian ${!isValidTime24(itemShop.TimeCI_Update) && itemShop.TimeCI_Update
+              ? '"Check IN" không hợp lệ'
+              : '"Check OUT" không hợp lệ'
             }, định dạng HH:mm!!!`,
           );
           return;
@@ -1433,13 +1427,11 @@ const RenderItemTimeSheet = ({
     const reasonSubmit = isSkipReason
       ? ''
       : selectReason.Code == 5
-      ? subNote
-      : selectReason.Reason;
-    let notify = `Nhân viên ${item.employeeName} vừa ${
-      type == 1 ? 'hủy' : 'gửi'
-    } đề xuất chấm công ngày ${item.workDate}${
-      type == 1 || isSkipReason ? '' : ` với lí do : ${reasonSubmit}`
-    }`;
+        ? subNote
+        : selectReason.Reason;
+    let notify = `Nhân viên ${item.employeeName} vừa ${type == 1 ? 'hủy' : 'gửi'
+      } đề xuất chấm công ngày ${item.workDate}${type == 1 || isSkipReason ? '' : ` với lí do : ${reasonSubmit}`
+      }`;
     let dataSubmit = JSON.stringify({
       reportId: kpiinfo.id,
       employeeId: item.employeeId,
@@ -1462,10 +1454,10 @@ const RenderItemTimeSheet = ({
       (await UploadController.PostFile());
     MessageAction(
       'Bạn chắc chắn muốn ' +
-        (type == 1 ? 'hủy' : 'gửi') +
-        ' đề xuất ngày : ' +
-        item.workDate +
-        '?',
+      (type == 1 ? 'hủy' : 'gửi') +
+      ' đề xuất ngày : ' +
+      item.workDate +
+      '?',
       async () => {
         const result = await UpdateSuggestTimeSheet(dataSubmit);
         if (result.statusId === 200) {
@@ -1499,9 +1491,8 @@ const RenderItemTimeSheet = ({
     await setVisible(true);
   };
 
-  let noteValue = `${
-    indexTab.code !== 1 && item.submitNote ? 'Ghi chú : ' : ''
-  }${indexTab.code == 1 ? note : item.submitNote || ''}`;
+  let noteValue = `${indexTab.code !== 1 && item.submitNote ? 'Ghi chú : ' : ''
+    }${indexTab.code == 1 ? note : item.submitNote || ''}`;
 
   return (
     <View key={indexTab.code + item.workDate}>
@@ -2212,8 +2203,8 @@ const ViewPhotoEvidence = ({
           isShowDelete
             ? null
             : SheetManager.show(
-                `ref_takePhoto_${itemAttendant.tabId}_${itemAttendant.attendantId}`,
-              )
+              `ref_takePhoto_${itemAttendant.tabId}_${itemAttendant.attendantId}`,
+            )
         }
       >
         <SpiralIcon
@@ -2338,8 +2329,8 @@ const ViewPhotoEvidence = ({
           (itemAttendant.tabId == 2 &&
             listPhotoItem?.listPhoto !== undefined &&
             listPhotoItem?.listPhoto?.length > 0)) && (
-          <Text style={{ color: appcolor.dark, padding: 5 }}>{'Hình ảnh'}</Text>
-        )}
+            <Text style={{ color: appcolor.dark, padding: 5 }}>{'Hình ảnh'}</Text>
+          )}
         {isShowDelete && (
           <TouchableOpacity
             style={{

@@ -18,6 +18,7 @@ import { deviceHeight } from '../../../Themes/AppsStyle';
 import _ from 'lodash';
 import { toastSuccess } from '../../../Utils/configToast';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
+import SpiralIcon from '../../../Control/Icon/SpiralIcon';
 
 const WarehouseScreen = ({ navigation }) => {
   const insets = useSafeAreaInsets();

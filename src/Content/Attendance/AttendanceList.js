@@ -31,6 +31,7 @@ import SheetNote from './control/SheetNote';
 import { LoadingView } from '../../Control/ItemLoading';
 import { SYNC_DATA_ATT } from '../../Core/URLs';
 import { FlashList } from '@shopify/flash-list';
+import SpiralIcon from '../../Control/Icon/SpiralIcon';
 
 const AttendanceList = ({ navigation }) => {
   const { appcolor, shopinfo, workinfo, isEdit } = useSelector(
@@ -119,7 +120,7 @@ const AttendanceList = ({ navigation }) => {
           () => {
             RNRestart.Restart();
           },
-          () => {},
+          () => { },
           'Đồng ý',
           'Đóng',
         );
@@ -352,8 +353,8 @@ const AttendanceList = ({ navigation }) => {
         <Text style={styles.titleTime}>
           {item.photoTime
             ? moment(item.photoTime, 'YYYYMMDDHHmmss').format(
-                'HH:mm:ss dddd DD/MM',
-              )
+              'HH:mm:ss dddd DD/MM',
+            )
             : ''}
         </Text>
       </View>

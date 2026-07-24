@@ -8,6 +8,7 @@ import { Icon } from '@rneui/themed';
 import LottieView from 'lottie-react-native';
 import { GetDataDashboard } from '../../Controller/DashboardController';
 import { PercentView } from '../../Control/PercentView';
+import SpiralIcon from '../../Control/Icon/SpiralIcon';
 
 const tDay = new Date();
 const totalDay = new Date(tDay.getFullYear(), tDay.getMonth() + 1, 0).getDate();
@@ -54,8 +55,8 @@ export const QuickViewHFL = ({ navigation }) => {
           onPress={() =>
             item.pageName != null
               ? navigation.navigate('dashboardDetail', {
-                  listMonth: item?.listMonth,
-                })
+                listMonth: item?.listMonth,
+              })
               : null
           }
         >

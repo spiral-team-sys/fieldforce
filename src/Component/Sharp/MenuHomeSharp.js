@@ -19,6 +19,7 @@ import { GetMenu } from '../../Controller/UserController';
 import { scaleSize } from '../../Themes/AppsStyle';
 import { getStoreList } from '../../Controller/WorkController';
 import { Animated } from 'react-native';
+import SpiralIcon from '../../Control/Icon/SpiralIcon';
 // import ShopOneMoreToshiba from "../Shops/ShopOneMoreToshiba"
 
 {
@@ -181,12 +182,11 @@ export const MenuHomeSharp = ({ navigation, isLoading, downloadData }) => {
       justifyContent: 'center',
     },
     indicator: {
-      width: `${
-        100 -
+      width: `${100 -
         (dataMenu.length <= 4
           ? 0
           : dataMenu.length * 10 - (dataMenu.length >= 10 ? 30 : 8))
-      }%`,
+        }%`,
       height: 6,
       borderRadius: 8,
       backgroundColor: appcolor.primary,

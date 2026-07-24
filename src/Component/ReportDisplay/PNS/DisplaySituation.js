@@ -26,6 +26,7 @@ import moment from 'moment';
 import { Message, ToastError } from '../../../Core/Helper';
 import { checkNetwork } from '../../../Core/Utility';
 import NativeCamera from '../../../Control/NativeCamera';
+import SpiralIcon from '../../../Control/Icon/SpiralIcon';
 
 export const DisplaySituation = ({ navigation }) => {
   const { appcolor, workinfo, shopinfo, kpiinfo } = useSelector(
@@ -73,7 +74,7 @@ export const DisplaySituation = ({ navigation }) => {
           async () => {
             await loadData();
           },
-          async () => {},
+          async () => { },
         );
       },
     );

@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { Platform, StyleSheet, TouchableOpacity, View } from 'react-native';
 import { Icon, Text } from '@rneui/themed';
 import { useSelector } from 'react-redux';
+import SpiralIcon from '../../../../Control/Icon/SpiralIcon';
 
 export const ActionItem = ({
   isMain = false,

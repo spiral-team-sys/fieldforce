@@ -5,6 +5,7 @@ import { deviceWidth } from '../../../../Core/Utility';
 import { useSelector } from 'react-redux';
 import { scaleSize } from '../../../../Themes/AppsStyle';
 import { COLOR } from '../../../../Component/OFFICE SPIRAL/Control/UtilityOffice';
+import SpiralIcon from '../../../../Control/Icon/SpiralIcon';
 
 const MenuOffice = ({ item, index = 0, onPress }) => {
   const { appcolor } = useSelector(state => state.GAppState);

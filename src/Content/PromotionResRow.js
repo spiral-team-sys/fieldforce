@@ -9,6 +9,7 @@ import { useSelector } from 'react-redux';
 import NativeCamera from '../Control/NativeCamera';
 import { getPhotosReportByGuiId } from '../Controller/WorkController';
 import ViewPictures from '../Control/Gallary/ViewPictures';
+import SpiralIcon from '../Control/Icon/SpiralIcon';
 
 const takePhotoCell = (e, guiid, workinfo, navigation, kpiId) => {
   let item = {
@@ -118,11 +119,10 @@ export const PromotionResRow = ({
                   color: appcolor.dark,
                 }}
               >
-                {`${
-                  item.titlePromotion !== null && item.titlePromotion.length > 0
+                {`${item.titlePromotion !== null && item.titlePromotion.length > 0
                     ? item.titlePromotion
                     : 'CTKM'
-                }`}
+                  }`}
               </Text>
               <Text
                 style={{

@@ -6,6 +6,7 @@ import { deviceHeight, fontWeightBold } from '../../../Themes/AppsStyle';
 import { FilterData } from './FilterData';
 import { SheetManager } from 'react-native-actions-sheet';
 import { SET_SearchData } from '../../../Redux/action';
+import SpiralIcon from '../../../Control/Icon/SpiralIcon';
 
 export const ActionFilter = ({ itemFilter, handlerFilterData }) => {
   const { appcolor, kpiinfo } = useSelector(state => state.GAppState);

@@ -55,6 +55,7 @@ import { MenuHisense } from './MenuHisense';
 import { LoadingView } from '../../Control/ItemLoading/index';
 import { APPNAME } from '../../Core/URLs';
 import { SummaryHomeHisense } from './SummaryHomeHisense';
+import SpiralIcon from '../../Control/Icon/SpiralIcon';
 
 class HomeHisense extends PureComponent {
   constructor(props) {
@@ -102,15 +103,15 @@ class HomeHisense extends PureComponent {
               'Thông báo',
               Platform.OS === 'ios'
                 ? 'Vui lòng cho phép App sử dụng camera, Quyền riêng tư -> camera -> tìm đến App ' +
-                    APPNAME +
-                    ' -> cho phép (Bật).'
+                APPNAME +
+                ' -> cho phép (Bật).'
                 : 'Vui lòng cho phép truy cập bộ nhớ để lưu trữ hình ảnh xuống máy',
               () => {
                 Platform.OS === 'ios'
                   ? Linking.openURL('App-Prefs:root=Privacy&path=LOCATION')
                   : openSettings().catch(() =>
-                      console.warn('cannot open settings'),
-                    );
+                    console.warn('cannot open settings'),
+                  );
               },
             );
           }
@@ -460,9 +461,8 @@ class HomeHisense extends PureComponent {
                 <View style={{ padding: 12, alignItems: 'center' }}>
                   <Text
                     style={{ color: appcolor.danger, textAlign: 'center' }}
-                  >{`Xác thực ${
-                    this.state.isSec === 1 ? ' khuôn mặt' : ' vân tay'
-                  } mở khóa ứng dụng`}</Text>
+                  >{`Xác thực ${this.state.isSec === 1 ? ' khuôn mặt' : ' vân tay'
+                    } mở khóa ứng dụng`}</Text>
                 </View>
               </View>
             </Modal>

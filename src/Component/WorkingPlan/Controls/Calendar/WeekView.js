@@ -6,6 +6,7 @@ import { deviceWidth, fontWeightBold } from '../../../../Themes/AppsStyle';
 import { weekdays } from '../../../../Utils/configCalendar';
 import { useSelector } from 'react-redux';
 import _ from 'lodash';
+import SpiralIcon from '../../../../Control/Icon/SpiralIcon';
 
 const WeekView = ({ data = [], onChooseDay, isRefreshData = false }) => {
   const { appcolor } = useSelector(state => state.GAppState);
@@ -165,9 +166,8 @@ const WeekView = ({ data = [], onChooseDay, isRefreshData = false }) => {
           disabledStyle={{ backgroundColor: 'transparent' }}
           onPress={showPrevious}
         />
-        <Text style={styles.titleCalendarCenter}>{`Tuần ${
-          data[currentWeekIndex]?.weekByYear || ''
-        } - ${data[currentWeekIndex]?.titleName || 'Tháng'}`}</Text>
+        <Text style={styles.titleCalendarCenter}>{`Tuần ${data[currentWeekIndex]?.weekByYear || ''
+          } - ${data[currentWeekIndex]?.titleName || 'Tháng'}`}</Text>
         <SpiralIcon
           type="ionicon"
           name="caret-forward-circle"

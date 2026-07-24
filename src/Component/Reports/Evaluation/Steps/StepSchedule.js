@@ -9,6 +9,7 @@ import { REPORT } from '../../../../API/ReportAPI';
 import { toastError } from '../../../../Utils/configToast';
 import CustomListView from '../../../../Control/Custom/CustomListView';
 import _ from 'lodash';
+import SpiralIcon from '../../../../Control/Icon/SpiralIcon';
 /**
  * StepSchedule - Step 4: configure date, co-visit, criteria and submit
  * Props: selectedPC, workDate, setWorkDate, coVisitName, setCoVisitName,
@@ -238,10 +239,9 @@ const StepSchedule = ({
   const getCriteriaIdentity = (criteria = {}) => {
     return String(
       criteria.id ??
-        criteria.Id ??
-        `${criteria.groupId || ''}_${criteria.kpi || ''}_${
-          criteria.kpiName || ''
-        }`,
+      criteria.Id ??
+      `${criteria.groupId || ''}_${criteria.kpi || ''}_${criteria.kpiName || ''
+      }`,
     );
   };
 

@@ -2,6 +2,7 @@ import React, { useMemo } from 'react';
 import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
 import { Icon } from '@rneui/base';
 import { useSelector } from 'react-redux';
+import SpiralIcon from '../../../../Control/Icon/SpiralIcon';
 
 const AnswerItem = React.memo(({ item, index, itemParent, onPress }) => {
   const { appcolor } = useSelector(state => state.GAppState);

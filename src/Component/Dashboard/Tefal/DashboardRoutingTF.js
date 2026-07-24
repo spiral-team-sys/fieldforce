@@ -22,6 +22,7 @@ import { FlashList } from '@shopify/flash-list';
 import { deviceHeight, deviceWidth } from '../../Home';
 import { IconAnimation } from '../../../Control/IconAnimation/IconAnimation';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
+import SpiralIcon from '../../../Control/Icon/SpiralIcon';
 export const DashboardRoutingTF = ({
   navigation,
   data,
@@ -148,7 +149,7 @@ export const DashboardRoutingTF = ({
           zIndex: 1000,
         }}
       >
-        <SpiralIconAnimation
+        <IconAnimation
           isLoop={false}
           sourceIcon={require('../../../Themes/lotties/sync_load.json')}
         />
@@ -409,10 +410,10 @@ const Routing = ({ data, route }) => {
   const routeList = JSON.parse(data || '[]');
   var totalTime = routeList.length
     ? routeList
-        ?.map(o => o.Duration.value)
-        .reduce((a, c) => {
-          return a + c;
-        })
+      ?.map(o => o.Duration.value)
+      .reduce((a, c) => {
+        return a + c;
+      })
     : 0;
   totalTime = ConvertSecondToTime(totalTime);
   const rowTimeLine = ({ item, index }) => {

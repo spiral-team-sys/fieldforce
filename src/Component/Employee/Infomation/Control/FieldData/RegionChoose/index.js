@@ -20,6 +20,7 @@ import { SET_EmployeeInfo } from '../../../../../../Redux/action';
 import dvhc2025 from '../../../../../../Themes/filedata/dvhc2025.json';
 import _ from 'lodash';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
+import SpiralIcon from '../../../../../../Control/Icon/SpiralIcon';
 
 export const RegionChoose = ({ itemMain, keyValue, isNewAddress = false }) => {
   const insets = useSafeAreaInsets();

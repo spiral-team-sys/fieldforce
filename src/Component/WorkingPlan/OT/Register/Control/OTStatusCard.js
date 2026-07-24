@@ -1,6 +1,7 @@
 import React, { memo, useMemo } from 'react';
 import { StyleSheet, View } from 'react-native';
 import { Icon, Text } from '@rneui/themed';
+import SpiralIcon from '../../../../../Control/Icon/SpiralIcon';
 
 const OTStatusCard = ({
   appcolor,

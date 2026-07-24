@@ -45,6 +45,7 @@ import {
   STATUS_LABELS,
 } from './StoreRequestUtils';
 import { toastError, toastSuccess } from '../../../../Utils/configToast';
+import SpiralIcon from '../../../../Control/Icon/SpiralIcon';
 
 const PHOTO_REQUIRED_TYPES = ['photo'];
 const VALUE_REQUIRED_TYPES = [
@@ -123,12 +124,12 @@ const StoreRequestFormScreen = ({ navigation, route }) => {
     waitingStatus == 1
       ? appcolor.success || appcolor.primary
       : waitingStatus == 3
-      ? appcolor.warning || appcolor.primary
-      : waitingStatus == 2
-      ? appcolor.info || appcolor.primary
-      : waitingStatus == -1 || waitingStatus == -2
-      ? appcolor.red || appcolor.primary
-      : appcolor.primary;
+        ? appcolor.warning || appcolor.primary
+        : waitingStatus == 2
+          ? appcolor.info || appcolor.primary
+          : waitingStatus == -1 || waitingStatus == -2
+            ? appcolor.red || appcolor.primary
+            : appcolor.primary;
 
   const styles = StyleSheet.create({
     mainContainer: { flex: 1, backgroundColor: appcolor.surface },
@@ -425,8 +426,8 @@ const StoreRequestFormScreen = ({ navigation, route }) => {
       item.Ref_Code === 'phone' || item.Ref_Code === 'number'
         ? text.replace(/\D+/g, '')
         : isTitleCaseTextField(item)
-        ? toTitleCaseText(text)
-        : text;
+          ? toTitleCaseText(text)
+          : text;
     setFormData({ ...formData, [item.Ref_Name]: value });
     if (errors[item.Ref_Name]) setErrors({ ...errors, [item.Ref_Name]: null });
   };
@@ -493,9 +494,8 @@ const StoreRequestFormScreen = ({ navigation, route }) => {
         });
         setDisplayData({
           ...displayData,
-          [item.Ref_Name]: `${shop.shopCode || shop.ShopCode || ''} - ${
-            shop.shopName || shop.ShopName || ''
-          }`,
+          [item.Ref_Name]: `${shop.shopCode || shop.ShopCode || ''} - ${shop.shopName || shop.ShopName || ''
+            }`,
         });
         if (errors[item.Ref_Name])
           setErrors({ ...errors, [item.Ref_Name]: null });
@@ -557,8 +557,8 @@ const StoreRequestFormScreen = ({ navigation, route }) => {
     const resultData = Array.isArray(result.data)
       ? result.data
       : result.data
-      ? [result.data]
-      : [];
+        ? [result.data]
+        : [];
     const dataPhotos = resultData
       .map(photo => photo?.photoPath || photo?.uri)
       .filter(Boolean)
@@ -567,10 +567,10 @@ const StoreRequestFormScreen = ({ navigation, route }) => {
       dataPhotos.length > 0
         ? dataPhotos
         : Array.isArray(result.fileInfo)
-        ? result.fileInfo
-        : result.fileInfo
-        ? [result.fileInfo]
-        : [];
+          ? result.fileInfo
+          : result.fileInfo
+            ? [result.fileInfo]
+            : [];
     const nextPhotos = resultPhotos
       .map(photo => {
         const photoPath = photo?.photoPath;
@@ -587,8 +587,8 @@ const StoreRequestFormScreen = ({ navigation, route }) => {
     const currentPhotos = Array.isArray(photoMap[item.Ref_Name])
       ? photoMap[item.Ref_Name]
       : photoMap[item.Ref_Name]
-      ? [photoMap[item.Ref_Name]]
-      : [];
+        ? [photoMap[item.Ref_Name]]
+        : [];
     const mergedPhotos = [...currentPhotos, ...nextPhotos].filter(
       (photo, index, list) => {
         const photoPath =
@@ -638,8 +638,8 @@ const StoreRequestFormScreen = ({ navigation, route }) => {
       const currentPhotos = Array.isArray(nextPhotoMap[item.Ref_Name])
         ? nextPhotoMap[item.Ref_Name]
         : nextPhotoMap[item.Ref_Name]
-        ? [nextPhotoMap[item.Ref_Name]]
-        : [];
+          ? [nextPhotoMap[item.Ref_Name]]
+          : [];
       nextPhotoMap[item.Ref_Name] = currentPhotos.filter(photo => {
         const photoPath =
           photo?.PhotoPath || photo?.photoPath || photo?.uri || photo?.photoUrl;
@@ -667,8 +667,8 @@ const StoreRequestFormScreen = ({ navigation, route }) => {
         const photos = Array.isArray(photoMap[item.Ref_Name])
           ? photoMap[item.Ref_Name]
           : photoMap[item.Ref_Name]
-          ? [photoMap[item.Ref_Name]]
-          : [];
+            ? [photoMap[item.Ref_Name]]
+            : [];
         if (item.IsRequired && !hasPhotoValue(photoMap, item.Ref_Name)) {
           nextErrors[item.Ref_Name] = `Vui lòng thêm ${item.NameVN}`;
           return;
@@ -730,8 +730,8 @@ const StoreRequestFormScreen = ({ navigation, route }) => {
     const photos = Array.isArray(photoMap.CLOSE_IMAGE)
       ? photoMap.CLOSE_IMAGE
       : photoMap.CLOSE_IMAGE
-      ? [photoMap.CLOSE_IMAGE]
-      : [];
+        ? [photoMap.CLOSE_IMAGE]
+        : [];
     if (!noteValue) nextErrors.CLOSE_NOTE = 'Vui lòng nhập lý do đóng cửa hàng';
     if (isTakePictureClose == 1 && photos.length === 0)
       nextErrors.CLOSE_IMAGE = 'Vui lòng chụp hình đóng cửa hàng';
@@ -795,8 +795,8 @@ const StoreRequestFormScreen = ({ navigation, route }) => {
         const photos = Array.isArray(photoMap[item.Ref_Name])
           ? photoMap[item.Ref_Name]
           : photoMap[item.Ref_Name]
-          ? [photoMap[item.Ref_Name]]
-          : [];
+            ? [photoMap[item.Ref_Name]]
+            : [];
         photos.forEach(photo => {
           const submitPhoto = buildSubmitPhoto(item, photo);
           if (submitPhoto) jsonPhoto.push(submitPhoto);
@@ -821,8 +821,8 @@ const StoreRequestFormScreen = ({ navigation, route }) => {
     const photos = Array.isArray(photoMap.CLOSE_IMAGE)
       ? photoMap.CLOSE_IMAGE
       : photoMap.CLOSE_IMAGE
-      ? [photoMap.CLOSE_IMAGE]
-      : [];
+        ? [photoMap.CLOSE_IMAGE]
+        : [];
     const jsonPhoto = photos
       .map(photo => buildSubmitPhoto(closeItem, photo))
       .filter(Boolean);
@@ -875,8 +875,8 @@ const StoreRequestFormScreen = ({ navigation, route }) => {
           toastError(
             'Lỗi',
             result?.messager ||
-              result?.messeger ||
-              'Gửi yêu cầu không thành công',
+            result?.messeger ||
+            'Gửi yêu cầu không thành công',
           );
         }
       },

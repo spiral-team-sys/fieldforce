@@ -38,6 +38,7 @@ import { URLDEFAULT } from '../../../Core/URLs';
 import ViewListComment from './ViewListComment';
 import { LoadingView } from '../../../Control/ItemLoading';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
+import SpiralIcon from '../../../Control/Icon/SpiralIcon';
 
 if (
   Platform.OS === 'android' &&
@@ -614,7 +615,7 @@ export const IssueReportHome = ({ navigation, route }) => {
         title={kpiinfo.menuNameVN}
         leftFunc={() => navigation.goBack()}
         iconRight="cloud-upload-alt"
-        // rightFunc={isUploaded ? null : }
+      // rightFunc={isUploaded ? null : }
       />
       <View style={{ flex: 1, backgroundColor: appcolor.light }}>
         {/* <ViewInputIssues /> */}
@@ -1069,8 +1070,7 @@ const ViewCreateIssue = ({
       isEditItem: 1,
     };
     MessageAction(
-      `Bạn chắc chắn muốn ${
-        itemSelect.type == 'EDIT' ? 'sửa' : 'tạo'
+      `Bạn chắc chắn muốn ${itemSelect.type == 'EDIT' ? 'sửa' : 'tạo'
       } vấn đề này?`,
       async () => {
         let isNetwork = await checkNetwork();
@@ -1100,8 +1100,7 @@ const ViewCreateIssue = ({
               );
             } else {
               MessageInfo(
-                `Xảy ra lỗi khi ${
-                  itemSelect.type == 'EDIT' ? 'Sửa' : 'Tạo'
+                `Xảy ra lỗi khi ${itemSelect.type == 'EDIT' ? 'Sửa' : 'Tạo'
                 } vấn đề!` + result.messager,
                 'Lỗi',
                 'top',

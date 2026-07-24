@@ -30,6 +30,7 @@ import LoadingDefault from '../../../../Control/ItemLoading/LoadingDefault';
 import { getDataPhotoByGUID } from '../../../../Controller/ReportController';
 import { PROGRAM_KEY } from '../../../../Core/KEYs';
 import ReviewDisplay from '../Page/ReviewDisplay';
+import SpiralIcon from '../../../../Control/Icon/SpiralIcon';
 
 const FORM_ID = {
   REVIEW: 1,
@@ -375,8 +376,7 @@ const EvaluateDetailScreen = ({ navigation, route }) => {
             horizontal
             data={photoList}
             keyExtractor={(photoItem, photoIndex) =>
-              `${
-                photoItem?.guid || photoItem?.photoPath || 'photo'
+              `${photoItem?.guid || photoItem?.photoPath || 'photo'
               }_${photoIndex}`
             }
             renderItem={({ item: photoItem, index: photoIndex }) =>

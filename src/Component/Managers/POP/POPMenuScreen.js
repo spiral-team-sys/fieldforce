@@ -14,6 +14,7 @@ import { fontWeightBold } from '../../../Themes/AppsStyle';
 import { ColorRand, ToastError, ToastSuccess } from '../../../Core/Helper';
 import { DEFAULT_COLOR } from '../../../Core/URLs';
 import { POPAPI } from '../../../API/POPAPI';
+import SpiralIcon from '../../../Control/Icon/SpiralIcon';
 
 const POPMenuScreen = ({ navigation, route }) => {
   const { appcolor } = useSelector(state => state.GAppState);

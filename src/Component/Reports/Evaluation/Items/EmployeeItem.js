@@ -4,6 +4,7 @@ import { useSelector } from 'react-redux';
 import { Icon, Text } from '@rneui/base';
 import { fontWeightBold } from '../../../../Themes/AppsStyle';
 import moment from 'moment';
+import SpiralIcon from '../../../../Control/Icon/SpiralIcon';
 
 const readField = (item, keys = []) => {
   for (let i = 0; i < keys.length; i++) {
@@ -96,9 +97,8 @@ const EmployeeItem = ({ item, index, isSelected, onPress }) => {
         onPress={() => onPress(item)}
       >
         <View style={styles.selectedRow}>
-          <Text style={styles.titleName}>{`${index + 1}. ${
-            item.employeeName
-          }`}</Text>
+          <Text style={styles.titleName}>{`${index + 1}. ${item.employeeName
+            }`}</Text>
           <SpiralIcon
             type="ionicon"
             name={isSelected ? 'checkmark-circle' : 'ellipse-outline'}

@@ -4,6 +4,7 @@ import { useSelector } from 'react-redux';
 import { deviceWidth } from '../../../../Core/Utility';
 import { View } from 'react-native';
 import { Icon, Text } from '@rneui/themed';
+import SpiralIcon from '../../../../Control/Icon/SpiralIcon';
 
 export const HeaderItemView = ({
   isUploaded,

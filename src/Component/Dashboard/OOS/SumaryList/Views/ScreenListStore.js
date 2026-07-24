@@ -18,6 +18,7 @@ import { Icon, Text } from '@rneui/base';
 import { fontWeightBold } from '../../../../../Themes/AppsStyle';
 import { ItemStore } from '../Items/ItemStore';
 import _ from 'lodash';
+import SpiralIcon from '../../../../../Control/Icon/SpiralIcon';
 
 export const ScreenListStore = ({
   navigation,

@@ -29,6 +29,7 @@ import CustomTab from '../../../../Control/Custom/CustomTab';
 import ConfirmHeader from './ConfirmHeader';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 import { SearchData } from '../../../../Control/SearchData/SearchData';
+import SpiralIcon from '../../../../Control/Icon/SpiralIcon';
 
 const TYPE_SHIFT = 'SHIFT';
 const TYPE_OFF = 'OFF';
@@ -336,8 +337,8 @@ const HistoryConfirm = ({ navigation, route }) => {
           <Text style={styles.shiftText}>{item.ShiftName}</Text>
           {(menuSelected.type === TYPE_SHIFT ||
             menuSelected.type === TYPE_OFF) && (
-            <ItemShift item={item} styles={styles} appcolor={appcolor} />
-          )}
+              <ItemShift item={item} styles={styles} appcolor={appcolor} />
+            )}
           {menuSelected.type === TYPE_LATE && (
             <ItemLate item={item} styles={styles} appcolor={appcolor} />
           )}

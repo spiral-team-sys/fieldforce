@@ -12,6 +12,7 @@ import FormGroup from '../../Content/FormGroup';
 import { useSelector } from 'react-redux';
 import { LoadingView } from '../../Control/ItemLoading';
 import moment from 'moment';
+import SpiralIcon from '../../Control/Icon/SpiralIcon';
 
 export const TrackingDisplayMEVN = ({ navigation, route }) => {
     const [loading, setLoading] = useState(false)
@@ -153,13 +154,13 @@ export const TrackingDisplayMEVN = ({ navigation, route }) => {
                                 <View style={{ flexDirection: 'row', justifyContent: 'space-between', padding: 12 }}>
                                     <Button
                                         onPress={() => uploaded !== 1 && takePhoto()}
-                                        icon={<SpiralIcon color={appcolor.dark} name='camera' type='ionicon' size={25}></SpiralIcon>}
+                                        icon={<SpiralIcon color={appcolor.dark} name='camera' type='ionicon' size={25} />}
                                         containerStyle={{ height: 40, backgroundColor: appcolor.light, width: '45%' }}
                                         buttonStyle={{ height: 40, backgroundColor: appcolor.light }}
                                         title={' Chụp hình'} titleStyle={{ color: appcolor.dark, fontSize: 12 }} />
                                     <Button
                                         onPress={() => showALbum()}
-                                        icon={<SpiralIcon name='image' color={appcolor.dark} type='ionicon' size={25}></SpiralIcon>}
+                                        icon={<SpiralIcon name='image' color={appcolor.dark} type='ionicon' size={25} />}
                                         containerStyle={{ height: 40, backgroundColor: appcolor.light, width: '45%' }}
                                         buttonStyle={{ height: 40, backgroundColor: appcolor.light }}
                                         title={' Album'} titleStyle={{ color: appcolor.dark, fontSize: 12 }} />

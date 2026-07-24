@@ -15,6 +15,7 @@ import Geolocation from '@react-native-community/geolocation';
 import { LOCATION_INFO } from '../../../Utils/LocationInfo';
 import { formatNumber } from '../../../Core/Helper';
 import DeviceInfo from 'react-native-device-info';
+import SpiralIcon from '../../../Control/Icon/SpiralIcon';
 
 const CheckInScreen = ({ navigation }) => {
   const { appcolor, userinfo, kpiinfo } = useSelector(state => state.GAppState);

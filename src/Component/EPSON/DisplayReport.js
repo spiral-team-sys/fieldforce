@@ -18,6 +18,7 @@ import { HeaderCustom } from '../../Content/HeaderCustom';
 // import ScrollableTabView, { ScrollableTabBar } from 'react-native-scrollable-tab-view';
 import { Tabs, MaterialTabBar } from "react-native-collapsible-tab-view"
 import { scaleSize } from '../../Themes/AppsStyle';
+import SpiralIcon from '../../Control/Icon/SpiralIcon';
 // //import NumberFormat from "react-number-format";
 const styles = StyleSheet.create({
     line: {
@@ -379,7 +380,7 @@ export const DisplayReport = ({ navigation, route }) => {
                                             <TouchableOpacity
                                                 onPress={() => navigation.navigate('PhotoItems', { Photos: (arrTagShow[indexTab].name) ? LstMenuPhotos[arrTagShow[indexTab].name] : [], Status: Status })}
                                                 style={{ height: 40, width: '45%', marginRight: 2 }}>
-                                                <SpiralIcon name='camera' color={appcolor.primary} type='ionicon' size={25}></SpiralIcon>
+                                                <SpiralIcon name='camera' color={appcolor.primary} type='ionicon' size={25} />
                                                 <Text style={{ width: '100%', textAlign: 'center', color: appcolor.dark, fontSize: scaleSize(12) }}>Chụp hình</Text>
                                             </TouchableOpacity>
                                             <View style={{ width: 2, backgroundColor: appcolor.light }} />
@@ -393,7 +394,7 @@ export const DisplayReport = ({ navigation, route }) => {
                                                     await setMode('NOTE')
                                                 }}
                                                 style={{ height: 40, width: '45%', marginRight: 2 }}>
-                                                <SpiralIcon name='create-outline' color={appcolor.primary} type='ionicon' size={25}></SpiralIcon>
+                                                <SpiralIcon name='create-outline' color={appcolor.primary} type='ionicon' size={25} />
                                                 <Text style={{ width: '100%', textAlign: 'center', color: appcolor.dark, fontSize: scaleSize(12) }}>Ghi chú</Text>
                                             </TouchableOpacity>
                                         </View> :
@@ -401,7 +402,7 @@ export const DisplayReport = ({ navigation, route }) => {
                                             <TouchableOpacity
                                                 onPress={() => Status !== 1 && takePhoto(navigation, workinfo, kpiinfo, competitorSelect, arrTagShow[indexTab].name)}
                                                 style={{ height: 40, width: '45%', marginRight: 2 }}>
-                                                <SpiralIcon name='camera' color={appcolor.primary} type='ionicon' size={25}></SpiralIcon>
+                                                <SpiralIcon name='camera' color={appcolor.primary} type='ionicon' size={25} />
                                                 <Text style={{ width: '100%', textAlign: 'center', color: appcolor.dark, fontSize: scaleSize(12) }}>Chụp hình</Text>
                                             </TouchableOpacity>
                                             <View style={{ width: 2, backgroundColor: appcolor.light }} />
@@ -409,7 +410,7 @@ export const DisplayReport = ({ navigation, route }) => {
                                             <TouchableOpacity
                                                 onPress={() => showAlbum(navigation, workinfo, kpiinfo, competitorSelect, arrTagShow[indexTab].name)}
                                                 style={{ height: 40, width: '45%', marginRight: 2 }}>
-                                                <SpiralIcon name='image' color={appcolor.primary} type='ionicon' size={25}></SpiralIcon>
+                                                <SpiralIcon name='image' color={appcolor.primary} type='ionicon' size={25} />
                                                 <Text style={{ width: '100%', textAlign: 'center', color: appcolor.dark, fontSize: scaleSize(12) }}>Xem hình</Text>
                                             </TouchableOpacity>
                                         </View>

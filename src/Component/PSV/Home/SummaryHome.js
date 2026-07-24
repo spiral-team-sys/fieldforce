@@ -22,6 +22,7 @@ import { DashboardRouting } from '../../../Content/Beko/DashboardRouting';
 import { formatNumber } from '../../../Core/Helper';
 import { ConvertToInt } from '../../../Core/Utility';
 import { DashBoardTargetTF } from '../../Dashboard/Tefal/DashBoardTargetTF';
+import SpiralIcon from '../../../Control/Icon/SpiralIcon';
 
 const typeButton = {
   Menu: 'MENU',
@@ -133,7 +134,7 @@ export const SummaryHome = ({ navigation, isLoading }) => {
     titleNonView: { fontSize: 15, fontWeight: '600', color: appcolor.dark },
     mainViewDashboard: { width: '100%', height: deviceHeight / 3 },
   });
-  const RenderButton = ({}) => {
+  const RenderButton = ({ }) => {
     const dataButtonMenu =
       dataMenu !== undefined && dataMenu !== null
         ? dataMenu[0]?.menuList || ''
@@ -406,8 +407,7 @@ const SellOutSummary = ({ appcolor, dataSellOut, navigation }) => {
   };
   const percentValue =
     `${dataSellOut.percentValue || 0}%` ||
-    `${
-      (dataSellOut.actualPercent / dataSellOut.targetPercent).toFixed(2) * 100
+    `${(dataSellOut.actualPercent / dataSellOut.targetPercent).toFixed(2) * 100
     }%`;
   return (
     <TouchableOpacity

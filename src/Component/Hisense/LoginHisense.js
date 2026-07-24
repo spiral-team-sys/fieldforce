@@ -30,6 +30,7 @@ import {
 } from '../../Controller/UserController';
 import ForgotPassword from '../../Control/ForgotPassword';
 import { LocalSignIn, SERCURITY } from '../../Control/LocalSignIn';
+import SpiralIcon from '../../Control/Icon/SpiralIcon';
 const delay = ms => new Promise(res => setTimeout(res, ms));
 const versionApp = DeviceInfo.getVersion();
 const versionNumBuild = DeviceInfo.getBuildNumber();

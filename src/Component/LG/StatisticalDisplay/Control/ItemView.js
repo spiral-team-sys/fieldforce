@@ -3,6 +3,7 @@ import { StyleSheet, View } from 'react-native';
 import { Icon, Text } from '@rneui/themed';
 import { useSelector } from 'react-redux';
 import { fontWeightBold } from '../../../../Themes/AppsStyle';
+import SpiralIcon from '../../../../Control/Icon/SpiralIcon';
 
 export const ItemView = ({
   iconName,

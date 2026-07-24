@@ -48,6 +48,7 @@ import { photos } from '../../Core/TableLocal';
 import MultipleShowVideo from '../../Control/Video/MultipleShowVideo';
 import { SheetManager } from 'react-native-actions-sheet';
 import _ from 'lodash';
+import SpiralIcon from '../../Control/Icon/SpiralIcon';
 
 const WorkingPlanSR_V2 = ({ navigation, route }) => {
   const { appcolor, kpiinfo } = useSelector(state => state.GAppState);
@@ -479,18 +480,18 @@ const WorkingPlanSR_V2 = ({ navigation, route }) => {
       const filterShift =
         dataModal.type == 'SHIFT'
           ? dataModal.dataFilter.filter(
-              i =>
-                i.Name.toLowerCase().match(text.toLowerCase()) ||
-                i.ShiftCode.toLowerCase().match(text.toLowerCase()),
-            )
+            i =>
+              i.Name.toLowerCase().match(text.toLowerCase()) ||
+              i.ShiftCode.toLowerCase().match(text.toLowerCase()),
+          )
           : dataModal.type == 'NOTE'
-          ? dataModal.dataFilter.filter(
+            ? dataModal.dataFilter.filter(
               i =>
                 (i.title !== undefined &&
                   i.title.toLowerCase().match(text.toLowerCase())) ||
                 i.Ref_Code.toLowerCase().match(text.toLowerCase()),
             )
-          : dataModal.dataFilter.filter(
+            : dataModal.dataFilter.filter(
               i =>
                 i.ShopName !== undefined &&
                 i.ShopName.toLowerCase().match(text.toLowerCase()),
@@ -576,7 +577,7 @@ const WorkingPlanSR_V2 = ({ navigation, route }) => {
   };
   const handlerUpdateStoreData = async () => {
     await setDownloading(true);
-    await downloadAll(() => {});
+    await downloadAll(() => { });
     await setDownloading(false);
   };
   // Render View
@@ -1191,8 +1192,8 @@ const ViewItemStore = ({
     item.confirmShop == 1
       ? appcolor.success
       : item.confirmShop == -1
-      ? appcolor.danger
-      : appcolor.rejection;
+        ? appcolor.danger
+        : appcolor.rejection;
   const visibleMonthlyFrequency =
     item.monthlyFrequency?.length > 0 && item.lastDate?.length > 0
       ? 'flex'
@@ -1330,8 +1331,8 @@ const renderItemModal = (
     dataModal.type == 'SHIFT'
       ? item.Name
       : dataModal.type == 'NOTE'
-      ? item.title
-      : item.ShopName;
+        ? item.title
+        : item.ShopName;
   const chooseItem = () => {
     actionChooseItem(item, index, value, dataModal.type);
   };
@@ -1340,9 +1341,8 @@ const renderItemModal = (
   };
   return (
     <View
-      key={`${dataModal.type || 'modal'}_${
-        item.Ref_Code || item.ShiftCode || item.Id || item.ShopId || index
-      }`}
+      key={`${dataModal.type || 'modal'}_${item.Ref_Code || item.ShiftCode || item.Id || item.ShopId || index
+        }`}
     >
       {item.isParent && (
         <Text
@@ -1414,8 +1414,8 @@ const ModalItem = ({
     dataModal.type == 'SHIFT'
       ? 'Đổi ca làm việc'
       : dataModal.type == 'NOTE'
-      ? 'Lý do thay đổi'
-      : 'Danh sách cửa hàng';
+        ? 'Lý do thay đổi'
+        : 'Danh sách cửa hàng';
   const { arr } = groupDataByKey({
     arr: dataModal.dataSelect,
     key: 'Ref_Code',

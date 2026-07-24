@@ -3,6 +3,7 @@ import { StyleSheet, Text, View } from 'react-native';
 import { Icon } from '@rneui/themed';
 import { useSelector } from 'react-redux';
 import FormGroup from '../../../Content/FormGroup';
+import SpiralIcon from '../../../Control/Icon/SpiralIcon';
 
 const NumberInput = ({
   titleName,

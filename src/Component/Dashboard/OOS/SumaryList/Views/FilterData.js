@@ -16,6 +16,7 @@ import { ACTION } from '../../../../../Core/ReduxController';
 import { DashboardAPI } from '../../../../../API/DashboardAPI';
 import _ from 'lodash';
 import { SET_SearchData } from '../../../../../Redux/action';
+import SpiralIcon from '../../../../../Control/Icon/SpiralIcon';
 
 export const FilterData = ({ title, callBack }) => {
   const { appcolor, kpiinfo, searchData } = useSelector(

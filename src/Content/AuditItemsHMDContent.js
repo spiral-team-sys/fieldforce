@@ -10,6 +10,7 @@ import { MessageInfo } from '../Core/Helper';
 import LottieView from 'lottie-react-native';
 import { isIphoneX } from "../Core/is-iphone-x";
 import { CheckBox } from '@rneui/base';
+import SpiralIcon from '../Control/Icon/SpiralIcon';
 
 const styles = StyleSheet.create({
     title: {
@@ -157,7 +158,7 @@ export default class AuditItemsHMDContent extends Component {
                 >
                     <View style={{ height: '80%', backgroundColor: 'white', bottom: 0, top: 0 }}>
                         <Text style={{ ...styles.title, textAlign: 'center', top: 5, fontSize: 19, color: DEFAULT_COLOR }}>{this.props.RefName}</Text>
-                        <SpiralIcon containerStyle={{ top: 3, right: 10, position: 'absolute' }} name='close-outline' type='ionicon' onPress={() => this.closeBottomSheet()} color={DEFAULT_COLOR} size={35}></SpiralIcon>
+                        <SpiralIcon containerStyle={{ top: 3, right: 10, position: 'absolute' }} name='close-outline' type='ionicon' onPress={() => this.closeBottomSheet()} color={DEFAULT_COLOR} size={35} />
                         <View style={styles.line}></View>
 
                         <TextInput

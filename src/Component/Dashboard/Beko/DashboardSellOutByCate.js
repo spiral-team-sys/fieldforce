@@ -222,7 +222,7 @@ export const DashboardSellOutByCate = ({
             overflow: 'hidden',
           }}
         >
-          <SpiralIconAnimation
+          <IconAnimation
             isLoop={isLoading}
             sourceIcon={require('../../../Themes/lotties/sync_load.json')}
           />

@@ -65,6 +65,7 @@ import NativeCamera from '../Control/NativeCamera';
 import { MutipleItemSelected } from '../Control/MutipleItemSelected';
 import { GetByListCode } from '../Controller/MasterController';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
+import SpiralIcon from '../Control/Icon/SpiralIcon';
 
 const sotemplate = {
   quantity: 1,
@@ -219,8 +220,8 @@ const SelloutModel = ({
         reportDate: infoSave?.dataInfoSave?.reportDate
           ? infoSave?.dataInfoSave?.reportDate
           : Moment(workinfo.workDate.toString())
-              .format('YYYY-MM-DD')
-              .toString(),
+            .format('YYYY-MM-DD')
+            .toString(),
         flag: infoSave?.dataInfoSave?.flag == 1 ? true : false,
         statusVerify: infoSave?.dataInfoSave?.statusVerify,
         itemClassify: infoSave?.dataInfoSave?.itemClassify,
@@ -647,13 +648,11 @@ const SelloutModel = ({
             isValid = false;
             onFinish({
               statusId: 500,
-              messager: `${
-                element.name
-              } chưa đúng định dạng, ký tự chữ phải nằm ở vị trí ${
-                filterList.characterPosition == 1
+              messager: `${element.name
+                } chưa đúng định dạng, ký tự chữ phải nằm ở vị trí ${filterList.characterPosition == 1
                   ? 'đầu tiên'
                   : 'thứ' + filterList.characterPosition
-              }`,
+                }`,
             });
             return;
           }
@@ -738,9 +737,8 @@ const SelloutModel = ({
             isValid = false;
             onFinish({
               statusId: 500,
-              messager: `Số Seri này đã tồn tại ${
-                element.ref_Name === 'serial' ? sellItem.serial : sellItem.IMEI2
-              }`,
+              messager: `Số Seri này đã tồn tại ${element.ref_Name === 'serial' ? sellItem.serial : sellItem.IMEI2
+                }`,
             });
             return;
           }
@@ -1393,11 +1391,11 @@ const SelloutModel = ({
                             ? false
                             : true
                           : itemM.ref_Id === 1
+                            ? false
+                            : true
+                        : itemM.ref_Id === 1
                           ? false
                           : true
-                        : itemM.ref_Id === 1
-                        ? false
-                        : true
                     }
                     key={index}
                     inputRef={ref => (refInputs.current[index] = ref)}
@@ -1499,7 +1497,7 @@ const SelloutModel = ({
           const data = JSON.parse(itemM.filterList || '[]');
           let valueItem =
             sellItem[itemM.ref_Name] != null &&
-            typeof sellItem[itemM.ref_Name] == 'object'
+              typeof sellItem[itemM.ref_Name] == 'object'
               ? sellItem[itemM.ref_Name].itemName
               : sellItem[itemM.ref_Name];
           let subList = [];
@@ -2383,11 +2381,11 @@ const ViewItemByList = ({
             }}
             markedDates={{
               [itemChild.itemValue || Moment(new Date()).format('yyyy-MM-DD')]:
-                {
-                  selected: true,
-                  selectedColor: appcolor.danger,
-                  textColor: appcolor.light,
-                },
+              {
+                selected: true,
+                selectedColor: appcolor.danger,
+                textColor: appcolor.light,
+              },
             }}
             onDayPress={handlerSelectDate}
           />

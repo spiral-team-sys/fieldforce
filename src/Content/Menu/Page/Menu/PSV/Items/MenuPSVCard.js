@@ -10,6 +10,7 @@ import { Icon } from '@rneui/themed';
 import LinearGradient from 'react-native-linear-gradient';
 
 import { fontWeightBold } from '../../../../../../Themes/AppsStyle';
+import SpiralIcon from '../../../../../../Control/Icon/SpiralIcon';
 
 const MenuPSVCard = ({ appcolor, item, onPress }) => {
   const styles = useMemo(() => createStyles(appcolor), [appcolor]);

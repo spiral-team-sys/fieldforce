@@ -10,6 +10,7 @@ import WebViewUI from '../Content/WebViewUI';
 import DeviceInfo from 'react-native-device-info';
 import { AppNameBuild, TRAINEEKEY } from '../Core/URLs';
 import { ACTION } from '../Redux/types';
+import SpiralIcon from '../Control/Icon/SpiralIcon';
 
 export const MainMenu = ({ navigation, menus }) => {
   const appcolor = useSelector(state => state.GAppState.appcolor);

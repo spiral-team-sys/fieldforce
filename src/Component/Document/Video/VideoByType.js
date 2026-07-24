@@ -8,6 +8,7 @@ import { scaleSize } from '../../../Themes/AppsStyle';
 import { HeaderCustom } from '../../../Content/HeaderCustom';
 import FormGroup from '../../../Content/FormGroup';
 import { UUIDGenerator } from '../../../Core/Helper';
+import SpiralIcon from '../../../Control/Icon/SpiralIcon';
 // import Orientation from 'react-native-orientation-locker';
 
 export const VideoByType = ({ navigation, route }) => {
@@ -72,10 +73,11 @@ export const VideoByType = ({ navigation, route }) => {
                                 {
                                     pathJson[0].Thumbnail !== undefined ?
                                         <Image style={{ borderRadius: 10, width: '100%', height: '100%' }} source={{ uri: thumbnail }} /> :
-                                        <SpiralIcon name="stroopwafel" size={60}
+                                        <SpiralIcon
+                                            name="stroopwafel" size={60}
                                             color={AppColor.danger}
                                             containerStyle={{ height: '100%', justifyContent: 'center', }}
-                                            type="font-awesome-5"></SpiralIcon>
+                                            type="font-awesome-5" />
                                 }
                             </View>
                             <View style={{ paddingLeft: 12, width: '64%', }}>

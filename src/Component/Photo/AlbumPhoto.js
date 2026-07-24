@@ -18,6 +18,7 @@ import { MultipleShowImage } from '../../Control/MultipleShowImage';
 import { Icon } from '@rneui/base';
 import { DeleteItem, Store } from '../../Core/SqliteDbContext';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
+import SpiralIcon from '../../Control/Icon/SpiralIcon';
 
 export const AlbumPhoto = ({ navigation, route }) => {
   const insets = useSafeAreaInsets();
@@ -184,13 +185,13 @@ export const AlbumPhoto = ({ navigation, route }) => {
             transform:
               item.dataUpload !== 1 && item.isDelete === true
                 ? [
-                    {
-                      rotate: animatedValue.interpolate({
-                        inputRange: [-1, 1],
-                        outputRange: ['-0.2rad', '0.2rad'],
-                      }),
-                    },
-                  ]
+                  {
+                    rotate: animatedValue.interpolate({
+                      inputRange: [-1, 1],
+                      outputRange: ['-0.2rad', '0.2rad'],
+                    }),
+                  },
+                ]
                 : [],
           }}
         >
@@ -206,12 +207,12 @@ export const AlbumPhoto = ({ navigation, route }) => {
               item.isDelete && item?.dataUpload !== 1
                 ? appcolor.danger
                 : item?.fileUpload == 1 && item?.dataUpload == 1
-                ? appcolor.success
-                : item?.fileUpload == 1 && item?.dataUpload == 0
-                ? appcolor.warning
-                : item?.fileUpload == 0 && item?.dataUpload == 1
-                ? appcolor.tomato
-                : 'transparent'
+                  ? appcolor.success
+                  : item?.fileUpload == 1 && item?.dataUpload == 0
+                    ? appcolor.warning
+                    : item?.fileUpload == 0 && item?.dataUpload == 1
+                      ? appcolor.tomato
+                      : 'transparent'
             }
             onPress={() =>
               item.dataUpload !== 1 &&

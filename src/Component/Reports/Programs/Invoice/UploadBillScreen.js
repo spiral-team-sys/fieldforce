@@ -30,6 +30,7 @@ import NativeCamera from '../../../../Control/NativeCamera';
 import { INVOICE_API } from '../../../../API/InvoiceAPI';
 import moment from 'moment';
 import _ from 'lodash';
+import SpiralIcon from '../../../../Control/Icon/SpiralIcon';
 
 const UploadBillScreen = ({ navigation, route }) => {
   const insets = useSafeAreaInsets();
@@ -72,9 +73,8 @@ const UploadBillScreen = ({ navigation, route }) => {
         fileName: `${itemData.shopId || 0}_${item.name}`,
         fileType: types.pdf,
         localUrl: item.uri,
-        url: `uploaded/invoice/${employeeInfo.employeeId}/${TODAY}/${
-          itemData.shopId || 0
-        }_${item.name}`,
+        url: `uploaded/invoice/${employeeInfo.employeeId}/${TODAY}/${itemData.shopId || 0
+          }_${item.name}`,
       });
     }
     // Check File Invoice
@@ -397,9 +397,8 @@ const UploadBillScreen = ({ navigation, route }) => {
           <Text
             style={[styles.titleName, { marginTop: 8 }]}
           >{`Chọn file từ thiết bị của bạn`}</Text>
-          <Text style={styles.titleFileSupport}>{`Hỗ trợ định dạng: ${
-            config.documentFormat || 'PDF'
-          }`}</Text>
+          <Text style={styles.titleFileSupport}>{`Hỗ trợ định dạng: ${config.documentFormat || 'PDF'
+            }`}</Text>
         </TouchableOpacity>
         {config.isCapture == 1 && (
           <>

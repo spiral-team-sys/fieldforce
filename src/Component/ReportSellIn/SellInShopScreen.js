@@ -24,6 +24,7 @@ import CustomTab from '../../Control/Custom/CustomTab';
 import CustomListView from '../../Control/Custom/CustomListView';
 import { deviceHeight } from '../../Core/Utility';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
+import SpiralIcon from '../../Control/Icon/SpiralIcon';
 
 const SellInShopScreen = ({ navigation, route }) => {
   const insets = useSafeAreaInsets();
@@ -293,10 +294,10 @@ const SellInShopScreen = ({ navigation, route }) => {
               i < range
                 ? { color: appcolor.warningLight, textColor: appcolor.dark }
                 : {
-                    endingDay: true,
-                    color: appcolor.warning,
-                    textColor: appcolor.dark,
-                  };
+                  endingDay: true,
+                  color: appcolor.warning,
+                  textColor: appcolor.dark,
+                };
           }
           setDataCalendar({
             ...dataCalendar,
@@ -327,10 +328,10 @@ const SellInShopScreen = ({ navigation, route }) => {
     const valueSearch = removeVietnameseTones(value || '').toLowerCase();
     const dataFilter = valueSearch
       ? dataStoreFilter.filter(item =>
-          removeVietnameseTones(item.name || '')
-            .toLowerCase()
-            .includes(valueSearch),
-        )
+        removeVietnameseTones(item.name || '')
+          .toLowerCase()
+          .includes(valueSearch),
+      )
       : dataStoreFilter;
     setDataStore(dataFilter);
   };
@@ -479,7 +480,7 @@ const SellInShopScreen = ({ navigation, route }) => {
 
   const renderShopItem =
     statusInfo =>
-    ({ item }) =>
+      ({ item }) =>
       (
         <TouchableOpacity
           activeOpacity={0.7}
@@ -523,14 +524,12 @@ const SellInShopScreen = ({ navigation, route }) => {
           </View>
           <View style={styles.statRow}>
             <View style={styles.statChip}>
-              <Text style={styles.statText}>{`${
-                item.totalOrder || 0
-              } đơn hàng`}</Text>
+              <Text style={styles.statText}>{`${item.totalOrder || 0
+                } đơn hàng`}</Text>
             </View>
             <View style={styles.statChip}>
-              <Text style={styles.statText}>{`${
-                item.totalQuantity || 0
-              } sản phẩm`}</Text>
+              <Text style={styles.statText}>{`${item.totalQuantity || 0
+                } sản phẩm`}</Text>
             </View>
             <View style={styles.statChip}>
               <Text style={styles.statText}>{`${(

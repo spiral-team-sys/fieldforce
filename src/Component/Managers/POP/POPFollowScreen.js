@@ -33,6 +33,7 @@ import {
   useSafeAreaInsets,
 } from 'react-native-safe-area-context';
 import CustomTab from '../../../Control/Custom/CustomTab';
+import SpiralIcon from '../../../Control/Icon/SpiralIcon';
 
 const POPFollowScreen = ({ navigation, route }) => {
   const insets = useSafeAreaInsets();
@@ -77,8 +78,8 @@ const POPFollowScreen = ({ navigation, route }) => {
     const titleUpload = itemReject
       ? `Bạn có muốn hủy đơn hàng này không?`
       : itemOrder.Status == 'DELIVERY'
-      ? `Kiểm tra số lượng sản phẩm và xác nhận nhận hàng`
-      : `Bạn có muốn cập nhật đơn hàng này không?`;
+        ? `Kiểm tra số lượng sản phẩm và xác nhận nhận hàng`
+        : `Bạn có muốn cập nhật đơn hàng này không?`;
     alertConfirm(
       `${itemUpload.OrderNo}`,
       titleUpload,
@@ -102,7 +103,7 @@ const POPFollowScreen = ({ navigation, route }) => {
           },
         );
       },
-      () => {},
+      () => { },
       'Đồng ý',
       'Hủy',
     );

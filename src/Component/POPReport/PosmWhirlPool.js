@@ -32,6 +32,7 @@ import { InputPosm } from './InputPosm';
 import moment from 'moment';
 import { ModalNotify } from '../../Control/ModalNotify';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
+import SpiralIcon from '../../Control/Icon/SpiralIcon';
 
 export const PosmWhirlPool = ({ navigation }) => {
   const { appcolor, kpiinfo, workinfo } = useSelector(state => state.GAppState);

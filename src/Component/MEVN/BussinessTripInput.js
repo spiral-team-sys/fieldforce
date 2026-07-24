@@ -12,6 +12,7 @@ import { checkNetwork } from '../../Core/Utility';
 import { scaleSize } from '../../Themes/AppsStyle';
 import { AttendantController } from '../../Controller/AttendantController';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
+import SpiralIcon from '../../Control/Icon/SpiralIcon';
 
 export const BussinessTripInput = ({ appcolor, nextView, myAddress, searchMap, bussinessInput, setBussinessInput, Provinces, MoneyMove }) => {
 
@@ -282,8 +283,8 @@ export const BussinessTripInput = ({ appcolor, nextView, myAddress, searchMap, b
                 />
                 <View style={{ flexDirection: 'column' }}>
                     {bussinessInput?.locationFrom && <SpiralIcon name='location' type='ionicon'
-                        onPress={() => searchMap('from')} color={appcolor.green}></SpiralIcon>}
-                    {/* <SpiralIcon color={appcolor.dark} name='map' type='font-awesome' size={25} onPress={() => searchMap('from')}></SpiralIcon> */}
+                        onPress={() => searchMap('from')} color={appcolor.green} />}
+                    {/* <SpiralIcon color={appcolor.dark} name='map' type='font-awesome' size={25} onPress={() => searchMap('from')}/> */}
                 </View>
             </View>
             <FormGroup
@@ -314,8 +315,8 @@ export const BussinessTripInput = ({ appcolor, nextView, myAddress, searchMap, b
                 <View style={{ flexDirection: 'column' }}>
                     {bussinessInput?.locationTo &&
                         <SpiralIcon name='location' type='ionicon'
-                            onPress={() => searchMap('to')} color={appcolor.success}></SpiralIcon>}
-                    {/* <SpiralIcon color={appcolor.dark} name='map' type='font-awesome' size={25} onPress={() => searchMap('to')}></SpiralIcon> */}
+                            onPress={() => searchMap('to')} color={appcolor.success} />}
+                    {/* <SpiralIcon color={appcolor.dark} name='map' type='font-awesome' size={25} onPress={() => searchMap('to')}/> */}
                 </View>
             </View>
 

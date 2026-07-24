@@ -16,6 +16,7 @@ import { FlashList } from '@shopify/flash-list';
 import { GetDataDashboard } from '../../../../Controller/DashboardController';
 import { deviceWidth, scaleSize } from '../../../../Themes/AppsStyle';
 import { PercentView } from '../../../../Control/PercentView';
+import SpiralIcon from '../../../../Control/Icon/SpiralIcon';
 
 const tDay = new Date();
 const totalDay = new Date(tDay.getFullYear(), tDay.getMonth() + 1, 0).getDate();
@@ -139,8 +140,8 @@ export const QuickViewCuckoo = ({ navigation, isReloadData }) => {
           onPress={() =>
             item.pageName != null
               ? navigation.navigate('dashboardDetail', {
-                  listMonth: item?.listMonth,
-                })
+                listMonth: item?.listMonth,
+              })
               : null
           }
         >

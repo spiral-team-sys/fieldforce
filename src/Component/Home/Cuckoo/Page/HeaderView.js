@@ -5,6 +5,7 @@ import { Avatar, Badge, Icon, Text } from '@rneui/base';
 import { deviceWidth, fontWeightBold } from '../../../../Themes/AppsStyle';
 import useNotification from '../../../../Hooks/useNotification';
 import { LGSummaryTop } from '../../../../Controller/DashboardController';
+import SpiralIcon from '../../../../Control/Icon/SpiralIcon';
 
 const HeaderView = ({ navigation }) => {
   const { appcolor, userinfo } = useSelector(state => state.GAppState);

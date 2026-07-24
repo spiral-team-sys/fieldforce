@@ -19,6 +19,7 @@ import { AppNameBuild, TRAINEEKEY } from '../../../Core/URLs';
 import { deviceWidth } from '../../../Core/Utility';
 import { GetMenu } from '../../../Controller/UserController';
 import { scaleSize } from '../../../Themes/AppsStyle';
+import SpiralIcon from '../../../Control/Icon/SpiralIcon';
 
 export const MenuHomeVSM = ({ navigation, isLoading }) => {
   const [scrollX] = useState(new Animated.Value(0));
@@ -144,12 +145,11 @@ export const MenuHomeVSM = ({ navigation, isLoading }) => {
       justifyContent: 'center',
     },
     indicator: {
-      width: `${
-        100 -
+      width: `${100 -
         (dataMenu.length <= 4
           ? 0
           : dataMenu.length * 10 - (dataMenu.length >= 10 ? 30 : 8))
-      }%`,
+        }%`,
       height: 6,
       borderRadius: 8,
       backgroundColor: appcolor.primary,

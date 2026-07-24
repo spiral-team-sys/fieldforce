@@ -14,6 +14,7 @@ import {
 } from 'react-native';
 import { Icon, Avatar } from '@rneui/themed';
 import { APPNAME, ICON_NOTIFY } from '../Core/URLs';
+import SpiralIcon from '../Control/Icon/SpiralIcon';
 const deviceWidth = Dimensions.get('window').width;
 const deviceHeight = Dimensions.get('window').height;
 
@@ -48,8 +49,8 @@ class MessageForm extends PureComponent {
       animation == 'slideX'
         ? this.slideXValue
         : animation == 'slideY'
-        ? this.slideYValue
-        : this.zoomValue;
+          ? this.slideYValue
+          : this.zoomValue;
     const value = animation == 'slideX' ? -deviceWidth : 0;
     const toValue = animation == 'slideX' ? 0 : 1;
     const easing = animation == 'slideX' ? Easing.elastic(0.8) : Easing.bounce;
@@ -68,8 +69,8 @@ class MessageForm extends PureComponent {
     animation == 'zoom'
       ? this.zoom()
       : animation == 'slideX'
-      ? this.slideX()
-      : this.slideY();
+        ? this.slideX()
+        : this.slideY();
   }
   zoom = () => {
     this.setState(
@@ -136,8 +137,8 @@ class MessageForm extends PureComponent {
         animation == 'zoom'
           ? this.zoomValue
           : animation == 'slideX'
-          ? this.slideXValue
-          : this.slideYValue,
+            ? this.slideXValue
+            : this.slideYValue,
         {
           toValue: animation == 'slideX' ? deviceWidth : 0,
           duration: 550,
@@ -154,8 +155,8 @@ class MessageForm extends PureComponent {
       animation == 'zoom'
         ? this.zoomValue
         : animation == 'slideX'
-        ? this.slideXValue
-        : this.slideYValue,
+          ? this.slideXValue
+          : this.slideYValue,
       {
         toValue: animation == 'slideX' ? deviceWidth : 0,
         duration: 550,

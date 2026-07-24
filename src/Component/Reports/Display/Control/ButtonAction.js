@@ -3,6 +3,7 @@ import { Platform, StyleSheet, TouchableOpacity, View } from 'react-native';
 import { Icon, Text } from '@rneui/themed';
 import { useSelector } from 'react-redux';
 import { fontWeightBold } from '../../../../Themes/AppsStyle';
+import SpiralIcon from '../../../../Control/Icon/SpiralIcon';
 
 export const ButtonAction = ({ title, iconName, type, handlerPress }) => {
   const { appcolor } = useSelector(state => state.GAppState);
@@ -19,8 +20,8 @@ export const ButtonAction = ({ title, iconName, type, handlerPress }) => {
     type == 'REMOVE_IMAGE'
       ? appcolor.light
       : type == 'CANCEL'
-      ? appcolor.primary
-      : appcolor.dark;
+        ? appcolor.primary
+        : appcolor.dark;
   const styles = StyleSheet.create({
     mainContainerCreate: {
       flexDirection: 'row',
@@ -69,8 +70,8 @@ export const ButtonAction = ({ title, iconName, type, handlerPress }) => {
           type == 'REMOVE_IMAGE'
             ? styles.mainContainerCreate
             : type == 'CANCEL'
-            ? styles.mainContainerCancel
-            : styles.mainContainerDefault
+              ? styles.mainContainerCancel
+              : styles.mainContainerDefault
         }
       >
         {iconName && (

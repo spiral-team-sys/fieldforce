@@ -4,6 +4,7 @@ import { Text, Badge, Icon } from '@rneui/themed';
 import { deviceWidth, scaleSize } from '../../Themes/AppsStyle';
 import { useSelector } from 'react-redux';
 import { LGSummaryTop } from '../../Controller/DashboardController';
+import SpiralIcon from '../../Control/Icon/SpiralIcon';
 
 export const LGHeader = ({
   iconRight,

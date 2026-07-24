@@ -49,6 +49,7 @@ import {
   request,
 } from 'react-native-permissions';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
+import SpiralIcon from '../../../Control/Icon/SpiralIcon';
 
 const CreateItem = ({ navigation }) => {
   const insets = useSafeAreaInsets();
@@ -57,9 +58,8 @@ const CreateItem = ({ navigation }) => {
   const [loading, setLoading] = useState(false);
   const [storeItem, setStoreItem] = useState({
     shopId: 0,
-    shopCode: `${
-      JSON.parse(kpiinfo.reportItem).codeCreate || 'SM.'
-    }${Math.floor(Math.random() * 999999 + 100)}`,
+    shopCode: `${JSON.parse(kpiinfo.reportItem).codeCreate || 'SM.'
+      }${Math.floor(Math.random() * 999999 + 100)}`,
     codeDealer: null,
     shopName: null,
     address: null,
@@ -148,7 +148,7 @@ const CreateItem = ({ navigation }) => {
                 });
             }
           },
-          () => {},
+          () => { },
           'Cài đặt',
           'Huỷ',
         );
@@ -244,9 +244,8 @@ const CreateItem = ({ navigation }) => {
     const idStoreNew = UUIDGenerator();
     await setStoreItem({
       shopId: 0,
-      shopCode: `${
-        JSON.parse(kpiinfo.reportItem).codeCreate || 'SM.'
-      }${Math.floor(Math.random() * 999999 + 100)}`,
+      shopCode: `${JSON.parse(kpiinfo.reportItem).codeCreate || 'SM.'
+        }${Math.floor(Math.random() * 999999 + 100)}`,
       shopName: null,
       address: null,
       warehouseName: null,
@@ -653,9 +652,8 @@ const RenderItemView = ({
           iconName={item.iconName}
           maxLength={item.lengthValue}
           keyboardType="numeric"
-          placeholder={`${item.placeholder} ${
-            storeItem[item.ref_Code]
-          } Lần/Tháng`}
+          placeholder={`${item.placeholder} ${storeItem[item.ref_Code]
+            } Lần/Tháng`}
           itemValue={storeItem[item.ref_Code]}
           onChangeText={handlerItemChangeText}
         />
@@ -916,10 +914,10 @@ const MultipleSelect = ({
     const styleView =
       item.isChoose == 1
         ? {
-            ...styles.itemContent,
-            borderWidth: 1,
-            borderColor: appcolor.primary,
-          }
+          ...styles.itemContent,
+          borderWidth: 1,
+          borderColor: appcolor.primary,
+        }
         : styles.itemContent;
     const styleTitle =
       item.isChoose == 1

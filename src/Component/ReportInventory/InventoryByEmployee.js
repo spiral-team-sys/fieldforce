@@ -37,6 +37,7 @@ import { HeaderCustom } from '../../Content/HeaderCustom';
 import { useSelector } from 'react-redux';
 import ActionSheet from 'react-native-actions-sheet';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
+import SpiralIcon from '../../Control/Icon/SpiralIcon';
 const InventoryByEmployee = React.forwardRef((props, ref) => {
   const appcolor = useSelector(state => state.GAppState.appcolor);
   const [searchProductText, setSearchProduct] = useState('');

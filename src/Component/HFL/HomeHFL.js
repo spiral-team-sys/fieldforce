@@ -59,6 +59,7 @@ import LoginHFL from './LoginHFL';
 import moment from 'moment';
 import { MenuHFL } from './MenuHFL';
 import { QuickViewHFL } from './QuickViewHFL';
+import SpiralIcon from '../../Control/Icon/SpiralIcon';
 const versionNumBuild = DeviceInfo.getBuildNumber();
 class HomeHFK extends PureComponent {
   constructor(props) {
@@ -101,15 +102,15 @@ class HomeHFK extends PureComponent {
             'Thông báo',
             Platform.OS === 'ios'
               ? 'Vui lòng cho phép App sử dụng camera, Quyền riêng tư -> camera -> tìm đến App ' +
-                  APPNAME +
-                  ' -> cho phép (Bật).'
+              APPNAME +
+              ' -> cho phép (Bật).'
               : 'Vui lòng cho phép sử dụng chụp hình trong phần cài đặt của thiết bị',
             () => {
               Platform.OS === 'ios'
                 ? Linking.openURL('App-Prefs:root=Privacy&path=LOCATION')
                 : openSettings().catch(() =>
-                    console.warn('cannot open settings'),
-                  );
+                  console.warn('cannot open settings'),
+                );
             },
           );
         }
@@ -482,9 +483,8 @@ class HomeHFK extends PureComponent {
                 <View style={{ padding: 12, alignItems: 'center' }}>
                   <Text
                     style={{ color: appcolor.danger, textAlign: 'center' }}
-                  >{`Xác thực ${
-                    this.state.isSec === 1 ? ' khuôn mặt' : ' vân tay'
-                  } mở khóa ứng dụng`}</Text>
+                  >{`Xác thực ${this.state.isSec === 1 ? ' khuôn mặt' : ' vân tay'
+                    } mở khóa ứng dụng`}</Text>
                 </View>
               </View>
             </Modal>

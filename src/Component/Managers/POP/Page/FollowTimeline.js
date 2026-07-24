@@ -3,6 +3,7 @@ import { FlatList, StyleSheet, View } from 'react-native';
 import { Icon, Text } from '@rneui/base';
 import { useSelector } from 'react-redux';
 import { fontWeightBold } from '../../../../Themes/AppsStyle';
+import SpiralIcon from '../../../../Control/Icon/SpiralIcon';
 
 const FollowTimeline = ({ itemMain = {} }) => {
   const { appcolor } = useSelector(state => state.GAppState);

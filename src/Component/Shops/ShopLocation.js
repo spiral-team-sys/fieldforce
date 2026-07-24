@@ -5,6 +5,7 @@ import MapView, { Marker, PROVIDER_GOOGLE } from 'react-native-maps';
 import { DEFAULT_COLOR } from '../../Core/URLs';
 import { useSelector } from 'react-redux';
 import { LOCATION_INFO } from '../../Utils/LocationInfo';
+import SpiralIcon from '../../Control/Icon/SpiralIcon';
 
 const DETAL_LOCATION = 0.005;
 

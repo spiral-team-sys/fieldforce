@@ -15,6 +15,7 @@ import { CalendarView } from '../Control/CalendarView';
 import CustomListView from '../../../Control/Custom/CustomListView';
 import { URLDEFAULT } from '../../../Core/URLs';
 import { Icon } from '@rneui/base';
+import SpiralIcon from '../../../Control/Icon/SpiralIcon';
 
 const EmployeeItem = memo(({ item, appcolor }) => {
   const [expanded, setExpanded] = useState(false);

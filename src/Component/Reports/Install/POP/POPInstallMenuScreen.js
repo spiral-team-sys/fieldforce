@@ -16,6 +16,7 @@ import { TouchableOpacity } from 'react-native';
 import { Icon } from '@rneui/base';
 import { groupDataByKey } from '../../../../Core/Helper';
 import { LoadingView } from '../../../../Control/ItemLoading';
+import SpiralIcon from '../../../../Control/Icon/SpiralIcon';
 
 const POPInstallMenuScreen = ({ navigation }) => {
   const { appcolor, kpiinfo, shopinfo } = useSelector(state => state.GAppState);

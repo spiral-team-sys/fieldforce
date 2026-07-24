@@ -15,6 +15,7 @@ import { fontWeightBold } from '../../Themes/AppsStyle';
 import { removeVietnameseTones } from '../../Core/Helper';
 import { SET_EmployeeInfo } from '../../Redux/action';
 import _ from 'lodash';
+import SpiralIcon from '../Icon/SpiralIcon';
 
 const ITEM_WIDTH = 150;
 const ITEM_MARGIN_RIGHT = 8;

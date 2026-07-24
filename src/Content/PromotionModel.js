@@ -24,6 +24,7 @@ import NativeCamera from '../Control/NativeCamera';
 import { Calendar } from 'react-native-calendars';
 import ViewPictures from '../Control/Gallary/ViewPictures';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
+import SpiralIcon from '../Control/Icon/SpiralIcon';
 
 const itemDetail = {
   categoryId: null,
@@ -334,8 +335,7 @@ export function PromotionModel({
     }
     if (listReport.isCheckImage == 1 && numPhoto == 0) {
       ToastError(
-        `Vui lòng chụp hình ảnh chương trình, ít nhất ${
-          listReport.limitPhoto || 1
+        `Vui lòng chụp hình ảnh chương trình, ít nhất ${listReport.limitPhoto || 1
         } tấm hình`,
       );
       return;
@@ -630,9 +630,9 @@ export function PromotionModel({
                           ` - ` +
                           Moment(
                             dataCalendar.endDate ||
-                              (dataCalendar.startDate
-                                ? dataCalendar.startDate
-                                : itemShow.toDate),
+                            (dataCalendar.startDate
+                              ? dataCalendar.startDate
+                              : itemShow.toDate),
                           ).format('DD/MM/yyyy')}
                       </Text>
                     </TouchableOpacity>
@@ -642,7 +642,7 @@ export function PromotionModel({
               {AppNameBuild !== psvApp && (
                 <View style={{ marginTop: 5 }}>
                   <FormGroup
-                    rightFunc={() => {}}
+                    rightFunc={() => { }}
                     containerStyle={{
                       borderWidth: 0.5,
                       borderColor: '#bbb',
@@ -669,7 +669,7 @@ export function PromotionModel({
           )}
           <View style={{ marginTop: 10 }}>
             <FormGroup
-              rightFunc={() => {}}
+              rightFunc={() => { }}
               containerStyle={{
                 borderWidth: 0.5,
                 borderColor: '#bbb',

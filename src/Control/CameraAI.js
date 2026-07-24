@@ -6,6 +6,7 @@ import { Icon } from '@rneui/themed';
 import { useDispatch, useSelector } from 'react-redux';
 import { ACTION } from '../Redux/types';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
+import SpiralIcon from './Icon/SpiralIcon';
 
 const CameraAI = React.forwardRef((props, ref) => {
   const insets = useSafeAreaInsets();
@@ -48,7 +49,7 @@ const CameraAI = React.forwardRef((props, ref) => {
       setBox(null);
     }
   };
-  const handledBarCode = ({ barcodes }) => {};
+  const handledBarCode = ({ barcodes }) => { };
   const handlerTextReg = textReg => {
     console.log(textReg);
   };

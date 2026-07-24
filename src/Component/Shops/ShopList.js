@@ -48,6 +48,7 @@ import { downloadAll } from '../../Controller/DownloadDataController';
 import { deviceHeight, deviceWidth } from '../Home';
 import { FlashList } from '@shopify/flash-list';
 import { ATTENDANT_API } from '../../API/AttendantAPI';
+import SpiralIcon from '../../Control/Icon/SpiralIcon';
 export const SHOP_RELOAD_EVENT = 'RELOADSHOP';
 
 class ShopList extends PureComponent {
@@ -126,7 +127,7 @@ class ShopList extends PureComponent {
           setStatus(false);
         }
       });
-    } catch (error) {}
+    } catch (error) { }
   }
   CheckLocation() {
     check(
@@ -156,8 +157,8 @@ class ShopList extends PureComponent {
                 Platform.OS === 'ios'
                   ? Linking.openURL('App-Prefs:root=Privacy&path=LOCATION')
                   : openSettings().catch(() =>
-                      ToastError('cannot open settings'),
-                    );
+                    ToastError('cannot open settings'),
+                  );
               },
             );
             break;
@@ -301,17 +302,17 @@ class ShopList extends PureComponent {
     const _distant =
       item.latitude > 0 && myLocation?.latitude > 0
         ? distanceBetween2Points(
-            myLocation.latitude,
-            myLocation.longitude,
-            item.latitude,
-            item.longitude,
-          )
+          myLocation.latitude,
+          myLocation.longitude,
+          item.latitude,
+          item.longitude,
+        )
         : null;
     const appcolor = this.props.appcolor;
     const sourceImage =
       item.imageUrl !== null &&
       (item.imageUrl.indexOf('file://') === -1 &&
-      item.imageUrl.indexOf('https://') === -1
+        item.imageUrl.indexOf('https://') === -1
         ? URLDEFAULT + item.imageUrl
         : item.imageUrl);
     return item.shopCode === '1' ? (
@@ -601,8 +602,8 @@ class ShopList extends PureComponent {
                 this.props.header === 'none' && this.state.shops?.length < 8
                   ? '100%'
                   : this.props.header === 'none'
-                  ? '96%'
-                  : '86%',
+                    ? '96%'
+                    : '86%',
             }}
           >
             <View
@@ -642,49 +643,49 @@ class ShopList extends PureComponent {
             >
               {(userinfo.employeeId !== undefined ||
                 this.state.shops?.length > 0) && (
-                <FlashList
-                  keyExtractor={(_, index) => index.toString()}
-                  showsVerticalScrollIndicator={false}
-                  data={
-                    userinfo.employeeId === undefined ? [] : this.state.shops
-                  }
-                  refreshControl={
-                    <RefreshControl
-                      title="Cập nhật cửa hàng..."
-                      refreshing={this.state.loading}
-                      titleColor={appcolor.primary}
-                      onRefresh={() => this.onRefreshShopList()}
-                    />
-                  }
-                  estimatedItemSize={118}
-                  ListHeaderComponent={
-                    userinfo.employeeId === undefined ||
-                    this.state.shops?.length == 0 ? (
-                      <View
-                        style={{
-                          padding: 10,
-                          height: 100,
-                          justifyContent: 'center',
-                          alignItems: 'center',
-                        }}
-                      >
-                        <Text
+                  <FlashList
+                    keyExtractor={(_, index) => index.toString()}
+                    showsVerticalScrollIndicator={false}
+                    data={
+                      userinfo.employeeId === undefined ? [] : this.state.shops
+                    }
+                    refreshControl={
+                      <RefreshControl
+                        title="Cập nhật cửa hàng..."
+                        refreshing={this.state.loading}
+                        titleColor={appcolor.primary}
+                        onRefresh={() => this.onRefreshShopList()}
+                      />
+                    }
+                    estimatedItemSize={118}
+                    ListHeaderComponent={
+                      userinfo.employeeId === undefined ||
+                        this.state.shops?.length == 0 ? (
+                        <View
                           style={{
-                            fontWeight: '500',
-                            fontSize: 14,
-                            color: appcolor.dark,
+                            padding: 10,
+                            height: 100,
+                            justifyContent: 'center',
+                            alignItems: 'center',
                           }}
                         >
-                          Chưa có danh sách cửa hàng
-                        </Text>
-                      </View>
-                    ) : (
-                      <View></View>
-                    )
-                  }
-                  renderItem={this.renderItem}
-                />
-              )}
+                          <Text
+                            style={{
+                              fontWeight: '500',
+                              fontSize: 14,
+                              color: appcolor.dark,
+                            }}
+                          >
+                            Chưa có danh sách cửa hàng
+                          </Text>
+                        </View>
+                      ) : (
+                        <View></View>
+                      )
+                    }
+                    renderItem={this.renderItem}
+                  />
+                )}
             </View>
           </View>
         ) : (

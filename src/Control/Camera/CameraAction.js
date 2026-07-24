@@ -36,6 +36,7 @@ import { LOCATION_INFO } from '../../Utils/LocationInfo';
 import { CountTimeAutoTake } from '../CountTimeAutoTake';
 import FaceScanFrame, { FACE_OVAL } from './FaceScanFrame';
 import { toastError, toastInfo } from '../../Utils/configToast';
+import SpiralIcon from '../Icon/SpiralIcon';
 
 // const faceDetectorPlugin = VisionCameraProxy.initFrameProcessorPlugin('detectFaces', {
 //     performanceMode: 'fast',
@@ -152,8 +153,8 @@ const CameraAction = forwardRef((props, _ref) => {
           const first = count === 1 ? validFaces[0] : null;
           const avgEyeOpen = first
             ? ((first.leftEyeOpenProbability ?? -1) +
-                (first.rightEyeOpenProbability ?? -1)) /
-              2
+              (first.rightEyeOpenProbability ?? -1)) /
+            2
             : -1;
           updateFaceData(count, avgEyeOpen);
         } catch (e) {
@@ -164,7 +165,7 @@ const CameraAction = forwardRef((props, _ref) => {
     [updateFaceData],
   );
   //
-  const onCameraError = useCallback(_error => {}, []);
+  const onCameraError = useCallback(_error => { }, []);
   // AutoSave
   const handlerCapture = async () => {
     if (
@@ -176,8 +177,8 @@ const CameraAction = forwardRef((props, _ref) => {
         faceCount === 0
           ? 'Không phát hiện khuôn mặt. Vui lòng đưa khuôn mặt vào khung hình.'
           : faceCount > 1
-          ? 'Phát hiện nhiều hơn một khuôn mặt. Vui lòng chỉ để một người trong khung hình.'
-          : 'Vui lòng nháy mắt để xác nhận khuôn mặt thật.',
+            ? 'Phát hiện nhiều hơn một khuôn mặt. Vui lòng chỉ để một người trong khung hình.'
+            : 'Vui lòng nháy mắt để xác nhận khuôn mặt thật.',
       );
       return;
     }
@@ -446,7 +447,7 @@ const CameraAction = forwardRef((props, _ref) => {
           userinfo?.employeeId,
           info,
         );
-        RNFS.unlink(imageResult).catch(() => {});
+        RNFS.unlink(imageResult).catch(() => { });
         const nextStatus = result?.success === true ? 'verified' : 'failed';
         faceVerifyStatusRef.current = nextStatus;
         verifyingStartRef.current = null;
@@ -719,20 +720,20 @@ const CameraAction = forwardRef((props, _ref) => {
               {faceCount === 0
                 ? 'Đưa khuôn mặt vào khung hình'
                 : faceCount > 1
-                ? `Phát hiện ${faceCount} khuôn mặt — chỉ để 1 người`
-                : isFaceVerifyEnabled
-                ? faceVerifyStatus !== 'verified'
-                  ? faceVerifyStatus === 'verifying'
-                    ? '🔍 Bước 1/3: Đang xác minh danh tính...'
-                    : faceVerifyStatus === 'failed'
-                    ? '✗ Bước 1/3: Không nhận ra, đang thử lại...'
-                    : '⏳ Bước 1/3: Đang phân tích khuôn mặt...'
-                  : !livenessVerified
-                  ? '👁 Bước 2/3: nháy mắt để xác nhận'
-                  : '✓ Bước 2/3: Xác nhận xong — Đang chụp ảnh...'
-                : !livenessVerified
-                ? 'Hãy nháy mắt để xác nhận'
-                : '✓ Xác nhận khuôn mặt thành công'}
+                  ? `Phát hiện ${faceCount} khuôn mặt — chỉ để 1 người`
+                  : isFaceVerifyEnabled
+                    ? faceVerifyStatus !== 'verified'
+                      ? faceVerifyStatus === 'verifying'
+                        ? '🔍 Bước 1/3: Đang xác minh danh tính...'
+                        : faceVerifyStatus === 'failed'
+                          ? '✗ Bước 1/3: Không nhận ra, đang thử lại...'
+                          : '⏳ Bước 1/3: Đang phân tích khuôn mặt...'
+                      : !livenessVerified
+                        ? '👁 Bước 2/3: nháy mắt để xác nhận'
+                        : '✓ Bước 2/3: Xác nhận xong — Đang chụp ảnh...'
+                    : !livenessVerified
+                      ? 'Hãy nháy mắt để xác nhận'
+                      : '✓ Xác nhận khuôn mặt thành công'}
             </Text>
           </View>
         )}
@@ -791,7 +792,7 @@ const CameraAction = forwardRef((props, _ref) => {
                       (isFaceVerifyEnabled &&
                         (faceVerifyStatus !== 'verified' ||
                           !livenessVerified))) &&
-                      styles.captureDisabled,
+                    styles.captureDisabled,
                   ]}
                   disabled={
                     waitingPhoto ||

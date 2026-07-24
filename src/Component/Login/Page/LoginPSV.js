@@ -8,6 +8,7 @@ import { fontWeightBold } from '../../../Themes/AppsStyle';
 import AddressCompany from '../View/AddressCompany';
 import TermsAndCondition from '../View/TermsAndCondition';
 import { SafeAreaView } from 'react-native-safe-area-context';
+import SpiralIcon from '../../../Control/Icon/SpiralIcon';
 
 const LoginPSV = ({ onLogin, isLoading, onFogetPassword, onShowPrivacy }) => {
   const { appcolor } = useSelector(state => state.GAppState);

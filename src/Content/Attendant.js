@@ -66,6 +66,7 @@ import { checkTaskListOnline } from '../Controller/DownloadDataController';
 import { Alert } from 'react-native';
 import { ATTENDANT_API } from '../API/AttendantAPI';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
+import SpiralIcon from '../Control/Icon/SpiralIcon';
 
 const CICO = { ci: 'IN', co: 'OUT' };
 
@@ -345,8 +346,8 @@ const Attendant = ({ navigation }) => {
             setShowProgress(false);
             MessageInfo(
               'Gửi chấm công không thành công. Vui lòng tắt app chạy ngầm/đa nhiệm vào lại rồi ấn vòng xoay để gửi lại. Lỗi: ' +
-                responseJson.messeger +
-                responseJson.status,
+              responseJson.messeger +
+              responseJson.status,
             );
           }
         })
@@ -354,14 +355,14 @@ const Attendant = ({ navigation }) => {
           setShowProgress(false);
           MessageInfo(
             'Gửi chấm công không thành công. Vui lòng tắt app chạy ngầm/đa nhiệm vào lại rồi ấn vòng xoay để gửi lại, lỗi: ' +
-              error,
+            error,
           );
         });
     } catch (error) {
       setShowProgress(false);
       MessageInfo(
         'Gửi chấm công không thành công. Vui lòng tắt app chạy ngầm/đa nhiệm vào lại rồi ấn vòng xoay để gửi lại.Lỗi: ' +
-          error,
+        error,
       );
     }
   };
@@ -445,8 +446,8 @@ const Attendant = ({ navigation }) => {
                 Platform.OS === 'ios'
                   ? Linking.openURL('App-Prefs:root=Privacy&path=LOCATION')
                   : openSettings().catch(() =>
-                      console.warn('cannot open settings'),
-                    );
+                    console.warn('cannot open settings'),
+                  );
               },
             );
             break;
@@ -570,8 +571,8 @@ const Attendant = ({ navigation }) => {
       if ((await lstHave?.length) > 0) {
         await MessageInfo(
           'Vui lòng thực hiện checkout cửa hàng ' +
-            lstHave[0].shopName +
-            ' sau đó thực hiện tiếp checkin cửa hàng khác.',
+          lstHave[0].shopName +
+          ' sau đó thực hiện tiếp checkin cửa hàng khác.',
         );
         return;
       }
@@ -661,8 +662,8 @@ const Attendant = ({ navigation }) => {
           Message(
             'Thông báo',
             'Tổng thời gian ghé thăm dưới ' +
-              constraintCOMinute +
-              ' phút. Vui lòng nhập lý do ở dưới đây sau đó check out.',
+            constraintCOMinute +
+            ' phút. Vui lòng nhập lý do ở dưới đây sau đó check out.',
             () => {
               setNoteAttType(1);
               // noteAttendant(ATTENDANT.NOTE, "Ghi chú thời gian ghé thăm")
@@ -695,8 +696,8 @@ const Attendant = ({ navigation }) => {
           Message(
             'Thông báo',
             'Tổng thời gian ghé trên ' +
-              constraintMaxCOMinute +
-              ' phút. Vui lòng nhập lý do ở dưới đây sau đó check out.',
+            constraintMaxCOMinute +
+            ' phút. Vui lòng nhập lý do ở dưới đây sau đó check out.',
             () => {
               setNoteAttType(1);
               // noteAttendant(ATTENDANT.NOTE, "Ghi chú thời gian ghé thăm")
@@ -727,8 +728,7 @@ const Attendant = ({ navigation }) => {
               if (minuteBetween < 0) {
                 Message(
                   'Thông báo',
-                  `Bạn đang "CHECK IN" trễ ${
-                    minuteBetween * -1
+                  `Bạn đang "CHECK IN" trễ ${minuteBetween * -1
                   } phút so với thời gian làm việc là ${moment(
                     shopinfo.timeIn,
                   ).format(
@@ -761,8 +761,7 @@ const Attendant = ({ navigation }) => {
               if (minuteBetween < 0) {
                 Message(
                   'Thông báo',
-                  `Bạn đang "CHECK OUT" sớm ${
-                    minuteBetween * -1
+                  `Bạn đang "CHECK OUT" sớm ${minuteBetween * -1
                   } phút so với thời gian làm việc là ${moment(
                     shopinfo.timeOut,
                   ).format(
@@ -791,10 +790,10 @@ const Attendant = ({ navigation }) => {
               Message(
                 'Thông báo',
                 'Bạn đang checkIn trễ ' +
-                  time +
-                  ' so với thời gian làm việc là ' +
-                  moment(timeIn).format('HH:mm') +
-                  '. Vui lòng nhập ghi chú ở dưới đây sau đó check in.',
+                time +
+                ' so với thời gian làm việc là ' +
+                moment(timeIn).format('HH:mm') +
+                '. Vui lòng nhập ghi chú ở dưới đây sau đó check in.',
                 () => {
                   setNoteAttType(0);
                   // noteAttendant(ATTENDANT.NOTE, "Nhập lý do checkIn trễ")
@@ -804,10 +803,10 @@ const Attendant = ({ navigation }) => {
             } else {
               await MessageInfo(
                 'Bạn đang checkIn trễ ' +
-                  time +
-                  ' so với thời gian làm việc ' +
-                  moment(timeIn).format('HH:mm') +
-                  '.',
+                time +
+                ' so với thời gian làm việc ' +
+                moment(timeIn).format('HH:mm') +
+                '.',
               );
             }
           }
@@ -825,10 +824,10 @@ const Attendant = ({ navigation }) => {
               Message(
                 'Thông báo',
                 'Bạn đang checkOut sớm ' +
-                  time +
-                  ' so vơi thời gian làm việc là ' +
-                  moment(timeOut).format('HH:mm') +
-                  '. Vui lòng nhập ghi chú lý do ở dưới đây sau đó check out.',
+                time +
+                ' so vơi thời gian làm việc là ' +
+                moment(timeOut).format('HH:mm') +
+                '. Vui lòng nhập ghi chú lý do ở dưới đây sau đó check out.',
                 () => {
                   setNoteAttType(1);
                   // noteAttendant(ATTENDANT.NOTE, "Nhập lý do checkout sớm");
@@ -838,10 +837,10 @@ const Attendant = ({ navigation }) => {
             } else {
               await MessageInfo(
                 'Bạn đang checkOut sớm ' +
-                  time +
-                  ' so vơi thời gian làm việc là ' +
-                  moment(timeOut).format('HH:mm') +
-                  '.',
+                time +
+                ' so vơi thời gian làm việc là ' +
+                moment(timeOut).format('HH:mm') +
+                '.',
               );
             }
           }
@@ -925,7 +924,7 @@ const Attendant = ({ navigation }) => {
                       uri:
                         item.photoPath !== null &&
                         (item.photoPath.indexOf('file://') > -1 ||
-                        item.photoPath.indexOf('https://') > -1
+                          item.photoPath.indexOf('https://') > -1
                           ? item.photoPath
                           : URLDEFAULT + item.photoPath),
                     }}
@@ -935,10 +934,10 @@ const Attendant = ({ navigation }) => {
                       item.fileUpload == 1 && item.dataUpload == 1
                         ? appcolor.success
                         : item.fileUpload == 1 && item.dataUpload == 0
-                        ? appcolor.warning
-                        : item.fileUpload == 0 && item.dataUpload == 1
-                        ? appcolor.tomato
-                        : appcolor.greydark
+                          ? appcolor.warning
+                          : item.fileUpload == 0 && item.dataUpload == 1
+                            ? appcolor.tomato
+                            : appcolor.greydark
                     }
                     containerStyle={{
                       position: 'absolute',
@@ -1092,8 +1091,8 @@ const Attendant = ({ navigation }) => {
                           item.taskDone === 1
                             ? appcolor.success
                             : item.taskDone === 2
-                            ? appcolor.warning
-                            : appcolor.danger,
+                              ? appcolor.warning
+                              : appcolor.danger,
                         textAlign: 'right',
                         fontSize: scaleSize(12),
                         fontStyle: 'italic',

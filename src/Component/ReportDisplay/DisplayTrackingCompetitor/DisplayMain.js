@@ -32,6 +32,7 @@ import { checkLockReport } from '../../../Controller/ShopController';
 import moment from 'moment';
 import ActionSheet from 'react-native-actions-sheet';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
+import SpiralIcon from '../../../Control/Icon/SpiralIcon';
 
 /** 
  * Config
@@ -129,8 +130,7 @@ export const DisplayMain = ({ navigation, route }) => {
           const item = dataTrackingList[index];
           if (item.display == null) {
             ToastError(
-              `Vui lòng nhập dữ liệu ${item.competitorName} - ${
-                isOnlyItem == 1 ? `Đối thủ` : item.category || ''
+              `Vui lòng nhập dữ liệu ${item.competitorName} - ${isOnlyItem == 1 ? `Đối thủ` : item.category || ''
               }`,
             );
             return false;
@@ -390,8 +390,8 @@ export const DisplayMain = ({ navigation, route }) => {
               ? uploadData()
               : null
             : ToastSuccess(
-                'Bạn đã hoàn thành chấm công nên không thể gửi dữ liệu báo cáo',
-              )
+              'Bạn đã hoàn thành chấm công nên không thể gửi dữ liệu báo cáo',
+            )
         }
       />
       <TabForm

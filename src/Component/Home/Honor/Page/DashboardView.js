@@ -11,6 +11,7 @@ import { useSelector } from 'react-redux';
 import * as Progress from 'react-native-progress';
 import { DataSummary } from '../../../../Controller/DashboardController';
 import CustomSlideView from '../../../../Control/Custom/CustomSlideView';
+import SpiralIcon from '../../../../Control/Icon/SpiralIcon';
 
 const DASHBOARD_MENU_TYPE = 'MENU';
 const DASHBOARD_HEIGHT = 230;

@@ -18,6 +18,7 @@ import { LoadingView } from '../../Control/ItemLoading';
 import { PercentView } from '../../Control/PercentView';
 import { scaleSize } from '../../Themes/AppsStyle';
 import { ConvertToInt } from '../../Core/Utility';
+import SpiralIcon from '../../Control/Icon/SpiralIcon';
 
 const typeButton = {
   Menu: 'MENU',
@@ -124,7 +125,7 @@ export const SummaryHomeHisense = ({ navigation, isLoading }) => {
     titleNonView: { fontSize: 15, fontWeight: '600', color: appcolor.dark },
     mainViewDashboard: { width: '100%', height: deviceHeight / 3.5 },
   });
-  const RenderButton = ({}) => {
+  const RenderButton = ({ }) => {
     const dataButtonMenu =
       dataMenu !== undefined && dataMenu !== null
         ? dataMenu[0]?.menuList || ''
@@ -352,8 +353,7 @@ const SellOutSummary = ({ appcolor, dataSellOut, navigation }) => {
   };
   const percentValue =
     `${dataSellOut.percentValue || 0}%` ||
-    `${
-      (dataSellOut.actualPercent / dataSellOut.targetPercent).toFixed(2) * 100
+    `${(dataSellOut.actualPercent / dataSellOut.targetPercent).toFixed(2) * 100
     }%`;
   return (
     <TouchableOpacity
@@ -561,7 +561,7 @@ const SellOutSummaryByCate = ({ appcolor, dataSellOut, navigation }) => {
               flexDirection: 'row',
               justifyContent:
                 dataSellOut[0].quantityTarget !== null &&
-                dataSellOut[0].quantityTarget > 0
+                  dataSellOut[0].quantityTarget > 0
                   ? 'space-between'
                   : 'center',
               paddingHorizontal: 20,

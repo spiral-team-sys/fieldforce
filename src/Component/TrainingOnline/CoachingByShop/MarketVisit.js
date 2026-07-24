@@ -43,6 +43,7 @@ import _ from 'lodash';
 import ViewPictures from '../../../Control/Gallary/ViewPictures';
 import { toastError } from '../../../Utils/configToast';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
+import SpiralIcon from '../../../Control/Icon/SpiralIcon';
 
 if (
   Platform.OS === 'android' &&
@@ -131,15 +132,13 @@ export const MarketVisit = ({ navigation }) => {
 
         if (listPhoto?.length == 0) {
           MessageInfo(
-            `Chưa chụp hình ${
-              listReport.checkByCode !== 1 ? '"của ' + item.ItemName + '" ' : ''
+            `Chưa chụp hình ${listReport.checkByCode !== 1 ? '"của ' + item.ItemName + '" ' : ''
             }báo cáo (${listPhoto?.length}/${listReport?.limitPhoto || 1})`,
           );
           return false;
         } else if (listPhoto.length < (listReport?.limitPhoto || 1)) {
           MessageInfo(
-            `Chưa chụp đủ hình ${
-              listReport.checkByCode !== 1 ? '"của ' + item.ItemName + '" ' : ''
+            `Chưa chụp đủ hình ${listReport.checkByCode !== 1 ? '"của ' + item.ItemName + '" ' : ''
             }của báo cáo (${listPhoto?.length}/${listReport?.limitPhoto || 1})`,
           );
           return false;

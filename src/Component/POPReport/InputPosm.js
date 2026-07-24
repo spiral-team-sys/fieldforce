@@ -23,6 +23,7 @@ import { LoadingView } from '../../Control/ItemLoading';
 import { groupDataByKey, Message } from '../../Core/Helper';
 import { NumPad_V2 } from '../../Control/NumPad_V2';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
+import SpiralIcon from '../../Control/Icon/SpiralIcon';
 
 export const InputPosm = memo(({ upload, reload }) => {
   const insets = useSafeAreaInsets();
@@ -134,8 +135,7 @@ export const InputPosm = memo(({ upload, reload }) => {
     if (!upload) {
       Message(
         'Chú ý',
-        `Bạn có chắc chắn muốn xóa hết dữ liệu ${
-          itemCategory ? itemCategory.categoryName : ''
+        `Bạn có chắc chắn muốn xóa hết dữ liệu ${itemCategory ? itemCategory.categoryName : ''
         } đã nhập ?`,
         async () => {
           await POSMContext.PosmClearData(
@@ -570,8 +570,8 @@ const RenderRow = memo(
             ? null
             : parseInt(e)
           : e == null || e == 'null'
-          ? ''
-          : e;
+            ? ''
+            : e;
       item[type] = intValue;
       POSMContext.PosmUpdate(item);
       setMutate(e => !e);
@@ -631,7 +631,7 @@ const RenderRow = memo(
               <Text style={Styles.modelNameStyle}>{item.productName}</Text>
             </View>
           </View>
-          {}
+          { }
           <View style={Styles.viewTitleRow}>
             <FormGroup
               key={indexList + '_Note_' + index}

@@ -21,6 +21,7 @@ import EmployeeScoring from './Page/Score/EmployeeScoring';
 import { alertNotify, TODAY } from '../../../Core/Utility';
 import { groupDataByKey } from '../../../Core/Helper';
 import _ from 'lodash';
+import SpiralIcon from '../../../Control/Icon/SpiralIcon';
 
 const EvaluationScoreScreen = ({ navigation }) => {
   const { appcolor, shopinfo, kpiinfo } = useSelector(state => state.GAppState);

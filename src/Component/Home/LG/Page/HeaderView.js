@@ -6,6 +6,7 @@ import { deviceWidth, fontWeightBold } from '../../../../Themes/AppsStyle';
 import useNotification from '../../../../Hooks/useNotification';
 import { LGSummaryTop } from '../../../../Controller/DashboardController';
 import { DrawerActions } from '@react-navigation/native';
+import SpiralIcon from '../../../../Control/Icon/SpiralIcon';
 
 const HeaderView = ({ navigation }) => {
   const { appcolor, userinfo } = useSelector(state => state.GAppState);
@@ -124,9 +125,8 @@ const HeaderView = ({ navigation }) => {
       <View style={styles.viewTop} />
       <View style={styles.contentMain}>
         <View style={styles.contentTitle}>
-          <Text numberOfLines={1} style={styles.titleWelcome}>{`Xin chào, ${
-            userinfo.fisrtName || userinfo.employeeName
-          }`}</Text>
+          <Text numberOfLines={1} style={styles.titleWelcome}>{`Xin chào, ${userinfo.fisrtName || userinfo.employeeName
+            }`}</Text>
           <Text
             style={styles.titleEmployeeCode}
           >{`Mã ${userinfo?.employeeCode}`}</Text>

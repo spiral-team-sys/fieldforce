@@ -19,6 +19,7 @@ import {
 import ActionSheet, { SheetManager } from 'react-native-actions-sheet';
 import { YearMonthSelected } from '../../../Control/YearMonthSelected';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
+import SpiralIcon from '../../../Control/Icon/SpiralIcon';
 
 const DATE = new Date();
 const ExerciseListScreen = ({ navigation }) => {

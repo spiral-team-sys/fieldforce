@@ -8,6 +8,7 @@ import { scaleSize } from '../../../Themes/AppsStyle';
 import { deviceHeight, deviceWidth } from '../../../Core/Utility';
 import { DataSummary } from '../../../Controller/DashboardController';
 import { IconAnimation } from '../../../Control/IconAnimation/IconAnimation';
+import SpiralIcon from '../../../Control/Icon/SpiralIcon';
 
 export const DashboardSellOutTF = ({ navigation, typeDashboard }) => {
   const { appcolor } = useSelector(state => state.GAppState);
@@ -95,7 +96,7 @@ export const DashboardSellOutTF = ({ navigation, typeDashboard }) => {
             onPress={isLoading ? null : LoadData}
             style={styles.actionSync}
           >
-            <SpiralIconAnimation
+            <IconAnimation
               isLoop={isLoading}
               sourceIcon={require('../../../Themes/lotties/sync_load.json')}
             />

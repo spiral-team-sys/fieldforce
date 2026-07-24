@@ -14,6 +14,7 @@ import { Badge, Icon } from '@rneui/themed';
 import { LoadingView } from '../../../Control/ItemLoading/index';
 import { RefreshControl } from 'react-native';
 import { ToastSuccess } from '../../../Core/Helper';
+import SpiralIcon from '../../../Control/Icon/SpiralIcon';
 
 export const POPMenu = ({ navigation, route }) => {
   const { appcolor } = useSelector(state => state.GAppState);

@@ -5,6 +5,7 @@ import { PSVManagerDetail } from './PSVManagerDetail';
 import { Icon } from '@rneui/themed';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import Login from '../Login';
+import SpiralIcon from '../../Control/Icon/SpiralIcon';
 const Tab = createBottomTabNavigator();
 const TabBarOptions = ({ state, descriptors, navigation }) => {
     return (
@@ -38,7 +39,7 @@ const TabBarOptions = ({ state, descriptors, navigation }) => {
                         <View style={{ flexDirection: 'row', justifyContent: 'center' }}>
                             <SpiralIcon style={{ padding: 7, textAlign: 'center' }}
                                 color={isFocused ? '#268bd2' : '#cccccc'}
-                                type="font-awesome-5" size={25} name={options.icon}></SpiralIcon>
+                                type="font-awesome-5" size={25} name={options.icon} />
                             <Text style={{ justifyContent: 'center', alignSelf: 'center', color: isFocused ? '#268bd2' : '#cccccc' }}>
                                 {label}
                             </Text>

@@ -21,6 +21,7 @@ import { PromotionItemUpload } from '../../../Controller/PromotionController';
 import { alertConfirm } from '../../../Core/Utility';
 import { checkLockReport } from '../../../Controller/ShopController';
 import CustomListView from '../../../Control/Custom/CustomListView';
+import SpiralIcon from '../../../Control/Icon/SpiralIcon';
 
 const PromotionScreen = ({ navigation }) => {
   const { workinfo, kpiinfo, appcolor, shopinfo } = useSelector(
@@ -187,8 +188,8 @@ const PromotionScreen = ({ navigation }) => {
                 ? null
                 : upload()
               : ToastSuccess(
-                  'Bạn đã hoàn thành chấm công nên không thể gửi dữ liệu báo cáo',
-                )
+                'Bạn đã hoàn thành chấm công nên không thể gửi dữ liệu báo cáo',
+              )
           }
         />
 

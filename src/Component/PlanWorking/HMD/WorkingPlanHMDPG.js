@@ -121,7 +121,7 @@ const WorkingPlanHMDPG = ({ navigation, route }) => {
       });
       setShiftRegistered(anonymous.shiftRegistered || {});
       setCurrentWeek(currentWeek);
-    } catch (e) {}
+    } catch (e) { }
     setRefreshing(false);
   };
   const callEffect = async (currentWeek = null) => {
@@ -169,7 +169,7 @@ const WorkingPlanHMDPG = ({ navigation, route }) => {
 
       setShiftRegistered(anonymous.shiftRegistered || {});
       setCurrentWeek(currentWeek);
-    } catch (e) {}
+    } catch (e) { }
     setRefreshing(false);
   };
   useEffect(() => {
@@ -292,7 +292,7 @@ const WorkingPlanHMDPG = ({ navigation, route }) => {
           }
         },
       );
-    } catch (e) {}
+    } catch (e) { }
   };
   const onAfterUpdate = result => {
     alertNotify(result.msg);
@@ -339,14 +339,14 @@ const WorkingPlanHMDPG = ({ navigation, route }) => {
           },
         );
       }
-    } catch (e) {}
+    } catch (e) { }
   };
   const assignData = (index, key, value) => {
     try {
       const mainIndex = data[index].stt;
       data[index][key] = value;
       mainData[mainIndex][key] = value;
-    } catch (e) {}
+    } catch (e) { }
   };
   const addToModifedList = index => {
     const mainIndex = data[index].stt;
@@ -362,10 +362,10 @@ const WorkingPlanHMDPG = ({ navigation, route }) => {
     return confirmedStatus === 1
       ? appcolor.helper
       : confirmedStatus === -1 || confirmedStatus === -2
-      ? appcolor.danger
-      : confirmedStatus === 3
-      ? appcolor.rejection
-      : appcolor.dark;
+        ? appcolor.danger
+        : confirmedStatus === 3
+          ? appcolor.rejection
+          : appcolor.dark;
   };
   const handleDisplayBS = (type, index = -1, isPastOrPresentWeek = true) => {
     let list = [],
@@ -487,10 +487,10 @@ const WorkingPlanHMDPG = ({ navigation, route }) => {
             ? 5
             : ceilNum
           : prevValue > 0
-          ? floorNum === 0
-            ? -5
-            : -floorNum
-          : 0;
+            ? floorNum === 0
+              ? -5
+              : -floorNum
+            : 0;
       if (prevValue !== undefined) {
         data[index][keyBusy] += nextValue;
         mainData[mainIndex][keyBusy] += nextValue;
@@ -614,7 +614,7 @@ const WorkingPlanHMDPG = ({ navigation, route }) => {
           onSaveImage(res);
         }
       });
-    } catch (e) {}
+    } catch (e) { }
   };
   const imageGalleryLaunch = () => {
     try {
@@ -629,7 +629,7 @@ const WorkingPlanHMDPG = ({ navigation, route }) => {
           await onSaveImage(res);
         }
       });
-    } catch (e) {}
+    } catch (e) { }
   };
   const onSaveImage = async res => {
     try {
@@ -656,7 +656,7 @@ const WorkingPlanHMDPG = ({ navigation, route }) => {
       await assignData(index, 'photoMore', JSON.stringify(photoMore));
       expanded[expandImage] = false;
       setMutate(e => !e);
-    } catch (e) {}
+    } catch (e) { }
   };
   const handleRemoveImage = indexImage => {
     try {
@@ -667,7 +667,7 @@ const WorkingPlanHMDPG = ({ navigation, route }) => {
       currentBS.list = photoMore;
       assignData(index, 'photoMore', JSON.stringify(photoMore));
       setMutate(e => !e);
-    } catch (e) {}
+    } catch (e) { }
   };
   const renderItem = ({ item, index }) => {
     const {
@@ -1056,9 +1056,8 @@ const WorkingPlanHMDPG = ({ navigation, route }) => {
                           confirmLate === 1 ? appcolor.helper : appcolor.danger,
                         padding: 7,
                       }}
-                    >{`Ghi chú của quản lý: ${
-                      item.confirmNoteLate || ''
-                    }`}</Text>
+                    >{`Ghi chú của quản lý: ${item.confirmNoteLate || ''
+                      }`}</Text>
                   </View>
                 )}
                 <View
@@ -1163,9 +1162,8 @@ const WorkingPlanHMDPG = ({ navigation, route }) => {
                             : appcolor.danger,
                         padding: 7,
                       }}
-                    >{`Ghi chú của quản lý: ${
-                      item.confirmNoteEarlier || ''
-                    }`}</Text>
+                    >{`Ghi chú của quản lý: ${item.confirmNoteEarlier || ''
+                      }`}</Text>
                   </View>
                 )}
                 <View
@@ -1378,7 +1376,7 @@ const WorkingPlanHMDPG = ({ navigation, route }) => {
       <HeaderCustom
         title={
           route?.params?.titlePage !== undefined &&
-          route?.params?.titlePage.length > 0
+            route?.params?.titlePage.length > 0
             ? route?.params?.titlePage
             : 'Lịch làm việc PG'
         }
@@ -1387,10 +1385,10 @@ const WorkingPlanHMDPG = ({ navigation, route }) => {
           textCopyButton == 'Copy' && !disableCopyButton
             ? 'copy'
             : !disableCopyButton || checkSaveWeekNow
-            ? confirmPlanS === 1
-              ? null
-              : 'cloud-upload-alt'
-            : null
+              ? confirmPlanS === 1
+                ? null
+                : 'cloud-upload-alt'
+              : null
         }
         rightFunc={onCopySavePlan}
       />
@@ -1405,7 +1403,7 @@ const WorkingPlanHMDPG = ({ navigation, route }) => {
               name="times"
               size={35}
               color={appcolor.dark}
-            ></SpiralIcon>
+            />
           </TouchableOpacity>
           <ImageBackground
             source={{ uri: urlIMV }}
@@ -1535,10 +1533,10 @@ const WorkingPlanHMDPG = ({ navigation, route }) => {
                 {currentBS.type === WEEK
                   ? 'Chọn Tuần'
                   : currentBS.type === SHIFT
-                  ? 'Chọn Ca Làm Việc'
-                  : currentBS.type === SHOPL
-                  ? 'Chọn cửa hàng'
-                  : 'Upload Hình Ảnh'}
+                    ? 'Chọn Ca Làm Việc'
+                    : currentBS.type === SHOPL
+                      ? 'Chọn cửa hàng'
+                      : 'Upload Hình Ảnh'}
               </Text>
               <TouchableOpacity onPress={() => setVisibleBS(false)}>
                 <SpiralIcon

@@ -13,6 +13,7 @@ import { deviceWidth } from '../../Themes/AppsStyle';
 import ActionSheet, { SheetManager } from 'react-native-actions-sheet';
 import { deviceHeight } from '../../Core/Utility';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
+import SpiralIcon from '../Icon/SpiralIcon';
 
 export const SearchGroup = ({
   placeholder,

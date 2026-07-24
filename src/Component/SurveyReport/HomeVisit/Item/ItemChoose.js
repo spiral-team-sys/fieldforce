@@ -13,6 +13,7 @@ import { fontWeightBold } from '../../../../Themes/AppsStyle';
 import { parseJsonArray, normalizeText } from './ItemHelpers';
 import { SafeAreaProvider, SafeAreaView } from 'react-native-safe-area-context';
 import { useSelector } from 'react-redux';
+import SpiralIcon from '../../../../Control/Icon/SpiralIcon';
 
 const ItemChoose = ({ item, onUpdateItem }) => {
   const { appcolor } = useSelector(state => state.GAppState);

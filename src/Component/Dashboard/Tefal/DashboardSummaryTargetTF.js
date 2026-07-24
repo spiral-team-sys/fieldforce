@@ -6,6 +6,7 @@ import { Icon } from '@rneui/base';
 import { TouchableOpacity } from 'react-native';
 import { DataSummary } from '../../../Controller/DashboardController';
 import { IconAnimation } from '../../../Control/IconAnimation/IconAnimation';
+import SpiralIcon from '../../../Control/Icon/SpiralIcon';
 
 const DashboardSummaryTargetTF = ({ navigation, typeDashboard }) => {
   const { appcolor } = useSelector(state => state.GAppState);
@@ -135,7 +136,7 @@ const DashboardSummaryTargetTF = ({ navigation, typeDashboard }) => {
               overflow: 'hidden',
             }}
           >
-            <SpiralIconAnimation
+            <IconAnimation
               isLoop={loading}
               sourceIcon={require('../../../Themes/lotties/sync_load.json')}
             />

@@ -4,6 +4,7 @@ import { Icon, Text } from '@rneui/themed';
 import { useSelector } from 'react-redux';
 import { deviceWidth } from '../../../../../Core/Utility';
 import { BORDER_WIDTH } from '../../UtilityOffice';
+import SpiralIcon from '../../../../../Control/Icon/SpiralIcon';
 
 export const Attendant = ({ dataDetails, itemMain }) => {
   const { appcolor } = useSelector(state => state.GAppState);

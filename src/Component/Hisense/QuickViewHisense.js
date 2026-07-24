@@ -7,6 +7,7 @@ import { scaleSize } from '../../Themes/AppsStyle';
 import { Icon } from '@rneui/themed';
 import LottieView from 'lottie-react-native';
 import { GetDataDashboard } from '../../Controller/DashboardController';
+import SpiralIcon from '../../Control/Icon/SpiralIcon';
 const tDay = new Date();
 const totalDay = new Date(tDay.getFullYear(), tDay.getMonth() + 1, 0).getDate();
 const currentDay = tDay.getDate();
@@ -54,8 +55,8 @@ export const QuickViewHisense = ({ navigation }) => {
           onPress={() =>
             item.pageName != null
               ? navigation.navigate('dashboardDetail', {
-                  listMonth: item?.listMonth,
-                })
+                listMonth: item?.listMonth,
+              })
               : null
           }
         >

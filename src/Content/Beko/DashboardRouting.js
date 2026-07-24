@@ -23,6 +23,7 @@ import LottieView from 'lottie-react-native';
 import CustomTab from '../../Control/Custom/CustomTab';
 import CustomListView from '../../Control/Custom/CustomListView';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
+import SpiralIcon from '../../Control/Icon/SpiralIcon';
 
 export const DashboardRouting = ({ navigation, data, onTitleResolved }) => {
   const insets = useSafeAreaInsets();
@@ -351,10 +352,10 @@ const Routing = ({ data, route }) => {
   const routeList = JSON.parse(data || '[]');
   var totalTime = routeList.length
     ? routeList
-        ?.map(o => o.Duration.value)
-        .reduce((a, c) => {
-          return a + c;
-        })
+      ?.map(o => o.Duration.value)
+      .reduce((a, c) => {
+        return a + c;
+      })
     : 0;
   totalTime = ConvertSecondToTime(totalTime);
   const rowTimeLine = ({ item, index }) => {

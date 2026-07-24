@@ -9,6 +9,7 @@ import LottieView from 'lottie-react-native';
 import { scaleSize } from '../Themes/AppsStyle';
 import webloading from '../Themes/lotties/webviewload.json';
 import { SafeAreaProvider, SafeAreaView } from 'react-native-safe-area-context';
+import SpiralIcon from '../Control/Icon/SpiralIcon';
 
 const INJECTEDJAVASCRIPT = `const meta = document.createElement('meta'); meta.setAttribute('content', 'width=device-width, initial-scale=0, maximum-scale=0, user-scalable=0'); meta.setAttribute('name', 'viewport'); document.getElementsByTagName('head')[0].appendChild(meta); `;
 
@@ -22,7 +23,7 @@ const WebViewUI = ({ urlPage, onClose, pageName }) => {
       onClose();
     });
   };
-  useEffect(() => {}, [urlPage]);
+  useEffect(() => { }, [urlPage]);
   const errorPage = e => {
     return (
       <View style={{ width: '100%', height: '100%' }}>

@@ -40,6 +40,7 @@ import { Tabs, MaterialTabBar } from 'react-native-collapsible-tab-view';
 import { LoadingView } from '../../Control/ItemLoading';
 import moment from 'moment';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
+import SpiralIcon from '../../Control/Icon/SpiralIcon';
 
 export const StockReport = ({ navigation }) => {
   const insets = useSafeAreaInsets();
@@ -164,7 +165,7 @@ export const StockReport = ({ navigation }) => {
       async () => {
         await loadDataShow();
       },
-      async () => {},
+      async () => { },
     );
   };
 
@@ -289,8 +290,8 @@ export const StockReport = ({ navigation }) => {
               ? uploadAction()
               : null
             : ToastSuccess(
-                'Bạn đã hoàn thành chấm công nên không thể gửi dữ liệu báo cáo',
-              )
+              'Bạn đã hoàn thành chấm công nên không thể gửi dữ liệu báo cáo',
+            )
         }
         iconMiddle="poll-h"
         middleFunc={openSheet}

@@ -42,6 +42,7 @@ import moment from 'moment';
 import _ from 'lodash';
 import CustomTab from '../../../../Control/Custom/CustomTab';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
+import SpiralIcon from '../../../../Control/Icon/SpiralIcon';
 
 const POPInstallScreen = ({ navigation, route }) => {
   const insets = useSafeAreaInsets();
@@ -216,8 +217,7 @@ const POPInstallScreen = ({ navigation, route }) => {
         const imageProduct = (item?.ImageList || []).length || 0;
         if (imageProduct < (item.numberIMG || 0)) {
           listError.push(
-            `- Chưa chụp đủ hình ảnh sản phẩm ${
-              item.ProductName
+            `- Chưa chụp đủ hình ảnh sản phẩm ${item.ProductName
             } (${imageProduct}/${item.numberIMG || 0})`,
           );
         }
@@ -226,8 +226,7 @@ const POPInstallScreen = ({ navigation, route }) => {
           const imagePOP = (itemPOP?.ImageList || []).length || 0;
           if (itemPOP.InstallValue > 0 && imagePOP < (itemPOP.numberIMG || 0)) {
             listError.push(
-              `- Chưa chụp đủ hình ảnh ${itemPOP.POPName} của sản phẩm ${
-                item.ProductName
+              `- Chưa chụp đủ hình ảnh ${itemPOP.POPName} của sản phẩm ${item.ProductName
               } (${imagePOP}/${itemPOP.numberIMG || 0})`,
             );
           }
@@ -295,9 +294,8 @@ const POPInstallScreen = ({ navigation, route }) => {
     typeAction,
     typeModel,
   ) => {
-    const photoType = `${menu.Id}-${wareHouse.Id}-${itemProduct.ProductId}${
-      typeModel == 'ITEM_POP' ? `-${itemPOP.PosmId}` : ''
-    }`;
+    const photoType = `${menu.Id}-${wareHouse.Id}-${itemProduct.ProductId}${typeModel == 'ITEM_POP' ? `-${itemPOP.PosmId}` : ''
+      }`;
     const photoinfo = {
       shopId: shopinfo.shopId,
       shopCode: shopinfo.shopCode,
@@ -333,8 +331,7 @@ const POPInstallScreen = ({ navigation, route }) => {
       const dataPhoto = await dataPhotoReport(
         shopinfo,
         kpiinfo.id,
-        `${menu.Id}-${wareHouse.Id}-${itemProduct.ProductId}${
-          typeModel == 'ITEM_POP' ? `-${itemPOP.PosmId}` : ''
+        `${menu.Id}-${wareHouse.Id}-${itemProduct.ProductId}${typeModel == 'ITEM_POP' ? `-${itemPOP.PosmId}` : ''
         }`,
       );
       if (typeModel == 'ITEM_POP') {
@@ -877,9 +874,8 @@ const POPInstallScreen = ({ navigation, route }) => {
           key={indexPOP}
         >
           <View style={styles.viewValueWareHouse}>
-            <Text style={styles.titleValueWareHouse}>{`${
-              itemPOP.QuantityMyHouse || 0
-            }`}</Text>
+            <Text style={styles.titleValueWareHouse}>{`${itemPOP.QuantityMyHouse || 0
+              }`}</Text>
           </View>
           <View style={styles.viewImagePOP}>
             <Image
@@ -894,9 +890,8 @@ const POPInstallScreen = ({ navigation, route }) => {
                 onPress={onPressPOP}
               >
                 <View style={[styles.viewBadgeImages, { top: 8, right: 8 }]}>
-                  <Text style={styles.textBadgeImages}>{`${
-                    itemPOP.ImageList?.length || 0
-                  }`}</Text>
+                  <Text style={styles.textBadgeImages}>{`${itemPOP.ImageList?.length || 0
+                    }`}</Text>
                 </View>
                 <SpiralIcon
                   name="camera"
@@ -918,9 +913,8 @@ const POPInstallScreen = ({ navigation, route }) => {
                       : appcolor.dark,
                 },
               ]}
-            >{`${itemPOP.isVerifyInput == 1 ? '*' : ''}${
-              itemPOP.POPName
-            }`}</Text>
+            >{`${itemPOP.isVerifyInput == 1 ? '*' : ''}${itemPOP.POPName
+              }`}</Text>
             <Text style={styles.titleHeader}>{'Trạng thái POP'}</Text>
             <View style={styles.viewPOPList}>
               {(itemPOP.StatusList || [])?.map((itemStatus, indexStatus) => {
@@ -988,9 +982,9 @@ const POPInstallScreen = ({ navigation, route }) => {
                   </TouchableOpacity>
                   <FormGroup
                     inputRefFull={el =>
-                      (installValueRef.current[
-                        `${item.ProductId}-${itemPOP.PosmId}`
-                      ] = el)
+                    (installValueRef.current[
+                      `${item.ProductId}-${itemPOP.PosmId}`
+                    ] = el)
                     }
                     editable
                     selectTextOnFocus
@@ -1029,9 +1023,9 @@ const POPInstallScreen = ({ navigation, route }) => {
                   </TouchableOpacity>
                   <FormGroup
                     inputRefFull={el =>
-                      (changeValueRef.current[
-                        `${item.ProductId}-${itemPOP.PosmId}`
-                      ] = el)
+                    (changeValueRef.current[
+                      `${item.ProductId}-${itemPOP.PosmId}`
+                    ] = el)
                     }
                     editable
                     selectTextOnFocus
@@ -1054,9 +1048,8 @@ const POPInstallScreen = ({ navigation, route }) => {
     return (
       <View key={index} style={styles.itemProductContainer}>
         <View style={styles.viewHeaderProduct}>
-          <Text style={styles.titleName}>{`${index + 1}. ${
-            item.ProductName
-          }`}</Text>
+          <Text style={styles.titleName}>{`${index + 1}. ${item.ProductName
+            }`}</Text>
           {isEditItem && (
             <TouchableOpacity
               style={styles.buttonCamera}
@@ -1126,9 +1119,8 @@ const POPInstallScreen = ({ navigation, route }) => {
         key={index}
         onPress={onPress}
       >
-        <Text style={[styles.textItemFilter, { color: color }]}>{`${
-          item.ItemName
-        } ${item.ItemType != undefined ? '' : 'POP'}`}</Text>
+        <Text style={[styles.textItemFilter, { color: color }]}>{`${item.ItemName
+          } ${item.ItemType != undefined ? '' : 'POP'}`}</Text>
       </TouchableOpacity>
     );
   };
@@ -1180,9 +1172,8 @@ const POPInstallScreen = ({ navigation, route }) => {
         onBeforeShow={onBeforeShowFilter}
       >
         <View style={styles.viewFilter}>
-          <Text style={styles.titleFilter}>{`Lọc ${
-            typeFilter.type == 'STATUS' ? 'trạng thái' : 'dữ liệu'
-          }`}</Text>
+          <Text style={styles.titleFilter}>{`Lọc ${typeFilter.type == 'STATUS' ? 'trạng thái' : 'dữ liệu'
+            }`}</Text>
           <FlashList
             keyExtractor={(_item, index) => index.toString()}
             data={typeFilter.type == 'STATUS' ? dataFilter || [] : dataInput}

@@ -7,6 +7,7 @@ import { Icon, Text } from '@rneui/base';
 import { IconAnimation } from '../../../Control/IconAnimation/IconAnimation';
 import _ from 'lodash';
 import { BarChart } from 'react-native-charts-wrapper';
+import SpiralIcon from '../../../Control/Icon/SpiralIcon';
 
 export const DashboardSellInVSM = ({ navigation, typeDashboard }) => {
   const { appcolor } = useSelector(state => state.GAppState);
@@ -149,7 +150,7 @@ export const DashboardSellInVSM = ({ navigation, typeDashboard }) => {
           onPress={isLoading ? null : LoadData}
           style={styles.actionSync}
         >
-          <SpiralIconAnimation
+          <IconAnimation
             isLoop={isLoading}
             sourceIcon={require('../../../Themes/lotties/sync_load.json')}
           />

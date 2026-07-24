@@ -29,6 +29,7 @@ import { FilterStatusVerify } from '../Control/FilterStatusVerify';
 import moment from 'moment';
 import _ from 'lodash';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
+import SpiralIcon from '../../../../Control/Icon/SpiralIcon';
 
 const VERIFY_TYPE_ID = {
   PHOTO_REVIEW: 1,
@@ -665,9 +666,8 @@ const ApprovalStatusScreen = ({ navigation }) => {
               <Text style={styles.subConfirmValue}>{`Hình thức thưởng: `}</Text>
               <Text style={styles.value}>
                 {item.awardValue
-                  ? `${formatNumber(item.awardValue, ',')} ${
-                      item.awardTypeName || ''
-                    }`
+                  ? `${formatNumber(item.awardValue, ',')} ${item.awardTypeName || ''
+                  }`
                   : '--'}
               </Text>
             </View>

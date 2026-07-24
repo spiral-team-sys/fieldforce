@@ -22,6 +22,7 @@ import { optionConfirm, TODAY } from '../../../../../Core/Utility';
 import { MultipleShowImage } from '../../../../../Control/MultipleShowImage';
 import moment from 'moment';
 import _ from 'lodash';
+import SpiralIcon from '../../../../../Control/Icon/SpiralIcon';
 
 export const ReasonList = ({ data, info }) => {
   const { appcolor, kpiinfo } = useSelector(state => state.GAppState);
@@ -223,9 +224,8 @@ export const ReasonList = ({ data, info }) => {
           </View>
           <View style={{ width: '90%' }}>
             <TouchableOpacity key={`spi_${index}`} onPress={onPress}>
-              <Text style={styles.titleMain}>{`${index + 1}. ${
-                item.ReasonName
-              }`}</Text>
+              <Text style={styles.titleMain}>{`${index + 1}. ${item.ReasonName
+                }`}</Text>
             </TouchableOpacity>
           </View>
         </View>

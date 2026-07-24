@@ -19,6 +19,7 @@ import { SellOutSummary } from '../../Control/TemplateDashboard/SellOutSummary';
 import { SellOutSummaryByCate } from '../../Control/TemplateDashboard/SellOutByCate';
 import { AttendantSummary } from '../../Control/TemplateDashboard/AttendantSummary';
 import { DashboardRouting } from '../../Content/Beko/DashboardRouting';
+import SpiralIcon from '../../Control/Icon/SpiralIcon';
 
 const typeButton = {
   Menu: 'MENU',
@@ -127,7 +128,7 @@ export const SummaryHPI = ({ navigation, isLoading }) => {
       marginBottom: 12,
     },
   });
-  const RenderButton = ({}) => {
+  const RenderButton = ({ }) => {
     const dataButtonMenu =
       dataMenu !== undefined && dataMenu !== null
         ? dataMenu[0]?.menuList || ''

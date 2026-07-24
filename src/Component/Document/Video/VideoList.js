@@ -16,6 +16,7 @@ import { HeaderCustom } from '../../../Content/HeaderCustom';
 import { colorList, UUIDGenerator } from '../../../Core/Helper';
 import { URLDEFAULT } from '../../../Core/URLs';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
+import SpiralIcon from '../../../Control/Icon/SpiralIcon';
 
 export const VideoList = ({ navigation, route }) => {
     const insets = useSafeAreaInsets()
@@ -92,7 +93,7 @@ export const VideoList = ({ navigation, route }) => {
                             color={appcolor.primary}
                             opacity={0.5}
                             containerStyle={{ height: '80%', justifyContent: 'center', }}
-                            type="font-awesome-5"></SpiralIcon>
+                            type="font-awesome-5" />
                     }
                     <View style={{ position: 'absolute', width: '100%', bottom: 0, backgroundColor: appcolor.darkgray, }}>
                         <Text numberOfLines={3} style={{
@@ -153,7 +154,7 @@ export const VideoList = ({ navigation, route }) => {
                     {
                         pathJson[0].Thumbnail !== undefined ?
                             <Image style={{ borderRadius: 12, width: '100%', height: '100%' }} source={{ uri: thumbnail }} /> :
-                            <SpiralIcon name="play-circle" size={45} color={appcolor.primary} opacity={0.5} type="font-awesome-5"></SpiralIcon>
+                            <SpiralIcon name="play-circle" size={45} color={appcolor.primary} opacity={0.5} type="font-awesome-5" />
                     }
                     <Text numberOfLines={2} style={{
                         width: '100%',
@@ -200,7 +201,7 @@ export const VideoList = ({ navigation, route }) => {
                                         <TouchableOpacity style={{ height: '100%', justifyContent: 'space-around', }}
                                             onPress={() => navigation.navigate("videobytype", { "_filter": _filter, "title": keyName })}>
                                             <SpiralIcon name="arrow-right"
-                                                size={53} color={appcolor.dark} type="font-awesome-5"></SpiralIcon>
+                                                size={53} color={appcolor.dark} type="font-awesome-5" />
                                             <Text style={{ fontSize: scaleSize(13), color: appcolor.dark }}>Xem thêm</Text>
                                         </TouchableOpacity>
                                     </View>

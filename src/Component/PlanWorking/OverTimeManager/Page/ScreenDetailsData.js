@@ -25,6 +25,7 @@ import { alertNotify, TODAY } from '../../../../Core/Utility';
 import FormGroup from '../../../../Content/FormGroup';
 import moment from 'moment';
 import _ from 'lodash';
+import SpiralIcon from '../../../../Control/Icon/SpiralIcon';
 
 export const ScreenDetailsData = ({ data }) => {
   const { appcolor, kpiinfo } = useSelector(state => state.GAppState);

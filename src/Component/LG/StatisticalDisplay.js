@@ -19,6 +19,7 @@ import CustomListView from '../../Control/Custom/CustomListView';
 import { SearchData } from '../../Control/SearchData/SearchData.js';
 import { SetShopInfo } from '../../Redux/action/index.js';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
+import SpiralIcon from '../../Control/Icon/SpiralIcon.js';
 
 const contains = (shop, query) => {
   const { shopCode, shopName, address } = shop;
@@ -455,8 +456,8 @@ export const StatisticalDisplay = ({ navigation }) => {
         item.countDays === 3
           ? appcolor.danger
           : item.countDays === 2
-          ? appcolor.warning
-          : appcolor.green;
+            ? appcolor.warning
+            : appcolor.green;
       const colorDateStatus =
         item.countDays !== 2 ? appcolor.light : appcolor.dark;
       return (

@@ -4,6 +4,7 @@ import { Icon, Text } from '@rneui/base';
 import { useSelector } from 'react-redux';
 import _ from 'lodash';
 import { formatNumber, groupDataByKey } from '../../../../../Core/Helper';
+import SpiralIcon from '../../../../../Control/Icon/SpiralIcon';
 
 export const ListItemView = ({
   dataMain,
@@ -171,9 +172,8 @@ export const ListItemView = ({
   const renderItem = ({ item, index }) => {
     const keyLayer2 =
       item[
-        `${item[item.keyMain || 'EmployeeId']}${
-          item[item.keyGroup || 'WorkDate']
-        }`
+      `${item[item.keyMain || 'EmployeeId']}${item[item.keyGroup || 'WorkDate']
+      }`
       ];
     const dataSum = _.filter(
       data,
@@ -246,9 +246,8 @@ export const ListItemView = ({
           <View style={styles.viewContent}>
             {keyLayer2 ? (
               <View style={styles.viewHeadItem}>
-                <Text style={styles.titleContentStrong}>{`${
-                  item[item.keyGroupName || 'DateView']
-                }`}</Text>
+                <Text style={styles.titleContentStrong}>{`${item[item.keyGroupName || 'DateView']
+                  }`}</Text>
                 <Text style={styles.titlePriceItem}>{`${formatNumber(
                   totalItemSale,
                   ',',

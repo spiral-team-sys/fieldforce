@@ -18,6 +18,7 @@ import { HeaderCustom } from '../../Content/HeaderCustom';
 import { LocalSignIn } from '../../Control/LocalSignIn';
 import { Icon } from '@rneui/themed';
 import CustomListView from '../../Control/Custom/CustomListView';
+import SpiralIcon from '../../Control/Icon/SpiralIcon';
 export const PAYSLIPLIST = 'payslip';
 
 export const PayslipList = ({ navigation }) => {
@@ -260,11 +261,9 @@ export const PayslipList = ({ navigation }) => {
           <View style={{ padding: 12 }}>
             <Text
               style={{ color: appcolor.danger, textAlign: 'center' }}
-            >{`Ấn vào biểu tượng ${
-              isSec === 1 ? 'khuôn mặt' : 'vân tay'
-            } => Sử dụng ${
-              isSec === 1 ? 'FaceID' : 'vân tay'
-            } để mở khoá`}</Text>
+            >{`Ấn vào biểu tượng ${isSec === 1 ? 'khuôn mặt' : 'vân tay'
+              } => Sử dụng ${isSec === 1 ? 'FaceID' : 'vân tay'
+              } để mở khoá`}</Text>
           </View>
         </View>
       </Modal>

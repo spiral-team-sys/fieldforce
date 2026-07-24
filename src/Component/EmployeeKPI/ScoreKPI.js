@@ -32,6 +32,7 @@ import _, { debounce } from 'lodash';
 import { CalendarSelected } from '../../Control/CalendarSelected';
 import moment from 'moment';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
+import SpiralIcon from '../../Control/Icon/SpiralIcon';
 
 export const ScoreKPI = ({ navigation }) => {
   const insets = useSafeAreaInsets();

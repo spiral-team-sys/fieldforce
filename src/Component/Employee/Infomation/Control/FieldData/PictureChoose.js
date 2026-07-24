@@ -17,6 +17,7 @@ import { deletePhotoByList } from '../../../../../Controller/PhotoController';
 import _ from 'lodash';
 import { SET_EmployeeInfo } from '../../../../../Redux/action';
 import { UUIDGenerator } from '../../../../../Core/Helper';
+import SpiralIcon from '../../../../../Control/Icon/SpiralIcon';
 
 export const PictureChoose = ({ itemMain, keyValue }) => {
   const { appcolor, employeeInfo } = useSelector(state => state.GAppState);

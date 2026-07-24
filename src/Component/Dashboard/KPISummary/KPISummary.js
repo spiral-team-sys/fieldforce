@@ -27,6 +27,7 @@ import { SafeAreaView } from 'react-native';
 import { LoadingView } from '../../../Control/ItemLoading';
 import _ from 'lodash';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
+import SpiralIcon from '../../../Control/Icon/SpiralIcon';
 
 if (
   Platform.OS === 'android' &&
@@ -149,8 +150,8 @@ export const KPISummary = ({ navigation, route }) => {
     const _minHeight = deviceHeight / 6 - 20;
     const titleDate =
       item.titleDate !== undefined &&
-      item.titleDate !== null &&
-      item.titleDate?.length > 0
+        item.titleDate !== null &&
+        item.titleDate?.length > 0
         ? item.titleDate
         : '';
 
@@ -673,8 +674,8 @@ const ViewCompareDate = ({ itemCheck }) => {
             >
               {item.countStoreDay || 0}
               {item.targetStoreDay !== undefined &&
-              item.targetStoreDay !== null &&
-              item.targetStoreDay > 0
+                item.targetStoreDay !== null &&
+                item.targetStoreDay > 0
                 ? '/' + item.targetStoreDay
                 : ''}
             </Text>
@@ -868,7 +869,7 @@ const ViewCompareDate = ({ itemCheck }) => {
   );
 };
 
-const WeekItem = ({}) => {
+const WeekItem = ({ }) => {
   const { appcolor } = useSelector(state => state.GAppState);
   return (
     <View style={{ flexDirection: 'row', borderBottomWidth: 0.2 }}>

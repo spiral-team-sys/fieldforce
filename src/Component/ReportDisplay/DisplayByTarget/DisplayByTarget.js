@@ -24,6 +24,7 @@ import { SceneMap } from 'react-native-tab-view';
 import { InputDisplay } from './InputDisplay';
 import { TabForm } from '../../../Control/TabForm';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
+import SpiralIcon from '../../../Control/Icon/SpiralIcon';
 
 export const DisplayByTarget = ({ navigation }) => {
   const { appcolor, kpiinfo, workinfo } = useSelector(state => state.GAppState);

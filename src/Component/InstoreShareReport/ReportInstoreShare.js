@@ -25,6 +25,7 @@ import FormGroup from '../../Content/FormGroup';
 import { KeyboardAvoidingView } from 'react-native';
 import { scaleSize } from '../../Themes/AppsStyle';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
+import SpiralIcon from '../../Control/Icon/SpiralIcon';
 
 if (
   Platform.OS === 'android' &&
@@ -608,7 +609,7 @@ const RenderItemInput = ({ item, index }) => {
             editable={true}
             selectTextOnFocus={true}
             onChangeText={text => changeValue(text, item)}
-            // onEndEditing={endInput}
+          // onEndEditing={endInput}
           />
         )}
       />

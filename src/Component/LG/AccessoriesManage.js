@@ -18,6 +18,7 @@ import * as Progress from 'react-native-progress';
 import { RenderCalendar } from "../../Core/DatePickerView";
 import moment from "moment";
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
+import SpiralIcon from "../../Control/Icon/SpiralIcon";
 
 
 const styles = StyleSheet.create({

@@ -10,6 +10,7 @@ import { toastError } from '../../../Utils/configToast';
 import AddressCompany from '../View/AddressCompany';
 import TermsAndCondition from '../View/TermsAndCondition';
 import { SafeAreaView } from 'react-native-safe-area-context';
+import SpiralIcon from '../../../Control/Icon/SpiralIcon';
 
 const LoginCuckoo = ({
   onLogin,
@@ -41,7 +42,7 @@ const LoginCuckoo = ({
   const onShowPassword = () => {
     setShowPassword(!isShowPassword);
   };
-  useEffect(() => {}, []);
+  useEffect(() => { }, []);
   //
   const styles = StyleSheet.create({
     contentMain: { flex: 1, backgroundColor: appcolor.primary },

@@ -18,6 +18,7 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from '@reduxjs/toolkit';
 import { AppCreateAction } from '../../Core/ReduxController';
 import LottieView from 'lottie-react-native';
+import SpiralIcon from '../../Control/Icon/SpiralIcon';
 
 class DisplayHPReport extends PureComponent {
   constructor(props) {

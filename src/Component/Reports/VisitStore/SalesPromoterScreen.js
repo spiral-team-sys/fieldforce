@@ -22,6 +22,7 @@ import LoadingDefault from '../../../Control/ItemLoading/LoadingDefault';
 import { deviceHeight } from '../../../Themes/AppsStyle';
 import NewOrderSection from './components/NewOrderSection';
 import CompetitorSection from './components/CompetitorSection';
+import SpiralIcon from '../../../Control/Icon/SpiralIcon';
 
 const SalesPromoterScreen = ({ navigation }) => {
   const { appcolor, kpiinfo, shopinfo } = useSelector(state => state.GAppState);
@@ -54,7 +55,7 @@ const SalesPromoterScreen = ({ navigation }) => {
     setLoading(true);
     const dataFilter = { shopId: shopinfo.shopId, reportId: kpiinfo.id };
     await REPORT.GetDataReportByShop(dataFilter, async (mData, mesager) => {
-      mesager && MessageAcept('Thông báo', mesager, () => {});
+      mesager && MessageAcept('Thông báo', mesager, () => { });
       const { arr } = await groupDataByKey({ arr: mData, key: 'GroupId' });
       const nextDataMain = (arr || []).map(it => ({
         ...it,
@@ -111,8 +112,8 @@ const SalesPromoterScreen = ({ navigation }) => {
       const selectedId = Array.isArray(nextPayload?.selectedId)
         ? nextPayload.selectedId.map(id => Number(id))
         : Array.isArray(selectedIds)
-        ? selectedIds.map(id => (Number(id) === 100 ? 0 : Number(id)))
-        : [];
+          ? selectedIds.map(id => (Number(id) === 100 ? 0 : Number(id)))
+          : [];
 
       return {
         ...defaultItemValue,
@@ -226,7 +227,7 @@ const SalesPromoterScreen = ({ navigation }) => {
 
   const handlerValidateData = () => {
     if (!Array.isArray(dataMain) || dataMain.length === 0) {
-      MessageAcept('Thông báo', 'Chưa có dữ liệu để gửi', () => {});
+      MessageAcept('Thông báo', 'Chưa có dữ liệu để gửi', () => { });
       return false;
     }
 
@@ -240,7 +241,7 @@ const SalesPromoterScreen = ({ navigation }) => {
       MessageAcept(
         'Thiếu dữ liệu bắt buộc',
         `Vui lòng nhập đầy đủ các mục bắt buộc trước khi gửi:\n${previewNames}`,
-        () => {},
+        () => { },
       );
       return false;
     }
@@ -407,7 +408,7 @@ const SalesPromoterScreen = ({ navigation }) => {
           MessageAcept(
             'Lỗi dữ liệu',
             result?.messager || 'Gửi dữ liệu thất bại',
-            () => {},
+            () => { },
           );
         }
         setLoading(false);
@@ -623,18 +624,18 @@ const SalesPromoterScreen = ({ navigation }) => {
                 style={[
                   styles.yesNoButtonInline,
                   isActive &&
-                    (isYesOption
-                      ? styles.yesNoButtonActive
-                      : styles.yesNoButtonNegativeActive),
+                  (isYesOption
+                    ? styles.yesNoButtonActive
+                    : styles.yesNoButtonNegativeActive),
                 ]}
               >
                 <Text
                   style={[
                     styles.yesNoTextInline,
                     isActive &&
-                      (isYesOption
-                        ? styles.yesNoTextActive
-                        : styles.yesNoTextNegativeActive),
+                    (isYesOption
+                      ? styles.yesNoTextActive
+                      : styles.yesNoTextNegativeActive),
                   ]}
                 >
                   {option?.itemName || ''}
@@ -751,7 +752,7 @@ const SalesPromoterScreen = ({ navigation }) => {
         {!isCollapsed && (
           <View style={styles.itemCard}>
             {Number(item?.isSingleChoice) === 1 &&
-            Number(item?.IsCompetitor) !== 1 ? (
+              Number(item?.IsCompetitor) !== 1 ? (
               <View style={styles.itemTitleRow}>
                 <Text style={styles.itemNameInline}>
                   {item?.KPIName || 'Chưa có tên KPI'}

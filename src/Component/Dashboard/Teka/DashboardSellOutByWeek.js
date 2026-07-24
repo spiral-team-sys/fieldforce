@@ -13,6 +13,7 @@ import { useSelector } from 'react-redux';
 import { DataSummary } from '../../../Controller/DashboardController';
 import { IconAnimation } from '../../../Control/IconAnimation/IconAnimation';
 import { Icon } from '@rneui/base';
+import SpiralIcon from '../../../Control/Icon/SpiralIcon';
 
 const DashboardSellOutByWeek = ({ navigation, viewHeight, info }) => {
   const [data, setData] = useState([]);

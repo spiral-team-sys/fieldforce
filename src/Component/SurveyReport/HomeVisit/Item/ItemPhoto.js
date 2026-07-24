@@ -8,6 +8,7 @@ import NativeCamera from '../../../../Control/NativeCamera';
 import { checkLinkType, UUIDGenerator } from '../../../../Core/Helper';
 import { TODAY } from '../../../../Core/Utility';
 import { normalizePhotoItems } from './ItemHelpers';
+import SpiralIcon from '../../../../Control/Icon/SpiralIcon';
 
 const THUMB_SIZE = 80;
 

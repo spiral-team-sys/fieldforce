@@ -54,6 +54,7 @@ import { bindActionCreators } from '@reduxjs/toolkit';
 import { AppCreateAction } from '../../Core/ReduxController';
 import { LoadingView } from '../../Control/ItemLoading/index';
 import { SellOutInput } from './SellOutInput';
+import SpiralIcon from '../../Control/Icon/SpiralIcon';
 const styles = StyleSheet.create({
   separator: {
     width: '100%',
@@ -120,7 +121,7 @@ class Sellout extends PureComponent {
         employInfoJson.typeId !== 170
           ? await getRequestSellout()
           : await getRequestSelloutSS();
-    } catch (error) {}
+    } catch (error) { }
     let lstCompetitor = await getCompetitorSO();
     let products = await getProductSO();
     // await console.log(products,"e");

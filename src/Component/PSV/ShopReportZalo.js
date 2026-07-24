@@ -42,6 +42,7 @@ import {
 } from '../../Controller/PhotoController';
 import CustomListView from '../../Control/Custom/CustomListView';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
+import SpiralIcon from '../../Control/Icon/SpiralIcon';
 
 const isWorkingPlanItem = item =>
   `${item?.TableName || item?.tableName || ''}`.toLowerCase() === 'workingplan';
@@ -122,7 +123,7 @@ export const ShopReportZalo = ({ route, navigation }) => {
 
       if (isWorkingPlanEntry) {
         const option = { title: 'Tin nhắn', message: textMessage };
-        await onShareLocalFile(option, () => {});
+        await onShareLocalFile(option, () => { });
         return;
       }
 
@@ -141,11 +142,10 @@ export const ShopReportZalo = ({ route, navigation }) => {
 
       const downloadPromises = filterPhotos.map(async (imageUrl, i) => {
         let extension = Platform.OS === 'android' ? 'file://' : '';
-        let albumPath = `${extension}${
-          Platform.OS === 'android'
+        let albumPath = `${extension}${Platform.OS === 'android'
             ? RNFS.PicturesDirectoryPath
             : RNFS.LibraryDirectoryPath
-        }`;
+          }`;
         let fileName = `${new Date().getTime()}_${i}.png`;
         let filePathInAlbum = `${albumPath}/${fileName}`;
         urlImages.push(filePathInAlbum);

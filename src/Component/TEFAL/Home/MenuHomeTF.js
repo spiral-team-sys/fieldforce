@@ -25,6 +25,7 @@ import ShopList from '../../Shops/ShopList';
 import { getStoreList } from '../../../Controller/WorkController';
 import { LoadingView } from '../../../Control/ItemLoading';
 import { SHOP_RELOAD_EVENT, ScreenShops } from '../../Shops/Page/ScreenShops';
+import SpiralIcon from '../../../Control/Icon/SpiralIcon';
 
 const SPACING = 15;
 const ICON_SIZE = 65;
@@ -267,12 +268,11 @@ export const MenuHomeTF = ({ navigation, isLoading }) => {
       justifyContent: 'center',
     },
     indicator: {
-      width: `${
-        100 -
+      width: `${100 -
         (dataMenu.length <= 4
           ? 0
           : dataMenu.length * 10 - (dataMenu.length >= 10 ? 30 : 8))
-      }%`,
+        }%`,
       height: 6,
       borderRadius: 8,
       backgroundColor: appcolor.primary,

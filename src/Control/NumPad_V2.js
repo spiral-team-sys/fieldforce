@@ -9,6 +9,7 @@ import {
 import { Icon } from '@rneui/themed';
 import { useSelector } from 'react-redux';
 import { scaleSize } from '../Themes/AppsStyle';
+import SpiralIcon from './Icon/SpiralIcon';
 
 export const NumPad_V2 = React.forwardRef((props, refNumPad) => {
   const { appcolor } = useSelector(state => state.GAppState);

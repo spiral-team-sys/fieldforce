@@ -20,6 +20,7 @@ import { fontWeightBold } from '../../Themes/AppsStyle';
 import useApp from '../../Hooks/useApp';
 import { SetKpiInfo } from '../../Redux/action';
 import ViewPictures from '../Gallary/ViewPictures';
+import SpiralIcon from '../Icon/SpiralIcon';
 let RNFS = require('react-native-fs');
 
 const versionApp = DeviceInfo.getVersion();
@@ -217,9 +218,8 @@ const DrawerMenu = ({ navigation }) => {
         )}
       </View>
       <View style={styles.employeeView}>
-        <Text style={styles.titleEmployeeCode}>{`Mã nhân viên: ${
-          userinfo?.employeeCode || 'Chưa có thông tin'
-        }`}</Text>
+        <Text style={styles.titleEmployeeCode}>{`Mã nhân viên: ${userinfo?.employeeCode || 'Chưa có thông tin'
+          }`}</Text>
         <Text style={styles.titleEmployee}>{userinfo?.employeeName}</Text>
       </View>
       <View style={styles.contentView}>

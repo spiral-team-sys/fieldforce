@@ -4,6 +4,7 @@ import { Icon, Text } from '@rneui/themed';
 
 import CustomListView from '../../../../../Control/Custom/CustomListView';
 import OTTimeItem from '../Items/OTTimeItem';
+import SpiralIcon from '../../../../../Control/Icon/SpiralIcon';
 
 const OTTimeSelector = ({
   appcolor,

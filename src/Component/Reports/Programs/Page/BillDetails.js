@@ -5,6 +5,7 @@ import { useSelector } from 'react-redux';
 import { fontWeightBold } from '../../../../Themes/AppsStyle';
 import { formatNumber } from '../../../../Core/Helper';
 import CustomListView from '../../../../Control/Custom/CustomListView';
+import SpiralIcon from '../../../../Control/Icon/SpiralIcon';
 
 const BillDetails = ({ item }) => {
   const { appcolor } = useSelector(state => state.GAppState);
@@ -130,9 +131,8 @@ const BillDetails = ({ item }) => {
               style={styles.subTitleValue}
             >{`${item.fromDate} - ${item.toDate}`}</Text>
           )}
-          <Text style={styles.subTitleValue}>{`${
-            item.shopName || 'N/A'
-          }`}</Text>
+          <Text style={styles.subTitleValue}>{`${item.shopName || 'N/A'
+            }`}</Text>
           <Text style={styles.subTitleValue}>{`${item.buyer_tax_code}`}</Text>
           <Text style={styles.subTitleValue}>{`${item.buyer_tax_code}`}</Text>
         </View>

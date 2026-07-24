@@ -25,6 +25,7 @@ import {
   minWidthTab,
 } from '../../../../Core/Utility';
 import { deviceHeight } from '../../../../Themes/AppsStyle';
+import SpiralIcon from '../../../../Control/Icon/SpiralIcon';
 
 export const FollowOrderList = ({ navigation, route }) => {
   const { appcolor } = useSelector(state => state.GAppState);

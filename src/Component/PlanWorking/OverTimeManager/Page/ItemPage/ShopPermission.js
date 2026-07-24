@@ -12,6 +12,7 @@ import { removeVietnameseTones } from '../../../../../Core/Helper';
 import { FlashList } from '@shopify/flash-list';
 import { SearchData } from '../../../../../Control/SearchData/SearchData';
 import _ from 'lodash';
+import SpiralIcon from '../../../../../Control/Icon/SpiralIcon';
 
 export const ShopPermission = ({ data, info, callIndex }) => {
   const { appcolor } = useSelector(state => state.GAppState);
@@ -93,9 +94,8 @@ export const ShopPermission = ({ data, info, callIndex }) => {
         </View>
         <View style={{ width: '90%' }}>
           <TouchableOpacity onPress={onPress}>
-            <Text style={styles.titleMain}>{`${index + 1}. ${
-              item.ShopName
-            }`}</Text>
+            <Text style={styles.titleMain}>{`${index + 1}. ${item.ShopName
+              }`}</Text>
             <Text
               style={styles.subTitleMain}
             >{`Mã cửa hàng: ${item.ShopCode}`}</Text>

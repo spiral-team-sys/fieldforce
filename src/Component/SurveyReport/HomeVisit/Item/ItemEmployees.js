@@ -13,6 +13,7 @@ import { SearchData } from '../../../../Control/SearchData/SearchData';
 import { fontWeightBold } from '../../../../Themes/AppsStyle';
 import CustomListView from '../../../../Control/Custom/CustomListView';
 import { normalizeText, parseJsonArray, parseTextValues } from './ItemHelpers';
+import SpiralIcon from '../../../../Control/Icon/SpiralIcon';
 
 const ItemEmployees = ({ item, onUpdateItem }) => {
   const { appcolor } = useSelector(state => state.GAppState);

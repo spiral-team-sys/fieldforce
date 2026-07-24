@@ -16,6 +16,7 @@ import { launchImageLibrary } from 'react-native-image-picker';
 import { InsertPhotosItem } from '../../Controller/PhotoController';
 import { alertNotify } from '../../Core/Utility';
 import NativeCamera from '../../Control/NativeCamera';
+import SpiralIcon from '../../Control/Icon/SpiralIcon';
 
 const styles = StyleSheet.create({
   rowTitleSellOutCheck: {

@@ -19,6 +19,7 @@ import ActionSheet, { SheetManager } from 'react-native-actions-sheet';
 import _ from 'lodash';
 import { FieldCoachingDetails } from './FieldCoachingDetails';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
+import SpiralIcon from '../../../Control/Icon/SpiralIcon';
 
 export const FieldCoachingForEmployee = ({ navigation }) => {
   const insets = useSafeAreaInsets();

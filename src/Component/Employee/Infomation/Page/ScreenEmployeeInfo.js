@@ -32,6 +32,7 @@ import CustomListView from '../../../../Control/Custom/CustomListView';
 import ViewPictures from '../../../../Control/Gallary/ViewPictures';
 import moment from 'moment';
 import _ from 'lodash';
+import SpiralIcon from '../../../../Control/Icon/SpiralIcon';
 
 if (
   Platform.OS === 'android' &&
@@ -410,8 +411,8 @@ export const ScreenEmployeeInfo = ({ navigation }) => {
                 (info.avatarPath || null) !== null
                   ? info.avatarPath
                   : info.photo.includes('file://')
-                  ? info.photo
-                  : `${URLDEFAULT}${info.photo}`,
+                    ? info.photo
+                    : `${URLDEFAULT}${info.photo}`,
             }}
             containerStyle={styles.viewPhoto}
             onPress={onShowImage}

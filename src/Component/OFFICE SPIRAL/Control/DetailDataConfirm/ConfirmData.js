@@ -3,6 +3,7 @@ import { StyleSheet, TouchableOpacity, View } from 'react-native';
 import { Icon, Text } from '@rneui/themed';
 import { useSelector } from 'react-redux';
 import { UtilityOffice } from '../UtilityOffice';
+import SpiralIcon from '../../../../Control/Icon/SpiralIcon';
 
 export const ConfirmData = ({
   typeConfirm,
@@ -41,8 +42,8 @@ export const ConfirmData = ({
         itemConfirm[typeConfirm] == 1
           ? appcolor.success
           : itemConfirm[typeConfirm] == -1
-          ? appcolor.grey
-          : appcolor.info,
+            ? appcolor.grey
+            : appcolor.info,
       borderRadius: 5,
     },
     viewReject: {
@@ -52,8 +53,8 @@ export const ConfirmData = ({
         itemConfirm[typeConfirm] == -1
           ? appcolor.red
           : itemConfirm[typeConfirm] == 1
-          ? appcolor.grey
-          : appcolor.info,
+            ? appcolor.grey
+            : appcolor.info,
       marginEnd: 5,
       borderRadius: 5,
     },

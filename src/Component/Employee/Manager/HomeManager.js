@@ -29,6 +29,7 @@ import { ConfirmsResigns } from '../../LG/ConfirmsResigns';
 import { EmployeeEdit } from './ItemUpdate/EmployeeEdit';
 import _ from 'lodash';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
+import SpiralIcon from '../../../Control/Icon/SpiralIcon';
 
 export const HomeManager = ({ navigation }) => {
   const insets = useSafeAreaInsets();
@@ -78,7 +79,7 @@ export const HomeManager = ({ navigation }) => {
   const handlerConfirmResign = () => {
     SheetManager.show('confirmresign');
   };
-  const handleViewImage = () => {};
+  const handleViewImage = () => { };
   const onSearchEmployee = async text => {
     const value = removeVietnameseTones(text);
     const filterlist = _.filter(dataMain, e => {
@@ -226,9 +227,8 @@ export const HomeManager = ({ navigation }) => {
             {item.listShopName !== null && (
               <Text style={styles.titleContent}>{`${item.listShopName}`}</Text>
             )}
-            <Text style={styles.titleContent}>{`Địa chỉ: ${
-              item.address || 'Không có địa chỉ'
-            }`}</Text>
+            <Text style={styles.titleContent}>{`Địa chỉ: ${item.address || 'Không có địa chỉ'
+              }`}</Text>
             <Text style={styles.titleContent}>{`SĐT: ${item.mobile}`}</Text>
             <Text style={styles.titleContent}>{`Email: ${item.email}`}</Text>
             <Text

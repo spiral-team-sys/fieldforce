@@ -3,6 +3,7 @@ import moment from 'moment';
 import { useCallback, useEffect, useRef, useState } from 'react';
 import { Text, TouchableOpacity, View } from 'react-native';
 import { useSelector } from 'react-redux';
+import SpiralIcon from '../../../Control/Icon/SpiralIcon';
 
 export const InfoBlock = ({ title, children, styles }) => {
   return (
@@ -97,10 +98,10 @@ export const CountTime = ({ item }) => {
       {remainingTime.minutes}:{remainingTime.seconds < 10 ? '0' : ''}
       {remainingTime.seconds}
       {remainingTime.days == 0 &&
-      remainingTime.hours == 0 &&
-      remainingTime.minutes == 0 &&
-      remainingTime.seconds == 0 &&
-      item.confirm == 0
+        remainingTime.hours == 0 &&
+        remainingTime.minutes == 0 &&
+        remainingTime.seconds == 0 &&
+        item.confirm == 0
         ? ' - Hết thời gian giải trình'
         : ''}
     </Text>

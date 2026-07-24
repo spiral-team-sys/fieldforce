@@ -3,6 +3,7 @@ import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
 import { useSelector } from 'react-redux';
 import { Icon } from '@rneui/themed';
 import FormGroup from '../../../Content/FormGroup';
+import SpiralIcon from '../../../Control/Icon/SpiralIcon';
 
 const ItemInput = forwardRef((props, _ref) => {
   const {

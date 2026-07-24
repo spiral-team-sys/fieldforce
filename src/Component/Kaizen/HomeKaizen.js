@@ -22,6 +22,7 @@ import {
   useSafeAreaInsets,
 } from 'react-native-safe-area-context';
 import { fontWeightBold } from '../../Themes/AppsStyle';
+import SpiralIcon from '../../Control/Icon/SpiralIcon';
 
 const DATE = new Date();
 const normalizeKaizenList = (list = []) => {
@@ -30,8 +31,7 @@ const normalizeKaizenList = (list = []) => {
   list.forEach((item, index) => {
     const key =
       item?.guid ||
-      `${item?.id || 'item'}_${item?.createdDate || index}_${
-        item?.employeeId || item?.employeeName || ''
+      `${item?.id || 'item'}_${item?.createdDate || index}_${item?.employeeId || item?.employeeName || ''
       }`;
     if (!dataMap.has(key)) {
       dataMap.set(key, { ...item, _rowKey: key });
@@ -147,8 +147,7 @@ const HomeKaizen = ({ navigation }) => {
           ) {
             toastError(
               'Dữ liệu bắt buộc',
-              `Số lượng "${item.nameVN}" không đủ, vui lòng kiểm tra lại(${
-                listPhotoLocal.length
+              `Số lượng "${item.nameVN}" không đủ, vui lòng kiểm tra lại(${listPhotoLocal.length
               }/${item.numberValue || 1})!`,
             );
             return false;

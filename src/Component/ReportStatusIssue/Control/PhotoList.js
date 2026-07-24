@@ -18,6 +18,7 @@ import _ from 'lodash';
 import { MultipleShowImage } from '../../../Control/MultipleShowImage';
 import { GetPhotosIssue } from '../../../Controller/IssueController';
 import { URLDEFAULT } from '../../../Core/URLs';
+import SpiralIcon from '../../../Control/Icon/SpiralIcon';
 
 export const PhotoList = ({ typeMain, itemIssue, callBackData }) => {
   const { appcolor, shopinfo, kpiinfo } = useSelector(state => state.GAppState);

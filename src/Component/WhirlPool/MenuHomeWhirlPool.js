@@ -9,6 +9,7 @@ import { scaleSize } from '../../Themes/AppsStyle';
 import WebViewUI from '../../Content/WebViewUI';
 import DeviceInfo from 'react-native-device-info';
 import { TRAINEEKEY } from '../../Core/URLs';
+import SpiralIcon from '../../Control/Icon/SpiralIcon';
 //import { ACTION } from '../../Core/ReduxController';
 export const MenuHomeWhirlPool = ({ navigation, menus }) => {
   const appcolor = useSelector(state => state.GAppState.appcolor);

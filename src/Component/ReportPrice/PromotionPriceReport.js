@@ -48,6 +48,7 @@ import { isIphoneX } from '../../Core/is-iphone-x';
 import moment from 'moment';
 import { toastError, toastSuccess } from '../../Utils/configToast';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
+import SpiralIcon from '../../Control/Icon/SpiralIcon';
 // import { getCompetitorProductBy } from "../../Controller/WorkController";
 const HEADER_SIZE = Platform.OS == 'android' ? 60 : isIphoneX() ? 90 : 20;
 
@@ -193,11 +194,11 @@ export const PromotionPriceReport = ({ navigation, route }) => {
       toastError(
         'Thông báo',
         'Vui lòng nhập giá đúng định dạng.' +
-          (data.dataTab.length > 1
-            ? ' - Ngành hàng : ' + product[0].categoryName
-            : '') +
-          '\n- Sản phẩm: ' +
-          product[0].productName,
+        (data.dataTab.length > 1
+          ? ' - Ngành hàng : ' + product[0].categoryName
+          : '') +
+        '\n- Sản phẩm: ' +
+        product[0].productName,
       );
       return;
     }
@@ -218,11 +219,11 @@ export const PromotionPriceReport = ({ navigation, route }) => {
       toastError(
         'Thông báo',
         'Bạn đã nhập Niêm yết nhưng chưa nhập Khuyến mãi.' +
-          (data.dataTab.length > 1
-            ? ' - Ngành hàng : ' + product[0].categoryName
-            : '') +
-          '\n- Sản phẩm: ' +
-          product[0].productName,
+        (data.dataTab.length > 1
+          ? ' - Ngành hàng : ' + product[0].categoryName
+          : '') +
+        '\n- Sản phẩm: ' +
+        product[0].productName,
       );
       return;
     }
@@ -241,11 +242,11 @@ export const PromotionPriceReport = ({ navigation, route }) => {
       toastError(
         'Thông báo',
         'Bạn đã nhập Khuyến mãi nhưng chưa nhập Niêm yết.' +
-          (data.dataTab.length > 1
-            ? ' - Ngành hàng : ' + product[0].categoryName
-            : '') +
-          '\n- Sản phẩm: ' +
-          product[0].productName,
+        (data.dataTab.length > 1
+          ? ' - Ngành hàng : ' + product[0].categoryName
+          : '') +
+        '\n- Sản phẩm: ' +
+        product[0].productName,
       );
       return;
     }
@@ -265,11 +266,11 @@ export const PromotionPriceReport = ({ navigation, route }) => {
       toastError(
         'Thông báo',
         'Nhập giá niêm yết phải lớn hơn giá Khuyến mãi!.' +
-          (data.dataTab.length > 1
-            ? ' - Ngành hàng : ' + product[0].categoryName
-            : '') +
-          '\n- Sản phẩm: ' +
-          product[0].productName,
+        (data.dataTab.length > 1
+          ? ' - Ngành hàng : ' + product[0].categoryName
+          : '') +
+        '\n- Sản phẩm: ' +
+        product[0].productName,
       );
       return;
     }
@@ -287,11 +288,11 @@ export const PromotionPriceReport = ({ navigation, route }) => {
       toastError(
         'Thông báo',
         'Bạn chưa chọn loại khuyến mãi!.' +
-          (data.dataTab.length > 1
-            ? ' - Ngành hàng : ' + product[0].categoryName
-            : '') +
-          '\n- Sản phẩm: ' +
-          product[0].productName,
+        (data.dataTab.length > 1
+          ? ' - Ngành hàng : ' + product[0].categoryName
+          : '') +
+        '\n- Sản phẩm: ' +
+        product[0].productName,
       );
       return;
     }
@@ -309,11 +310,11 @@ export const PromotionPriceReport = ({ navigation, route }) => {
       toastError(
         'Thông báo',
         'Bạn đã chọn loại khuyến mãi nhưng chưa nhập giá!.' +
-          (data.dataTab.length > 1
-            ? ' - Ngành hàng : ' + product[0].categoryName
-            : '') +
-          '\n- Sản phẩm: ' +
-          product[0].productName,
+        (data.dataTab.length > 1
+          ? ' - Ngành hàng : ' + product[0].categoryName
+          : '') +
+        '\n- Sản phẩm: ' +
+        product[0].productName,
       );
       return;
     }
@@ -331,11 +332,11 @@ export const PromotionPriceReport = ({ navigation, route }) => {
       toastError(
         'Thông báo',
         'Tên quà tặng quá ngắn, tối thiểu 5 kí tự!.' +
-          (data.dataTab.length > 1
-            ? ' - Ngành hàng : ' + product[0].categoryName
-            : '') +
-          '\n- Sản phẩm: ' +
-          product[0].productName,
+        (data.dataTab.length > 1
+          ? ' - Ngành hàng : ' + product[0].categoryName
+          : '') +
+        '\n- Sản phẩm: ' +
+        product[0].productName,
       );
       return;
     }
@@ -354,11 +355,11 @@ export const PromotionPriceReport = ({ navigation, route }) => {
       toastError(
         'Thông báo',
         'Bạn chọn tặng quà nhưng chưa nhập tên quà tặng!.' +
-          (data.dataTab.length > 1
-            ? ' - Ngành hàng : ' + product[0].categoryName
-            : '') +
-          '\n- Sản phẩm: ' +
-          product[0].productName,
+        (data.dataTab.length > 1
+          ? ' - Ngành hàng : ' + product[0].categoryName
+          : '') +
+        '\n- Sản phẩm: ' +
+        product[0].productName,
       );
       return;
     }
@@ -481,10 +482,10 @@ export const PromotionPriceReport = ({ navigation, route }) => {
               ? () => uploadAction()
               : null
             : () => {
-                toastSuccess(
-                  'Bạn đã hoàn thành chấm công nên không thể gửi dữ liệu báo cáo',
-                );
-              }
+              toastSuccess(
+                'Bạn đã hoàn thành chấm công nên không thể gửi dữ liệu báo cáo',
+              );
+            }
         }
         middleFunc={openSheet}
         iconMiddle="poll-h"
@@ -981,8 +982,8 @@ const RenderItemProductComponent = ({
           ? (countClear.current = isClearByCate.isClear)
           : null
         : isClearByCate.isClearByCate - countClear.current > 0
-        ? (countClear.current = isClearByCate.isClearByCate)
-        : null;
+          ? (countClear.current = isClearByCate.isClearByCate)
+          : null;
 
       const intValue = parsePriceText(text);
       const nextRetailPrice =
@@ -1066,10 +1067,10 @@ const RenderItemProductComponent = ({
         priceType === 'discountPrice'
           ? isError
           : getPriceError(
-              nextDiscountPrice,
-              nextRetailPrice,
-              nextDiscountPrice,
-            );
+            nextDiscountPrice,
+            nextRetailPrice,
+            nextDiscountPrice,
+          );
       syncPriceErrorsToData(nextRetailError, nextDiscountError);
       if (priceType === 'retailPrice') {
         setInputRetail(intValue || '');
@@ -1130,8 +1131,8 @@ const RenderItemProductComponent = ({
         ? (countClear.current = isClearByCate.isClear)
         : null
       : isClearByCate.isClearByCate - countClear.current > 0
-      ? (countClear.current = isClearByCate.isClearByCate)
-      : null;
+        ? (countClear.current = isClearByCate.isClearByCate)
+        : null;
 
     if (promotionType === itemType.id) {
       item.promotionType = 0;
@@ -1161,7 +1162,7 @@ const RenderItemProductComponent = ({
     promotionType === 0
       ? 'Chọn loại'
       : listPromotiponType.find(i => i.id === promotionType)?.name ||
-        'Chọn loại';
+      'Chọn loại';
   const retailPriceText = useMemo(
     () => formatPriceText(inputRetailPrice),
     [inputRetailPrice],
@@ -1172,9 +1173,8 @@ const RenderItemProductComponent = ({
   );
   return (
     <View key={'item__ii_' + index} style={styles.card}>
-      <Text numberOfLines={2} style={styles.productName}>{`${index + 1}. ${
-        item.productName
-      }`}</Text>
+      <Text numberOfLines={2} style={styles.productName}>{`${index + 1}. ${item.productName
+        }`}</Text>
       <Text numberOfLines={1} style={styles.productCode}>
         {item.productCode}
       </Text>

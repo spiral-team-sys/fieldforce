@@ -44,6 +44,7 @@ import { POSMContext } from '../../../Controller/POSMController';
 import { NumPad } from '../../../Control/NumPad';
 import { LoadingView } from '../../../Control/ItemLoading';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
+import SpiralIcon from '../../../Control/Icon/SpiralIcon';
 
 export const InputDisplayByModel = ({
   navigation,
@@ -397,7 +398,7 @@ export const InputDisplayByModel = ({
           keyboardVerticalOffset={Platform.OS === 'ios' ? 40 : 10}
         >
           {dataTab.length === data.dataTabByCompe.length &&
-          dataTab.length > 0 ? (
+            dataTab.length > 0 ? (
             <ViewItemTab
               data={data}
               Status={Status}
@@ -645,8 +646,8 @@ const RenderItem = ({
     item?.posmList && item?.posmList !== 'null'
       ? item?.posmList
       : Status !== 1
-      ? `[{"posmId": 0,"posmName": "Thêm","productId":${item.productId}}]`
-      : `[]`,
+        ? `[{"posmId": 0,"posmName": "Thêm","productId":${item.productId}}]`
+        : `[]`,
   );
   const _sheetPosm = useRef();
 
@@ -849,12 +850,12 @@ const RenderItemInput = ({
     itemInput.displayType == 'priceValue'
       ? item.price || ''
       : itemInput.displayType == 'quantityStock'
-      ? item.quantityStock === 0
-        ? 0
-        : item.quantityStock || ''
-      : item.displayValue === 0
-      ? 0
-      : item.displayValue || '',
+        ? item.quantityStock === 0
+          ? 0
+          : item.quantityStock || ''
+        : item.displayValue === 0
+          ? 0
+          : item.displayValue || '',
   );
   const [_, setmutate] = useState();
 
@@ -941,8 +942,8 @@ const RenderItemInput = ({
     listInput.length === 4
       ? 3
       : listInput.length > 4 || listInput.length === 3
-      ? 2
-      : 1;
+        ? 2
+        : 1;
   return (
     <View
       style={[
@@ -950,8 +951,8 @@ const RenderItemInput = ({
         {
           width:
             (indexInput > 2 && indexInput < 5) ||
-            listInput.length % 2 !== 0 ||
-            itemInput.displayType === 'priceValue'
+              listInput.length % 2 !== 0 ||
+              itemInput.displayType === 'priceValue'
               ? '33%'
               : '22%',
         },
@@ -974,8 +975,8 @@ const RenderItemInput = ({
                 backgroundColor:
                   (itemInput.displayType === 'fsmValue' &&
                     item.fsmValueError === 1) ||
-                  (itemInput.displayType === 'priceValue' &&
-                    item.priceError === 1)
+                    (itemInput.displayType === 'priceValue' &&
+                      item.priceError === 1)
                     ? appcolor.warning
                     : appcolor.light,
               },

@@ -32,6 +32,7 @@ import { LoadingView } from '../../../Control/ItemLoading';
 import filter from 'lodash';
 import { DEFAULT_COLOR } from '../../../Core/URLs';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
+import SpiralIcon from '../../../Control/Icon/SpiralIcon';
 
 export const ViewPriceCompetitorDealer = memo(
   ({ navigation, route, data, dataByDealer }) => {
@@ -137,10 +138,10 @@ export const ViewPriceCompetitorDealer = memo(
                 : 150
               : 110
             : dataView.listConfig?.isNoteBySKU == 1
-            ? dataView.listInput?.length > 1
-              ? 230
-              : 190
-            : 150,
+              ? dataView.listInput?.length > 1
+                ? 230
+                : 190
+              : 150,
         backgroundColor: appcolor.light,
         justifyContent: 'center',
         padding: 5,
@@ -239,8 +240,8 @@ export const ViewPriceCompetitorDealer = memo(
                       {arr.length == 0
                         ? 'Không có sản phẩm'
                         : arr.length > 5
-                        ? 'Đã xem hết'
-                        : ''}
+                          ? 'Đã xem hết'
+                          : ''}
                     </Text>
                   }
                   renderItem={({ item, index }) => (
@@ -1021,7 +1022,7 @@ const RenderItemNote = ({
                       borderWidth: 0.5,
                       borderColor:
                         itSelect.name == item[showList.noteSelect?.noteType] ||
-                        (isSelectOther && itSelect.id == 100)
+                          (isSelectOther && itSelect.id == 100)
                           ? appcolor.success
                           : appcolor.grayLight,
                     }}
@@ -1150,7 +1151,7 @@ const RenderItemInput = ({
       );
     } else if (
       intValue %
-        (itemInput.min && itemInput.min !== '' ? itemInput.min : 1000) >
+      (itemInput.min && itemInput.min !== '' ? itemInput.min : 1000) >
       0
     ) {
       intValue = null;
@@ -1163,8 +1164,7 @@ const RenderItemInput = ({
       intValue = null;
       isError = 1;
       ToastError(
-        `Nhập ${itemInput.name} không được lớn hơn ${
-          itemInput.max || 1000000000
+        `Nhập ${itemInput.name} không được lớn hơn ${itemInput.max || 1000000000
         }!`,
         'Lỗi',
         'top',

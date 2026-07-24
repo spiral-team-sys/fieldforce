@@ -48,6 +48,7 @@ import { IconAnimation } from '../../../Control/IconAnimation/IconAnimation';
 import NativeCamera from '../../../Control/NativeCamera';
 import { deletePhoto } from '../../../Controller/PhotoController';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
+import SpiralIcon from '../../../Control/Icon/SpiralIcon';
 
 // employeeId
 // employeeName
@@ -137,8 +138,8 @@ const ViewListComment = ({ itemSelect, data }) => {
           selectStatus.id !== undefined
             ? selectStatus.id
             : itemSelect?.itemIssue?.issueStatus == 1
-            ? 2
-            : itemSelect?.itemIssue?.issueStatus,
+              ? 2
+              : itemSelect?.itemIssue?.issueStatus,
         guiid: newGuiId,
         status: 1,
         noteFeedBack: '[]',

@@ -5,6 +5,7 @@ import { Icon, Text } from '@rneui/base';
 import { deviceWidth, fontWeightBold } from '../../../../Themes/AppsStyle';
 import useNotification from '../../../../Hooks/useNotification';
 import { DataSummary } from '../../../../Controller/DashboardController';
+import SpiralIcon from '../../../../Control/Icon/SpiralIcon';
 
 const HeaderView = ({ navigation }) => {
   const { appcolor, userinfo } = useSelector(state => state.GAppState);
@@ -113,9 +114,8 @@ const HeaderView = ({ navigation }) => {
       <View style={styles.viewTop} />
       <View style={styles.contentMain}>
         <View style={styles.contentTitle}>
-          <Text style={styles.titleWelcome}>{`Xin chào, ${
-            userinfo.fisrtName || userinfo.employeeName
-          }`}</Text>
+          <Text style={styles.titleWelcome}>{`Xin chào, ${userinfo.fisrtName || userinfo.employeeName
+            }`}</Text>
           <Text
             style={styles.titleEmployeeCode}
           >{`Mã ${userinfo?.employeeCode}`}</Text>

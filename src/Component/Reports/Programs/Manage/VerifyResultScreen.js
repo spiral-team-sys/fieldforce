@@ -29,6 +29,7 @@ import ActionSheet, { SheetManager } from 'react-native-actions-sheet';
 import BillDetails from '../Page/BillDetails';
 import { LoadingView } from '../../../../Control/ItemLoading';
 import _ from 'lodash';
+import SpiralIcon from '../../../../Control/Icon/SpiralIcon';
 
 const VerifyResultScreen = ({ navigation }) => {
   const insets = useSafeAreaInsets();

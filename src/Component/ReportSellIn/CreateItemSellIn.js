@@ -26,6 +26,7 @@ import RNFS from 'react-native-fs';
 import { AppNameBuild, mitsuApp, psvApp, _competitorId } from '../../Core/URLs';
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
+import SpiralIcon from '../../Control/Icon/SpiralIcon';
 const TYPE_ORDER_NO = 'TYPE_ORDER_NO';
 const TYPE_COMPETITOR = 'TYPE_COMPETITOR';
 const TYPE_CATEGORY = 'TYPE_CATEGORY';
@@ -102,37 +103,37 @@ const CreateItemSellIn = ({ dataWork, resultEvent, itemSellIn }) => {
     let dataItem =
       itemSellIn !== undefined
         ? (dataItem = {
-            id: itemSellIn.id,
-            OrderNo: itemSellIn.orderNo,
-            DealerId: itemSellIn.dealerId,
-            DealerName: itemSellIn.dealerName,
-            CompetitorId: itemSellIn.competitorId,
-            CompetitorName: itemSellIn.competitorName,
-            CategoryId: itemSellIn.categoryId,
-            CategoryName: itemSellIn.categoryName,
-            ProductId: itemSellIn.productId,
-            ProductName: itemSellIn.productName,
-            Quantity: itemSellIn.quantityValue,
-            Notes: itemSellIn.notes,
-            Price: itemSellIn.priceValue,
-            PriceNPP: itemSellIn.priceNPP,
-            isUploaded: itemSellIn.isUploaded,
-          })
+          id: itemSellIn.id,
+          OrderNo: itemSellIn.orderNo,
+          DealerId: itemSellIn.dealerId,
+          DealerName: itemSellIn.dealerName,
+          CompetitorId: itemSellIn.competitorId,
+          CompetitorName: itemSellIn.competitorName,
+          CategoryId: itemSellIn.categoryId,
+          CategoryName: itemSellIn.categoryName,
+          ProductId: itemSellIn.productId,
+          ProductName: itemSellIn.productName,
+          Quantity: itemSellIn.quantityValue,
+          Notes: itemSellIn.notes,
+          Price: itemSellIn.priceValue,
+          PriceNPP: itemSellIn.priceNPP,
+          isUploaded: itemSellIn.isUploaded,
+        })
         : (dataItem = {
-            OrderNo: 'HD' + moment(new Date()).format('DDMMYY'),
-            DealerId: 0,
-            DealerName: 'Nhà phân phối',
-            CompetitorId: 0,
-            CompetitorName: 'Hãng',
-            CategoryId: 0,
-            CategoryName: 'Ngành hàng',
-            ProductId: 0,
-            ProductName: 'Sản phẩm',
-            Quantity: '',
-            Notes: '',
-            Price: '',
-            PriceNPP: '',
-          });
+          OrderNo: 'HD' + moment(new Date()).format('DDMMYY'),
+          DealerId: 0,
+          DealerName: 'Nhà phân phối',
+          CompetitorId: 0,
+          CompetitorName: 'Hãng',
+          CategoryId: 0,
+          CategoryName: 'Ngành hàng',
+          ProductId: 0,
+          ProductName: 'Sản phẩm',
+          Quantity: '',
+          Notes: '',
+          Price: '',
+          PriceNPP: '',
+        });
 
     await setItemSave(dataItem);
   };
@@ -555,14 +556,14 @@ const CreateItemSellIn = ({ dataWork, resultEvent, itemSellIn }) => {
             />
             {(itemSave.CompetitorId == _competitorId ||
               itemSave.CompetitorId === 0) && (
-              <RenderSelectItem
-                appcolor={appcolor}
-                typeView={TYPE_PRODUCTS}
-                styles={styles}
-                selectValue={itemSave.ProductName}
-                onPress={handlerChangeItem}
-              />
-            )}
+                <RenderSelectItem
+                  appcolor={appcolor}
+                  typeView={TYPE_PRODUCTS}
+                  styles={styles}
+                  selectValue={itemSave.ProductName}
+                  onPress={handlerChangeItem}
+                />
+              )}
             {AppNameBuild === psvApp && (
               <RenderInput
                 appcolor={appcolor}
@@ -717,8 +718,8 @@ const RenderInput = ({ typeView, inputValue, handlerTextChange }) => {
             typeView === TYPE_PRICE_NPP
               ? 'Giá nhà phân phối'
               : typeView === TYPE_PRICE
-              ? 'Giá sản phẩm'
-              : 'Số lượng'
+                ? 'Giá sản phẩm'
+                : 'Số lượng'
           }
           inputStyle={{ textAlign: 'right' }}
           value={text || ''}

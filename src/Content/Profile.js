@@ -80,6 +80,7 @@ import base64 from 'react-native-base64';
 // import Mailer from 'react-native-mail';
 import { CheckProfileEmployee } from '../Controller/EmployeeController';
 import NativeCamera from '../Control/NativeCamera';
+import SpiralIcon from '../Control/Icon/SpiralIcon';
 
 const templateFormat = {
   cmnd: '###-##-####',
@@ -513,12 +514,12 @@ class Profile extends PureComponent {
       ) {
         alertWarning(
           'Vui lòng chọn đầy đủ ' +
-            PROVINCE +
-            ' - ' +
-            DISTRICT +
-            ' - ' +
-            TOWN +
-            ' của Địa chỉ thường trú',
+          PROVINCE +
+          ' - ' +
+          DISTRICT +
+          ' - ' +
+          TOWN +
+          ' của Địa chỉ thường trú',
         );
         return;
       }
@@ -531,12 +532,12 @@ class Profile extends PureComponent {
       ) {
         alertWarning(
           'Vui lòng chọn đầy đủ ' +
-            PROVINCE +
-            ' - ' +
-            DISTRICT +
-            ' - ' +
-            TOWN +
-            ' của Địa chỉ tạm trú',
+          PROVINCE +
+          ' - ' +
+          DISTRICT +
+          ' - ' +
+          TOWN +
+          ' của Địa chỉ tạm trú',
         );
         return;
       }
@@ -642,10 +643,10 @@ class Profile extends PureComponent {
           selectedDay:
             type == 'DATE' || stateName == 'workingDate'
               ? Moment(this.state?.[baseState]?.[stateName]?.toString()).format(
-                  'YYYY-MM-DD',
-                )
+                'YYYY-MM-DD',
+              )
               : this.state?.[baseState]?.[stateName]?.toString() ||
-                Moment().format('yyyy-MM-DD'),
+              Moment().format('yyyy-MM-DD'),
           stateName: stateName,
           baseState: baseState,
         },
@@ -802,8 +803,8 @@ class Profile extends PureComponent {
     this.state.isShowChangePass === true
       ? this.onChangePress()
       : this.state.isUploadCMND === true
-      ? this.handlerUploadCMND()
-      : this.changeEmployeeInfo();
+        ? this.handlerUploadCMND()
+        : this.changeEmployeeInfo();
   };
   uploadFile = async e => {
     let photoinfo = {};
@@ -848,7 +849,7 @@ class Profile extends PureComponent {
       [
         {
           text: 'Huỷ',
-          onPress: () => {},
+          onPress: () => { },
           style: 'cancel',
         },
         {
@@ -1062,10 +1063,10 @@ class Profile extends PureComponent {
         ) {
           ToastError(
             'Bạn chưa chụp ' +
-              (!this.state.employeeData.photo ? 'ảnh đại diện' : '') +
-              (!this.state.employeeData.cmndBefore ? ', mặt trước CMND' : '') +
-              (!this.state.employeeData.cmndAfter ? ', mặt sau CMND' : '') +
-              '!!!',
+            (!this.state.employeeData.photo ? 'ảnh đại diện' : '') +
+            (!this.state.employeeData.cmndBefore ? ', mặt trước CMND' : '') +
+            (!this.state.employeeData.cmndAfter ? ', mặt sau CMND' : '') +
+            '!!!',
           );
           return;
         } else if (
@@ -1074,9 +1075,9 @@ class Profile extends PureComponent {
         ) {
           ToastError(
             'Bạn đã chụp hình nhưng chưa nhấn nút cập nhật thông tin' +
-              (!this.state.isUpdateAvatar ? ' ảnh đại diện ' : '') +
-              (!this.state.isUpdateCMND ? ' ảnh CMND trước/sau' : '') +
-              '!!!',
+            (!this.state.isUpdateAvatar ? ' ảnh đại diện ' : '') +
+            (!this.state.isUpdateCMND ? ' ảnh CMND trước/sau' : '') +
+            '!!!',
           );
           return;
         }
@@ -1153,7 +1154,7 @@ class Profile extends PureComponent {
                   }}
                 >
                   {this.state.photoNewest !== null &&
-                  this.state.photoNewest !== undefined ? (
+                    this.state.photoNewest !== undefined ? (
                     <Image
                       resizeMode="cover"
                       style={{
@@ -1485,10 +1486,10 @@ class Profile extends PureComponent {
                       this.state.CMNDBeforePath !== ''
                         ? this.state.CMNDBeforePath
                         : this.getStringPhotoCMND(
-                            this.state.employeeData.cmndBefore !== null
-                              ? this.state.employeeData.cmndBefore
-                              : '',
-                          ),
+                          this.state.employeeData.cmndBefore !== null
+                            ? this.state.employeeData.cmndBefore
+                            : '',
+                        ),
                   }}
                   style={{
                     width: 200,
@@ -1504,10 +1505,10 @@ class Profile extends PureComponent {
                       this.state.CMNDAfterPath !== ''
                         ? this.state.CMNDAfterPath
                         : this.getStringPhotoCMND(
-                            this.state.employeeData.cmndAfter !== null
-                              ? this.state.employeeData.cmndAfter
-                              : '',
-                          ),
+                          this.state.employeeData.cmndAfter !== null
+                            ? this.state.employeeData.cmndAfter
+                            : '',
+                        ),
                   }}
                   style={{ width: 200, height: 120 }}
                   onPress={() => this.handlerSetTypeCMND('CMND_AFTER')}
@@ -1691,9 +1692,8 @@ class Profile extends PureComponent {
                       justifyContent: 'space-between',
                     }}
                   >
-                    <Text style={{ color: appcolor.dark }}>{`Thông tin ${
-                      this.state.isUseCanCuoc ? 'căn cước' : 'CMND'
-                    }`}</Text>
+                    <Text style={{ color: appcolor.dark }}>{`Thông tin ${this.state.isUseCanCuoc ? 'căn cước' : 'CMND'
+                      }`}</Text>
                     <Switch
                       value={this.state.isUseCanCuoc}
                       trackColor={{ false: '#767577', true: '#81b0ff' }}
@@ -1706,9 +1706,8 @@ class Profile extends PureComponent {
                   </View>
                   <RenderFormGroup
                     index={6}
-                    title={`Số ${
-                      this.state.isUseCanCuoc ? 'căn cước' : 'CMND'
-                    }`}
+                    title={`Số ${this.state.isUseCanCuoc ? 'căn cước' : 'CMND'
+                      }`}
                     placeholder={
                       this.state.isUseCanCuoc
                         ? templateFormat.cancuoc
@@ -1930,7 +1929,7 @@ class Profile extends PureComponent {
             ) : (
               this.state.currentBS?.type === 'PROVINCE' &&
               (this.state.currentBS?.stateName == 'identityCardBy' &&
-              this.state.isUseCanCuoc == true ? (
+                this.state.isUseCanCuoc == true ? (
                 <RenderPlaceIssued
                   appcolor={appcolor}
                   onSelect={this.handleChangeForm}
@@ -2031,7 +2030,7 @@ class Profile extends PureComponent {
                     const indexAnswer = 1;
                     const answerAddressItem =
                       this.state.currentBS?.itemParent?.anwserItem?.[
-                        indexAnswer
+                      indexAnswer
                       ] || {};
                     const isSelected =
                       answerAddressItem?.anwserValue === item.name;
@@ -2141,7 +2140,7 @@ class Profile extends PureComponent {
                     const indexAnswer = 2;
                     const answerAddressItem =
                       this.state.currentBS?.itemParent?.anwserItem?.[
-                        indexAnswer
+                      indexAnswer
                       ] || {};
                     const isSelected =
                       answerAddressItem?.anwserValue === item.name;
@@ -2247,7 +2246,7 @@ class Profile extends PureComponent {
                     const indexAnswer = 3;
                     const answerAddressItem =
                       this.state.currentBS?.itemParent?.anwserItem?.[
-                        indexAnswer
+                      indexAnswer
                       ] || {};
                     const isSelected =
                       answerAddressItem?.anwserValue === item.name;
@@ -2834,8 +2833,8 @@ const RenderAddress = ({
           ? item.permanentProvince
           : PROVINCE
         : !!item.addressProvince
-        ? item.addressProvince
-        : PROVINCE
+          ? item.addressProvince
+          : PROVINCE
       : PROVINCE;
   const districtValue =
     item !== null
@@ -2844,8 +2843,8 @@ const RenderAddress = ({
           ? item.permanentDistrict
           : DISTRICT
         : !!item.addressDistrict
-        ? item.addressDistrict
-        : DISTRICT
+          ? item.addressDistrict
+          : DISTRICT
       : DISTRICT;
   const townValue =
     item !== null
@@ -2854,8 +2853,8 @@ const RenderAddress = ({
           ? item.permanentTown
           : TOWN
         : !!item.addressTown
-        ? item.addressTown
-        : TOWN
+          ? item.addressTown
+          : TOWN
       : TOWN;
 
   return (

@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { StyleSheet, TouchableOpacity, View } from 'react-native';
 import { Icon } from '@rneui/themed';
 import { useSelector } from 'react-redux';
+import SpiralIcon from '../../Icon/SpiralIcon';
 
 export const ButtonArrow = ({
   iconName,

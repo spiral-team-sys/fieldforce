@@ -26,6 +26,7 @@ import ActionSheet, { SheetManager } from 'react-native-actions-sheet';
 import { YearMonthSelected } from '../../Control/YearMonthSelected';
 import moment from 'moment';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
+import SpiralIcon from '../../Control/Icon/SpiralIcon';
 
 const TYPE_SHIFT = 'SHIFT';
 const TYPE_OFF = 'OFF';

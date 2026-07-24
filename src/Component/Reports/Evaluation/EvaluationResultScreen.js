@@ -13,6 +13,7 @@ import { Icon, Text } from '@rneui/base';
 import { fontWeightBold } from '../../../Themes/AppsStyle';
 import moment from 'moment';
 import _ from 'lodash';
+import SpiralIcon from '../../../Control/Icon/SpiralIcon';
 
 const EvaluationResultScreen = ({ navigation }) => {
   const { appcolor, shopinfo, kpiinfo } = useSelector(state => state.GAppState);
@@ -202,9 +203,8 @@ const EvaluationResultScreen = ({ navigation }) => {
               <Text style={styles.titleScore}>{`${item.avgPoint}`}</Text>
             </View>
           </View>
-          <Text style={styles.titleTime}>{`Người đánh giá: ${
-            item.evaluatorName
-          } - ${moment(item.evaluationDate).fromNow()}`}</Text>
+          <Text style={styles.titleTime}>{`Người đánh giá: ${item.evaluatorName
+            } - ${moment(item.evaluationDate).fromNow()}`}</Text>
         </TouchableOpacity>
       </View>
     );

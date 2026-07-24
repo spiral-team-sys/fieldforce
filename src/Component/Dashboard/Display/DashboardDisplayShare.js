@@ -14,6 +14,7 @@ import { ScreenDashboard } from './Page/ScreenDashboard';
 import { ScreenTableProducts } from './Page/ScreenTableProducts';
 import { setDashboardFilter } from '../../../Redux/action';
 import _ from 'lodash';
+import SpiralIcon from '../../../Control/Icon/SpiralIcon';
 
 export const DashboardDisplayShare = ({
   info,

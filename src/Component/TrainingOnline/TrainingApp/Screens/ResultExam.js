@@ -22,6 +22,7 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 import { checkNetwork } from '../../../../Core/Utility';
 import { ToastError } from '../../../../Core/Helper';
 import LoadingViewLG from '../../../../Control/ItemLoading/LoadingViewLG';
+import SpiralIcon from '../../../../Control/Icon/SpiralIcon';
 
 const ResultExam = ({ navigation, route }) => {
   const { appcolor, kpiinfo, tokenAutoLogin } = useSelector(
@@ -47,7 +48,7 @@ const ResultExam = ({ navigation, route }) => {
       return true;
     });
     return () => {
-      BackHandler.removeEventListener('hardwareBackPress', () => {});
+      BackHandler.removeEventListener('hardwareBackPress', () => { });
     };
   }, []);
 

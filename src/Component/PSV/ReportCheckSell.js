@@ -39,6 +39,7 @@ import { LoadingView } from '../../Control/ItemLoading';
 import moment from 'moment';
 import { checkLockReport } from '../../Controller/ShopController';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
+import SpiralIcon from '../../Control/Icon/SpiralIcon';
 
 export const ReportCheckSell = ({ navigation, route }) => {
   const { kpiinfo, appcolor, workinfo, shopinfo } = useSelector(
@@ -176,9 +177,9 @@ export const ReportCheckSell = ({ navigation, route }) => {
       );
       ToastError(
         'Vui lòng nhập giá đúng định dạng. Hãng: ' +
-          competitor[0].competitorName +
-          ' - Ngành hàng : ' +
-          competitor[0].categoryName,
+        competitor[0].competitorName +
+        ' - Ngành hàng : ' +
+        competitor[0].categoryName,
         'Thông báo',
         'top',
       );
@@ -197,9 +198,9 @@ export const ReportCheckSell = ({ navigation, route }) => {
       let competitor = data.dataCompetitorF.filter(it => it.id === items[0].id);
       ToastError(
         'Bạn đã nhập tổng tiền nhưng chưa nhập số lượng. Hãng: ' +
-          competitor[0].competitorName +
-          ' - Ngành hàng : ' +
-          competitor[0].categoryName,
+        competitor[0].competitorName +
+        ' - Ngành hàng : ' +
+        competitor[0].categoryName,
         'Thông báo',
         'top',
       );
@@ -221,9 +222,9 @@ export const ReportCheckSell = ({ navigation, route }) => {
       );
       ToastError(
         'Bạn đã nhập tổng tiền nhưng số lượng phải lớn hơn 0. Hãng: ' +
-          competitor[0].competitorName +
-          ' - Ngành hàng : ' +
-          competitor[0].categoryName,
+        competitor[0].competitorName +
+        ' - Ngành hàng : ' +
+        competitor[0].categoryName,
         'Thông báo',
         'top',
       );
@@ -263,7 +264,7 @@ export const ReportCheckSell = ({ navigation, route }) => {
       async () => {
         await loadData();
       },
-      async () => {},
+      async () => { },
     );
   };
   const filterProduct = async text => {
@@ -423,7 +424,7 @@ export const ReportCheckSell = ({ navigation, route }) => {
               editable={item.upload === 1 ? false : true}
               selectTextOnFocus={item.upload === 1 ? false : true}
               onChangeText={text => onChangeText(text, 'quantity')}
-              // onEndEditing={e => endInputDisplay(item, e)}
+            // onEndEditing={e => endInputDisplay(item, e)}
             />
           )}
         />
@@ -540,8 +541,8 @@ export const ReportCheckSell = ({ navigation, route }) => {
               ? uploadAction()
               : null
             : ToastSuccess(
-                'Bạn đã hoàn thành chấm công nên không thể gửi dữ liệu báo cáo',
-              )
+              'Bạn đã hoàn thành chấm công nên không thể gửi dữ liệu báo cáo',
+            )
         }
         leftFunc={() => navigation.goBack()}
         middleFunc={openSheet}

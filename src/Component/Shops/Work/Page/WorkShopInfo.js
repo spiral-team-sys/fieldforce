@@ -31,6 +31,7 @@ import { LOCATION_INFO } from '../../../../Utils/LocationInfo';
 import { UpdateShopInfo } from '../../../../Controller/ShopController';
 import ViewPictures from '../../../../Control/Gallary/ViewPictures';
 import CustomListView from '../../../../Control/Custom/CustomListView';
+import SpiralIcon from '../../../../Control/Icon/SpiralIcon';
 
 const WorkShopInfo = () => {
   const { appcolor, shopinfo } = useSelector(state => state.GAppState);

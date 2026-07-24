@@ -12,6 +12,7 @@ import { fontWeightBold } from '../../../../Themes/AppsStyle';
 import { DashboardAPI } from '../../../../API/DashboardAPI';
 import { FlashList } from '@shopify/flash-list';
 import { NotificationAPI } from '../../../../API/NotificationAPI';
+import SpiralIcon from '../../../../Control/Icon/SpiralIcon';
 
 export const NotifyDisplayReport = ({ itemData }) => {
   const { appcolor } = useSelector(state => state.GAppState);

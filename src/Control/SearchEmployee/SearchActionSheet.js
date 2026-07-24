@@ -14,6 +14,7 @@ import _ from 'lodash';
 import { Text } from '@rneui/themed';
 import { deviceHeight } from '../../Core/Utility';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
+import SpiralIcon from '../Icon/SpiralIcon';
 
 export const SearchActionSheet = ({ data, actionResult }) => {
   const insets = useSafeAreaInsets();

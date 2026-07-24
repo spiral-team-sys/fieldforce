@@ -12,6 +12,7 @@ import { useSelector } from 'react-redux';
 import { deviceWidth } from '../../Core/Utility';
 import { Icon } from '@rneui/themed';
 import { URLDEFAULT, _competitorId, _competitorName } from '../../Core/URLs';
+import SpiralIcon from '../../Control/Icon/SpiralIcon';
 
 if (
   Platform.OS === 'android' &&

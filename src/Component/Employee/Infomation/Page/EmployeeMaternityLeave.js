@@ -55,6 +55,7 @@ import NativeCamera from '../../../../Control/NativeCamera';
 import ViewPictures from '../../../../Control/Gallary/ViewPictures';
 import WebViewScreen from '../../../../Control/Webview/WebViewScreen';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
+import SpiralIcon from '../../../../Control/Icon/SpiralIcon';
 
 if (
   Platform.OS === 'android' &&
@@ -312,8 +313,8 @@ export const EmployeeMaternityLeave = ({ navigation, route }) => {
           );
           const childCount = normalizeNumberInRange(
             maternityInfo?.childCount ||
-              maternityInfo?.maternityChildCount ||
-              1,
+            maternityInfo?.maternityChildCount ||
+            1,
             1,
             2,
           );
@@ -422,8 +423,8 @@ export const EmployeeMaternityLeave = ({ navigation, route }) => {
   const getPdfViewerUrl = url => {
     return Platform.OS === 'android'
       ? `https://docs.google.com/gview?embedded=true&url=${encodeURIComponent(
-          url,
-        )}`
+        url,
+      )}`
       : url;
   };
   const openPdfViewer = (url, title = 'Tệp tin') => {
@@ -937,15 +938,15 @@ export const EmployeeMaternityLeave = ({ navigation, route }) => {
           !isMaternityLeave
             ? 'cloud-upload-alt'
             : data.dataMaternityLeave.confirm === 3
-            ? 'trash'
-            : null
+              ? 'trash'
+              : null
         }
         rightFunc={() =>
           !isMaternityLeave
             ? uploadAction()
             : data.dataMaternityLeave.confirm === 3
-            ? deleteMaternity()
-            : null
+              ? deleteMaternity()
+              : null
         }
         disabled={isSubmitting}
       />
@@ -980,8 +981,8 @@ export const EmployeeMaternityLeave = ({ navigation, route }) => {
                     data.dataMaternityLeave?.confirm == 1
                       ? appcolor.success
                       : data.dataMaternityLeave?.confirm == 0
-                      ? appcolor.danger
-                      : appcolor.warning
+                        ? appcolor.danger
+                        : appcolor.warning
                   }
                   name={'check'}
                   type="font-awesome"
@@ -997,8 +998,8 @@ export const EmployeeMaternityLeave = ({ navigation, route }) => {
                       data.dataMaternityLeave?.confirm == 1
                         ? appcolor.success
                         : data.dataMaternityLeave?.confirm == 0
-                        ? appcolor.danger
-                        : appcolor.warning,
+                          ? appcolor.danger
+                          : appcolor.warning,
                   }}
                 >
                   {data.dataMaternityLeave?.confirmContent}
@@ -1023,8 +1024,8 @@ export const EmployeeMaternityLeave = ({ navigation, route }) => {
                         data.dataMaternityLeave?.confirm == 1
                           ? appcolor.success
                           : data.dataMaternityLeave?.confirm == 0
-                          ? appcolor.danger
-                          : appcolor.warning,
+                            ? appcolor.danger
+                            : appcolor.warning,
                     }}
                   >
                     Gửi lại
@@ -1408,7 +1409,7 @@ export const EmployeeMaternityLeave = ({ navigation, route }) => {
                           source={{
                             uri:
                               isMaternityLeave &&
-                              it.photoPath.includes('uploaded')
+                                it.photoPath.includes('uploaded')
                                 ? URLDEFAULT + it.photoPath
                                 : it.photoPath || '',
                           }}
@@ -1488,7 +1489,7 @@ export const EmployeeMaternityLeave = ({ navigation, route }) => {
                         >
                           {(data.dataFile?.size >= 1000000
                             ? (data.dataFile?.size / 1000000).toFixed(2) +
-                              'MB, '
+                            'MB, '
                             : (data.dataFile.size / 1000).toFixed(2) + 'KB, ') +
                             'PDF tài liệu'}
                         </Text>

@@ -31,6 +31,7 @@ import { Message, MessageInfo, Token } from '../../Core/Helper';
 import { URL_UPLOAD_AUDIT_DISPLAY } from '../../Core/URLs';
 import Moment from 'moment';
 import { uploadAllDataPhoto } from '../../Controller/PhotoController';
+import SpiralIcon from '../../Control/Icon/SpiralIcon';
 
 const offsetKeyboard = Platform.OS === 'android' ? 200 : 200;
 const offsetSwitch = Platform.OS === 'android' ? 1.1 : 0.8;
@@ -333,7 +334,7 @@ export default class DisplayProgram extends Component {
                   count += 1;
                   this.setState({ countPhoto: count });
                 },
-                () => {},
+                () => { },
               );
 
             this.refreshData();

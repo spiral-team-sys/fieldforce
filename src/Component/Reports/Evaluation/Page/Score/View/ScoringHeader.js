@@ -1,6 +1,7 @@
 import { Icon, Text } from '@rneui/base';
 import React from 'react';
 import { TouchableOpacity, View } from 'react-native';
+import SpiralIcon from '../../../../../../Control/Icon/SpiralIcon';
 
 const ScoringHeader = ({ styles, appcolor, item, onClose }) => (
   <View style={styles.header}>

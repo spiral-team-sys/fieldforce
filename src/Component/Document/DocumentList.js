@@ -27,6 +27,7 @@ import { SafeAreaProvider, SafeAreaView } from 'react-native-safe-area-context';
 import WebViewUI from '../../Content/WebViewUI';
 import WebViewScreen from '../../Control/Webview/WebViewScreen';
 import CustomListView from '../../Control/Custom/CustomListView';
+import SpiralIcon from '../../Control/Icon/SpiralIcon';
 
 const DocSupport = '.pdf,.docx,.doc,.xlsx,.xls,.pptx,.ppt';
 const MediaSupport = '.png,.jpeg,.jpg,.webp,.mp4,.mp3,';
@@ -182,9 +183,8 @@ export const DocumentList = ({ navigation, route }) => {
               }}
             />
           )}
-          <ListItem.Title style={{ color: appcolor.dark }}>{`${index + 1}/ ${
-            item.DocumentName
-          }`}</ListItem.Title>
+          <ListItem.Title style={{ color: appcolor.dark }}>{`${index + 1}/ ${item.DocumentName
+            }`}</ListItem.Title>
           <ListItem.Subtitle
             style={{ color: appcolor.dark, fontStyle: 'italic' }}
           >

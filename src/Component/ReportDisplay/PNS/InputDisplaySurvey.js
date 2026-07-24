@@ -24,6 +24,7 @@ import { MaterialTabBar, Tabs } from 'react-native-collapsible-tab-view';
 import { Badge } from '@rneui/themed';
 import { LoadingView } from '../../../Control/ItemLoading';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
+import SpiralIcon from '../../../Control/Icon/SpiralIcon';
 
 export const InputDisplaySurvey = ({
   navigation,
@@ -251,8 +252,8 @@ const FromEdit = ({
                 badgeStyle={{
                   backgroundColor:
                     item.posmValue &&
-                    item.posmValue !== 'null' &&
-                    item.posmValue !== ''
+                      item.posmValue !== 'null' &&
+                      item.posmValue !== ''
                       ? appcolor.success
                       : appcolor.danger,
                 }}
@@ -272,8 +273,8 @@ const FromEdit = ({
                 badgeStyle={{
                   backgroundColor:
                     item.posmValue &&
-                    item.posmValue !== 'null' &&
-                    item.posmValue !== ''
+                      item.posmValue !== 'null' &&
+                      item.posmValue !== ''
                       ? appcolor.success
                       : appcolor.danger,
                 }}
@@ -315,8 +316,8 @@ const FromEdit = ({
                 badgeStyle={{
                   backgroundColor:
                     item.posmValue &&
-                    item.posmValue !== 'null' &&
-                    item.posmValue !== ''
+                      item.posmValue !== 'null' &&
+                      item.posmValue !== ''
                       ? appcolor.success
                       : appcolor.danger,
                 }}
@@ -366,8 +367,8 @@ const FromEdit = ({
                 badgeStyle={{
                   backgroundColor:
                     item.posmValue &&
-                    item.posmValue !== 'null' &&
-                    item.posmValue !== ''
+                      item.posmValue !== 'null' &&
+                      item.posmValue !== ''
                       ? appcolor.success
                       : appcolor.danger,
                 }}
@@ -416,8 +417,8 @@ const FromEdit = ({
                 badgeStyle={{
                   backgroundColor:
                     item.posmValue &&
-                    item.posmValue !== 'null' &&
-                    item.posmValue !== ''
+                      item.posmValue !== 'null' &&
+                      item.posmValue !== ''
                       ? appcolor.success
                       : appcolor.danger,
                 }}
@@ -458,8 +459,8 @@ const FromEdit = ({
                 badgeStyle={{
                   backgroundColor:
                     item.posmValue &&
-                    item.posmValue !== 'null' &&
-                    item.posmValue !== ''
+                      item.posmValue !== 'null' &&
+                      item.posmValue !== ''
                       ? appcolor.success
                       : appcolor.danger,
                 }}
@@ -495,7 +496,7 @@ const RenderItem = ({ item, index, data, appcolor, listCheck, Styles }) => {
     markedDatesDefault: {
       [moment(
         (item.kpi1 === 5 && item.kpi1 !== -1 && item.posmValue?.toString()) ||
-          new Date(),
+        new Date(),
       )
         .format('YYYY-MM-DD')
         .toString()]: {
@@ -507,7 +508,7 @@ const RenderItem = ({ item, index, data, appcolor, listCheck, Styles }) => {
     markedDates: {
       [moment(
         (item.kpi1 === 5 && item.kpi1 !== -1 && item.posmValue?.toString()) ||
-          new Date(),
+        new Date(),
       )
         .format('YYYY-MM-DD')
         .toString()]: {

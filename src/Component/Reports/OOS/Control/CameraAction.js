@@ -18,6 +18,7 @@ import { PhotoGallery } from './PhotoGallery';
 import { optionConfirm } from '../../../../Core/Utility';
 import { fontWeightBold } from '../../../../Themes/AppsStyle';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
+import SpiralIcon from '../../../../Control/Icon/SpiralIcon';
 
 export const CameraAction = forwardRef((props, _ref) => {
   const insets = useSafeAreaInsets();

@@ -53,6 +53,7 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from '@reduxjs/toolkit';
 import { AppCreateAction } from '../../Core/ReduxController';
 import { HeaderCustom } from '../../Content/HeaderCustom';
+import SpiralIcon from '../../Control/Icon/SpiralIcon';
 
 const offsetKeyboard = Platform.OS === 'android' ? 200 : 200;
 const HEADER_SIZE = Platform.OS == 'android' ? 110 : isIphoneX() ? 90 : 20;
@@ -421,13 +422,13 @@ class StockoutEPS extends Component {
       let subcatTem =
         AppNameBuild === 'lg'
           ? await getSubCatProductLG(
-              this.state.competitorSelect,
-              this.state.categorySelect,
-            )
+            this.state.competitorSelect,
+            this.state.categorySelect,
+          )
           : await getSubCatProduct(
-              this.state.competitorSelect,
-              this.state.categorySelect,
-            );
+            this.state.competitorSelect,
+            this.state.categorySelect,
+          );
       subcatTem.forEach(itemSC => {
         LstSubCategory.push(itemSC);
       });
@@ -444,15 +445,15 @@ class StockoutEPS extends Component {
     let lstItemsProgram =
       AppNameBuild === 'lg'
         ? await getItemsProductLG(
-            this.state.competitorSelect,
-            this.state.categorySelect,
-            this.state.subCategorySelect,
-          )
+          this.state.competitorSelect,
+          this.state.categorySelect,
+          this.state.subCategorySelect,
+        )
         : await getItemsProduct(
-            this.state.competitorSelect,
-            this.state.categorySelect,
-            this.state.subCategorySelect,
-          );
+          this.state.competitorSelect,
+          this.state.categorySelect,
+          this.state.subCategorySelect,
+        );
     let resDisplay = await getStockoutResult(this.props.route.params.workinfo);
 
     this.setState({ lstShow: [] });
@@ -675,23 +676,23 @@ class StockoutEPS extends Component {
             {(AppNameBuild === mitsuApp ||
               AppNameBuild === nokiaApp ||
               AppNameBuild === 'bk') && (
-              <TextInput
-                onChangeText={text => this.updateNoteCommon(text)}
-                defaultValue={this.state.noteCommon}
-                numberOfLines={3}
-                multiline={true}
-                placeholder="Nhập ghi chú ở đây"
-                style={{
-                  borderWidth: 1,
-                  height: 50,
-                  borderRadius: 5,
-                  justifyContent: 'flex-start',
-                  borderColor: appcolor.greyLight,
-                  fontSize: 13,
-                  marginRight: 10,
-                }}
-              ></TextInput>
-            )}
+                <TextInput
+                  onChangeText={text => this.updateNoteCommon(text)}
+                  defaultValue={this.state.noteCommon}
+                  numberOfLines={3}
+                  multiline={true}
+                  placeholder="Nhập ghi chú ở đây"
+                  style={{
+                    borderWidth: 1,
+                    height: 50,
+                    borderRadius: 5,
+                    justifyContent: 'flex-start',
+                    borderColor: appcolor.greyLight,
+                    fontSize: 13,
+                    marginRight: 10,
+                  }}
+                ></TextInput>
+              )}
 
             <View style={{ flexDirection: 'row', paddingTop: 15 }}>
               <View
@@ -1257,8 +1258,8 @@ const ChangeValue = async (text, item, workinfo, refreshView, NoteCommon) => {
       NoteCommon !== undefined && NoteCommon !== null
         ? NoteCommon
         : item.displayComment !== null
-        ? item.displayComment
-        : '',
+          ? item.displayComment
+          : '',
     upload: 0,
   };
 

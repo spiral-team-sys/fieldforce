@@ -30,6 +30,7 @@ import { ACTION } from '../../../../Redux/types';
 import FormGroup from '../../../../Content/FormGroup';
 import { dataAll } from '../../../../Themes/DataTest';
 import { toastError, toastSuccess } from '../../../../Utils/configToast';
+import SpiralIcon from '../../../../Control/Icon/SpiralIcon';
 
 export const ViewByGroup = ({ dataMain, handleShowMenu }) => {
   const { appcolor, selectData, userinfo } = useSelector(

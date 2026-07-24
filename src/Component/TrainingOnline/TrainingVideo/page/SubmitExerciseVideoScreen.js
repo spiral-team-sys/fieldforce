@@ -35,6 +35,7 @@ import { URLDEFAULT } from '../../../../Core/URLs';
 import { Video as VideoCompress } from 'react-native-compressor';
 import RNFS from 'react-native-fs';
 import { ProgressView } from '../control/ProgressView';
+import SpiralIcon from '../../../../Control/Icon/SpiralIcon';
 // import { launchImageLibrary } from 'react-native-image-picker';
 
 const SubmitExerciseVideoScreen = ({ route, navigation }) => {
@@ -199,8 +200,7 @@ const SubmitExerciseVideoScreen = ({ route, navigation }) => {
     if (realDurationSec < minSec || realDurationSec > maxSec) {
       Alert.alert(
         'Video không hợp lệ',
-        `Video dài ${parseInt(Math.round(realDurationSec) / 60)} phút ${
-          Math.round(realDurationSec) % 60
+        `Video dài ${parseInt(Math.round(realDurationSec) / 60)} phút ${Math.round(realDurationSec) % 60
         } giây, yêu cầu từ ${minMinutes} đến ${maxMinutes} phút.`,
       );
 

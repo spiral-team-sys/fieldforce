@@ -20,6 +20,7 @@ import { deviceWidth, unicodeToBase64 } from '../../../Core/Utility';
 import { GetMenu } from '../../../Controller/UserController';
 import { scaleSize } from '../../../Themes/AppsStyle';
 import { COLOR } from './UtilityOffice';
+import SpiralIcon from '../../../Control/Icon/SpiralIcon';
 
 export const MenuOffice = ({ navigation, isLoading }) => {
   const [scrollX] = useState(new Animated.Value(0));

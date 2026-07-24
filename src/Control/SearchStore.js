@@ -18,6 +18,7 @@ import ActionSheet, { SheetManager } from 'react-native-actions-sheet';
 import _ from 'lodash';
 import CustomListView from './Custom/CustomListView';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
+import SpiralIcon from './Icon/SpiralIcon';
 
 export const SearchStore = forwardRef((props, ref) => {
   const insets = useSafeAreaInsets();
@@ -143,11 +144,11 @@ export const SearchStore = forwardRef((props, ref) => {
             it.distant =
               it.latitude > 0 && currentPos?.latitude > 0
                 ? await distanceBetween2Points(
-                    currentPos.latitude,
-                    currentPos.longitude,
-                    it.latitude,
-                    it.longitude,
-                  )
+                  currentPos.latitude,
+                  currentPos.longitude,
+                  it.latitude,
+                  it.longitude,
+                )
                 : null;
           });
           const numAscendingUp = await [...shopSort].sort(
@@ -161,11 +162,11 @@ export const SearchStore = forwardRef((props, ref) => {
             it.distant =
               it.latitude > 0 && currentPos?.latitude > 0
                 ? await distanceBetween2Points(
-                    currentPos.latitude,
-                    currentPos.longitude,
-                    it.latitude,
-                    it.longitude,
-                  )
+                  currentPos.latitude,
+                  currentPos.longitude,
+                  it.latitude,
+                  it.longitude,
+                )
                 : null;
           });
           const numAscendingDown = await [...shopSort].sort(
@@ -211,11 +212,11 @@ export const SearchStore = forwardRef((props, ref) => {
     const _distant =
       item.latitude > 0 && currentPos?.latitude > 0
         ? distanceBetween2Points(
-            currentPos.latitude,
-            currentPos.longitude,
-            item.latitude,
-            item.longitude,
-          )
+          currentPos.latitude,
+          currentPos.longitude,
+          item.latitude,
+          item.longitude,
+        )
         : null;
     const onPress = () => {
       onSelected(item);

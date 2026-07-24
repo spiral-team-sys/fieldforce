@@ -16,6 +16,7 @@ import { isNotInteger, ToastError } from '../../../Core/Helper';
 import { Tabs, MaterialTabBar } from 'react-native-collapsible-tab-view';
 import { deviceHeight, deviceWidth, minWidthTab } from '../../../Core/Utility';
 import { LoadingView } from '../../../Control/ItemLoading';
+import SpiralIcon from '../../../Control/Icon/SpiralIcon';
 
 const PRICE_VALUE = 1;
 const NET_VALUE = 2;
@@ -156,36 +157,36 @@ export const InputDisplay = ({ reload, upload, workinfo }) => {
       if (mPrice == null) {
         ToastError(
           'Sản phẩm thứ ' +
-            (i + 1) +
-            ' : ' +
-            item.productName +
-            '\nMục : ' +
-            textAlert +
-            '\nBạn chưa nhập giá trị!',
+          (i + 1) +
+          ' : ' +
+          item.productName +
+          '\nMục : ' +
+          textAlert +
+          '\nBạn chưa nhập giá trị!',
           'error',
           'top',
         );
       } else if (mPrice >= 1000) {
         ToastError(
           'Sản phẩm thứ ' +
-            (i + 1) +
-            ' : ' +
-            item.productName +
-            '\nMục ' +
-            textAlert +
-            '\nSố tiền không được lẻ, vui lòng nhập lại!',
+          (i + 1) +
+          ' : ' +
+          item.productName +
+          '\nMục ' +
+          textAlert +
+          '\nSố tiền không được lẻ, vui lòng nhập lại!',
           'error',
           'top',
         );
       } else {
         ToastError(
           'Sản phẩm thứ ' +
-            (i + 1) +
-            ' : ' +
-            item.productName +
-            '\nMục ' +
-            textAlert +
-            '\nNhập sai định dạng, vui lòng nhập lại!',
+          (i + 1) +
+          ' : ' +
+          item.productName +
+          '\nMục ' +
+          textAlert +
+          '\nNhập sai định dạng, vui lòng nhập lại!',
           'error',
           'top',
         );
@@ -368,8 +369,8 @@ export const InputDisplay = ({ reload, upload, workinfo }) => {
                     item.displayValue === null || isNaN(item.displayValue)
                       ? ''
                       : item.displayValue
-                          .toString()
-                          .replace(/\B(?=(\d{3})+(?!\d))/g, ',')
+                        .toString()
+                        .replace(/\B(?=(\d{3})+(?!\d))/g, ',')
                     // item.displayValue.toLocaleString("en-US")
                   }
                   blurOnSubmit={false}
@@ -429,8 +430,8 @@ export const InputDisplay = ({ reload, upload, workinfo }) => {
                     item.priceValue === null || isNaN(item.priceValue)
                       ? ''
                       : item.priceValue
-                          .toString()
-                          .replace(/\B(?=(\d{3})+(?!\d))/g, ',')
+                        .toString()
+                        .replace(/\B(?=(\d{3})+(?!\d))/g, ',')
                     //.toLocaleString("en-US")
                   }
                   blurOnSubmit={false}
@@ -491,8 +492,8 @@ export const InputDisplay = ({ reload, upload, workinfo }) => {
                     item.netValue === null || isNaN(item.netValue)
                       ? ''
                       : item.netValue
-                          .toString()
-                          .replace(/\B(?=(\d{3})+(?!\d))/g, ',')
+                        .toString()
+                        .replace(/\B(?=(\d{3})+(?!\d))/g, ',')
                     //.toLocaleString("en-US")
                   }
                   blurOnSubmit={false}
@@ -552,8 +553,8 @@ export const InputDisplay = ({ reload, upload, workinfo }) => {
                     item.fsmValue === null || isNaN(item.fsmValue)
                       ? ''
                       : item.fsmValue
-                          .toString()
-                          .replace(/\B(?=(\d{3})+(?!\d))/g, ',')
+                        .toString()
+                        .replace(/\B(?=(\d{3})+(?!\d))/g, ',')
                     //.toLocaleString("en-US")
                   }
                   blurOnSubmit={false}

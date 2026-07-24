@@ -26,6 +26,7 @@ import LottieView from 'lottie-react-native';
 import { DataSummary } from '../../../Controller/DashboardController';
 import { IconAnimation } from '../../../Control/IconAnimation/IconAnimation';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
+import SpiralIcon from '../../../Control/Icon/SpiralIcon';
 export const DashboardRoute = ({ navigation, typeDashboard }) => {
   const insets = useSafeAreaInsets();
   const { appcolor } = useSelector(state => state.GAppState);
@@ -202,7 +203,7 @@ export const DashboardRoute = ({ navigation, typeDashboard }) => {
           onPress={isLoading ? null : LoadData}
           style={styles.actionSync}
         >
-          <SpiralIconAnimation
+          <IconAnimation
             isLoop={isLoading}
             sourceIcon={require('../../../Themes/lotties/sync_load.json')}
           />
@@ -412,10 +413,10 @@ const Routing = ({ data, route }) => {
   const routeList = JSON.parse(data || '[]');
   var totalTime = routeList.length
     ? routeList
-        ?.map(o => o.Duration.value)
-        .reduce((a, c) => {
-          return a + c;
-        })
+      ?.map(o => o.Duration.value)
+      .reduce((a, c) => {
+        return a + c;
+      })
     : 0;
   totalTime = ConvertSecondToTime(totalTime);
   const rowTimeLine = ({ item, index }) => {

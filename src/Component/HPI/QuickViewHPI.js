@@ -18,6 +18,7 @@ import { ColorRand } from '../../Core/Helper';
 import ActionSheet, { SheetManager } from 'react-native-actions-sheet';
 import { IconAnimation } from '../../Control/IconAnimation/IconAnimation';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
+import SpiralIcon from '../../Control/Icon/SpiralIcon';
 const tDay = new Date();
 const totalDay = new Date(tDay.getFullYear(), tDay.getMonth() + 1, 0).getDate();
 const currentDay = tDay.getDate();
@@ -238,7 +239,7 @@ export const QuickViewHPI = ({ navigation, refreshing }) => {
         }}
         onPress={() => reloadDashboard()}
       >
-        <SpiralIconAnimation
+        <IconAnimation
           isLoop={isRefresh}
           sourceIcon={require('../../Themes/lotties/refresh.json')}
         />

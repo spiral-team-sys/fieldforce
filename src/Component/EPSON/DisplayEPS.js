@@ -51,6 +51,7 @@ import { bindActionCreators } from '@reduxjs/toolkit';
 import { AppCreateAction } from '../../Core/ReduxController';
 import { HeaderCustom } from '../../Content/HeaderCustom';
 import RNFS from 'react-native-fs';
+import SpiralIcon from '../../Control/Icon/SpiralIcon';
 
 class DisplayEPS extends PureComponent {
   constructor(props) {
@@ -494,13 +495,13 @@ class DisplayEPS extends PureComponent {
       let subcatTem =
         AppNameBuild === 'lg'
           ? await getSubCatProductLG(
-              this.state.competitorSelect,
-              this.state.categorySelect,
-            )
+            this.state.competitorSelect,
+            this.state.categorySelect,
+          )
           : await getSubCatProduct(
-              this.state.competitorSelect,
-              this.state.categorySelect,
-            );
+            this.state.competitorSelect,
+            this.state.categorySelect,
+          );
       subcatTem.forEach(itemSC => {
         LstSubCategory.push(itemSC);
       });
@@ -519,15 +520,15 @@ class DisplayEPS extends PureComponent {
     let lstItemsProgram =
       AppNameBuild === 'lg'
         ? await getItemsProductLG(
-            this.state.competitorSelect,
-            this.state.categorySelect,
-            this.state.subCategorySelect,
-          )
+          this.state.competitorSelect,
+          this.state.categorySelect,
+          this.state.subCategorySelect,
+        )
         : await getItemsProduct(
-            this.state.competitorSelect,
-            this.state.categorySelect,
-            this.state.subCategorySelect,
-          );
+          this.state.competitorSelect,
+          this.state.categorySelect,
+          this.state.subCategorySelect,
+        );
     let resDisplay = await getDisplayResult(this.props.route.params.workinfo);
     this.setState({ lstShow: [] });
     this.setState({

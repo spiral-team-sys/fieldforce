@@ -22,8 +22,9 @@ import { ToastError, removeVietnameseTones } from '../../../Core/Helper';
 import { ISSUEAPI } from '../../../API/IssueAPI';
 import moment from 'moment';
 import FormGroup from '../../../Content/FormGroup';
+import SpiralIcon from '../../../Control/Icon/SpiralIcon';
 
-export const ScreenList = ({}) => {
+export const ScreenList = ({ }) => {
   const { appcolor, shopinfo, kpiinfo } = useSelector(state => state.GAppState);
   const [isLoading, setLoading] = useState(false);
   const [dataMain, setDataMain] = useState([]);
@@ -253,9 +254,8 @@ export const ScreenList = ({}) => {
           </View>
         </View>
         <PhotoView photos={photos} indexMain={index} />
-        <Text style={styles.titleTimer}>{`Cập nhật bởi: ${
-          item.createByName
-        } - ${moment(item.createdDate).fromNow()}`}</Text>
+        <Text style={styles.titleTimer}>{`Cập nhật bởi: ${item.createByName
+          } - ${moment(item.createdDate).fromNow()}`}</Text>
       </TouchableOpacity>
     );
   };
@@ -318,9 +318,8 @@ export const ScreenList = ({}) => {
               data,
               e => e.issueStatus == item.issueStatus,
             );
-            const titleHead = `${item.issueStatusName}${
-              _dataIssues.length > 0 ? ` (${_dataIssues.length})` : ''
-            }`;
+            const titleHead = `${item.issueStatusName}${_dataIssues.length > 0 ? ` (${_dataIssues.length})` : ''
+              }`;
             return (
               <Tabs.Tab
                 key={`tabiis_${index}`}

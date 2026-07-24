@@ -39,6 +39,7 @@ import { LoadingView } from '../../Control/ItemLoading';
 import { SetReport, SetShopInfo } from '../../Redux/action';
 import CustomListView from '../../Control/Custom/CustomListView';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
+import SpiralIcon from '../../Control/Icon/SpiralIcon';
 
 /**
  * isHideDashboard : ẩn xem thông tin thống kê
@@ -444,11 +445,11 @@ export const ShopManager = ({ navigation, route }) => {
     const _distant =
       item.latitude > 0 && myLocation?.latitude > 0
         ? distanceBetween2Points(
-            myLocation.latitude,
-            myLocation.longitude,
-            item.latitude,
-            item.longitude,
-          ).toLocaleString('vi-VN', '#,##0.##') + ' km'
+          myLocation.latitude,
+          myLocation.longitude,
+          item.latitude,
+          item.longitude,
+        ).toLocaleString('vi-VN', '#,##0.##') + ' km'
         : 'Chưa xác định';
     return (
       <View

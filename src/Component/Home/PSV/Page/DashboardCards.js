@@ -12,6 +12,7 @@ import _ from 'lodash';
 import { PercentView } from '../../../../Control/PercentView';
 import { formatNumber } from '../../../../Core/Helper';
 import { deviceWidth, scaleSize } from '../../../../Themes/AppsStyle';
+import SpiralIcon from '../../../../Control/Icon/SpiralIcon';
 
 export const EmptyDashboard = ({ appcolor }) => (
   <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
@@ -40,8 +41,8 @@ export const AttendanceCard = ({ appcolor, data = [], navigation }) => {
     percent < 60
       ? appcolor.danger
       : percent < 80
-      ? appcolor.warning
-      : appcolor.success;
+        ? appcolor.warning
+        : appcolor.success;
   const stylesAttendance = StyleSheet.create({
     container: { flex: 1, padding: 14, backgroundColor: appcolor.light },
     header: { flexDirection: 'row', alignItems: 'center' },

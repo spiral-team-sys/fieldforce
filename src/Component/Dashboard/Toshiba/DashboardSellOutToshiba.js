@@ -8,6 +8,7 @@ import { scaleSize } from '../../../Themes/AppsStyle';
 import { deviceHeight, deviceWidth } from '../../../Core/Utility';
 import { DataSummary } from '../../../Controller/DashboardController';
 import { IconAnimation } from '../../../Control/IconAnimation/IconAnimation';
+import SpiralIcon from '../../../Control/Icon/SpiralIcon';
 
 export const DashboardSellOutToshiba = ({
   navigation,
@@ -107,7 +108,7 @@ export const DashboardSellOutToshiba = ({
               onPress={isLoading ? null : LoadData}
               style={styles.actionSync}
             >
-              <SpiralIconAnimation
+              <IconAnimation
                 isLoop={isLoading}
                 sourceIcon={require('../../../Themes/lotties/sync_load.json')}
               />
@@ -156,9 +157,8 @@ export const DashboardSellOutToshiba = ({
                     color: appcolor.info,
                     marginStart: 8,
                   }}
-                >{`${dataSellOut.l1 || 'Số lượng'}: ${
-                  dataSellOut.v1 || 0
-                }`}</Text>
+                >{`${dataSellOut.l1 || 'Số lượng'}: ${dataSellOut.v1 || 0
+                  }`}</Text>
                 <Text
                   style={{
                     fontSize: scaleSize(12),
@@ -166,9 +166,8 @@ export const DashboardSellOutToshiba = ({
                     color: appcolor.info,
                     marginStart: 8,
                   }}
-                >{`${dataSellOut.l2 || 'Thành tiền'}: ${
-                  dataSellOut.v2 || 0
-                }`}</Text>
+                >{`${dataSellOut.l2 || 'Thành tiền'}: ${dataSellOut.v2 || 0
+                  }`}</Text>
               </View>
             </View>
             {/* Dashboard PieChart */}

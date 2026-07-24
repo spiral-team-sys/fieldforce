@@ -8,6 +8,7 @@ import {
   STATUS_COLORS,
   STATUS_LABELS,
 } from '../StoreRequestUtils';
+import SpiralIcon from '../../../../../Control/Icon/SpiralIcon';
 
 const StoreRequestItem = ({ item, onPress }) => {
   const { appcolor } = useSelector(state => state.GAppState);

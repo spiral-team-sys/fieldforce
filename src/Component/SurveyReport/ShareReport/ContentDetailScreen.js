@@ -21,6 +21,7 @@ import { Image } from '@rneui/themed';
 import { URLDEFAULT } from '../../../Core/URLs';
 import RNFS from 'react-native-fs';
 import RNShare from 'react-native-share';
+import SpiralIcon from '../../../Control/Icon/SpiralIcon';
 
 const ContentDetailScreen = ({ navigation, route }) => {
   const { appcolor } = useSelector(state => state.GAppState);
@@ -92,7 +93,7 @@ const ContentDetailScreen = ({ navigation, route }) => {
         const downloads = selectedItems.map(async (item, i) => {
           const photoPath =
             item.PhotoPath.startsWith('file://') ||
-            item.PhotoPath.startsWith('http')
+              item.PhotoPath.startsWith('http')
               ? item.PhotoPath
               : `${URLDEFAULT}${item.PhotoPath}`;
           const toFile = `${tempDir}/share_${Date.now()}_${i}.jpg`;

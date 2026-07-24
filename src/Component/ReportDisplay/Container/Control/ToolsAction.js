@@ -3,6 +3,7 @@ import { TouchableOpacity, View } from 'react-native';
 import { Icon, Text } from '@rneui/themed';
 import { useSelector } from 'react-redux';
 import { deviceHeight } from '../../../../Core/Utility';
+import SpiralIcon from '../../../../Control/Icon/SpiralIcon';
 
 export const ToolsAction = ({
   clearAllData,
@@ -101,9 +102,8 @@ export const ToolsAction = ({
       )}
       {!isLock && (
         <RenderButton
-          title={`Xoá dữ liệu ngành hàng ${
-            itemTab.categoryName || itemTab.CategoryName || ''
-          }`}
+          title={`Xoá dữ liệu ngành hàng ${itemTab.categoryName || itemTab.CategoryName || ''
+            }`}
           iconName="trash"
           iconColor={appcolor.red}
           actionPress={onDeleteByCategory}

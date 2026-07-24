@@ -27,6 +27,7 @@ import { ACTION } from '../../Core/ReduxController';
 import ActionSheet, { SheetManager } from 'react-native-actions-sheet';
 import LottieView from 'lottie-react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
+import SpiralIcon from '../../Control/Icon/SpiralIcon';
 
 const delay = ms => new Promise(res => setTimeout(res, ms));
 const versionApp = DeviceInfo.getVersion();

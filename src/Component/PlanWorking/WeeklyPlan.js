@@ -42,6 +42,7 @@ import {
 } from '../../Controller/PhotoController';
 import UploadController from '../../Controller/UploadController';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
+import SpiralIcon from '../../Control/Icon/SpiralIcon';
 
 const SHIFT_MODE = { ON: 'ON', OFF: 'OFF' };
 const DATE = new Date();
@@ -396,17 +397,17 @@ export const WeekLyPlan = ({ navigation }) => {
     const workingUpdateTime =
       item.timeInUpdate !== null
         ? `${moment(item.timeInUpdate).format('HH:mm')} - ${moment(
-            item.timeOutUpdate,
-          ).format('HH:mm')}`
+          item.timeOutUpdate,
+        ).format('HH:mm')}`
         : 0;
     const colorStatus =
       item.confirmPlan == 3
         ? appcolor.rejection
         : item.confirmPlan == 1
-        ? appcolor.success
-        : item.confirmPlan == -1
-        ? appcolor.danger
-        : appcolor.dark;
+          ? appcolor.success
+          : item.confirmPlan == -1
+            ? appcolor.danger
+            : appcolor.dark;
     const statusName = `${item.confirmStatus || ''} ${item.supNote || ''}`;
     return (
       item.timeIn !== null && (
@@ -478,9 +479,8 @@ export const WeekLyPlan = ({ navigation }) => {
     const shiftMode = item.shiftMode || SHIFT_MODE.ON;
     const titleItem =
       shiftMode === SHIFT_MODE.ON && OFFPlan.length == 0
-        ? `Cửa hàng trong ngày ${
-            planList.filter(i => i.timeIn !== null).length
-          }`
+        ? `Cửa hàng trong ngày ${planList.filter(i => i.timeIn !== null).length
+        }`
         : 'Nghỉ phép';
     const totalMinuteItem = _.sumBy(planList, 'totalMinute') || 0;
 
@@ -552,18 +552,17 @@ export const WeekLyPlan = ({ navigation }) => {
                       itemOffPlan.confirmPlan == 3
                         ? appcolor.rejection
                         : itemOffPlan.confirmPlan == 1
-                        ? appcolor.success
-                        : itemOffPlan.confirmPlan == -1
-                        ? appcolor.danger
-                        : appcolor.dark,
+                          ? appcolor.success
+                          : itemOffPlan.confirmPlan == -1
+                            ? appcolor.danger
+                            : appcolor.dark,
                     fontSize: 12,
                     fontWeight: '400',
                     fontStyle: 'italic',
                   }}
                 >
-                  {`${itemOffPlan.confirmStatus || ''} ${
-                    itemOffPlan.supNote || ''
-                  }`}
+                  {`${itemOffPlan.confirmStatus || ''} ${itemOffPlan.supNote || ''
+                    }`}
                 </Text>
                 <Text
                   style={{
@@ -1155,7 +1154,7 @@ export const WeekLyPlan = ({ navigation }) => {
                     }}
                   >
                     {item.AttendantType?.includes('CHECKOUT') &&
-                    item.TotalTime !== null
+                      item.TotalTime !== null
                       ? item?.TotalTime
                       : ''}
                   </Text>

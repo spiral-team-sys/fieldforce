@@ -11,6 +11,7 @@ import _ from 'lodash';
 import { HeaderCustom } from '../../../Content/HeaderCustom';
 import { REPORT } from '../../../API/ReportAPI';
 import { URLDEFAULT } from '../../../Core/URLs';
+import SpiralIcon from '../../../Control/Icon/SpiralIcon';
 
 const { width } = Dimensions.get('window');
 

@@ -18,6 +18,7 @@ import {
 } from '../../Controller/PhotoController';
 import CustomListView from '../../Control/Custom/CustomListView';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
+import SpiralIcon from '../../Control/Icon/SpiralIcon';
 
 const TOUCH_HIT_SLOP = { top: 8, bottom: 8, left: 8, right: 8 };
 
@@ -257,8 +258,8 @@ export const PhotoGallery = ({
     };
     const photoPath =
       item.PhotoPath.indexOf('file://') > -1 ||
-      item.PhotoPath.indexOf('https://') > -1 ||
-      !item.PhotoPath.includes('uploaded')
+        item.PhotoPath.indexOf('https://') > -1 ||
+        !item.PhotoPath.includes('uploaded')
         ? item.PhotoPath
         : URLDEFAULT + item.PhotoPath;
     return (
@@ -307,9 +308,8 @@ export const PhotoGallery = ({
         </TouchableOpacity>
         <View>
           {dataPhoto.filter(item => item.isChoose).length > 0 ? (
-            <Text style={styles.titleHeader}>{`Đã chọn ${
-              dataPhoto.filter(item => item.isChoose).length
-            } ảnh`}</Text>
+            <Text style={styles.titleHeader}>{`Đã chọn ${dataPhoto.filter(item => item.isChoose).length
+              } ảnh`}</Text>
           ) : (
             <Text style={styles.titleHeader}>{'Hình ảnh'} </Text>
           )}

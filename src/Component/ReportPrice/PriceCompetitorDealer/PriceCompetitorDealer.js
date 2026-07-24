@@ -37,6 +37,7 @@ import { TODAY, checkNetwork } from '../../../Core/Utility';
 import { LoadingView } from '../../../Control/ItemLoading';
 import { Icon } from '@rneui/themed';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
+import SpiralIcon from '../../../Control/Icon/SpiralIcon';
 
 if (
   Platform.OS === 'android' &&
@@ -250,9 +251,9 @@ export const PriceCompetitorDealer = ({ navigation }) => {
             (itemP[itemL.displayType] <
               (itemL.min && itemL.min !== '' ? itemL.min : 1000) ||
               itemP[itemL.displayType] >
-                (itemL.max && itemL.max !== '' ? itemL.max : 1000) ||
+              (itemL.max && itemL.max !== '' ? itemL.max : 1000) ||
               itemP[itemL.displayType] %
-                (itemL.min && itemL.min !== '' ? itemL.min : 1000 > 0))
+              (itemL.min && itemL.min !== '' ? itemL.min : 1000 > 0))
           ) {
             ToastError(
               `Sai định dạng ${itemL.name} sản phẩm ${itemP.ProductName} - ${itemP.CategoryName} - ${itemC.CompetitorName}`,

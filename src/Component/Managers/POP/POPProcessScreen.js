@@ -23,6 +23,7 @@ import ProcessDetails from './Page/ProcessDetails';
 import { groupDataByKey, removeVietnameseTones } from '../../../Core/Helper';
 import CustomTab from '../../../Control/Custom/CustomTab';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
+import SpiralIcon from '../../../Control/Icon/SpiralIcon';
 
 const POPProcessScreen = ({ navigation, route }) => {
   const insets = useSafeAreaInsets();
@@ -193,9 +194,8 @@ const POPProcessScreen = ({ navigation, route }) => {
               size={18}
               color={appcolor.dark}
             />
-            <Text style={styles.titleName}>{`${index + 1}. ${
-              item.shopName
-            }`}</Text>
+            <Text style={styles.titleName}>{`${index + 1}. ${item.shopName
+              }`}</Text>
           </View>
           <Text style={styles.subTitleName}>{`Mã CH: ${item.shopCode}`}</Text>
           <Text style={styles.subTitleName}>{`Đc: ${item.addressName}`}</Text>

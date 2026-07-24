@@ -3,6 +3,7 @@ import { StyleSheet, TouchableOpacity, View } from 'react-native';
 import { Icon, Text } from '@rneui/themed';
 import { useSelector } from 'react-redux';
 import { alertConfirm } from '../Core/Utility';
+import SpiralIcon from './Icon/SpiralIcon';
 
 export const CountTimeAutoTake = ({
   cameraConfig,

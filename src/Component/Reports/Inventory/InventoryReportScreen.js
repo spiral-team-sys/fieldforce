@@ -30,6 +30,7 @@ import { deviceHeight, fontWeightBold } from '../../../Themes/AppsStyle';
 import FormGroup from '../../../Content/FormGroup';
 import { LoadingView } from '../../../Control/ItemLoading';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
+import SpiralIcon from '../../../Control/Icon/SpiralIcon';
 
 const InventoryReportScreen = ({ navigation }) => {
   const { appcolor, kpiinfo, shopinfo, workinfo } = useSelector(
@@ -496,9 +497,8 @@ const InventoryReportScreen = ({ navigation }) => {
     return (
       <View style={styles.itemContainer}>
         <View style={styles.viewInfo}>
-          <Text style={styles.titleName}>{`${index + 1}. ${
-            item.ProductName
-          }`}</Text>
+          <Text style={styles.titleName}>{`${index + 1}. ${item.ProductName
+            }`}</Text>
           <Text style={styles.subTitleName}>{`Code: ${item.ProductCode}`}</Text>
           <Text style={styles.subTitleName}>{`Đơn vị: ${item.Unit}`}</Text>
         </View>
@@ -513,8 +513,8 @@ const InventoryReportScreen = ({ navigation }) => {
               item.QuantityValue === 0
                 ? '0'
                 : item.QuantityValue
-                ? `${item.QuantityValue}`
-                : ''
+                  ? `${item.QuantityValue}`
+                  : ''
             }
             handleChangeForm={onChangeValue}
             containerStyle={[
@@ -547,9 +547,9 @@ const InventoryReportScreen = ({ navigation }) => {
               ? UploadData
               : null
             : () =>
-                ToastSuccess(
-                  'Bạn đã hoàn thành chấm công nên không thể gửi dữ liệu báo cáo',
-                )
+              ToastSuccess(
+                'Bạn đã hoàn thành chấm công nên không thể gửi dữ liệu báo cáo',
+              )
         }
       />
       <View style={styles.mainView}>

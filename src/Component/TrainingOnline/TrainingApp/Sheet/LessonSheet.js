@@ -7,6 +7,7 @@ import { useSelector } from 'react-redux';
 import { TrainingAPI } from '../../../../API/TrainingAPI';
 import _ from 'lodash';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
+import SpiralIcon from '../../../../Control/Icon/SpiralIcon';
 
 const activeList = {
   ALL: '0',

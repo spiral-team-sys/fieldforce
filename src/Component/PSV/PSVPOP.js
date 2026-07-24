@@ -6,6 +6,7 @@ import { DEFAULT_COLOR, URL_DOWNLOAD_MENUPOP } from '../../Core/URLs';
 import { GetEmployeeInfo, Token } from '../../Core/Helper';
 import * as Progress from 'react-native-progress';
 import { HeaderCustom } from '../../Content/HeaderCustom';
+import SpiralIcon from '../../Control/Icon/SpiralIcon';
 
 
 export default class PSVPOP extends Component {
@@ -102,7 +103,7 @@ export default class PSVPOP extends Component {
         </View>
         <View style={{ flexDirection: 'row', width: '100%', height: 25 }}>
           <ListItem.Subtitle style={{ fontSize: 13, color: '#fff', textAlign: 'center', fontWeight: '700', width: '70%' }}>Chi tiết</ListItem.Subtitle>
-          <SpiralIcon name='arrow-forward-circle' type='ionicon' color={'#fff'} size={25}></SpiralIcon>
+          <SpiralIcon name='arrow-forward-circle' type='ionicon' color={'#fff'} size={25} />
         </View>
       </ListItem.Content>
     </ListItem>

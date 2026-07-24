@@ -14,6 +14,7 @@ import { ListItemProducts } from './ListItemProducts';
 import { removeVietnameseTones } from '../../../../../Core/Helper';
 import FormGroup from '../../../../../Content/FormGroup';
 import _ from 'lodash';
+import SpiralIcon from '../../../../../Control/Icon/SpiralIcon';
 
 export const SubGroupItemView = ({ dataMain, indexMain }) => {
   const { appcolor } = useSelector(state => state.GAppState);

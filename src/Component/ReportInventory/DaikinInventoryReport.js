@@ -47,6 +47,7 @@ import moment from 'moment';
 
 import RNFS from 'react-native-fs';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
+import SpiralIcon from '../../Control/Icon/SpiralIcon';
 const HEADER_SIZE = Platform.OS == 'android' ? 60 : isIphoneX() ? 90 : 20;
 
 export const DaikinInventoryReport = ({ navigation }) => {
@@ -213,7 +214,7 @@ export const DaikinInventoryReport = ({ navigation }) => {
         await setCompetitorName(_competitorName);
         await loadDataShow();
       },
-      async () => {},
+      async () => { },
     );
   };
   const setClearAll = async () => {
@@ -751,8 +752,8 @@ const RenderItemData = ({
         ? (countClear.countClear = isClearByCate.isClear)
         : null
       : isClearByCate.isClearByCate - countClear.countClear > 0
-      ? (countClear.countClear = isClearByCate.isClearByCate)
-      : null;
+        ? (countClear.countClear = isClearByCate.isClearByCate)
+        : null;
 
     isClearByCate.isClearAll === 1 ? isClearByCate.isClearAll === 0 : null;
     let isChecked = null;
@@ -783,8 +784,8 @@ const RenderItemData = ({
         ? (countClear.countClear = isClearByCate.isClear)
         : null
       : isClearByCate.isClearByCate - countClear.countClear > 0
-      ? (countClear.countClear = isClearByCate.isClearByCate)
-      : null;
+        ? (countClear.countClear = isClearByCate.isClearByCate)
+        : null;
 
     isClearByCate.isClearAll === 1 ? isClearByCate.isClearAll === 0 : null;
 

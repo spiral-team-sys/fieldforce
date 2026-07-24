@@ -24,6 +24,7 @@ import ActionFilter from '../ReportHistory/ActionFilter';
 import moment from 'moment';
 import { alertWarning, minWidthTab } from '../../Core/Utility';
 import { Tabs, MaterialTabBar } from 'react-native-collapsible-tab-view';
+import SpiralIcon from '../../Control/Icon/SpiralIcon';
 
 const modalRef = createRef();
 const styles = StyleSheet.create({
@@ -109,11 +110,11 @@ class SellOutDuplicate extends PureComponent {
         let lstDataDelete = this.state.lstData.map(i =>
           i.itemId == item.itemId
             ? {
-                ...i,
-                duplicatePS: i.duplicatePS == 1 ? 0 : 1,
-                titleConfirmResult:
-                  i.duplicatePS == 0 ? 'Đang chờ xác nhận' : '',
-              }
+              ...i,
+              duplicatePS: i.duplicatePS == 1 ? 0 : 1,
+              titleConfirmResult:
+                i.duplicatePS == 0 ? 'Đang chờ xác nhận' : '',
+            }
             : i,
         );
         this.setState({
