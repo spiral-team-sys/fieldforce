@@ -1,19 +1,19 @@
-import { ACTION } from "../types";
+import { ACTION } from '../types';
 
 const initialState = {
-    dashboardFilter: {},
+  dashboardFilter: {},
 };
 
 const dashboardReducer = (state = initialState, action) => {
-    switch (action.type) {
-        case ACTION.DASHBOARD_FILTER:
-            return {
-                ...state,
-                dashboardFilter: action.payload,
-            };
-        default:
-            return state;
-    }
+  switch (action.type) {
+    case ACTION.DASHBOARD_FILTER:
+      return {
+        ...state,
+        dashboardFilter: action.payload,
+      };
+    default:
+      return state;
+  }
 };
 
 export default dashboardReducer;

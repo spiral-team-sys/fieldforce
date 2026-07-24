@@ -1,4 +1,4 @@
-const { Tooltip } = require('@rneui/themed');
+const { Tooltip, Button } = require('@rneui/themed');
 
 class TooltipCustom extends React.Component {
   state = {
@@ -11,7 +11,7 @@ class TooltipCustom extends React.Component {
 
   render() {
     return (
-      <IconButton aria-label={this.props.title}>
+      <Button aria-label={this.props.title}>
         <Tooltip
           enterDelay={300}
           leaveDelay={300}
@@ -23,7 +23,7 @@ class TooltipCustom extends React.Component {
         >
           {this.props.children}
         </Tooltip>
-      </IconButton>
+      </Button>
     );
   }
 }

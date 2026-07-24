@@ -1,5 +1,12 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { View, Text, Modal, Dimensions, TextInput, DeviceEventEmitter } from 'react-native';
+import {
+  View,
+  Text,
+  Modal,
+  Dimensions,
+  TextInput,
+  DeviceEventEmitter,
+} from 'react-native';
 import { Button } from '@rneui/themed';
 import ShopDetails from './ShopDetails';
 import ReportHistory from './Work/Page/WorkHistory';
@@ -11,7 +18,7 @@ import { ShopTask } from './ShopTask';
 import { GetPhotosList, GetTimeOT } from '../../Controller/PhotoController';
 import { MessageInfo } from '../../Core/Helper';
 import { GetMenu } from '../../Controller/UserController';
-import { Tabs, MaterialTabBar } from 'react-native-collapsible-tab-view'
+import { Tabs, MaterialTabBar } from 'react-native-collapsible-tab-view';
 import { deviceWidth } from '../Home';
 
 const ShopPage = ({ navigation, route }) => {
@@ -38,11 +45,14 @@ const ShopPage = ({ navigation, route }) => {
       setTimeout(() => _refTabView.current.setIndex(2));
     }
 
-    const subscription = DeviceEventEmitter.addListener(GO_OVERVIEW, async () => {
-      if (_refTabView.current !== null) {
-        setTimeout(() => _refTabView.current.setIndex(0));
-      }
-    });
+    const subscription = DeviceEventEmitter.addListener(
+      GO_OVERVIEW,
+      async () => {
+        if (_refTabView.current !== null) {
+          setTimeout(() => _refTabView.current.setIndex(0));
+        }
+      },
+    );
 
     return () => {
       subscription.remove();
@@ -74,7 +84,7 @@ const ShopPage = ({ navigation, route }) => {
   //   }
   // };
 
-  const isShowNoteForm = (value) => {
+  const isShowNoteForm = value => {
     setIsNoteAttendant(value);
   };
 
@@ -92,12 +102,20 @@ const ShopPage = ({ navigation, route }) => {
   };
 
   const checkOTmustCI = async () => {
-    let arrRes = await GetPhotosList(route.params.shopInfo.shopId, route.params.shopInfo.auditDate, 1);
+    let arrRes = await GetPhotosList(
+      route.params.shopInfo.shopId,
+      route.params.shopInfo.auditDate,
+      1,
+    );
     setCountAttendant(arrRes.length);
   };
 
   const checkExistRegistOT = async () => {
-    let arrRes = await GetTimeOT(route.params.shopInfo.shopId, route.params.shopInfo.auditDate, '1');
+    let arrRes = await GetTimeOT(
+      route.params.shopInfo.shopId,
+      route.params.shopInfo.auditDate,
+      '1',
+    );
     if (arrRes.length > 0) {
       if (arrRes[0].timeOT !== undefined && arrRes[0].timeOT !== null) {
         setIsRegistOT(true);
@@ -117,7 +135,9 @@ const ShopPage = ({ navigation, route }) => {
       }
 
       if (isRegistOT) {
-        MessageInfo('Bạn đã đăng ký tăng ca với thời gian là : ' + overTime + 'h');
+        MessageInfo(
+          'Bạn đã đăng ký tăng ca với thời gian là : ' + overTime + 'h',
+        );
         return;
       }
 
@@ -141,18 +161,29 @@ const ShopPage = ({ navigation, route }) => {
         leftFunc={() => navigation.goBack()}
         rightFunc={checkEnableOT ? handlerOT : null}
       />
-      <View style={{ width: '100%', height: '100%', flexDirection: 'column', backgroundColor: appcolor.light }}>
+      <View
+        style={{
+          width: '100%',
+          height: '100%',
+          flexDirection: 'column',
+          backgroundColor: appcolor.light,
+        }}
+      >
         <Tabs.Container
           ref={_refTabView}
           pagerProps={{
-            scrollEnabled: false
+            scrollEnabled: false,
           }}
           initialTabName="Công việc"
-          onIndexChange={(index) => setIndexTab(index)}
+          onIndexChange={index => setIndexTab(index)}
           renderTabBar={props => (
             <MaterialTabBar
               {...props}
-              labelStyle={{ fontSize: 15, color: appcolor.light, fontWeight: '600' }}
+              labelStyle={{
+                fontSize: 15,
+                color: appcolor.light,
+                fontWeight: '600',
+              }}
               indicatorStyle={{ backgroundColor: appcolor.white }}
               inactiveColor={appcolor.white}
               activeColor={appcolor.white}
@@ -160,19 +191,41 @@ const ShopPage = ({ navigation, route }) => {
               scrollEnabled={true}
               style={{ backgroundColor: appcolor.primary }}
             />
-          )}>
+          )}
+        >
           <Tabs.Tab key={1} name="Cửa hàng" label="Cửa hàng">
-            <View style={{ backgroundColor: appcolor.light, marginTop: 40, padding: 6, width: deviceWidth }}>
+            <View
+              style={{
+                backgroundColor: appcolor.light,
+                marginTop: 40,
+                padding: 6,
+                width: deviceWidth,
+              }}
+            >
               <ShopDetails navigation={navigation} />
             </View>
           </Tabs.Tab>
           <Tabs.Tab key={2} name="Thống kê" label="Thống kê">
-            <View style={{ backgroundColor: appcolor.light, marginTop: 40, padding: 6, width: deviceWidth }} >
+            <View
+              style={{
+                backgroundColor: appcolor.light,
+                marginTop: 40,
+                padding: 6,
+                width: deviceWidth,
+              }}
+            >
               <ShopProfile navigation={navigation} />
             </View>
           </Tabs.Tab>
-          <Tabs.Tab key={3} name="Công việc" label="Công việc" >
-            <View style={{ backgroundColor: appcolor.light, marginTop: 40, padding: 6, width: deviceWidth }} >
+          <Tabs.Tab key={3} name="Công việc" label="Công việc">
+            <View
+              style={{
+                backgroundColor: appcolor.light,
+                marginTop: 40,
+                padding: 6,
+                width: deviceWidth,
+              }}
+            >
               <ShopTask
                 navigation={navigation}
                 OTSign={OTSign}
@@ -183,26 +236,69 @@ const ShopPage = ({ navigation, route }) => {
             </View>
           </Tabs.Tab>
           <Tabs.Tab key={4} name="Lịch sử" label="Lịch sử">
-            <View style={{ backgroundColor: appcolor.light, marginTop: 40, padding: 6, width: deviceWidth }}>
-              <ReportHistory onSelectedTab={() => _refTabView.current.setIndex(2)} />
+            <View
+              style={{
+                backgroundColor: appcolor.light,
+                marginTop: 40,
+                padding: 6,
+                width: deviceWidth,
+              }}
+            >
+              <ReportHistory
+                onSelectedTab={() => _refTabView.current.setIndex(2)}
+              />
             </View>
           </Tabs.Tab>
         </Tabs.Container>
       </View>
       <Modal
-        presentationStyle='overFullScreen'
-        animationType='slide'
+        presentationStyle="overFullScreen"
+        animationType="slide"
         transparent={true}
-        visible={isNoteAttendant}>
-        <View style={{ zIndex: 1, flex: 0, width: '100%', height: Dimensions.get('window').height }}>
+        visible={isNoteAttendant}
+      >
+        <View
+          style={{
+            zIndex: 1,
+            flex: 0,
+            width: '100%',
+            height: Dimensions.get('window').height,
+          }}
+        >
           <View
-            style={{ zIndex: 2, position: 'absolute', height: '100%', width: '100%', backgroundColor: '#D3D3D3', opacity: 0.5 }}
-            onStartShouldSetResponder={(e) => cancelNote()}
+            style={{
+              zIndex: 2,
+              position: 'absolute',
+              height: '100%',
+              width: '100%',
+              backgroundColor: '#D3D3D3',
+              opacity: 0.5,
+            }}
+            onStartShouldSetResponder={e => cancelNote()}
           />
-          <View style={{ zIndex: 3, position: 'relative', width: '80%', height: 'auto', opacity: 1.0, backgroundColor: 'white', borderRadius: 15, flexDirection: 'column', marginTop: Dimensions.get("window").height / 3, marginLeft: Dimensions.get("window").width / 2 - (40 * Dimensions.get("window").width) / 100 }}>
-            <Text style={{ marginBottom: 15, marginTop: 15, paddingLeft: 5 }}>Ghi chú</Text>
+          <View
+            style={{
+              zIndex: 3,
+              position: 'relative',
+              width: '80%',
+              height: 'auto',
+              opacity: 1.0,
+              backgroundColor: 'white',
+              borderRadius: 15,
+              flexDirection: 'column',
+              marginTop: Dimensions.get('window').height / 3,
+              marginLeft:
+                Dimensions.get('window').width / 2 -
+                (40 * Dimensions.get('window').width) / 100,
+            }}
+          >
+            <Text style={{ marginBottom: 15, marginTop: 15, paddingLeft: 5 }}>
+              Ghi chú
+            </Text>
             <View style={{ height: 0.8, backgroundColor: 'black' }}></View>
-            <Text style={{ marginBottom: 15, marginTop: 20, paddingLeft: 5 }}>Nhập ghi chú ở dưới đây:</Text>
+            <Text style={{ marginBottom: 15, marginTop: 20, paddingLeft: 5 }}>
+              Nhập ghi chú ở dưới đây:
+            </Text>
             <TextInput
               numberOfLines={6}
               multiline={true}
@@ -216,20 +312,37 @@ const ShopPage = ({ navigation, route }) => {
                 height: 105,
                 textAlign: 'left',
                 borderWidth: 0.6,
-                borderColor: 'black'
+                borderColor: 'black',
               }}
               defaultValue={noteSaved || ''}
-              placeholder='Nhập ghi chú ở đây.'
+              placeholder="Nhập ghi chú ở đây."
             />
-            <View style={{ marginTop: 15, flexDirection: 'row', justifyContent: 'space-between', height: 50, width: '100%', padding: 5 }}>
+            <View
+              style={{
+                marginTop: 15,
+                flexDirection: 'row',
+                justifyContent: 'space-between',
+                height: 50,
+                width: '100%',
+                padding: 5,
+              }}
+            >
               <Button
-                buttonStyle={{ width: '90%', backgroundColor: DEFAULT_COLOR, borderRadius: 15 }}
-                title='Huỷ'
+                buttonStyle={{
+                  width: '90%',
+                  backgroundColor: DEFAULT_COLOR,
+                  borderRadius: 15,
+                }}
+                title="Huỷ"
                 onPress={cancelNote}
               />
               <Button
-                buttonStyle={{ width: '90%', backgroundColor: DEFAULT_COLOR, borderRadius: 15 }}
-                title='Lưu'
+                buttonStyle={{
+                  width: '90%',
+                  backgroundColor: DEFAULT_COLOR,
+                  borderRadius: 15,
+                }}
+                title="Lưu"
                 onPress={validateNote}
               />
             </View>

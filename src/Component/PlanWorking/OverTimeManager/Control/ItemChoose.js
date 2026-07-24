@@ -1,22 +1,17 @@
-import React, { useEffect } from "react";
-import { StyleSheet, View } from "react-native";
-import { useSelector } from "react-redux";
+import React, { useEffect } from 'react';
+import { StyleSheet, View } from 'react-native';
+import { useSelector } from 'react-redux';
 
-export const ItemChoose = ({ }) => {
-    const { appcolor } = useSelector(state => state.GAppState)
+export const ItemChoose = ({}) => {
+  const { appcolor } = useSelector(state => state.GAppState);
 
-    useEffect(() => {
+  useEffect(() => {
+    return () => false;
+  }, []);
 
-        return () => false
-    }, [])
+  const styles = StyleSheet.create({
+    mainContainer: {},
+  });
 
-    const styles = StyleSheet.create({
-        mainContainer: {}
-    })
-
-    return (
-        <View style={styles.mainContainer}>
-
-        </View>
-    )
-}
+  return <View style={styles.mainContainer}></View>;
+};

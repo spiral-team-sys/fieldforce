@@ -1,25 +1,40 @@
-import React, { memo } from "react";
-import { Platform, ScrollView, StyleSheet, TouchableOpacity, View } from "react-native";
-import { useSelector } from "react-redux";
-import { Text } from "@rneui/base";
-import { UIManager } from "react-native";
+import React, { memo } from 'react';
+import {
+  Platform,
+  ScrollView,
+  StyleSheet,
+  TouchableOpacity,
+  View,
+} from 'react-native';
+import { useSelector } from 'react-redux';
+import { Text } from '@rneui/base';
+import { UIManager } from 'react-native';
 
-if (Platform.OS === "android" && UIManager.setLayoutAnimationEnabledExperimental) {
-    UIManager.setLayoutAnimationEnabledExperimental(true);
+if (
+  Platform.OS === 'android' &&
+  UIManager.setLayoutAnimationEnabledExperimental
+) {
+  UIManager.setLayoutAnimationEnabledExperimental(true);
 }
-export const DetailKPI = ({ item, dataKPI, configData, configTableData, handleSelectItemTab }) => {
-    const { appcolor, kpiSummary } = useSelector(state => state.GAppState)
-    // const styles = StyleSheet.create({
-    //     titleView: { fontSize: 14, fontStyle: 'italic', fontWeight: '700', color: appcolor.dark },
-    //     titleResultView: { fontSize: 14, fontStyle: 'italic', fontWeight: '700', color: appcolor.success }
-    // })
-    // const itemKPI = dataKPI[0] || {}
-    // const dateTitle = itemKPI?.auditDate !== null ? `Ngày ${itemKPI?.auditDate}` : 'Ngày chấm điểm:'
-    // const employeeTitle = item.userId > 0 ? `Nhân viên (${item.employeeCode}) - ${item.fullName}` : 'Nhân viên:'
-    // const shopTitle = item.shopId > 0 ? `Cửa hàng (${item.shopCode}) - ${item.shopName}` : 'Cửa hàng:'
-    return (
-        <View style={{ flexDirection: 'column', padding: 8, }}>
-            {/* <View style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
+export const DetailKPI = ({
+  item,
+  dataKPI,
+  configData,
+  configTableData,
+  handleSelectItemTab,
+}) => {
+  const { appcolor, kpiSummary } = useSelector(state => state.GAppState);
+  // const styles = StyleSheet.create({
+  //     titleView: { fontSize: 14, fontStyle: 'italic', fontWeight: '700', color: appcolor.dark },
+  //     titleResultView: { fontSize: 14, fontStyle: 'italic', fontWeight: '700', color: appcolor.success }
+  // })
+  // const itemKPI = dataKPI[0] || {}
+  // const dateTitle = itemKPI?.auditDate !== null ? `Ngày ${itemKPI?.auditDate}` : 'Ngày chấm điểm:'
+  // const employeeTitle = item.userId > 0 ? `Nhân viên (${item.employeeCode}) - ${item.fullName}` : 'Nhân viên:'
+  // const shopTitle = item.shopId > 0 ? `Cửa hàng (${item.shopCode}) - ${item.shopName}` : 'Cửa hàng:'
+  return (
+    <View style={{ flexDirection: 'column', padding: 8 }}>
+      {/* <View style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
                 <View style={{ width: '80%' }}>
                     <Text style={styles.titleView}>{dateTitle}</Text>
                     {configData.byShop !== 0 && <Text style={styles.titleView}>{shopTitle}</Text>}
@@ -53,6 +68,6 @@ export const DetailKPI = ({ item, dataKPI, configData, configTableData, handleSe
                         : null
                 })}
             </ScrollView> */}
-        </View>
-    )
-}
+    </View>
+  );
+};

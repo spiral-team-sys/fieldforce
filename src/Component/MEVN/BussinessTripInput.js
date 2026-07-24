@@ -11,9 +11,11 @@ import { RenderCalendar } from '../../Core/DatePickerView';
 import { checkNetwork } from '../../Core/Utility';
 import { scaleSize } from '../../Themes/AppsStyle';
 import { AttendantController } from '../../Controller/AttendantController';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
 export const BussinessTripInput = ({ appcolor, nextView, myAddress, searchMap, bussinessInput, setBussinessInput, Provinces, MoneyMove }) => {
 
+    const insets = useSafeAreaInsets()
     const VIEW_RESULT = 'VIEW RESULT';
     const _bottomSheet = useRef();
     const [dateSelect, setDateSelect] = useState(new Date());
@@ -279,9 +281,9 @@ export const BussinessTripInput = ({ appcolor, nextView, myAddress, searchMap, b
                     handleChangeForm={(text) => setBussinessInput({ ...bussinessInput, fromAddress: text })}
                 />
                 <View style={{ flexDirection: 'column' }}>
-                    {bussinessInput?.locationFrom && <Icon name='location' type='ionicon'
-                        onPress={() => searchMap('from')} color={appcolor.green}></Icon>}
-                    {/* <Icon color={appcolor.dark} name='map' type='font-awesome' size={25} onPress={() => searchMap('from')}></Icon> */}
+                    {bussinessInput?.locationFrom && <SpiralIcon name='location' type='ionicon'
+                        onPress={() => searchMap('from')} color={appcolor.green}></SpiralIcon>}
+                    {/* <SpiralIcon color={appcolor.dark} name='map' type='font-awesome' size={25} onPress={() => searchMap('from')}></SpiralIcon> */}
                 </View>
             </View>
             <FormGroup
@@ -311,9 +313,9 @@ export const BussinessTripInput = ({ appcolor, nextView, myAddress, searchMap, b
                 />
                 <View style={{ flexDirection: 'column' }}>
                     {bussinessInput?.locationTo &&
-                        <Icon name='location' type='ionicon'
-                            onPress={() => searchMap('to')} color={appcolor.success}></Icon>}
-                    {/* <Icon color={appcolor.dark} name='map' type='font-awesome' size={25} onPress={() => searchMap('to')}></Icon> */}
+                        <SpiralIcon name='location' type='ionicon'
+                            onPress={() => searchMap('to')} color={appcolor.success}></SpiralIcon>}
+                    {/* <SpiralIcon color={appcolor.dark} name='map' type='font-awesome' size={25} onPress={() => searchMap('to')}></SpiralIcon> */}
                 </View>
             </View>
 
@@ -381,7 +383,7 @@ export const BussinessTripInput = ({ appcolor, nextView, myAddress, searchMap, b
             <ActionSheet
                 ref={_bottomSheet}
                 defaultOverlayOpacity={0.3}
-                containerStyle={{ padding: 7, flexGrow: 1, backgroundColor: appcolor.surface }}>
+                containerStyle={{ padding: 7, flexGrow: 1, backgroundColor: appcolor.surface, paddingBottom: insets.bottom }}>
                 <View key={'date'} style={{ marginBottom: 50 }}>
                     {
                         typeDate === TYPE_KM ?

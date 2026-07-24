@@ -102,7 +102,7 @@ export default class PSVPOP extends Component {
         </View>
         <View style={{ flexDirection: 'row', width: '100%', height: 25 }}>
           <ListItem.Subtitle style={{ fontSize: 13, color: '#fff', textAlign: 'center', fontWeight: '700', width: '70%' }}>Chi tiết</ListItem.Subtitle>
-          <Icon name='arrow-forward-circle' type='ionicon' color={'#fff'} size={25}></Icon>
+          <SpiralIcon name='arrow-forward-circle' type='ionicon' color={'#fff'} size={25}></SpiralIcon>
         </View>
       </ListItem.Content>
     </ListItem>

@@ -12,21 +12,21 @@ import { isIphoneX } from "../Core/is-iphone-x";
 import { CheckBox } from '@rneui/base';
 
 const styles = StyleSheet.create({
-  title: {
-    fontSize: 17,
-    fontWeight: 'bold',
-    padding: 5,
-    textAlign: 'left'
-  },
-  line: {
-    width: '100%',
-    height: 0.6,
-    backgroundColor: '#e9e9e9',
-    paddingStart: 10,
-    paddingEnd: 10,
-    marginBottom: 4,
-    marginTop: 4
-  }
+    title: {
+        fontSize: 17,
+        fontWeight: 'bold',
+        padding: 5,
+        textAlign: 'left'
+    },
+    line: {
+        width: '100%',
+        height: 0.6,
+        backgroundColor: '#e9e9e9',
+        paddingStart: 10,
+        paddingEnd: 10,
+        marginBottom: 4,
+        marginTop: 4
+    }
 });
 
 const offsetKeyboard = (Platform.OS === 'android') ? 200 : 200;
@@ -157,7 +157,7 @@ export default class AuditItemsHMDContent extends Component {
                 >
                     <View style={{ height: '80%', backgroundColor: 'white', bottom: 0, top: 0 }}>
                         <Text style={{ ...styles.title, textAlign: 'center', top: 5, fontSize: 19, color: DEFAULT_COLOR }}>{this.props.RefName}</Text>
-                        <Icon containerStyle={{ top: 3, right: 10, position: 'absolute' }} name='close-outline' type='ionicon' onPress={() => this.closeBottomSheet()} color={DEFAULT_COLOR} size={35}></Icon>
+                        <SpiralIcon containerStyle={{ top: 3, right: 10, position: 'absolute' }} name='close-outline' type='ionicon' onPress={() => this.closeBottomSheet()} color={DEFAULT_COLOR} size={35}></SpiralIcon>
                         <View style={styles.line}></View>
 
                         <TextInput
@@ -240,7 +240,7 @@ const RenderRow = ({ item, index, Status, refreshView, workinfo, DisplayItem, Pr
                         {
                             item.target === -1 &&
                             <TouchableOpacity onPress={(e) => { RemoveProduct(item, workinfo, refreshView) }} disabled={(Status === 0 && NoChange === 0) ? false : true}>
-                                <Icon
+                                <SpiralIcon
                                     containerStyle={{ left: 2, alignItems: 'flex-end' }}
                                     type='ionicon'
                                     color='red'
@@ -353,7 +353,7 @@ const RenderTypeRow = (item, Status, refreshView, workinfo, DisplayItem, showPro
                                     (Status == 0 && NoChange === 0) && takePhoto(item)
                                 }}
                                 icon={
-                                    <Icon
+                                    <SpiralIcon
                                         color='black'
                                         name='camera'
                                         type='ionicon'
@@ -369,7 +369,7 @@ const RenderTypeRow = (item, Status, refreshView, workinfo, DisplayItem, showPro
                                 }}
                                 icon={
                                     <View>
-                                        <Icon
+                                        <SpiralIcon
                                             color='black'
                                             name='photo'
                                             type='font-awesome'
@@ -423,7 +423,7 @@ const RenderTypeRow = (item, Status, refreshView, workinfo, DisplayItem, showPro
                                     (Status == 0 && NoChange === 0) && takePhoto(item)
                                 }}
                                 icon={
-                                    <Icon
+                                    <SpiralIcon
                                         color='black'
                                         name='camera'
                                         type='ionicon'
@@ -439,7 +439,7 @@ const RenderTypeRow = (item, Status, refreshView, workinfo, DisplayItem, showPro
                                 }}
                                 icon={
                                     <View>
-                                        <Icon
+                                        <SpiralIcon
                                             color='black'
                                             name='photo'
                                             type='font-awesome'
@@ -476,7 +476,7 @@ const RenderTypeRow = (item, Status, refreshView, workinfo, DisplayItem, showPro
                     placeholder= {'SP thay thế'}
                 />
                 <TouchableOpacity onPress= {(e)=>{showProduct(item)}} disabled={Status === 0 ? false:true}>
-                <Icon
+                <SpiralIcon
                     containerStyle={{left:2,alignItems:'flex-end'}}
                     type='ionicon'
                     color='black'
@@ -504,7 +504,7 @@ const RenderTypeRow = (item, Status, refreshView, workinfo, DisplayItem, showPro
                             showProduct()
                         }
                     }} disabled={(Status === 0 && NoChange === 0) ? false : true}>
-                        <Icon
+                        <SpiralIcon
                             containerStyle={{ left: 2, alignItems: 'flex-end' }}
                             type='ionicon'
                             color='green'
@@ -642,7 +642,7 @@ const RenderTypeRow = (item, Status, refreshView, workinfo, DisplayItem, showPro
                                         (Status == 0 && NoChange === 0) && takePhoto(item)
                                     }}
                                     icon={
-                                        <Icon
+                                        <SpiralIcon
                                             color='black'
                                             name='camera'
                                             type='ionicon'
@@ -658,7 +658,7 @@ const RenderTypeRow = (item, Status, refreshView, workinfo, DisplayItem, showPro
                                     }}
                                     icon={
                                         <View>
-                                            <Icon
+                                            <SpiralIcon
                                                 color='black'
                                                 name='photo'
                                                 type='font-awesome'

@@ -5,9 +5,7 @@ export default function WavyHeader({ customStyles, flip }) {
   const appcolor = useSelector(state => state.GAppState.appcolor);
   return (
     <View style={customStyles}>
-      <View style={{ height: 160 }}>
-       
-      </View>
+      <View style={{ height: 160 }}></View>
     </View>
   );
 }

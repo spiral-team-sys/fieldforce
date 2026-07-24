@@ -7,31 +7,27 @@ import { GetDataFormNow } from '../../Controller/AdhocController';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 
 const AdhocModal = () => {
-    const dispatch = useDispatch();
-    const { formstatus, formdata } = useSelector(state => state.GAppState);
+  const dispatch = useDispatch();
+  const { formstatus, formdata } = useSelector(state => state.GAppState);
 
-    const LoadData = async () => {
-        const result = await GetDataFormNow();
-        if (result.length > 0)
-            await dispatch(SetFormNow(result[0]));
-    }
+  const LoadData = async () => {
+    const result = await GetDataFormNow();
+    if (result.length > 0) await dispatch(SetFormNow(result[0]));
+  };
 
-    useEffect(() => {
-        LoadData()
-    }, []);
+  useEffect(() => {
+    LoadData();
+  }, []);
 
-    if (!formstatus || !formdata?.publicUrl) return null;
+  if (!formstatus || !formdata?.publicUrl) return null;
 
-    return (
-        <Modal
-            visible={formstatus}
-            animationType="fade"
-            statusBarTranslucent>
-            <SafeAreaProvider>
-                <AdhocNow data={formdata} />
-            </SafeAreaProvider>
-        </Modal>
-    );
+  return (
+    <Modal visible={formstatus} animationType="fade" statusBarTranslucent>
+      <SafeAreaProvider>
+        <AdhocNow data={formdata} />
+      </SafeAreaProvider>
+    </Modal>
+  );
 };
 
 export default AdhocModal;

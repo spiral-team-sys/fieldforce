@@ -55,7 +55,7 @@ export const DamageNote = ({ navigation, route }) => {
                     buttonStyle={{ backgroundColor: DEFAULT_COLOR, alignContent: 'center' }}
                     containerStyle={{ width: '47%', borderRadius: 10, height: 55, alignContent: 'center' }}
                     icon={
-                        <Icon type='ionicon' name='camera' size={35} color={'#fff'}></Icon>
+                        <SpiralIcon type='ionicon' name='camera' size={35} color={'#fff'}></SpiralIcon>
                     }
                     onPress={() => takePhoto()}
                 >
@@ -66,7 +66,7 @@ export const DamageNote = ({ navigation, route }) => {
                     buttonStyle={{ backgroundColor: DEFAULT_COLOR, alignContent: 'center' }}
                     containerStyle={{ width: '47%', borderRadius: 10, height: 55, alignContent: 'center' }}
                     icon={
-                        <Icon type='ionicon' name='images' size={35} color={'#fff'}></Icon>
+                        <SpiralIcon type='ionicon' name='images' size={35} color={'#fff'}></SpiralIcon>
                     }
                     onPress={() => showAlbum()}
                 >

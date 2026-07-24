@@ -17,22 +17,25 @@ const ShopLocation = () => {
   const mapRef = useRef(null);
 
   const requestMylocation = (successCallback, errorCallback) => {
-    LOCATION_INFO.getCurrentLocation(info => {
-      const region = {
-        latitude: info.latitude,
-        longitude: info.longitude,
-        latitudeDelta: DETAL_LOCATION,
-        longitudeDelta: DETAL_LOCATION,
-      };
+    LOCATION_INFO.getCurrentLocation(
+      info => {
+        const region = {
+          latitude: info.latitude,
+          longitude: info.longitude,
+          latitudeDelta: DETAL_LOCATION,
+          longitudeDelta: DETAL_LOCATION,
+        };
 
-      setRegionMylocation(region);
-      successCallback && successCallback(region);
-    }, (error) => {
-      errorCallback && errorCallback(error);
-    })
+        setRegionMylocation(region);
+        successCallback && successCallback(region);
+      },
+      error => {
+        errorCallback && errorCallback(error);
+      },
+    );
   };
 
-  const handleUserLocationChange = (event) => {
+  const handleUserLocationChange = event => {
     const coordinate = event?.nativeEvent?.coordinate;
     if (!coordinate?.latitude || !coordinate?.longitude) {
       return;
@@ -48,23 +51,28 @@ const ShopLocation = () => {
 
   const onShowMyLocation = () => {
     if (regionMylocation !== null) {
-      (mapRef.current !== undefined) && mapRef.current.animateToRegion(regionMylocation);
+      mapRef.current !== undefined &&
+        mapRef.current.animateToRegion(regionMylocation);
       return;
     }
 
     requestMylocation(
-      (region) => {
-        (mapRef.current !== undefined) && mapRef.current.animateToRegion(region);
+      region => {
+        mapRef.current !== undefined && mapRef.current.animateToRegion(region);
       },
       () => {
-        Alert.alert('Bạn chưa có toạ độ vui lòng bật tính năng vị trí trong phần cài đặt của máy.');
-      }
+        Alert.alert(
+          'Bạn chưa có toạ độ vui lòng bật tính năng vị trí trong phần cài đặt của máy.',
+        );
+      },
     );
-  }
+  };
 
   const showLocation = () => {
     if (!isHaveLocationShop) {
-      (mapRef.current !== undefined && regionMylocation !== null) && mapRef.current.animateToRegion(regionMylocation, 1.0);
+      mapRef.current !== undefined &&
+        regionMylocation !== null &&
+        mapRef.current.animateToRegion(regionMylocation, 1.0);
     }
   };
 
@@ -88,10 +96,11 @@ const ShopLocation = () => {
   }, [shopinfo]);
 
   return (
-    <View style={{ height: '100%', width: '100%', backgroundColor: appcolor.light }}>
+    <View
+      style={{ height: '100%', width: '100%', backgroundColor: appcolor.light }}
+    >
       <MapView
-        ref={
-          mapRef}
+        ref={mapRef}
         style={{ flex: 1, marginBottom: 0 }}
         zoomEnabled={true}
         provider={PROVIDER_GOOGLE}
@@ -108,7 +117,7 @@ const ShopLocation = () => {
             key={shopSelected.shopCode}
             coordinate={{
               latitude: shopSelected.latitude,
-              longitude: shopSelected.longitude
+              longitude: shopSelected.longitude,
             }}
             pinColor={appcolor[shopSelected.colorMarker] || 'tomato'}
             title={shopSelected.shopName}
@@ -116,10 +125,22 @@ const ShopLocation = () => {
           />
         )}
       </MapView>
-      <TouchableOpacity onPress={onShowMyLocation} style={{ backgroundColor: appcolor.white, position: 'absolute', zIndex: 5, top: 8, right: 8, alignItems: 'flex-end', padding: 8, borderRadius: 8 }}>
-        <Icon
-          name='locate'
-          type='ionicon'
+      <TouchableOpacity
+        onPress={onShowMyLocation}
+        style={{
+          backgroundColor: appcolor.white,
+          position: 'absolute',
+          zIndex: 5,
+          top: 8,
+          right: 8,
+          alignItems: 'flex-end',
+          padding: 8,
+          borderRadius: 8,
+        }}
+      >
+        <SpiralIcon
+          name="locate"
+          type="ionicon"
           color={DEFAULT_COLOR}
           size={24}
         />

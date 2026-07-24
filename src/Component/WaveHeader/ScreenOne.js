@@ -17,21 +17,21 @@ export default function ScreenOne() {
 const styles = StyleSheet.create({
   svgCurve: {
     position: 'absolute',
-    width: Dimensions.get('window').width
+    width: Dimensions.get('window').width,
   },
   container: {
     flex: 1,
-    backgroundColor: '#fff'
+    backgroundColor: '#fff',
   },
   headerContainer: {
     marginTop: 50,
-    marginHorizontal: 10
+    marginHorizontal: 10,
   },
   headerText: {
     fontSize: 30,
     fontWeight: 'bold',
     color: CONTENT_COLOR,
     textAlign: 'center',
-    marginTop: 35
-  }
+    marginTop: 35,
+  },
 });

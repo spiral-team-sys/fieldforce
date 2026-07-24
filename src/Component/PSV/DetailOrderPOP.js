@@ -64,12 +64,12 @@ export const DetailOrderPOP = ({ navigation, route }) => {
         <View style={{ height: 200, width: '100%', flexDirection: 'row' }} onPress={() => this.onItemPress(item)} >
             <View style={{ flexDirection: 'column' }}>
                 <View style={{ width: 1, left: 55, backgroundColor: backgroundColorTop(item.Step), height: '38%' }}></View>
-                <Icon
+                <SpiralIcon
                     name={showIconName(item.Step)}
                     color={'white'} type='ionicon' size={30}
                     containerStyle={{ left: 30, backgroundColor: DEFAULT_COLOR, borderRadius: 25, width: 50, height: 50 }}
                     iconStyle={{ top: 7 }}>
-                </Icon>
+                </SpiralIcon>
                 <View style={{ width: 1, left: 55, backgroundColor: backgroundColorBottom(item.Step), height: '38%' }}></View>
             </View>
             <View style={{ padding: 8, flexDirection: 'column' }}>
@@ -231,7 +231,7 @@ export const DetailOrderPOP = ({ navigation, route }) => {
                         buttonStyle={{ backgroundColor: DEFAULT_COLOR, alignContent: 'center' }}
                         containerStyle={{ width: '47%', borderRadius: 10, height: 55, alignContent: 'center' }}
                         icon={
-                            <Icon type='ionicon' name='camera' size={35} color={'#fff'}></Icon>
+                            <SpiralIcon type='ionicon' name='camera' size={35} color={'#fff'}></SpiralIcon>
                         }
                         onPress={() => {
                             navigation.navigate('damageNote', route.params);
@@ -244,7 +244,7 @@ export const DetailOrderPOP = ({ navigation, route }) => {
                         buttonStyle={{ backgroundColor: DEFAULT_COLOR, alignContent: 'center' }}
                         containerStyle={{ width: '47%', borderRadius: 10, height: 55, alignContent: 'center' }}
                         icon={
-                            <Icon type='ionicon' name='save' size={35} color={'#fff'}></Icon>
+                            <SpiralIcon type='ionicon' name='save' size={35} color={'#fff'}></SpiralIcon>
                         }
                         onPress={() => ConfirmOrder()}
                     >

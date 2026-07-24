@@ -7,7 +7,7 @@ import { updateNoteDisplayReport, getNoteDisplayReport } from '../../../Controll
 import { isNotInteger, ToastError, ToastSuccess, UUIDGenerator } from '../../../Core/Helper';
 import { _competitorId, _competitorName } from '../../../Core/URLs';
 import { fontWeightBold, scaleSize, styleDefault } from '../../../Themes/AppsStyle';
-////import { NumericFormat } from "react-number-format";;
+// import { NumericFormat } from 'react-number-format';
 import ActionSheet from 'react-native-actions-sheet';
 
 import moment from 'moment';
@@ -16,9 +16,11 @@ import FormGroup from '../../../Content/FormGroup';
 import ViewPictures from '../../../Control/Gallary/ViewPictures';
 import CustomListView from '../../../Control/Custom/CustomListView';
 import CustomTab from '../../../Control/Custom/CustomTab';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
 
 export const InputDisplayReport = ({ navigation, appcolor, workinfo, kpiinfo, data, select, Status, isClear, showProgress, reload, currentTab }) => {
+    const insets = useSafeAreaInsets()
     const [noteSaved, setNoteSaved] = useState('');
     const [listPhotoByCategory, setPhotoByCategory] = useState([])
     const [dataTab, setDataTab] = useState([])
@@ -144,7 +146,7 @@ export const InputDisplayReport = ({ navigation, appcolor, workinfo, kpiinfo, da
                         <TouchableOpacity
                             onPress={() => handleTakePicture(it)}
                             style={[styles.headerButton, { width: lstReport?.isNoteBySKU == 1 ? '49%' : '34%' }]}>
-                            <Icon name='camera' color={appcolor.primary} type='ionicon' size={25}></Icon>
+                            <SpiralIcon name='camera' color={appcolor.primary} type='ionicon' size={25}></SpiralIcon>
                             <Text style={styles.headerButtonText}>Chụp hình</Text>
                         </TouchableOpacity>
                         <View style={styles.headerDivider} />
@@ -153,7 +155,7 @@ export const InputDisplayReport = ({ navigation, appcolor, workinfo, kpiinfo, da
                             style={[styles.headerButton, { width: lstReport?.isNoteBySKU == 1 ? '49%' : '34%' }]}>
                             <View style={{ flex: 1, }}>
                                 <Badge badgeStyle={{ position: 'absolute', top: -5, right: -2 }} value={totalPhoto} />
-                                <Icon name='image' color={appcolor.primary} type='ionicon' size={25}></Icon>
+                                <SpiralIcon name='image' color={appcolor.primary} type='ionicon' size={25}></SpiralIcon>
                                 <Text style={styles.headerButtonText}>Xem hình</Text>
                             </View>
                         </TouchableOpacity>
@@ -162,7 +164,7 @@ export const InputDisplayReport = ({ navigation, appcolor, workinfo, kpiinfo, da
                             <TouchableOpacity
                                 onPress={() => handlerShowNote(it.displayRef)}
                                 style={[styles.headerButton, { width: '34%' }]}>
-                                <Icon name='create-outline' color={appcolor.primary} type='ionicon' size={25}></Icon>
+                                <SpiralIcon name='create-outline' color={appcolor.primary} type='ionicon' size={25}></SpiralIcon>
                                 <Text style={styles.headerButtonText}>Ghi chú</Text>
                             </TouchableOpacity>
                         }
@@ -176,7 +178,6 @@ export const InputDisplayReport = ({ navigation, appcolor, workinfo, kpiinfo, da
                         renderItem={renderItemView}
                         containerStyle={{ flex: 1 }}
                         estimatedItemSize={100}
-                        ListFooter={<Text style={styles.listFooter}>{'Đã xem hết'}</Text>}
                     />
                 </View>
             </View >
@@ -212,7 +213,7 @@ export const InputDisplayReport = ({ navigation, appcolor, workinfo, kpiinfo, da
             <ActionSheet
                 ref={ref_noteSheet}
                 defaultOverlayOpacity={0.1}
-                containerStyle={{ backgroundColor: appcolor.surface }}
+                containerStyle={{ backgroundColor: appcolor.surface, paddingBottom: insets.bottom }}
                 onClose={() => cancelNote()}
                 closeOnPressBack={true}
                 gestureEnabled={true}
@@ -252,7 +253,7 @@ export const InputDisplayReport = ({ navigation, appcolor, workinfo, kpiinfo, da
             <ActionSheet
                 ref={ref_takePhotoSheet}
                 defaultOverlayOpacity={0.3}
-                containerStyle={{ backgroundColor: appcolor.surface }}
+                containerStyle={{ backgroundColor: appcolor.surface, paddingBottom: insets.bottom }}
                 closeOnPressBack={true}
                 gestureEnabled={true}
                 indicatorColor={appcolor.primary}
@@ -266,14 +267,14 @@ export const InputDisplayReport = ({ navigation, appcolor, workinfo, kpiinfo, da
                             style={[styles.photoActionButton, { borderColor: appcolor.dark }]}
                             onPress={() => Status !== 1 && handleTakePicturePCS('CAMERA')}>
                             <Text style={styles.photoActionText}>Máy ảnh</Text>
-                            <Icon color={appcolor.dark} name='camera' type='ionicon' size={30} />
+                            <SpiralIcon color={appcolor.dark} name='camera' type='ionicon' size={30} />
                         </TouchableOpacity>
                         <TouchableOpacity
                             style={[styles.photoActionButton, { borderColor: appcolor.primary }]}
                             onPress={() => Status !== 1 && handleTakePicturePCS('GALLERY')}
                         >
                             <Text style={styles.photoActionText}>Chọn ảnh</Text>
-                            <Icon color={appcolor.dark} name='attach' type='ionicon' size={30} />
+                            <SpiralIcon color={appcolor.dark} name='attach' type='ionicon' size={30} />
                         </TouchableOpacity>
                     </View>
                 </View>
@@ -462,7 +463,7 @@ const RenderItemData = memo(({ item, details, isClear, totalRow, appcolor, worki
             <View style={{ width: '100%' }}>
                 {(keyLayer2 && item.subCategory !== null && item.subCategory !== undefined) &&
                     <View style={{ padding: 8, marginTop: 5, borderRadius: 10, flexDirection: 'row', alignItems: 'center', backgroundColor: appcolor.primary, marginBottom: 5 }}>
-                        <Icon name='tags' type='font-awesome-5' size={15} color={appcolor.white} />
+                        <SpiralIcon name='tags' type='font-awesome-5' size={15} color={appcolor.white} />
                         <Text style={{ color: appcolor.white, fontSize: 14, paddingLeft: 8, fontWeight: '600' }}>{item.subCategory}</Text>
                     </View>
                 }
@@ -477,7 +478,7 @@ const RenderItemData = memo(({ item, details, isClear, totalRow, appcolor, worki
                                 {totalPhoto > 0 && <View style={{ position: 'absolute', top: -5, right: -5 }}>
                                     <Badge value={totalPhoto} />
                                 </View>}
-                                <Icon name='camera' color={appcolor.primary} type='ionicon' size={25}></Icon>
+                                <SpiralIcon name='camera' color={appcolor.primary} type='ionicon' size={25}></SpiralIcon>
                             </TouchableOpacity>
                         }
 

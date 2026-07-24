@@ -2,12 +2,20 @@ import React, { Component, useRef } from 'react';
 import { Animated, StyleSheet, Text, View, I18nManager } from 'react-native';
 import { RectButton } from 'react-native-gesture-handler';
 import Swipeable from 'react-native-gesture-handler/Swipeable';
-import Icon from '@react-native-vector-icons/fontawesome6';
+import SpiralIcon from './Icon/SpiralIcon';
 import { useSelector } from 'react-redux';
 
-const ActionPhotoRow = ({ children, cameraAction, fileAction, viewAction, isCamera = true, isFile = true, isViewPhoto = true }) => {
-  const { appcolor } = useSelector(state => state.GAppState)
-  const swipeableRef = useRef()
+const ActionPhotoRow = ({
+  children,
+  cameraAction,
+  fileAction,
+  viewAction,
+  isCamera = true,
+  isFile = true,
+  isViewPhoto = true,
+}) => {
+  const { appcolor } = useSelector(state => state.GAppState);
+  const swipeableRef = useRef();
 
   const leftAction = (progress, dragX) => {
     const trans = dragX.interpolate({
@@ -22,48 +30,82 @@ const ActionPhotoRow = ({ children, cameraAction, fileAction, viewAction, isCame
             {
               transform: [{ translateX: trans }],
             },
-          ]}>
+          ]}
+        >
           Archive
         </Animated.Text>
       </RectButton>
     );
-  }
+  };
   const rightAction = (iconName, color, x, progress, handler) => {
     const trans = progress.interpolate({
       inputRange: [0, 1],
       outputRange: [x, 0],
     });
     const pressHandler = () => {
-      closeAction()
-      handler()
+      closeAction();
+      handler();
     };
     return (
-      <Animated.View style={{ flex: 1, transform: [{ translateX: trans }], marginTop: 3, marginBottom: 3 }}>
+      <Animated.View
+        style={{
+          flex: 1,
+          transform: [{ translateX: trans }],
+          marginTop: 3,
+          marginBottom: 3,
+        }}
+      >
         <RectButton
-          style={[styles.rightAction, { backgroundColor: color, borderRadius: 8, marginStart: 3 }]}
-          onPress={pressHandler}>
-          <Icon name={iconName} size={21} color={appcolor.light} />
+          style={[
+            styles.rightAction,
+            { backgroundColor: color, borderRadius: 8, marginStart: 3 },
+          ]}
+          onPress={pressHandler}
+        >
+          <SpiralIcon
+            type="font-awesome-6"
+            name={iconName}
+            size={21}
+            color={appcolor.light}
+          />
         </RectButton>
       </Animated.View>
     );
-  }
-  const renderRightActions = (progress) => {
-    const sizeWidth = (isCamera || isFile) ? 192 : 128
+  };
+  const renderRightActions = progress => {
+    const sizeWidth = isCamera || isFile ? 192 : 128;
     return (
-      <View style={{ width: sizeWidth, flexDirection: I18nManager.isRTL ? 'row-reverse' : 'row' }}>
-        {isCamera && rightAction('camera', '#336699', 192, progress, cameraAction)}
-        {isFile && rightAction('paperclip', '#FFAC1C', 128, progress, fileAction)}
-        {isViewPhoto && rightAction('image', '#C02739', 64, progress, viewAction)}
+      <View
+        style={{
+          width: sizeWidth,
+          flexDirection: I18nManager.isRTL ? 'row-reverse' : 'row',
+        }}
+      >
+        {isCamera &&
+          rightAction('camera', '#336699', 192, progress, cameraAction)}
+        {isFile &&
+          rightAction('paperclip', '#FFAC1C', 128, progress, fileAction)}
+        {isViewPhoto &&
+          rightAction('image', '#C02739', 64, progress, viewAction)}
       </View>
-    )
-  }
+    );
+  };
   const closeAction = () => {
-    swipeableRef?.current.close()
-  }
+    swipeableRef?.current.close();
+  };
   const styles = StyleSheet.create({
-    leftAction: { flex: 1, backgroundColor: appcolor.info, justifyContent: 'center' },
-    actionText: { color: appcolor.light, fontSize: 16, backgroundColor: 'transparent', padding: 10, },
-    rightAction: { alignItems: 'center', flex: 1, justifyContent: 'center', }
+    leftAction: {
+      flex: 1,
+      backgroundColor: appcolor.info,
+      justifyContent: 'center',
+    },
+    actionText: {
+      color: appcolor.light,
+      fontSize: 16,
+      backgroundColor: 'transparent',
+      padding: 10,
+    },
+    rightAction: { alignItems: 'center', flex: 1, justifyContent: 'center' },
   });
   return (
     <Swipeable
@@ -74,7 +116,7 @@ const ActionPhotoRow = ({ children, cameraAction, fileAction, viewAction, isCame
     >
       {children}
     </Swipeable>
-  )
-}
+  );
+};
 
-export default ActionPhotoRow; 
+export default ActionPhotoRow;

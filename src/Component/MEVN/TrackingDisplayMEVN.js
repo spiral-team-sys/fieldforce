@@ -153,13 +153,13 @@ export const TrackingDisplayMEVN = ({ navigation, route }) => {
                                 <View style={{ flexDirection: 'row', justifyContent: 'space-between', padding: 12 }}>
                                     <Button
                                         onPress={() => uploaded !== 1 && takePhoto()}
-                                        icon={<Icon color={appcolor.dark} name='camera' type='ionicon' size={25}></Icon>}
+                                        icon={<SpiralIcon color={appcolor.dark} name='camera' type='ionicon' size={25}></SpiralIcon>}
                                         containerStyle={{ height: 40, backgroundColor: appcolor.light, width: '45%' }}
                                         buttonStyle={{ height: 40, backgroundColor: appcolor.light }}
                                         title={' Chụp hình'} titleStyle={{ color: appcolor.dark, fontSize: 12 }} />
                                     <Button
                                         onPress={() => showALbum()}
-                                        icon={<Icon name='image' color={appcolor.dark} type='ionicon' size={25}></Icon>}
+                                        icon={<SpiralIcon name='image' color={appcolor.dark} type='ionicon' size={25}></SpiralIcon>}
                                         containerStyle={{ height: 40, backgroundColor: appcolor.light, width: '45%' }}
                                         buttonStyle={{ height: 40, backgroundColor: appcolor.light }}
                                         title={' Album'} titleStyle={{ color: appcolor.dark, fontSize: 12 }} />

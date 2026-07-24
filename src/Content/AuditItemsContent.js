@@ -9,21 +9,21 @@ import ActionSheet from 'react-native-actions-sheet';
 import { DeleteItem, Store } from '../Core/SqliteDbContext';
 import { MessageInfo } from '../Core/Helper';
 const styles = StyleSheet.create({
-  title: {
-    fontSize: 17,
-    fontWeight: 'bold',
-    padding: 5,
-    textAlign: 'left'
-  },
-  line: {
-    width: '100%',
-    height: 0.6,
-    backgroundColor: '#e9e9e9',
-    paddingStart: 10,
-    paddingEnd: 10,
-    marginBottom: 4,
-    marginTop: 4
-  }
+    title: {
+        fontSize: 17,
+        fontWeight: 'bold',
+        padding: 5,
+        textAlign: 'left'
+    },
+    line: {
+        width: '100%',
+        height: 0.6,
+        backgroundColor: '#e9e9e9',
+        paddingStart: 10,
+        paddingEnd: 10,
+        marginBottom: 4,
+        marginTop: 4
+    }
 });
 
 const offsetKeyboard = (Platform.OS === 'android') ? 200 : 200;
@@ -160,7 +160,7 @@ export default class AuditItemsContent extends Component {
                 >
                     <View style={{ height: '80%', backgroundColor: 'white', bottom: 0, top: 0 }}>
                         <Text style={{ ...styles.title, textAlign: 'center', top: 5, fontSize: 19, color: DEFAULT_COLOR }}>{this.props.RefName}</Text>
-                        <Icon containerStyle={{ top: 3, right: 10, position: 'absolute' }} name='close-outline' type='ionicon' onPress={() => this.closeBottomSheet()} color={DEFAULT_COLOR} size={35}></Icon>
+                        <SpiralIcon containerStyle={{ top: 3, right: 10, position: 'absolute' }} name='close-outline' type='ionicon' onPress={() => this.closeBottomSheet()} color={DEFAULT_COLOR} size={35}></SpiralIcon>
                         <View style={styles.line}></View>
 
                         <TextInput
@@ -244,7 +244,7 @@ const RenderRow = ({ item, index, Status, refreshView, workinfo, DisplayItem, Pr
                             {
                                 item.target === -1 &&
                                 <TouchableOpacity onPress={(e) => { RemoveProduct(item, workinfo, refreshView) }} disabled={Status === 0 ? false : true}>
-                                    <Icon
+                                    <SpiralIcon
                                         containerStyle={{ left: 2, alignItems: 'flex-end' }}
                                         type='ionicon'
                                         color='red'
@@ -267,7 +267,7 @@ const RenderRow = ({ item, index, Status, refreshView, workinfo, DisplayItem, Pr
                             }
                         </View>
                         <View style={{ alignSelf: 'center', flexDirection: "row" }}>
-                            <Icon
+                            <SpiralIcon
                                 type='font-awesome'
                                 style='baseline'
                                 color='blue'
@@ -279,7 +279,7 @@ const RenderRow = ({ item, index, Status, refreshView, workinfo, DisplayItem, Pr
                             />
                             {
                                 Status === 0 ?
-                                    <View style={{ flexDirection: 'row' }}><Icon
+                                    <View style={{ flexDirection: 'row' }}><SpiralIcon
                                         type='font-awesome'
                                         style='baseline'
                                         color='blue'
@@ -289,7 +289,7 @@ const RenderRow = ({ item, index, Status, refreshView, workinfo, DisplayItem, Pr
                                         activeOpacity={0.7}
                                     // onPress= {(e)=>{UpdateKeyNote(item)}}
                                     />
-                                        <Icon
+                                        <SpiralIcon
                                             type='font-awesome'
                                             style='baseline'
                                             color='blue'
@@ -406,7 +406,7 @@ const RenderTypeRow = (item, Status, refreshView, workinfo, DisplayItem, showPro
                     placeholder= {'SP thay thế'}
                 />
                 <TouchableOpacity onPress= {(e)=>{showProduct(item)}} disabled={Status === 0 ? false:true}>
-                <Icon
+                <SpiralIcon
                     containerStyle={{left:2,alignItems:'flex-end'}}
                     type='ionicon'
                     color='black'
@@ -422,7 +422,7 @@ const RenderTypeRow = (item, Status, refreshView, workinfo, DisplayItem, showPro
                 (item.kpi5 === 1) &&
                 <View style={{ flexDirection: 'row', width: '40%', justifyContent: 'space-between', height: 30 }}>
                     <TouchableOpacity onPress={(e) => { Props.RefName === 'PRODUCT' ? showProduct() : showPOSM() }} disabled={Status === 0 ? false : true}>
-                        <Icon
+                        <SpiralIcon
                             containerStyle={{ left: 2, alignItems: 'flex-end' }}
                             type='ionicon'
                             color='green'

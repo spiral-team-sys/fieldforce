@@ -2,7 +2,7 @@
 import React, { memo, useCallback, useEffect, useRef, useState } from "react";
 import { FlatList, Image, KeyboardAvoidingView, LayoutAnimation, Modal, Platform, ScrollView, Text, TextInput, TouchableOpacity, UIManager, View } from "react-native";
 import { MaterialTabBar, Tabs } from "react-native-collapsible-tab-view";
-////import { NumericFormat } from "react-number-format";;
+//import { NumericFormat } from "react-number-format";
 import { useSelector } from "react-redux";
 import { REPORT } from "../../../API/ReportAPI";
 import FormGroup from "../../../Content/FormGroup";
@@ -20,6 +20,7 @@ import { useFocusEffect } from "@react-navigation/native";
 import { URLDEFAULT } from "../../../Core/URLs";
 import { deletePhoto } from "../../../Controller/PhotoController";
 import { LoadingView } from "../../../Control/ItemLoading";
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
 if (Platform.OS === "android" && UIManager.setLayoutAnimationEnabledExperimental) {
     UIManager.setLayoutAnimationEnabledExperimental(true);
@@ -32,6 +33,7 @@ if (Platform.OS === "android" && UIManager.setLayoutAnimationEnabledExperimental
 // limitPhoto : số lượng hình ảnh cần để gửi báo cáo
 
 export const FSMByShopReport = ({ navigation, route }) => {
+    const insets = useSafeAreaInsets()
     const { appcolor, shopinfo, workinfo, kpiinfo } = useSelector(state => state.GAppState);
     const [data, setData] = useState({ dataTab: [], dataMain: [] })
     const [loading, setLoading] = useState(false)
@@ -319,7 +321,7 @@ export const FSMByShopReport = ({ navigation, route }) => {
                         <TouchableOpacity
                             onPress={() => takePhoto()}
                             style={{ flexDirection: 'row', width: '48%', padding: 3, marginRight: 2, justifyContent: 'center', alignItems: 'center', borderRadius: 10, backgroundColor: appcolor.surface }}>
-                            <Icon name='camera' color={appcolor.primary} type='ionicon' size={22}></Icon>
+                            <SpiralIcon name='camera' color={appcolor.primary} type='ionicon' size={22}></SpiralIcon>
                         </TouchableOpacity>
                     }
                     <TouchableOpacity
@@ -327,7 +329,7 @@ export const FSMByShopReport = ({ navigation, route }) => {
                         style={{ flexDirection: 'row', width: isUploaded ? '100%' : '48%', padding: 3, justifyContent: 'center', alignItems: 'center', borderRadius: 10, backgroundColor: currentTab == 1 ? appcolor.light : appcolor.surface }}>
                         <View style={{ flex: 1 }}>
                             <Badge badgeStyle={{ position: 'absolute', top: 0, right: 5, }} value={listPhoto.length} />
-                            <Icon name='images' color={appcolor.primary} type='ionicon' size={22}></Icon>
+                            <SpiralIcon name='images' color={appcolor.primary} type='ionicon' size={22}></SpiralIcon>
                         </View>
                     </TouchableOpacity>
                 </View>
@@ -431,7 +433,7 @@ export const FSMByShopReport = ({ navigation, route }) => {
             </View>
             <ActionSheet
                 id={'imageSheetModal'}
-                containerStyle={{ height: deviceHeight, width: deviceWidth, backgroundColor: appcolor.light }}
+                containerStyle={{ height: deviceHeight, width: deviceWidth, backgroundColor: appcolor.light, paddingBottom: insets.bottom }}
             >
                 <ViewImageSheet dataImage={dataImage} handleVisible={handleVisibleImage} />
             </ActionSheet>
@@ -553,7 +555,7 @@ const ViewListPhoto = ({ listPhoto, handleShowImage, isUploaded, handleDeletePho
                     <TouchableOpacity
                         onPress={() => handleSelectDelete(item)}
                         style={{ flexDirection: 'row', padding: 5, alignItems: 'center', position: 'absolute', top: 5, right: 5, borderRadius: 5, backgroundColor: 'rgba(241,242,247,0.5)' }}>
-                        <Icon color={appcolor.danger} name='trash-alt' type='font-awesome-5' size={18} style={{ paddingHorizontal: 10 }} />
+                        <SpiralIcon color={appcolor.danger} name='trash-alt' type='font-awesome-5' size={18} style={{ paddingHorizontal: 10 }} />
                     </TouchableOpacity>
                 }
             </View>
@@ -627,13 +629,13 @@ const RenderItemData = memo(({ item, index, indexTab, handleSelectEdit, handleSe
                         style={{ padding: 5, borderRadius: 50, backgroundColor: appcolor.light, }}
                         onPress={() => onSelectEdit()}
                     >
-                        <Icon name={'edit'} size={16} solid={true} type='font-awesome-5' color={appcolor.info} />
+                        <SpiralIcon name={'edit'} size={16} solid={true} type='font-awesome-5' color={appcolor.info} />
                     </TouchableOpacity>
                     <TouchableOpacity
                         style={{ padding: 5, borderRadius: 50, backgroundColor: appcolor.light, marginLeft: 5 }}
                         onPress={() => onSelectDelete()}
                     >
-                        <Icon name={'trash-alt'} size={16} solid={true} type='font-awesome-5' color={appcolor.red} />
+                        <SpiralIcon name={'trash-alt'} size={16} solid={true} type='font-awesome-5' color={appcolor.red} />
                     </TouchableOpacity>
                 </View>
             }

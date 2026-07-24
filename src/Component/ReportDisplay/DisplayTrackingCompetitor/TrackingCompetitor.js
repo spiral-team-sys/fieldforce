@@ -4,10 +4,10 @@ import { minWidthTab, removeDuplicate, } from '../../../Core/Utility';
 import { groupDataByKey, ToastError, ToastSuccess, UUIDGenerator } from '../../../Core/Helper';
 import { deviceWidth } from '../../../Themes/AppsStyle';
 import { insertTotalTrackingLG, getListDataTracking, getListCategoryTracking, updateNoteTracking, updateCheckValueTracking, clearDataTrackingCompetitor } from '../../../Controller/TrackingDetailController';
-import Icon from '@react-native-vector-icons/fontawesome6';
+
 import { scaleSize } from '../../../Themes/AppsStyle';
 import { useSelector } from 'react-redux';
-////import { NumericFormat } from "react-number-format";;
+// import { NumericFormat } from 'react-number-format';
 import { Tabs, MaterialTabBar } from 'react-native-collapsible-tab-view'
 import { LoadingView } from '../../../Control/ItemLoading';
 import { AppNameBuild, bekoApp } from '../../../Core/URLs';
@@ -22,8 +22,10 @@ import NativeCamera from '../../../Control/NativeCamera';
 import { NumPad_V2 } from '../../../Control/NumPad_V2';
 import ActionSheet, { SheetManager } from 'react-native-actions-sheet';
 import { deviceHeight } from '../../Home';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
 export const TrackingCompetitor = ({ navigation, route, reload, Status, toolAction }) => {
+    const insets = useSafeAreaInsets()
     const [loading, setLoading] = useState(false)
     const [arrTagShow, setArrTagShow] = useState([])
     const [arrDataShow, setArrDataShow] = useState([])
@@ -313,7 +315,7 @@ export const TrackingCompetitor = ({ navigation, route, reload, Status, toolActi
                     borderColor: active ? color : appcolor.grayLight,
                     backgroundColor: appcolor.light
                 }]}>
-                <Icon name={active ? 'check-square' : 'square'} size={13} color={active ? color : appcolor.black} />
+                <SpiralIcon name={active ? 'check-square' : 'square'} size={13} color={active ? color : appcolor.black} />
                 <Text numberOfLines={1} style={[styles.confirmText, { color: appcolor.dark }]}>{title}</Text>
             </TouchableOpacity>
         )
@@ -334,7 +336,7 @@ export const TrackingCompetitor = ({ navigation, route, reload, Status, toolActi
                 }
                 {keyLayer2 && ((AppNameBuild === bekoApp && item.subCategory !== null && item.subCategory?.length > 0) || (item.competitorName !== null && item.competitorName?.length > 0)) &&
                     <View style={[styles.sectionHeader, { backgroundColor: appcolor.grayLight }]}>
-                        <Icon name='tags' style={{ color: appcolor.dark }} />
+                        <SpiralIcon name='tags' style={{ color: appcolor.dark }} />
                         <Text numberOfLines={1} style={[styles.sectionTitle, { color: appcolor.dark }]}>{AppNameBuild === bekoApp ? item.subCategory : item.competitorName}</Text>
                     </View>
                 }
@@ -478,9 +480,9 @@ export const TrackingCompetitor = ({ navigation, route, reload, Status, toolActi
                                                         <View style={{ flexDirection: 'row', justifyContent: 'center', alignItems: 'center', marginRight: 5 }}>
                                                             {
                                                                 Status != 1 ?
-                                                                    <Icon name='camera' color={appcolor.primary} type='ionicon' size={16}></Icon>
+                                                                    <SpiralIcon name='camera' color={appcolor.primary} type='ionicon' size={16}></SpiralIcon>
                                                                     :
-                                                                    <Icon name='images' color={appcolor.primary} type='ionicon' size={16}></Icon>
+                                                                    <SpiralIcon name='images' color={appcolor.primary} type='ionicon' size={16}></SpiralIcon>
                                                             }
                                                             <Text style={{ color: appcolor.dark, fontSize: 12, paddingLeft: 3 }}>{Status != 1 ? 'Chụp hình' : 'Xem hình'}</Text>
                                                         </View>
@@ -492,7 +494,7 @@ export const TrackingCompetitor = ({ navigation, route, reload, Status, toolActi
                                                                 onPress={() => takePhoto(it.tabName)}
                                                                 style={{ flexDirection: 'row', minHeight: 30, marginRight: 2, padding: 3, justifyContent: 'center', alignItems: 'center', borderRadius: 6, backgroundColor: appcolor.surface }}>
                                                                 <View style={{ flexDirection: 'row', justifyContent: 'center', alignItems: 'center' }}>
-                                                                    <Icon name='camera' color={appcolor.primary} type='ionicon' size={16}></Icon>
+                                                                    <SpiralIcon name='camera' color={appcolor.primary} type='ionicon' size={16}></SpiralIcon>
                                                                     <Text style={{ color: appcolor.dark, fontSize: 12, paddingLeft: 3 }}>Chụp hình</Text>
                                                                 </View>
                                                             </TouchableOpacity>
@@ -502,7 +504,7 @@ export const TrackingCompetitor = ({ navigation, route, reload, Status, toolActi
                                                             style={{ minHeight: 30, padding: 3, paddingVertical: 5, marginRight: 3, borderRadius: 6, backgroundColor: appcolor.surface }}>
                                                             <Badge badgeStyle={{ position: 'absolute', top: -8, right: -8 }} value={totalPhoto} />
                                                             <View style={{ flexDirection: 'row', justifyContent: 'center', alignItems: 'center' }}>
-                                                                <Icon name='images' color={appcolor.primary} type='ionicon' size={16}></Icon>
+                                                                <SpiralIcon name='images' color={appcolor.primary} type='ionicon' size={16}></SpiralIcon>
                                                                 <Text style={{ color: appcolor.dark, fontSize: 12, paddingLeft: 3 }}>Xem hình</Text>
                                                             </View>
                                                         </TouchableOpacity>
@@ -538,7 +540,7 @@ export const TrackingCompetitor = ({ navigation, route, reload, Status, toolActi
                         <View style={{
                             alignItems: 'center', borderRadius: 30,
                         }}>
-                            <Icon size={28} color={appcolor.white} name='comment' />
+                            <SpiralIcon size={28} color={appcolor.white} name='comment' />
                         </View>
                     </TouchableOpacity>
                 }
@@ -550,7 +552,7 @@ export const TrackingCompetitor = ({ navigation, route, reload, Status, toolActi
                 defaultOverlayOpacity={0.3}
                 // onClose={handlerClose}
                 gestureEnabled={true}
-                containerStyle={{ backgroundColor: appcolor.light }}>
+                containerStyle={{ backgroundColor: appcolor.light, paddingBottom: insets.bottom }}>
                 <View style={{ width: '100%', height: deviceHeight * 0.6, alignContent: 'center', padding: 8 }}>
                     <FormGroup
                         key={'ViewFormNote'}

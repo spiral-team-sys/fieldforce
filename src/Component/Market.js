@@ -20,38 +20,39 @@ import { URL_UPLOAD_PHOTOS } from '../Core/URLs';
 import { Token } from '../Core/Helper';
 import { isIphoneX } from "../Core/is-iphone-x";
 import { uploadAllDataPhoto } from "../Controller/PhotoController";
+import SpiralIcon from "../Control/Icon/SpiralIcon";
 const styles = StyleSheet.create({
-  Text: {
-    padding: 3,
-    color: 'black',
-    minHeight: 27,
-    borderWidth: 0.6,
-    borderBottomColor: '#f0f0f1'
-  },
-  textbox: {
-    fontSize: 15,
-    paddingLeft: 15,
-    paddingRight: 15,
-    color: 'black',
-    minHeight: 30,
-    maxHeight: 30,
-    textAlign: 'left',
-    borderWidth: 0
-  },
-  line: {
-    width: '100%',
-    height: 0.6,
-    backgroundColor: '#e9e9e9',
-    paddingStart: 10,
-    paddingEnd: 10,
-    marginBottom: 4,
-    marginTop: 4
-  },
-  separator: {
-    width: '100%',
-    height: 0.6,
-    backgroundColor: '#e9e9e9'
-  }
+    Text: {
+        padding: 3,
+        color: 'black',
+        minHeight: 27,
+        borderWidth: 0.6,
+        borderBottomColor: '#f0f0f1'
+    },
+    textbox: {
+        fontSize: 15,
+        paddingLeft: 15,
+        paddingRight: 15,
+        color: 'black',
+        minHeight: 30,
+        maxHeight: 30,
+        textAlign: 'left',
+        borderWidth: 0
+    },
+    line: {
+        width: '100%',
+        height: 0.6,
+        backgroundColor: '#e9e9e9',
+        paddingStart: 10,
+        paddingEnd: 10,
+        marginBottom: 4,
+        marginTop: 4
+    },
+    separator: {
+        width: '100%',
+        height: 0.6,
+        backgroundColor: '#e9e9e9'
+    }
 });
 
 let RNFS = require('react-native-fs');
@@ -296,14 +297,14 @@ function MarketModel({ Traffics, Categories, Masterlist, Options, workinfo, guiI
         <View style={{ flex: 1, marginTop: Platform.OS == 'android' ? 10 : 30 }}>
             <View style={{ flex: 12, flexDirection: 'column', padding: 5 }}>
                 <View style={{ width: '100%', alignItems: 'flex-end', padding: 4, paddingRight: 10, flexDirection: 'row' }}>
-                    <Icon containerStyle={{ flexGrow: 1 }} name='save'
+                    <SpiralIcon containerStyle={{ flexGrow: 1 }} name='save'
                         onPress={() => {
                             Keyboard.dismiss();
                             Save();
                         }}
-                        color={DEFAULT_COLOR} size={30}></Icon>
+                        color={DEFAULT_COLOR} size={30}></SpiralIcon>
                     <Text style={{ flexGrow: 10, fontSize: 20, textAlign: 'center' }}>Báo cáo thị trường</Text>
-                    <Icon containerStyle={{ flexGrow: 1 }} name='close' color='gray' onPress={() => Closed()} size={30}></Icon>
+                    <SpiralIcon containerStyle={{ flexGrow: 1 }} name='close' color='gray' onPress={() => Closed()} size={30}></SpiralIcon>
                 </View>
 
                 <KeyboardAvoidingView
@@ -728,7 +729,7 @@ function MarketModel({ Traffics, Categories, Masterlist, Options, workinfo, guiI
                                 buttonStyle={{ height: 45, backgroundColor: 'white' }}
                                 onPress={e => takePhoto(e, "to")}
                                 icon={
-                                    <Icon
+                                    <SpiralIcon
                                         color='black'
                                         name='camera'
                                         style='baseline'
@@ -742,7 +743,7 @@ function MarketModel({ Traffics, Categories, Masterlist, Options, workinfo, guiI
                                 buttonStyle={{ height: 45, backgroundColor: 'white' }}
                                 onPress={e => showALbum(e, "to")}
                                 icon={
-                                    <Icon
+                                    <SpiralIcon
                                         color='black'
                                         name='photo'
                                         type='font-awesome'
@@ -807,7 +808,7 @@ const SwipeableRow = ({ item, index, navigation, workinfo, ShowDetail }) => {
                             buttonStyle={{ height: 45, backgroundColor: 'white' }}
                             onPress={e => (item.upload == 0) && takePhotoCell(e, item.guiId, workinfo, navigation)}
                             icon={
-                                <Icon
+                                <SpiralIcon
                                     color='black'
                                     name='camera'
                                     style='baseline'
@@ -821,7 +822,7 @@ const SwipeableRow = ({ item, index, navigation, workinfo, ShowDetail }) => {
                             buttonStyle={{ height: 45, backgroundColor: 'white' }}
                             onPress={e => showALbumCell(e, item.guiId, workinfo, navigation)}
                             icon={
-                                <Icon
+                                <SpiralIcon
                                     color='black'
                                     name='photo'
                                     type='font-awesome'
@@ -1152,7 +1153,7 @@ export default class Market extends Component {
                     style={{position:'absolute',zIndex:10,right:20,bottom:20}} 
                     iconSize={50} iconColor='green'
                     type='plus-circle'></SocialIcon> */}
-                    <Icon
+                    <SpiralIcon
                         disabledStyle={{ backgroundColor: 'clear' }}
                         iconStyle={{ color: DEFAULT_COLOR }}
                         onPress={() => this.AddMarket()}

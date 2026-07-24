@@ -1,18 +1,18 @@
-import React, { useEffect, useMemo, useState } from "react";
+import React, { useEffect, useMemo, useState } from 'react';
 import {
   processColor,
   ScrollView,
   StyleSheet,
   TouchableOpacity,
   View,
-} from "react-native";
-import { Icon, Text } from "@rneui/base";
-import { PieChart } from "react-native-charts-wrapper";
-import { useSelector } from "react-redux";
+} from 'react-native';
+import { Icon, Text } from '@rneui/base';
+import { PieChart } from 'react-native-charts-wrapper';
+import { useSelector } from 'react-redux';
 
 const QuarterStatisticsView = ({
   programs = [],
-  timeMode = "MONTH",
+  timeMode = 'MONTH',
   pickerMode = timeMode,
   month = 1,
   maxMonth = 1,
@@ -22,73 +22,73 @@ const QuarterStatisticsView = ({
   onChangeMonth,
   onChangeQuarter,
 }) => {
-  const { appcolor } = useSelector((state) => state.GAppState);
+  const { appcolor } = useSelector(state => state.GAppState);
   const [selectedProgramId, setSelectedProgramId] = useState(0);
-  const [selectedTypeData, setSelectedTypeData] = useState("");
+  const [selectedTypeData, setSelectedTypeData] = useState('');
   const quarterList = Array.from({ length: maxQuarter }).map(
-    (_, index) => index + 1
+    (_, index) => index + 1,
   );
   const monthList = Array.from({ length: maxMonth }).map(
-    (_, index) => index + 1
+    (_, index) => index + 1,
   );
-  const isMonthMode = timeMode === "MONTH";
-  const isMonthPicker = pickerMode === "MONTH";
+  const isMonthMode = timeMode === 'MONTH';
+  const isMonthPicker = pickerMode === 'MONTH';
   const timeTitle = isMonthMode ? `tháng ${month}` : `quý ${quarter}`;
   const displayPrograms = useMemo(
     () =>
       programs
-        .map((program) => ({
+        .map(program => ({
           ...program,
-          typeData: (program?.typeData || []).filter((type) =>
+          typeData: (program?.typeData || []).filter(type =>
             (type?.statuses || []).some(
-              (status) => Number(status?.TotalShops || 0) > 0
-            )
+              status => Number(status?.TotalShops || 0) > 0,
+            ),
           ),
         }))
-        .filter((program) => program.typeData.length > 0),
-    [programs]
+        .filter(program => program.typeData.length > 0),
+    [programs],
   );
 
   const selectedProgram =
-    displayPrograms.find((item) => item.programId == selectedProgramId) ||
+    displayPrograms.find(item => item.programId == selectedProgramId) ||
     displayPrograms[0];
   const selectedType =
     selectedProgram?.typeData?.find(
-      (item) => item.TypeData === selectedTypeData
+      item => item.TypeData === selectedTypeData,
     ) || selectedProgram?.typeData?.[0];
 
   useEffect(() => {
-    if (!displayPrograms.some((item) => item.programId == selectedProgramId)) {
+    if (!displayPrograms.some(item => item.programId == selectedProgramId)) {
       setSelectedProgramId(displayPrograms[0]?.programId || 0);
-      setSelectedTypeData(displayPrograms[0]?.typeData?.[0]?.TypeData || "");
+      setSelectedTypeData(displayPrograms[0]?.typeData?.[0]?.TypeData || '');
     }
   }, [displayPrograms, selectedProgramId]);
 
   const totalShops =
     selectedType?.statuses?.reduce(
       (total, status) => total + Number(status.TotalShops || 0),
-      0
+      0,
     ) || 0;
-  const chartValues = (selectedType?.statuses || []).map((status) => ({
+  const chartValues = (selectedType?.statuses || []).map(status => ({
     value: Number(status.TotalShops || 0),
     label: status.StatusTitle,
   }));
-  const chartColors = (selectedType?.statuses || []).map((status) =>
-    processColor(appcolor[status.ColorTheme] || appcolor.primary)
+  const chartColors = (selectedType?.statuses || []).map(status =>
+    processColor(appcolor[status.ColorTheme] || appcolor.primary),
   );
   const chartData = {
     dataSets: [
       {
-        label: "",
+        label: '',
         values: chartValues,
         config: {
           colors: chartColors,
           valueTextSize: 10,
           valueTextColor: processColor(appcolor.dark),
-          valueFormatter: "#,###",
+          valueFormatter: '#,###',
           sliceSpace: 2,
           selectionShift: 8,
-          yValuePosition: "OUTSIDE_SLICE",
+          yValuePosition: 'OUTSIDE_SLICE',
           valueLineColor: processColor(appcolor.dark),
           valueLinePart1Length: 0.5,
         },
@@ -96,45 +96,198 @@ const QuarterStatisticsView = ({
     ],
   };
 
-  const onSelectProgram = (program) => {
+  const onSelectProgram = program => {
     setSelectedProgramId(program.programId);
-    setSelectedTypeData(program.typeData?.[0]?.TypeData || "");
+    setSelectedTypeData(program.typeData?.[0]?.TypeData || '');
   };
 
   const styles = StyleSheet.create({
     container: { flex: 1, paddingTop: 12 },
-    summaryCard: { marginHorizontal: 16, borderRadius: 20, padding: 16, backgroundColor: appcolor.surface, borderWidth: 0.5, borderColor: appcolor.grayLight },
-    header: { flexDirection: "row", alignItems: "center" },
-    icon: { width: 44, height: 44, borderRadius: 16, alignItems: "center", justifyContent: "center", backgroundColor: appcolor.primary, marginRight: 12 },
+    summaryCard: {
+      marginHorizontal: 16,
+      borderRadius: 20,
+      padding: 16,
+      backgroundColor: appcolor.surface,
+      borderWidth: 0.5,
+      borderColor: appcolor.grayLight,
+    },
+    header: { flexDirection: 'row', alignItems: 'center' },
+    icon: {
+      width: 44,
+      height: 44,
+      borderRadius: 16,
+      alignItems: 'center',
+      justifyContent: 'center',
+      backgroundColor: appcolor.primary,
+      marginRight: 12,
+    },
     headerInfo: { flex: 1 },
-    title: { fontSize: 16, lineHeight: 24, fontWeight: "700", color: appcolor.dark },
-    subtitle: { fontSize: 12, lineHeight: 16, fontWeight: "500", color: appcolor.placeholderText, marginTop: 2 },
-    sectionTitle: { fontSize: 13, lineHeight: 18, fontWeight: "700", color: appcolor.dark, marginHorizontal: 16, marginTop: 16, marginBottom: 8 },
-    timeModeWrap: { flexDirection: "row", alignItems: "center", marginHorizontal: 16, padding: 4, borderRadius: 16, backgroundColor: appcolor.surface },
-    timeModeButton: { flex: 1, minHeight: 44, borderRadius: 12, flexDirection: "row", alignItems: "center", justifyContent: "center" },
-    timeModeText: { fontSize: 13, lineHeight: 18, fontWeight: "700", color: appcolor.dark, marginLeft: 6 },
-    quarterContent: { paddingHorizontal: 16, alignItems: "center", marginTop: 8 },
-    quarterChip: { minWidth: 72, minHeight: 44, borderRadius: 9999, paddingHorizontal: 16, alignItems: "center", justifyContent: "center", marginRight: 8, borderWidth: 0.5 },
-    quarterText: { fontSize: 13, lineHeight: 18, fontWeight: "700", color: appcolor.dark },
+    title: {
+      fontSize: 16,
+      lineHeight: 24,
+      fontWeight: '700',
+      color: appcolor.dark,
+    },
+    subtitle: {
+      fontSize: 12,
+      lineHeight: 16,
+      fontWeight: '500',
+      color: appcolor.placeholderText,
+      marginTop: 2,
+    },
+    sectionTitle: {
+      fontSize: 13,
+      lineHeight: 18,
+      fontWeight: '700',
+      color: appcolor.dark,
+      marginHorizontal: 16,
+      marginTop: 16,
+      marginBottom: 8,
+    },
+    timeModeWrap: {
+      flexDirection: 'row',
+      alignItems: 'center',
+      marginHorizontal: 16,
+      padding: 4,
+      borderRadius: 16,
+      backgroundColor: appcolor.surface,
+    },
+    timeModeButton: {
+      flex: 1,
+      minHeight: 44,
+      borderRadius: 12,
+      flexDirection: 'row',
+      alignItems: 'center',
+      justifyContent: 'center',
+    },
+    timeModeText: {
+      fontSize: 13,
+      lineHeight: 18,
+      fontWeight: '700',
+      color: appcolor.dark,
+      marginLeft: 6,
+    },
+    quarterContent: {
+      paddingHorizontal: 16,
+      alignItems: 'center',
+      marginTop: 8,
+    },
+    quarterChip: {
+      minWidth: 72,
+      minHeight: 44,
+      borderRadius: 9999,
+      paddingHorizontal: 16,
+      alignItems: 'center',
+      justifyContent: 'center',
+      marginRight: 8,
+      borderWidth: 0.5,
+    },
+    quarterText: {
+      fontSize: 13,
+      lineHeight: 18,
+      fontWeight: '700',
+      color: appcolor.dark,
+    },
     programScroll: { maxHeight: 108, flexGrow: 0 },
     programContent: { paddingHorizontal: 16, paddingBottom: 4 },
-    programChip: { width: 220, minHeight: 88, borderRadius: 18, padding: 14, marginRight: 10, borderWidth: 0.5 },
-    programTop: { flexDirection: "row", alignItems: "center" },
-    programIcon: { width: 36, height: 36, borderRadius: 12, alignItems: "center", justifyContent: "center", backgroundColor: appcolor.light, marginRight: 8 },
+    programChip: {
+      width: 220,
+      minHeight: 88,
+      borderRadius: 18,
+      padding: 14,
+      marginRight: 10,
+      borderWidth: 0.5,
+    },
+    programTop: { flexDirection: 'row', alignItems: 'center' },
+    programIcon: {
+      width: 36,
+      height: 36,
+      borderRadius: 12,
+      alignItems: 'center',
+      justifyContent: 'center',
+      backgroundColor: appcolor.light,
+      marginRight: 8,
+    },
     programInfo: { flex: 1 },
-    programTitle: { fontSize: 13, lineHeight: 18, fontWeight: "700", color: appcolor.dark },
-    programMeta: { fontSize: 11, lineHeight: 16, fontWeight: "500", color: appcolor.placeholderText, marginTop: 4 },
+    programTitle: {
+      fontSize: 13,
+      lineHeight: 18,
+      fontWeight: '700',
+      color: appcolor.dark,
+    },
+    programMeta: {
+      fontSize: 11,
+      lineHeight: 16,
+      fontWeight: '500',
+      color: appcolor.placeholderText,
+      marginTop: 4,
+    },
     typeScroll: { height: 52, maxHeight: 52, flexGrow: 0 },
-    typeContent: { paddingHorizontal: 16, alignItems: "center" },
-    typeChip: { minHeight: 44, borderRadius: 16, paddingHorizontal: 16, flexDirection: "row", alignItems: "center", marginRight: 8, borderWidth: 0.5 },
-    typeText: { fontSize: 12, lineHeight: 16, fontWeight: "700", color: appcolor.dark, marginLeft: 8 },
-    chartCard: { minHeight: 390, margin: 16, marginTop: 8, borderRadius: 20, padding: 8, backgroundColor: appcolor.light, borderWidth: 0.5, borderColor: appcolor.grayLight },
-    chartTitle: { fontSize: 15, lineHeight: 20, fontWeight: "700", color: appcolor.dark, textAlign: "center", marginTop: 8 },
-    chartSubtitle: { fontSize: 11, lineHeight: 16, fontWeight: "500", color: appcolor.placeholderText, textAlign: "center", marginTop: 2 },
+    typeContent: { paddingHorizontal: 16, alignItems: 'center' },
+    typeChip: {
+      minHeight: 44,
+      borderRadius: 16,
+      paddingHorizontal: 16,
+      flexDirection: 'row',
+      alignItems: 'center',
+      marginRight: 8,
+      borderWidth: 0.5,
+    },
+    typeText: {
+      fontSize: 12,
+      lineHeight: 16,
+      fontWeight: '700',
+      color: appcolor.dark,
+      marginLeft: 8,
+    },
+    chartCard: {
+      minHeight: 390,
+      margin: 16,
+      marginTop: 8,
+      borderRadius: 20,
+      padding: 8,
+      backgroundColor: appcolor.light,
+      borderWidth: 0.5,
+      borderColor: appcolor.grayLight,
+    },
+    chartTitle: {
+      fontSize: 15,
+      lineHeight: 20,
+      fontWeight: '700',
+      color: appcolor.dark,
+      textAlign: 'center',
+      marginTop: 8,
+    },
+    chartSubtitle: {
+      fontSize: 11,
+      lineHeight: 16,
+      fontWeight: '500',
+      color: appcolor.placeholderText,
+      textAlign: 'center',
+      marginTop: 2,
+    },
     chart: { height: 320, marginTop: 8 },
-    emptyWrap: { flex: 1, alignItems: "center", justifyContent: "center", padding: 32 },
-    emptyTitle: { fontSize: 15, lineHeight: 20, fontWeight: "700", color: appcolor.dark, marginTop: 12 },
-    emptyText: { fontSize: 12, lineHeight: 16, fontWeight: "500", color: appcolor.placeholderText, marginTop: 4, textAlign: "center" },
+    emptyWrap: {
+      flex: 1,
+      alignItems: 'center',
+      justifyContent: 'center',
+      padding: 32,
+    },
+    emptyTitle: {
+      fontSize: 15,
+      lineHeight: 20,
+      fontWeight: '700',
+      color: appcolor.dark,
+      marginTop: 12,
+    },
+    emptyText: {
+      fontSize: 12,
+      lineHeight: 16,
+      fontWeight: '500',
+      color: appcolor.placeholderText,
+      marginTop: 4,
+      textAlign: 'center',
+    },
   });
 
   return (
@@ -142,7 +295,7 @@ const QuarterStatisticsView = ({
       <View style={styles.summaryCard}>
         <View style={styles.header}>
           <View style={styles.icon}>
-            <Icon
+            <SpiralIcon
               type="ionicon"
               name="pie-chart-outline"
               size={21}
@@ -160,17 +313,26 @@ const QuarterStatisticsView = ({
 
       <Text style={styles.sectionTitle}>Thời gian thống kê</Text>
       <View style={styles.timeModeWrap}>
-        {[{ key: "MONTH", title: "Tháng", icon: "calendar-outline" }, { key: "QUARTER", title: "Quý", icon: "pie-chart-outline" }].map((item) => {
+        {[
+          { key: 'MONTH', title: 'Tháng', icon: 'calendar-outline' },
+          { key: 'QUARTER', title: 'Quý', icon: 'pie-chart-outline' },
+        ].map(item => {
           const isSelected = pickerMode === item.key;
           return (
             <TouchableOpacity
               key={item.key}
               activeOpacity={0.7}
               onPress={() => onChangeTimeMode(item.key)}
-              style={[styles.timeModeButton, { backgroundColor: isSelected ? appcolor.primary : appcolor.surface },
+              style={[
+                styles.timeModeButton,
+                {
+                  backgroundColor: isSelected
+                    ? appcolor.primary
+                    : appcolor.surface,
+                },
               ]}
             >
-              <Icon
+              <SpiralIcon
                 type="ionicon"
                 name={item.icon}
                 size={17}
@@ -188,16 +350,22 @@ const QuarterStatisticsView = ({
           );
         })}
       </View>
-      <ScrollView horizontal showsHorizontalScrollIndicator={false} contentContainerStyle={styles.quarterContent}>
-        {(isMonthPicker ? monthList : quarterList).map((item) => {
+      <ScrollView
+        horizontal
+        showsHorizontalScrollIndicator={false}
+        contentContainerStyle={styles.quarterContent}
+      >
+        {(isMonthPicker ? monthList : quarterList).map(item => {
           const isSelected = isMonthPicker
-            ? timeMode === "MONTH" && month === item
-            : timeMode === "QUARTER" && quarter === item;
+            ? timeMode === 'MONTH' && month === item
+            : timeMode === 'QUARTER' && quarter === item;
           return (
             <TouchableOpacity
               key={item}
               activeOpacity={0.7}
-              onPress={() => isMonthPicker ? onChangeMonth(item) : onChangeQuarter(item)}
+              onPress={() =>
+                isMonthPicker ? onChangeMonth(item) : onChangeQuarter(item)
+              }
               style={[
                 styles.quarterChip,
                 {
@@ -225,7 +393,7 @@ const QuarterStatisticsView = ({
 
       {displayPrograms.length === 0 ? (
         <View style={styles.emptyWrap}>
-          <Icon
+          <SpiralIcon
             type="ionicon"
             name="pie-chart-outline"
             size={36}
@@ -250,7 +418,7 @@ const QuarterStatisticsView = ({
                 program.programId == selectedProgram?.programId;
               return (
                 <TouchableOpacity
-                  key={`${program.programId || "program"}_${programIndex}`}
+                  key={`${program.programId || 'program'}_${programIndex}`}
                   activeOpacity={0.7}
                   onPress={() => onSelectProgram(program)}
                   style={[
@@ -267,7 +435,7 @@ const QuarterStatisticsView = ({
                 >
                   <View style={styles.programTop}>
                     <View style={styles.programIcon}>
-                      <Icon
+                      <SpiralIcon
                         type="ionicon"
                         name="trophy-outline"
                         size={17}
@@ -316,7 +484,7 @@ const QuarterStatisticsView = ({
               const isSelected = item.TypeData === selectedType?.TypeData;
               return (
                 <TouchableOpacity
-                  key={`${item.TypeData || "type"}_${typeIndex}`}
+                  key={`${item.TypeData || 'type'}_${typeIndex}`}
                   activeOpacity={0.7}
                   onPress={() => setSelectedTypeData(item.TypeData)}
                   style={[
@@ -331,12 +499,12 @@ const QuarterStatisticsView = ({
                     },
                   ]}
                 >
-                  <Icon
+                  <SpiralIcon
                     type="ionicon"
                     name={
-                      item.TypeData === "DISPLAY"
-                        ? "images-outline"
-                        : "pie-chart-outline"
+                      item.TypeData === 'DISPLAY'
+                        ? 'images-outline'
+                        : 'pie-chart-outline'
                     }
                     size={17}
                     color={isSelected ? appcolor.light : appcolor.primary}
@@ -361,15 +529,15 @@ const QuarterStatisticsView = ({
               <PieChart
                 style={styles.chart}
                 data={chartData}
-                chartBackgroundColor={processColor("transparent")}
-                chartDescription={{ text: "" }}
+                chartBackgroundColor={processColor('transparent')}
+                chartDescription={{ text: '' }}
                 legend={{
                   enabled: true,
                   textSize: 10,
-                  form: "CIRCLE",
-                  horizontalAlignment: "CENTER",
-                  verticalAlignment: "BOTTOM",
-                  orientation: "HORIZONTAL",
+                  form: 'CIRCLE',
+                  horizontalAlignment: 'CENTER',
+                  verticalAlignment: 'BOTTOM',
+                  orientation: 'HORIZONTAL',
                   wordWrapEnabled: true,
                   textColor: processColor(appcolor.dark),
                 }}
@@ -390,7 +558,7 @@ const QuarterStatisticsView = ({
               />
             ) : (
               <View style={styles.emptyWrap}>
-                <Icon
+                <SpiralIcon
                   type="ionicon"
                   name="pie-chart-outline"
                   size={36}

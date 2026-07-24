@@ -20,11 +20,11 @@ import { connect } from "react-redux";
 import { bindActionCreators } from "@reduxjs/toolkit";
 
 const styles = StyleSheet.create({
-  separator: {
-    width: '100%',
-    height: 0.6,
-    backgroundColor: '#e9e9e9'
-  }
+    separator: {
+        width: '100%',
+        height: 0.6,
+        backgroundColor: '#e9e9e9'
+    }
 });
 
 class VeryfySellout extends PureComponent {
@@ -425,7 +425,7 @@ class VeryfySellout extends PureComponent {
                                             this.state.selectedStatus === '' ? this.state.arrShow[0].name : this.state.selectedStatus
                                         }
                                     </Text>
-                                    <Icon containerStyle={{ width: '25%' }} type='ionicon' name='funnel-outline' size={28}></Icon>
+                                    <SpiralIcon containerStyle={{ width: '25%' }} type='ionicon' name='funnel-outline' size={28}></SpiralIcon>
                                 </View>
                             </TouchableOpacity>
                         }
@@ -469,7 +469,7 @@ class VeryfySellout extends PureComponent {
                                                 buttonStyle={{ width: 100, height: 35, marginRight: 10, borderRadius: 35 / 2, backgroundColor: 'white', borderColor: 'gray', borderWidth: 1 }}
                                                 onPress={e => this.hiddenCalender(false)}
                                                 icon={
-                                                    <Icon
+                                                    <SpiralIcon
                                                         color='black'
                                                         name='close'
                                                         type='FontAwesome'

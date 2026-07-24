@@ -3,10 +3,10 @@ import { StyleSheet, Text, I18nManager } from 'react-native';
 import { RectButton } from 'react-native-gesture-handler';
 import Swipeable from 'react-native-gesture-handler/ReanimatedSwipeable';
 import Animated from 'react-native-reanimated';
-import Icon from '@react-native-vector-icons/material-icons';
+import SpiralIcon from '../Control/Icon/SpiralIcon';
 import { useSelector } from 'react-redux';
 
-const AnimatedIcon = Animated.createAnimatedComponent(Icon);
+const AnimatedIcon = Animated.createAnimatedComponent(SpiralIcon);
 
 const GmailStyleSwipeableRow = ({
   children,
@@ -56,9 +56,17 @@ const GmailStyleSwipeableRow = ({
   // });
 
   const renderLeftActions = (_progress, dragX) => {
-
     return (
-      <RectButton style={[styles.actionSwipe, { backgroundColor: appcolor.success, flexDirection: I18nManager.isRTL ? 'row' : 'row-reverse' }]} onPress={onClose}>
+      <RectButton
+        style={[
+          styles.actionSwipe,
+          {
+            backgroundColor: appcolor.success,
+            flexDirection: I18nManager.isRTL ? 'row' : 'row-reverse',
+          },
+        ]}
+        onPress={onClose}
+      >
         <AnimatedIcon
           name="archive"
           size={30}
@@ -71,7 +79,16 @@ const GmailStyleSwipeableRow = ({
 
   const renderRightActions = (_progress, dragX) => {
     return (
-      <RectButton style={[styles.actionSwipe, { backgroundColor: appcolor.danger, flexDirection: I18nManager.isRTL ? 'row-reverse' : 'row' }]} onPress={handleDeleteItem}>
+      <RectButton
+        style={[
+          styles.actionSwipe,
+          {
+            backgroundColor: appcolor.danger,
+            flexDirection: I18nManager.isRTL ? 'row-reverse' : 'row',
+          },
+        ]}
+        onPress={handleDeleteItem}
+      >
         <Text style={{ color: appcolor.white }}>Xóa</Text>
         <AnimatedIcon
           name="delete-forever"
@@ -85,14 +102,19 @@ const GmailStyleSwipeableRow = ({
 
   const styles = StyleSheet.create({
     actionIcon: { width: 40, marginHorizontal: 10 },
-    actionSwipe: { flex: 1, justifyContent: 'flex-end', alignItems: 'center' }
+    actionSwipe: { flex: 1, justifyContent: 'flex-end', alignItems: 'center' },
   });
 
   return (
     <Swipeable
       ref={swipeableRowRef}
       friction={2}
-      containerStyle={{ marginTop: 7, marginLeft: 7, marginRight: 7, borderRadius: 12 }}
+      containerStyle={{
+        marginTop: 7,
+        marginLeft: 7,
+        marginRight: 7,
+        borderRadius: 12,
+      }}
       leftThreshold={80}
       rightThreshold={40}
       renderLeftActions={enableLeft ? renderLeftActions : null}

@@ -18,13 +18,14 @@ import { ViewByCate } from "./ViewByCate";
 import ActionSheet, { ScrollView as ASScrollView, SheetManager } from "react-native-actions-sheet";
 import { deviceHeight } from "../Home";
 import { Badge, Icon } from '@rneui/base';
-////import { NumericFormat } from "react-number-format";;
+//import { NumericFormat } from "react-number-format";
 import moment from "moment";
 import NativeCamera from "../../Control/NativeCamera";
 import { ViewListPhoto } from "./ViewListPhoto";
 import { deletePhoto } from "../../Controller/PhotoController";
 import FormGroup from "../../Content/FormGroup";
 import LottieView from "lottie-react-native";
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
 if (Platform.OS === "android" && UIManager.setLayoutAnimationEnabledExperimental) {
     UIManager.setLayoutAnimationEnabledExperimental(true);
@@ -33,6 +34,7 @@ if (Platform.OS === "android" && UIManager.setLayoutAnimationEnabledExperimental
 // isConstrainImage : kiểm tra số lượng nhập hết theo cate chưa
 
 export const FieldCoachingFSMReport = ({ navigation, route }) => {
+    const insets = useSafeAreaInsets()
     const { appcolor, shopinfo, workinfo, kpiinfo } = useSelector(state => state.GAppState);
     const [data, setData] = useState({ dataTab: [], dataMain: [], listMaster: [], listProduct: [] })
     const [loading, setLoading] = useState(false)
@@ -716,7 +718,7 @@ export const FieldCoachingFSMReport = ({ navigation, route }) => {
                     }}>
                         <View style={{ backgroundColor: appcolor.surface, width: '100%', flexDirection: "row", alignItems: "center", justifyContent: "space-between", minHeight: 35, padding: 3, borderRadius: 4, borderColor: appcolor.grayLight }}>
                             <Text style={{ fontSize: 12, fontWeight: '400', color: contentSelect.contentTraining ? appcolor.dark : appcolor.placeholderText }}>{contentSelect.contentTraining || 'Nội dung Đào tạo'}</Text>
-                            <Icon type="font-awesome-5" color={appcolor.dark} name={"caret-down"} style={{ paddingHorizontal: 10 }} size={14} />
+                            <SpiralIcon type="font-awesome-5" color={appcolor.dark} name={"caret-down"} style={{ paddingHorizontal: 10 }} size={14} />
                         </View>
                     </TouchableOpacity>
                 </View>
@@ -761,19 +763,19 @@ export const FieldCoachingFSMReport = ({ navigation, route }) => {
                                                         {
                                                             !isUploaded &&
                                                             <TouchableOpacity onPress={() => takePhoto(it.id)} style={{ flexDirection: 'row', width: '48%', padding: 3, marginRight: 2, justifyContent: 'center', alignItems: 'center', borderRadius: 10, backgroundColor: appcolor.surface }}>
-                                                                <Icon name='camera' color={appcolor.primary} type='ionicon' size={22}></Icon>
+                                                                <SpiralIcon name='camera' color={appcolor.primary} type='ionicon' size={22}></SpiralIcon>
                                                             </TouchableOpacity>
                                                         }
                                                         {
                                                             !isUploaded &&
                                                             <TouchableOpacity onPress={() => chosesPhoto(it.id)} style={{ flexDirection: 'row', width: '48%', padding: 3, marginRight: 2, justifyContent: 'center', alignItems: 'center', borderRadius: 10, backgroundColor: appcolor.surface }}>
-                                                                <Icon name='attach-outline' color={appcolor.primary} type='ionicon' size={22}></Icon>
+                                                                <SpiralIcon name='attach-outline' color={appcolor.primary} type='ionicon' size={22}></SpiralIcon>
                                                             </TouchableOpacity>
                                                         }
                                                         <TouchableOpacity onPress={() => handleShowPhoto(it.id)} style={{ flexDirection: 'row', width: '48%', padding: 3, justifyContent: 'center', alignItems: 'center', borderRadius: 10, backgroundColor: appcolor.surface }}>
                                                             <View style={{ flex: 1 }}>
                                                                 <Badge badgeStyle={{ position: 'absolute', top: 0, right: 5, }} value={totalImage?.length || 0} />
-                                                                <Icon name='images' color={appcolor.primary} type='ionicon' size={22}></Icon>
+                                                                <SpiralIcon name='images' color={appcolor.primary} type='ionicon' size={22}></SpiralIcon>
                                                             </View>
                                                         </TouchableOpacity>
                                                     </View>
@@ -793,7 +795,7 @@ export const FieldCoachingFSMReport = ({ navigation, route }) => {
                                                             <View style={{ backgroundColor: appcolor.surface, width: '100%', flexDirection: "row", alignItems: "center", justifyContent: "space-between", minHeight: 35, padding: 3, borderRadius: 4, borderColor: appcolor.grayLight }}>
                                                                 {/* <Text style={{ fontSize: 12, fontWeight: '400', color: appcolor.dark }}>{it.selectValue?.name || `Chọn ${it.refName}`}</Text> */}
                                                                 <Text style={{ paddingHorizontal: 4, fontSize: 12, fontWeight: '400', color: appcolor.dark, width: '80%' }}>{JSON.parse(it.groupValue || '[]')?.length > 0 ? JSON.parse(it.groupValue || '[]')?.map((it, idx) => { return (idx == 0 ? '' : '\n') + it.name }) : `Chọn ${it.refName}`}</Text>
-                                                                <Icon type="font-awesome-5" color={appcolor.dark} name={"caret-down"} style={{ paddingHorizontal: 10 }} size={14} />
+                                                                <SpiralIcon type="font-awesome-5" color={appcolor.dark} name={"caret-down"} style={{ paddingHorizontal: 10 }} size={14} />
                                                             </View>
                                                         </TouchableOpacity>
                                                     </View>
@@ -812,7 +814,7 @@ export const FieldCoachingFSMReport = ({ navigation, route }) => {
                                                             }}>
                                                             <View style={{ backgroundColor: appcolor.surface, width: '100%', flexDirection: "row", alignItems: "center", justifyContent: "space-between", minHeight: 35, padding: 3, borderRadius: 4, borderColor: appcolor.grayLight }}>
                                                                 <Text style={{ fontSize: 12, fontWeight: '400', color: appcolor.dark }}>{it.selectValue ? JSON.parse(it.selectValue || '{ }')?.name : `Chọn ${it.refName}`}</Text>
-                                                                <Icon type="font-awesome-5" color={appcolor.dark} name={"caret-down"} style={{ paddingHorizontal: 10 }} size={14} />
+                                                                <SpiralIcon type="font-awesome-5" color={appcolor.dark} name={"caret-down"} style={{ paddingHorizontal: 10 }} size={14} />
                                                             </View>
                                                         </TouchableOpacity>
                                                     </View>
@@ -865,19 +867,19 @@ export const FieldCoachingFSMReport = ({ navigation, route }) => {
                                                 {
                                                     !isUploaded &&
                                                     <TouchableOpacity onPress={() => takePhoto()} style={{ flexDirection: 'row', width: '48%', padding: 3, marginRight: 2, justifyContent: 'center', alignItems: 'center', borderRadius: 10, backgroundColor: appcolor.surface }}>
-                                                        <Icon name='camera' color={appcolor.primary} type='ionicon' size={22}></Icon>
+                                                        <SpiralIcon name='camera' color={appcolor.primary} type='ionicon' size={22}></SpiralIcon>
                                                     </TouchableOpacity>
                                                 }
                                                 {
                                                     !isUploaded &&
                                                     <TouchableOpacity onPress={() => chosesPhoto()} style={{ flexDirection: 'row', width: '48%', padding: 3, marginRight: 2, justifyContent: 'center', alignItems: 'center', borderRadius: 10, backgroundColor: appcolor.surface }}>
-                                                        <Icon name='attach-outline' color={appcolor.primary} type='ionicon' size={22}></Icon>
+                                                        <SpiralIcon name='attach-outline' color={appcolor.primary} type='ionicon' size={22}></SpiralIcon>
                                                     </TouchableOpacity>
                                                 }
                                                 <TouchableOpacity onPress={() => handleShowPhoto()} style={{ flexDirection: 'row', width: '48%', padding: 3, justifyContent: 'center', alignItems: 'center', borderRadius: 10, backgroundColor: appcolor.surface }}>
                                                     <View style={{ flex: 1 }}>
                                                         <Badge badgeStyle={{ position: 'absolute', top: 0, right: 5, }} value={contentSelect.listPByContent?.length || 0} />
-                                                        <Icon name='images' color={appcolor.primary} type='ionicon' size={22}></Icon>
+                                                        <SpiralIcon name='images' color={appcolor.primary} type='ionicon' size={22}></SpiralIcon>
                                                     </View>
                                                 </TouchableOpacity>
                                             </View>
@@ -920,7 +922,7 @@ export const FieldCoachingFSMReport = ({ navigation, route }) => {
                 id={'SheetMain'}
                 keyboardHandlerEnabled={false}
                 defaultOverlayOpacity={0.3}
-                containerStyle={{ backgroundColor: appcolor.light }}
+                containerStyle={{ backgroundColor: appcolor.light, paddingBottom: insets.bottom }}
                 closeOnPressBack={true}
                 gestureEnabled={true}
                 indicatorColor={appcolor.primary} >
@@ -954,7 +956,7 @@ export const FieldCoachingFSMReport = ({ navigation, route }) => {
                 keyboardHandlerEnabled={false}
                 onBeforeShow={setDataSelectValue}
                 defaultOverlayOpacity={0.3}
-                containerStyle={{ backgroundColor: appcolor.light }}
+                containerStyle={{ backgroundColor: appcolor.light, paddingBottom: insets.bottom }}
                 closeOnPressBack={true}
                 gestureEnabled={true}
                 indicatorColor={appcolor.primary} >
@@ -988,7 +990,7 @@ export const FieldCoachingFSMReport = ({ navigation, route }) => {
                 keyboardHandlerEnabled={false}
                 onBeforeShow={setDataSelectValue}
                 defaultOverlayOpacity={0.3}
-                containerStyle={{ backgroundColor: appcolor.light }}
+                containerStyle={{ backgroundColor: appcolor.light, paddingBottom: insets.bottom }}
                 closeOnPressBack={true}
                 gestureEnabled={true}
                 indicatorColor={appcolor.primary} >
@@ -1040,7 +1042,7 @@ export const FieldCoachingFSMReport = ({ navigation, route }) => {
                                                     autoPlay
                                                     loop={false}
                                                 />}
-                                                {!exists && <Icon name={'check-circle'} type={'font-awesome-5'} size={30} color={appcolor.greydark} />}
+                                                {!exists && <SpiralIcon name={'check-circle'} type={'font-awesome-5'} size={30} color={appcolor.greydark} />}
                                             </TouchableOpacity>
 
                                         </View>
@@ -1058,11 +1060,12 @@ export const FieldCoachingFSMReport = ({ navigation, route }) => {
     )
 }
 const ViewSheet = ({ appcolor, handleReloadData, isLoading }) => {
+    const insets = useSafeAreaInsets()
     return (
         <ActionSheet
             id={'bottomSheetView'}
             gestureEnabled={true}
-            containerStyle={{ padding: 10 }}
+            containerStyle={{ padding: 10, paddingBottom: insets.bottom }}
             indicatorColor={appcolor.bluesky}
         >
             <ToolAction
@@ -1089,7 +1092,7 @@ const ToolAction = ({ handleReloadData, isLoading }) => {
         return (
             <TouchableOpacity onPress={() => isLoading ? null : actionPress()}>
                 <View style={styleView}>
-                    <Icon name={iconName} type={iconType == null ? 'font-awesome-5' : iconType} size={18} color={iconColor} />
+                    <SpiralIcon name={iconName} type={iconType == null ? 'font-awesome-5' : iconType} size={18} color={iconColor} />
                     <Text style={{ width: '100%', fontSize: 14, fontWeight: '400', color: appcolor.dark, padding: 8 }}>{title}</Text>
                 </View>
             </TouchableOpacity>

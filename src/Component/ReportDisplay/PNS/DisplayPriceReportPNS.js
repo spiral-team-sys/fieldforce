@@ -9,7 +9,7 @@ import { _competitorId, _competitorName } from '../../../Core/URLs'
 import { useSelector } from 'react-redux';
 import { HeaderCustom } from '../../../Content/HeaderCustom';
 import { scaleSize } from '../../../Themes/AppsStyle';
-////import { NumericFormat } from "react-number-format";;
+// import { NumericFormat } from 'react-number-format';
 import { useFocusEffect } from '@react-navigation/native';
 import FormGroup from '../../../Content/FormGroup';
 import { clearAllDataDisplay, getCateSubmit, getDisplayProduct, getlistTabCompetitor, getListTagPOP, updateItemDisplay, uploadDisplayPOP } from '../../../Controller/DisplayController'
@@ -18,6 +18,7 @@ import { Tabs, MaterialTabBar } from 'react-native-collapsible-tab-view';
 import { LoadingView } from '../../../Control/ItemLoading';
 import UploadController from '../../../Controller/UploadController';
 import { checkLockReport } from '../../../Controller/ShopController';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
 const styles = StyleSheet.create({
     container: {
@@ -38,6 +39,7 @@ const styles = StyleSheet.create({
 });
 
 const DisplayPriceReportPNS = ({ navigation }) => {
+    const insets = useSafeAreaInsets()
     const { appcolor, workinfo, kpiinfo, shopinfo } = useSelector(state => state.GAppState);
     const [arrTabShow, setArrTabShow] = useState([]);
     const [arrDataShow, setArrDataShow] = useState([]);
@@ -120,7 +122,6 @@ const DisplayPriceReportPNS = ({ navigation }) => {
                 lstTem.map(async item => {
                     let photoType = item.code + '_' + itT.categoryName
                     let lstPhoto = await getPhotosReport(kpiinfo.kpiId, photoType, workinfo.shopId, workinfo.workDate);
-                    console.log(lstPhoto.length, itT);
                     if (lstPhoto.length > 0 && !res) {
                         const listByCate = resDisplay.filter(it => it.categoryId === itT.categoryId)
                         listByCate.length > 0 ? itT.isFalse = false : itT.isFalse = true
@@ -352,7 +353,7 @@ const DisplayPriceReportPNS = ({ navigation }) => {
                             onPress={() => handlerTakePhoto(it.categoryName)}
                             style={{ flexDirection: 'row', height: 40, width: '45%', marginRight: 2, justifyContent: 'center' }}>
                             <View style={{ marginLeft: 15 }}>
-                                <Icon name='camera' color={appcolor.primary} type='ionicon' size={25}></Icon>
+                                <SpiralIcon name='camera' color={appcolor.primary} type='ionicon' size={25}></SpiralIcon>
                                 <Text style={{ width: '100%', textAlign: 'center', color: appcolor.dark, fontSize: scaleSize(12) }}>Chụp hình</Text>
                             </View>
                             <Badge value={totalPhoto} />
@@ -361,7 +362,7 @@ const DisplayPriceReportPNS = ({ navigation }) => {
                         <TouchableOpacity
                             onPress={() => handlerNote(it.categoryName)}
                             style={{ height: 40, width: '45%', marginRight: 2 }}>
-                            <Icon name='create-outline' color={appcolor.primary} type='ionicon' size={25}></Icon>
+                            <SpiralIcon name='create-outline' color={appcolor.primary} type='ionicon' size={25}></SpiralIcon>
                             <Text style={{ width: '100%', textAlign: 'center', color: appcolor.dark, fontSize: scaleSize(12) }}>Ghi chú</Text>
                         </TouchableOpacity>
                     </View>
@@ -448,7 +449,7 @@ const DisplayPriceReportPNS = ({ navigation }) => {
                 }}
                 onPress={() => setClearAll(arrTabShow[tabRef.current.getCurrentIndex()])}>
                 <Text style={{ color: appcolor.danger, width: '80%', textAlign: 'center' }} >Xóa dữ liệu {(arrTabShow.length > 0 && tabRef) ? arrTabShow[(tabRef?.current?.getCurrentIndex() || 0)].categoryName : arrTabShow[0].categoryName} Đã nhập</Text>
-                <Icon name={'trash'} type={'ionicon'} size={23} color={appcolor.danger} />
+                <SpiralIcon name={'trash'} type={'ionicon'} size={23} color={appcolor.danger} />
             </TouchableOpacity>
         )
     }
@@ -481,7 +482,7 @@ const DisplayPriceReportPNS = ({ navigation }) => {
                             alignItems: 'center',
                             flexDirection: 'row'
                         }}>
-                        <Icon name='tag' type='font-awesome' size={25} color={appcolor.white} style={{ height: 35, width: 35, backgroundColor: reportPOP.tagPOPId?.id ? reportPOP.tagPOPId.isColor : appcolor.primary, margin: 5, borderRadius: 5, justifyContent: 'center', alignItems: 'center' }} />
+                        <SpiralIcon name='tag' type='font-awesome' size={25} color={appcolor.white} style={{ height: 35, width: 35, backgroundColor: reportPOP.tagPOPId?.id ? reportPOP.tagPOPId.isColor : appcolor.primary, margin: 5, borderRadius: 5, justifyContent: 'center', alignItems: 'center' }} />
                         <Text style={{ color: appcolor.dark, paddingLeft: 10 }} >POP</Text>
                     </TouchableOpacity>
                     <TouchableOpacity
@@ -491,7 +492,7 @@ const DisplayPriceReportPNS = ({ navigation }) => {
                             alignItems: 'center',
                             flexDirection: 'row'
                         }}>
-                        <Icon name='tag' type='font-awesome' size={25} color={appcolor.white} style={{ height: 35, width: 35, backgroundColor: reportPOP.tagDisplayId?.id ? reportPOP.tagDisplayId.isColor : appcolor.primary, margin: 5, borderRadius: 5, justifyContent: 'center', alignItems: 'center' }} />
+                        <SpiralIcon name='tag' type='font-awesome' size={25} color={appcolor.white} style={{ height: 35, width: 35, backgroundColor: reportPOP.tagDisplayId?.id ? reportPOP.tagDisplayId.isColor : appcolor.primary, margin: 5, borderRadius: 5, justifyContent: 'center', alignItems: 'center' }} />
                         <Text style={{ color: appcolor.dark, paddingLeft: 10 }} >Trưng bày</Text>
                     </TouchableOpacity>
                 </View>
@@ -524,7 +525,7 @@ const DisplayPriceReportPNS = ({ navigation }) => {
                 defaultOverlayOpacity={0.1}
                 gestureEnabled={true}
                 indicatorColor={appcolor.primary}
-                containerStyle={{ backgroundColor: appcolor.light, alignSelf: 'center' }}
+                containerStyle={{ backgroundColor: appcolor.light, alignSelf: 'center', paddingBottom: insets.bottom }}
                 onClose={() => cancelNote()}  >
                 {
                     mode === 'NOTE' &&
@@ -581,7 +582,7 @@ const DisplayPriceReportPNS = ({ navigation }) => {
                                 }}
                                 onPress={() => filterDoneProduct()}>
                                 <Text style={{ color: appcolor.dark, width: '80%', textAlign: 'center' }} >Sản phẩm đã nhập</Text>
-                                <Icon name={!isDone ? 'checkmark-circle-outline' : 'check-circle'} type={!isDone ? 'ionicon' : ''} size={23} color={!isDone ? appcolor.dark : appcolor.success} />
+                                <SpiralIcon name={!isDone ? 'checkmark-circle-outline' : 'check-circle'} type={!isDone ? 'ionicon' : ''} size={23} color={!isDone ? appcolor.dark : appcolor.success} />
                             </TouchableOpacity>
                             {!isLockReport && <ButtonClearCate />}
 
@@ -594,7 +595,7 @@ const DisplayPriceReportPNS = ({ navigation }) => {
                                     }}
                                     onPress={() => setClearAll()}>
                                     <Text style={{ color: appcolor.danger, width: '80%', textAlign: 'center' }} >Xóa tất cả dữ liệu đã nhập</Text>
-                                    <Icon name={'trash'} type={'ionicon'} size={23} color={appcolor.danger} />
+                                    <SpiralIcon name={'trash'} type={'ionicon'} size={23} color={appcolor.danger} />
                                 </TouchableOpacity>
                             }
 
@@ -737,7 +738,7 @@ const RenderItemData = ({ item, isClear, totalRow, appcolor, workinfo, index, se
         <View style={{ width: '100%' }}>
             {(keyLayer2 && item.subCategory !== null && item.subCategory !== undefined) &&
                 <View style={{ flex: 1, padding: 8, marginTop: 5, marginBottom: 5, borderRadius: 10, flexDirection: 'row', alignItems: 'center', backgroundColor: appcolor.primary, }}>
-                    <Icon name='tags' type='font-awesome-5' size={15} color={appcolor.white} />
+                    <SpiralIcon name='tags' type='font-awesome-5' size={15} color={appcolor.white} />
                     <Text style={{ color: appcolor.white, fontSize: 14, paddingLeft: 8, fontWeight: '600' }}>{item.subCategory}</Text>
                 </View>
             }

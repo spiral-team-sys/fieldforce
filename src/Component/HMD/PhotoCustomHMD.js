@@ -66,7 +66,7 @@ export const PhotoCustomHMD = ({ Photos, Workinfo, DisplayId, Props, ReportId, S
                 <ListItem.Title lineBreakMode={'clip'} numberOfLines={3} style={{ fontSize: 15, marginTop: 8, color: 'white' }}>{item.name}</ListItem.Title>
                 <ListItem.Title lineBreakMode={'clip'} numberOfLines={3} style={{ fontSize: 13, fontStyle: 'italic', color: 'white', marginBottom: 8 }}>{item.numberValue > 0 ? '(chụp ' + item.numberValue + ' tấm)' : ''}</ListItem.Title>
                 <View style={{ flexDirection: 'row', justifyContent: 'space-between', width: '70%' }}>
-                    <Icon name='images' type='ionicon' color={'white'} size={35} onPress={() => viewAlbum(item)} />
+                    <SpiralIcon name='images' type='ionicon' color={'white'} size={35} onPress={() => viewAlbum(item)} />
                     <Badge
                         containerStyle={{ position: 'absolute', left: 35, backgroundColor: Platform.select({ android: DEFAULT_COLOR }) }}
                         badgeStyle={{ width: 35, height: 20, borderColor: Platform.select({ android: 'transparent', ios: 'white' }) }}
@@ -74,14 +74,14 @@ export const PhotoCustomHMD = ({ Photos, Workinfo, DisplayId, Props, ReportId, S
                         status={item.numberValue > 0 ? (item.numPhoto > 0 ? (item.numPhoto >= item.numberValue ? 'success' : 'warning') : 'error') : 'success'}
                         value={item.numPhoto}
                     ></Badge>
-                    <Icon
+                    <SpiralIcon
                         disabledStyle={{ backgroundColor: 'transparent' }}
                         disabled={(Status === 0 && NoChange === 0) ? false : true}
                         color={(Status === 0 && NoChange === 0) ? 'white' : 'gray'}
                         name='camera' type='ionicon'
                         size={35}
                         onPress={() => takePhoto(item)}
-                    ></Icon>
+                    ></SpiralIcon>
                 </View>
             </ListItem.Content>
         </ListItem>

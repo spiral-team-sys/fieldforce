@@ -9,7 +9,7 @@ import FormGroup from "../../Content/FormGroup";
 import { Message, ToastError } from "../../Core/Helper";
 import Swiper from "react-native-swiper";
 import Moment from 'moment';
-import Icon from '@react-native-vector-icons/fontawesome6';
+;
 // import KeyboardSpacer from "react-native-keyboard-spacer";
 import GmailStyleSwipeableRow from "../../Core/GmailStyleSwipeableRow";
 import UploadController from "../../Controller/UploadController";
@@ -17,6 +17,7 @@ import { checkNetwork } from "../../Core/Utility";
 import * as Progress from 'react-native-progress';
 import { RenderCalendar } from "../../Core/DatePickerView";
 import moment from "moment";
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
 
 const styles = StyleSheet.create({
@@ -32,6 +33,7 @@ const styles = StyleSheet.create({
 });
 
 export const AccessoriesManage = ({ navigation, route }) => {
+    const insets = useSafeAreaInsets()
     const { kpiinfo, workinfo, appcolor } = useSelector(state => state.GAppState);
     const _bottomSheet = useRef();
     const swiperRef = useRef();
@@ -670,7 +672,7 @@ export const AccessoriesManage = ({ navigation, route }) => {
                 }}
                     buttonStyle={{ backgroundColor: appcolor.primary }}
                     onPress={OnSaveResult} title={'Thêm'}></Button>
-                <Icon sfize={25} name={'caret-up'} style={{ width: '100%', textAlign: 'center' }} onPress={() => resetForm()}></Icon>
+                <SpiralIcon sfize={25} name={'caret-up'} style={{ width: '100%', textAlign: 'center' }} onPress={() => resetForm()}></SpiralIcon>
                 <View style={[styles.line, { backgroundColor: appcolor.darklight }]}></View>
             </View>
         )
@@ -923,7 +925,7 @@ export const AccessoriesManage = ({ navigation, route }) => {
                 }}
                 ref={_bottomSheet}
                 defaultOverlayOpacity={0.3}
-                containerStyle={{ padding: 8, flexGrow: 1, backgroundColor: appcolor.homebackground }}>
+                containerStyle={{ padding: 8, flexGrow: 1, backgroundColor: appcolor.homebackground, paddingBottom: insets.bottom }}>
                 {ModeView(mode)}
             </ActionSheet>
 

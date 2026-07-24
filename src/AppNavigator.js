@@ -134,7 +134,6 @@ import { DashboardSellOutDetail } from './Component/Dashboard/DashboardSellOutDe
 import HorizontalPage from './Component/Dashboard/Display/Control/HorizontalPage';
 import AttendantHistoryScreen from './Component/PlanWorking/History/Attendance/AttendantHistoryScreen';
 
-
 // WorkingPlan screens
 import RegisterByDateScreen from './Component/WorkingPlan/Register/ByDate/RegisterByDateScreen';
 import OTRegisterScreen from './Component/WorkingPlan/OT/OTRegisterScreen';
@@ -186,225 +185,232 @@ import { ConfirmsResigns } from './Component/LG/ConfirmsResigns';
 import { PhotoByList } from './Component/Photo/PhotoByList';
 import { DisplaySituation } from './Component/ReportDisplay/PNS/DisplaySituation';
 import { DeployPOP } from './Component/PSV/DeployPOP';
+import { VerifySelloutBK } from './Component/ReportVerifyData/VerifySelloutBK';
+import { insets } from './Core/Utility';
 
 const Stack = createStackNavigator();
 const Drawer = createDrawerNavigator();
 
 const AppNavigator = () => {
+  const coreScreens = [
+    { name: 'Welcome', component: WelcomeScreen },
+    { name: 'Login', component: LoginScreen },
+    { name: 'ForgotPassword', component: ForgotPasswordScreen },
+    { name: 'Home', component: HomePageMain },
+    { name: 'Notification', component: NotificationScreen },
+    { name: 'NotificationDetail', component: NotificationDetailScreen },
+    { name: 'Camera', component: CameraScreen },
+    { name: 'CameraReport', component: CameraReportScreen },
+    { name: 'Work', component: WorkScreen },
+    { name: 'ManageNotify', component: ManageNotify },
+    { name: 'NotifyDetail', component: NotifyDetail },
+  ];
+  const menuScreens = [
+    { name: 'shopPermission', component: ShopPermissionScreen },
+    { name: 'confirmplanpg', component: ConfirmPlanPG },
+    { name: 'popmanage', component: POPMenuScreen },
+    { name: 'popwarehouse', component: POPItemScreen },
+    { name: 'poporder', component: POPOrderScreen },
+    { name: 'poporderfollow', component: POPFollowScreen },
+    { name: 'popprocess', component: POPProcessScreen },
+    { name: 'popmenuprocess', component: POPMenuProcessScreen },
+    { name: 'poppromotion', component: POPPromotionScreen },
+    { name: 'popinstall', component: POPInstallMenuScreen },
+    { name: 'popinstalldetail', component: POPInstallScreen },
+    { name: 'Profile', component: EmployeeInfo },
+    { name: 'Product', component: ProductManagerScreen },
+    { name: 'payment', component: PayslipList },
+    { name: 'paydetail', component: PayslipDetails },
+    { name: 'o-payslip', component: PayslipPage },
+    { name: 'o-payslip-detail', component: PayslipDetail },
+    { name: 'incentive', component: KPIIncentive },
+    { name: 'Settings', component: Settings },
+    { name: 'supportinfo', component: SupportInfo },
+    { name: 'qrcode', component: QRCodeScan },
+    { name: 'employeeresigns', component: EmployeeResigns },
+    { name: 'confirmsresigns', component: ConfirmsResigns },
+    { name: 'employeemanager', component: EmployeeManager },
+    { name: 'statisticaldisplay', component: StatisticalDisplay },
+    { name: 'asmplanLG', component: LG_WorkingPlanASM },
+    { name: 'shopmanager', component: ShopManageScreen },
+    { name: 'profileshops', component: ShopProfileScreen },
+    { name: 'employeedetails', component: ProfileDetail },
+    { name: 'summaryoosgroup', component: SummaryGroup },
+    { name: 'summaryooslist', component: SummaryList },
+    { name: 'confirmplanpcLG', component: LG_ConfirmPlanPC },
+    { name: 'historyconfirm', component: HistoryConfirm },
+    { name: 'workschedule', component: HomeBusinessMenu },
+    { name: 'popmenu', component: POPMenu },
+    { name: 'warehouseitem', component: POPWarehouse },
+    { name: 'warningitem', component: POPWarningItem },
+    { name: 'orderpop', component: POPOrderItem },
+    { name: 'orderfollow', component: FollowOrderList },
+    { name: 'WorkingPlanSR', component: WorkingPlanSR_V2 },
+    { name: 'attendantissue', component: AttendantIssue },
+    { name: 'confirmattendantissue', component: ConfirmAttendantIssue },
+    { name: 'managerplan', component: ManagerPlan },
+    { name: 'editprofileemployee', component: EditProfileEmployee },
+    { name: 'trainee', component: WebViewScreen },
+    { name: 'traineeApp', component: TrainingApp },
+    { name: 'trainingExam', component: TrainingExam },
+    { name: 'prepareExam', component: PrepareExam },
+    { name: 'resultExam', component: ResultExam },
+    { name: 'planbyconfig', component: WorkingPlanPG_Permisstion },
+    { name: 'documentgroup', component: DocumentGroup },
+    { name: 'timesheetpg', component: PGTimeSheet },
+    { name: 'documentlist', component: DocumentList },
+    { name: 'pcplanLG', component: LG_WorkingPlanPC },
+    { name: 'reporttimesheet', component: ReportTimeSheet },
+    { name: 'progressReport', component: ProgressReport },
+    { name: 'officeplan', component: PlanOffice },
+    { name: 'officeconfirmplan', component: ConfirmPlanOffice },
+    { name: 'manageemployees', component: HomeManager },
+    { name: 'yep-checkin', component: CheckInScreen },
+    { name: 'monthlyplan', component: MonthlyPlan },
+    { name: 'sellinbyemp', component: SellInByEmployee },
+    { name: 'sellinscreen', component: SellInShopScreen },
+    { name: 'sellinshopdetail', component: SellInShopDetailScreen },
+    { name: 'createstore', component: CreateItem },
+    { name: 'storerequestlist', component: StoreRequestListScreen },
+    { name: 'storerequestform', component: StoreRequestFormScreen },
+    { name: 'routingmonth', component: RoutingReport },
+    { name: 'sellindetails', component: DashboardSellInDetails },
+    { name: 'AlbumPhoto', component: PhotoManageScreen },
+    { name: 'employeematernityleave', component: EmployeeMaternityLeave },
+    { name: 'photosystemreport', component: PhotoSystemReport },
+    { name: 'reportzalo', component: ReportZalo },
+    { name: 'shopreportzalo', component: ShopReportZalo },
+    { name: 'alltodolist', component: AllTodoList },
+    { name: 'photolist', component: PhotoList },
+    { name: 'employeekpi', component: KPIResult },
+    { name: 'calendarweek', component: WeekLyPlan },
+    { name: 'confirmplanweek', component: ConfirmPlanWeekly },
+    { name: 'verifyselloutbk', component: VerifySelloutBK },
+  ];
+  const kpiScreens = [
+    { name: 'sellout', component: Sellout },
+    { name: 'selloutcreate', component: SellOutCreateScreen },
+    { name: 'ShopList', component: ScreenShops },
+    { name: 'display', component: DisplayScreen },
+    { name: 'displayReport', component: DisplayPriceReport },
+    { name: 'displaytrackingcompetitor', component: DisplayMain },
+    { name: 'displaysurvey', component: DisplaySurveyReport },
+    { name: 'displayupdate', component: DisplayUpdateScreen },
+    { name: 'requestupdatedisplay', component: RequestUpdateScreen },
+    { name: 'confirmupdatedisplay', component: ConfirmUpdateScreen },
+    { name: 'oos', component: OOSScreen },
+    { name: 'adhoc', component: AdhocList },
+    { name: 'warehouseupdate', component: WarehouseScreen },
+    { name: 'displayCombineLG', component: DisplayCombineLG },
+    { name: 'displaydetails', component: DashboardDisplayDetails },
+    { name: 'view_oosdetails', component: ScreenGroup },
+    { name: 'ShopPage', component: ShopPage },
+    { name: 'scorekpiv2', component: ScoreKPIV2 },
+    { name: 'scorekpi', component: ScoreKPI },
+    { name: 'pgreporthome', component: PGReportHome },
+    { name: 'photogroup', component: PhotoItems },
+    { name: 'searchshop', component: SearchStore },
+    { name: 'updatestore', component: UpdateStore },
+    { name: 'examByEmployee', component: ExamByEmployee },
+    { name: 'displayandstock', component: DisplayAndStock },
+    { name: 'createsellinbyshop', component: CreateSellInByShop },
+    { name: 'itemproductssellin', component: ItemProductsSellIn },
+    { name: 'adhocDetail', component: AdhocDetail },
+    { name: 'programlist', component: ProgramScreen },
+    { name: 'registerprogram', component: RegisterProgramScreen },
+    { name: 'approvalstatus', component: ApprovalStatusScreen },
+    { name: 'uploadbill', component: UploadBillScreen },
+    { name: 'evaluate', component: EvaluateScreen },
+    { name: 'evaluatedetail', component: EvaluateDetailScreen },
+    { name: 'verifyresult', component: VerifyResultScreen },
+    { name: 'uploaddeliveryslip', component: UploadDeliverySlipScreen },
+    { name: 'programresult', component: ProgramResultScreen },
+    { name: 'summaryprogram', component: SummaryProgramScreen },
+    { name: 'summaryprogramdetail', component: SummaryProgramDetailScreen },
+    { name: 'kaizen', component: HomeKaizen },
+    { name: 'stockReport', component: InventoryReportScreen },
+    // { name: 'promotion', component: PromotionScreen },
+    { name: 'promotion', component: Promotion },
+    { name: 'homesaleexplain', component: HomeSaleExplain },
+    { name: 'employeelistscreen', component: EmployeeListScreen },
+    { name: 'homevisit', component: HomeVisitScreen },
+    { name: 'summaryhomevisit', component: SummaryHomeVisitScreen },
+    { name: 'listhomevisit', component: SurveyListScreen },
+    { name: 'surveyhomevisit', component: SurveyHomeVisitScreen },
+    { name: 'sharereport', component: ShareReportScreen },
+    { name: 'salespromoter', component: SalesPromoterScreen },
+    { name: 'contentdetail', component: ContentDetailScreen },
+    { name: 'evaluation', component: EvaluationPermisionScreen },
+    { name: 'evaluationscore', component: EvaluationScoreScreen },
+    { name: 'evaluationresult', component: EvaluationResultScreen },
+    { name: 'evaluationdashboard', component: EvaluationDashboardScreen },
+    { name: 'SellIn', component: SellIn },
+    { name: 'confirmsellin', component: ConfirmSellIn },
+    { name: 'displaypricereportpns', component: DisplayPricePNS },
+    { name: 'promotionprice', component: PromotionPriceReport },
+    { name: 'reportchecksell', component: ReportCheckSell },
+    { name: 'surveyresultreport', component: SurveyResultReport },
+    { name: 'displaycompetitor', component: DisplayCompetitorReport },
+    { name: 'marketvisit', component: MarketVisit },
+    { name: 'coachingemployee', component: FieldCoachingForEmployee },
+    { name: 'photobylist', component: PhotoByList },
+    { name: 'displaysituation', component: DisplaySituation },
+    { name: 'deploypop', component: DeployPOP },
+  ];
+  const dashboardScreens = [
+    { name: 'dashboardDetail', component: DashboardSellOutDetail },
+    { name: 'dashboardhomesellin', component: DashboardHomeSellin },
+    { name: 'attendanthistory', component: AttendantHistoryScreen },
+    { name: 'horizontalPage', component: HorizontalPage },
+    { name: 'dashboardsummaryssub', component: DashboardSummarySSub },
+  ];
+  const workingPlanScreens = [
+    { name: 'mdplanLG', component: RegisterByDateScreen },
+    { name: 'registerOT', component: OTRegisterScreen },
+    { name: 'managerOT', component: HomeOTManager },
+    { name: 'confirmplansr', component: ConfirmPlanSR },
+  ];
+  const fieldCoaching = [
+    { name: 'fieldcoaching', component: FieldCoaching },
+    { name: 'fieldcoachingfsmreport', component: FieldCoachingFSMReport },
+    { name: 'trainingresult', component: TrainingList },
+    { name: 'trainingaction', component: TrainingResults },
+  ];
 
-	const coreScreens = [
-		{ name: 'Welcome', component: WelcomeScreen },
-		{ name: 'Login', component: LoginScreen },
-		{ name: 'ForgotPassword', component: ForgotPasswordScreen },
-		{ name: 'Home', component: HomePageMain },
-		{ name: 'Notification', component: NotificationScreen },
-		{ name: 'NotificationDetail', component: NotificationDetailScreen },
-		{ name: 'Camera', component: CameraScreen },
-		{ name: 'CameraReport', component: CameraReportScreen },
-		{ name: 'Work', component: WorkScreen },
-		{ name: 'ManageNotify', component: ManageNotify },
-		{ name: 'NotifyDetail', component: NotifyDetail }
-	];
-	const menuScreens = [
-		{ name: 'shopPermission', component: ShopPermissionScreen },
-		{ name: 'confirmplanpg', component: ConfirmPlanPG },
-		{ name: 'popmanage', component: POPMenuScreen },
-		{ name: 'popwarehouse', component: POPItemScreen },
-		{ name: 'poporder', component: POPOrderScreen },
-		{ name: 'poporderfollow', component: POPFollowScreen },
-		{ name: 'popprocess', component: POPProcessScreen },
-		{ name: 'popmenuprocess', component: POPMenuProcessScreen },
-		{ name: 'poppromotion', component: POPPromotionScreen },
-		{ name: 'popinstall', component: POPInstallMenuScreen },
-		{ name: 'popinstalldetail', component: POPInstallScreen },
-		{ name: 'Profile', component: EmployeeInfo },
-		{ name: 'Product', component: ProductManagerScreen },
-		{ name: 'payment', component: PayslipList },
-		{ name: 'paydetail', component: PayslipDetails },
-		{ name: 'o-payslip', component: PayslipPage },
-		{ name: 'o-payslip-detail', component: PayslipDetail },
-		{ name: 'incentive', component: KPIIncentive },
-		{ name: 'Settings', component: Settings },
-		{ name: 'supportinfo', component: SupportInfo },
-		{ name: 'qrcode', component: QRCodeScan },
-		{ name: 'employeeresigns', component: EmployeeResigns },
-		{ name: 'confirmsresigns', component: ConfirmsResigns },
-		{ name: 'employeemanager', component: EmployeeManager },
-		{ name: 'statisticaldisplay', component: StatisticalDisplay },
-		{ name: 'asmplanLG', component: LG_WorkingPlanASM },
-		{ name: 'shopmanager', component: ShopManageScreen },
-		{ name: 'profileshops', component: ShopProfileScreen },
-		{ name: 'employeedetails', component: ProfileDetail },
-		{ name: 'summaryoosgroup', component: SummaryGroup },
-		{ name: 'summaryooslist', component: SummaryList },
-		{ name: 'confirmplanpcLG', component: LG_ConfirmPlanPC },
-		{ name: 'historyconfirm', component: HistoryConfirm },
-		{ name: 'workschedule', component: HomeBusinessMenu },
-		{ name: 'popmenu', component: POPMenu },
-		{ name: 'warehouseitem', component: POPWarehouse },
-		{ name: 'warningitem', component: POPWarningItem },
-		{ name: 'orderpop', component: POPOrderItem },
-		{ name: 'orderfollow', component: FollowOrderList },
-		{ name: 'WorkingPlanSR', component: WorkingPlanSR_V2 },
-		{ name: 'attendantissue', component: AttendantIssue },
-		{ name: 'confirmattendantissue', component: ConfirmAttendantIssue },
-		{ name: 'managerplan', component: ManagerPlan },
-		{ name: 'editprofileemployee', component: EditProfileEmployee },
-		{ name: 'trainee', component: WebViewScreen },
-		{ name: 'traineeApp', component: TrainingApp },
-		{ name: 'trainingExam', component: TrainingExam },
-		{ name: 'prepareExam', component: PrepareExam },
-		{ name: 'resultExam', component: ResultExam },
-		{ name: 'planbyconfig', component: WorkingPlanPG_Permisstion },
-		{ name: 'documentgroup', component: DocumentGroup },
-		{ name: 'timesheetpg', component: PGTimeSheet },
-		{ name: 'documentlist', component: DocumentList },
-		{ name: 'pcplanLG', component: LG_WorkingPlanPC },
-		{ name: 'reporttimesheet', component: ReportTimeSheet },
-		{ name: 'progressReport', component: ProgressReport },
-		{ name: 'officeplan', component: PlanOffice },
-		{ name: 'officeconfirmplan', component: ConfirmPlanOffice },
-		{ name: 'manageemployees', component: HomeManager },
-		{ name: 'yep-checkin', component: CheckInScreen },
-		{ name: 'monthlyplan', component: MonthlyPlan },
-		{ name: 'sellinbyemp', component: SellInByEmployee },
-		{ name: 'sellinscreen', component: SellInShopScreen },
-		{ name: 'sellinshopdetail', component: SellInShopDetailScreen },
-		{ name: 'createstore', component: CreateItem },
-		{ name: 'storerequestlist', component: StoreRequestListScreen },
-		{ name: 'storerequestform', component: StoreRequestFormScreen },
-		{ name: 'routingmonth', component: RoutingReport },
-		{ name: 'sellindetails', component: DashboardSellInDetails },
-		{ name: 'AlbumPhoto', component: PhotoManageScreen },
-		{ name: 'employeematernityleave', component: EmployeeMaternityLeave },
-		{ name: 'photosystemreport', component: PhotoSystemReport },
-		{ name: 'reportzalo', component: ReportZalo },
-		{ name: 'shopreportzalo', component: ShopReportZalo },
-		{ name: 'alltodolist', component: AllTodoList },
-		{ name: 'photolist', component: PhotoList },
-		{ name: 'employeekpi', component: KPIResult },
-		{ name: 'calendarweek', component: WeekLyPlan },
-		{ name: 'confirmplanweek', component: ConfirmPlanWeekly },
-
-	];
-	const kpiScreens = [
-		{ name: 'sellout', component: Sellout },
-		{ name: 'selloutcreate', component: SellOutCreateScreen },
-		{ name: 'ShopList', component: ScreenShops },
-		{ name: 'display', component: DisplayScreen },
-		{ name: 'displayReport', component: DisplayPriceReport },
-		{ name: 'displaytrackingcompetitor', component: DisplayMain },
-		{ name: 'displaysurvey', component: DisplaySurveyReport },
-		{ name: 'displayupdate', component: DisplayUpdateScreen },
-		{ name: 'requestupdatedisplay', component: RequestUpdateScreen },
-		{ name: 'confirmupdatedisplay', component: ConfirmUpdateScreen },
-		{ name: 'oos', component: OOSScreen },
-		{ name: 'adhoc', component: AdhocList },
-		{ name: 'warehouseupdate', component: WarehouseScreen },
-		{ name: 'displayCombineLG', component: DisplayCombineLG },
-		{ name: 'displaydetails', component: DashboardDisplayDetails },
-		{ name: 'view_oosdetails', component: ScreenGroup },
-		{ name: 'ShopPage', component: ShopPage },
-		{ name: 'scorekpiv2', component: ScoreKPIV2 },
-		{ name: 'scorekpi', component: ScoreKPI },
-		{ name: 'pgreporthome', component: PGReportHome },
-		{ name: 'photogroup', component: PhotoItems },
-		{ name: 'searchshop', component: SearchStore },
-		{ name: 'updatestore', component: UpdateStore },
-		{ name: 'examByEmployee', component: ExamByEmployee },
-		{ name: 'displayandstock', component: DisplayAndStock },
-		{ name: 'createsellinbyshop', component: CreateSellInByShop },
-		{ name: 'itemproductssellin', component: ItemProductsSellIn },
-		{ name: 'adhocDetail', component: AdhocDetail },
-		{ name: 'programlist', component: ProgramScreen },
-		{ name: 'registerprogram', component: RegisterProgramScreen },
-		{ name: 'approvalstatus', component: ApprovalStatusScreen },
-		{ name: 'uploadbill', component: UploadBillScreen },
-		{ name: 'evaluate', component: EvaluateScreen },
-		{ name: 'evaluatedetail', component: EvaluateDetailScreen },
-		{ name: 'verifyresult', component: VerifyResultScreen },
-		{ name: 'uploaddeliveryslip', component: UploadDeliverySlipScreen },
-		{ name: 'programresult', component: ProgramResultScreen },
-		{ name: 'summaryprogram', component: SummaryProgramScreen },
-		{ name: 'summaryprogramdetail', component: SummaryProgramDetailScreen },
-		{ name: 'kaizen', component: HomeKaizen },
-		{ name: 'stockReport', component: InventoryReportScreen },
-		// { name: 'promotion', component: PromotionScreen },
-		{ name: 'promotion', component: Promotion },
-		{ name: 'homesaleexplain', component: HomeSaleExplain },
-		{ name: 'employeelistscreen', component: EmployeeListScreen },
-		{ name: 'homevisit', component: HomeVisitScreen },
-		{ name: 'summaryhomevisit', component: SummaryHomeVisitScreen },
-		{ name: 'listhomevisit', component: SurveyListScreen },
-		{ name: 'surveyhomevisit', component: SurveyHomeVisitScreen },
-		{ name: 'sharereport', component: ShareReportScreen },
-		{ name: 'salespromoter', component: SalesPromoterScreen },
-		{ name: 'contentdetail', component: ContentDetailScreen },
-		{ name: 'evaluation', component: EvaluationPermisionScreen },
-		{ name: 'evaluationscore', component: EvaluationScoreScreen },
-		{ name: 'evaluationresult', component: EvaluationResultScreen },
-		{ name: 'evaluationdashboard', component: EvaluationDashboardScreen },
-		{ name: 'SellIn', component: SellIn },
-		{ name: 'confirmsellin', component: ConfirmSellIn },
-		{ name: 'displaypricereportpns', component: DisplayPricePNS },
-		{ name: 'promotionprice', component: PromotionPriceReport },
-		{ name: 'reportchecksell', component: ReportCheckSell },
-		{ name: 'surveyresultreport', component: SurveyResultReport },
-		{ name: 'displaycompetitor', component: DisplayCompetitorReport },
-		{ name: 'marketvisit', component: MarketVisit },
-		{ name: 'coachingemployee', component: FieldCoachingForEmployee },
-		{ name: 'photobylist', component: PhotoByList },
-		{ name: 'displaysituation', component: DisplaySituation },
-		{ name: 'deploypop', component: DeployPOP },
-	];
-	const dashboardScreens = [
-		{ name: 'dashboardDetail', component: DashboardSellOutDetail },
-		{ name: 'dashboardhomesellin', component: DashboardHomeSellin },
-		{ name: 'attendanthistory', component: AttendantHistoryScreen },
-		{ name: 'horizontalPage', component: HorizontalPage },
-		{ name: 'dashboardsummaryssub', component: DashboardSummarySSub },
-	];
-	const workingPlanScreens = [
-		{ name: 'mdplanLG', component: RegisterByDateScreen },
-		{ name: 'registerOT', component: OTRegisterScreen },
-		{ name: 'managerOT', component: HomeOTManager },
-		{ name: 'confirmplansr', component: ConfirmPlanSR },
-	];
-	const fieldCoaching = [
-		{ name: 'fieldcoaching', component: FieldCoaching },
-		{ name: 'fieldcoachingfsmreport', component: FieldCoachingFSMReport },
-		{ name: 'trainingresult', component: TrainingList },
-		{ name: 'trainingaction', component: TrainingResults },
-	]
-
-	const ScreenStack = ({ }) => {
-		const renderScreenGroup = (screens) => screens.map(({ name, component }) => (<Stack.Screen key={name} name={name} component={component} />));
-		return (
-			<Stack.Navigator screenOptions={{ headerShown: false, animation: 'fade' }}>
-				{renderScreenGroup(coreScreens)}
-				{renderScreenGroup(menuScreens)}
-				{renderScreenGroup(kpiScreens)}
-				{renderScreenGroup(dashboardScreens)}
-				{renderScreenGroup(workingPlanScreens)}
-				{renderScreenGroup(fieldCoaching)}
-			</Stack.Navigator>
-		)
-	};
-	//
-	return (
-		<NavigationContainer>
-			<Drawer.Navigator
-				initialRouteName="HomeMain"
-				screenOptions={{
-					headerShown: false,
-					drawerType: 'front',
-					swipeEnabled: false
-				}}
-				drawerContent={(props) => <DrawerMenu navigation={props.navigation} />}>
-				<Drawer.Screen name="HomeMain" component={ScreenStack} />
-			</Drawer.Navigator>
-		</NavigationContainer>
-	);
+  const ScreenStack = ({}) => {
+    const renderScreenGroup = screens =>
+      screens.map(({ name, component }) => (
+        <Stack.Screen key={name} name={name} component={component} />
+      ));
+    return (
+      <Stack.Navigator
+        screenOptions={{ headerShown: false, animation: 'fade' }}
+      >
+        {renderScreenGroup(coreScreens)}
+        {renderScreenGroup(menuScreens)}
+        {renderScreenGroup(kpiScreens)}
+        {renderScreenGroup(dashboardScreens)}
+        {renderScreenGroup(workingPlanScreens)}
+        {renderScreenGroup(fieldCoaching)}
+      </Stack.Navigator>
+    );
+  };
+  //
+  return (
+    <NavigationContainer>
+      <Drawer.Navigator
+        initialRouteName="HomeMain"
+        screenOptions={{
+          headerShown: false,
+          drawerType: 'front',
+          swipeEnabled: false,
+        }}
+        drawerContent={props => <DrawerMenu navigation={props.navigation} />}
+      >
+        <Drawer.Screen name="HomeMain" component={ScreenStack} />
+      </Drawer.Navigator>
+    </NavigationContainer>
+  );
 };
 
 export default AppNavigator;

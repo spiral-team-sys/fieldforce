@@ -546,38 +546,38 @@ const WorkingPlanPG = ({ navigation, route }) => {
             <View key={index} style={{ width: '100%', alignSelf: 'center', marginBottom: isParent ? 8 : 0 }}>
                 {isParent && (
                     <View style={{ flexDirection: 'row', padidng: 7, marginLeft: 22 }}>
-                        <Icon name="calendar-check" color={appcolor.dark} type='font-awesome-5' size={20} />
+                        <SpiralIcon name="calendar-check" color={appcolor.dark} type='font-awesome-5' size={20} />
                         <Text style={{ color: appcolor.dark, fontSize: 18, fontWeight: '700', marginLeft: 10, }}>{moment(workDate).format("dddd, DD MM yy")}</Text>
                     </View>
                 )}
                 <View style={{ backgroundColor: appcolor.light, borderRadius: 10, padding: 10, margin: 8 }}>
                     <View style={{ width: '100%', flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', }}>
                         <View style={{ width: '90%', flexDirection: 'row', paddingTop: 8, paddingBottom: 8, paddingEnd: 8 }}>
-                            <Icon name="store" type='font-awesome-5' size={17} style={{ width: 30, textAlign: 'center', }} color={appcolor.dark} />
+                            <SpiralIcon name="store" type='font-awesome-5' size={17} style={{ width: 30, textAlign: 'center', }} color={appcolor.dark} />
                             <Text style={{ color: appcolor.dark, fontSize: 16, fontWeight: '600' }}>{`Cửa hàng: ${shopName}`}</Text>
                         </View>
                         {item.isEvident == 1 &&
                             <TouchableOpacity
                                 style={{ width: '10%', alignItems: 'center', backgroundColor: appcolor.bluenavylight, padding: 8, borderRadius: 20 }}
                                 onPress={() => handleDisplayBS(IMAGE, index, true, item)}>
-                                <Icon type='font-awesome-5' solid name="file-image" size={20} color={appcolor.light} />
+                                <SpiralIcon type='font-awesome-5' solid name="file-image" size={20} color={appcolor.light} />
                             </TouchableOpacity>
                         }
                     </View>
                     <View style={{ width: '90%', flexDirection: 'row', alignItems: 'center', paddingTop: 10, paddingBottom: 10, }}>
-                        <Icon name="map-marked-alt" type='font-awesome-5' size={17} style={{ width: 30, textAlign: 'center', }} color={appcolor.dark} />
+                        <SpiralIcon name="map-marked-alt" type='font-awesome-5' size={17} style={{ width: 30, textAlign: 'center', }} color={appcolor.dark} />
                         <Text style={{ color: appcolor.dark, fontSize: 15 }}>{`Địa chỉ: ${address}`}</Text>
                     </View>
 
                     <TouchableOpacity onPress={() => { item.confirmPlan == 1 ? null : handleDisplayBS(SHIFT, index, false, item) }} style={{ flexDirection: 'row', alignItems: 'center', paddingTop: 8, paddingBottom: 8, paddingEnd: 8 }}>
-                        <Icon name="business-time" type='font-awesome-5' size={17} style={{ width: 30, textAlign: 'center' }}
+                        <SpiralIcon name="business-time" type='font-awesome-5' size={17} style={{ width: 30, textAlign: 'center' }}
                             color={appcolor.dark} />
                         <Text style={{ color: appcolor.dark, fontSize: 15, }}>{`Ca hiện tại: ${shiftTypeName || ""}`}</Text>
                     </TouchableOpacity>
 
                     {(item.confirmPlan == 1 && shiftChange !== null && shiftChange !== "") && (
                         <View style={{ flexDirection: 'row', alignItems: 'center', paddingTop: 8, paddingBottom: 8, paddingEnd: 8 }}>
-                            <Icon name="sync" type='font-awesome-5' size={17} style={{ width: 30, textAlign: 'center' }} color={appcolor.dark} />
+                            <SpiralIcon name="sync" type='font-awesome-5' size={17} style={{ width: 30, textAlign: 'center' }} color={appcolor.dark} />
                             <Text style={{ color: appcolor.dark, fontSize: 15, fontStyle: 'italic', paddingEnd: 8 }}>{`Ca chuyển: ${shiftChangeName}`}</Text>
                         </View>
                     )}
@@ -610,12 +610,12 @@ const WorkingPlanPG = ({ navigation, route }) => {
                             <View style={{ width: '95%' }}>
                                 {(confirmShift === 1 || confirmShift === -1) && item.confirmNote !== null &&
                                     <View style={styles.iconContainer}>
-                                        <Icon name={confirmShift === 1 ? "comment" : "comment-slash"} size={17} style={[styles.iconStyle, { color: confirmShift === 1 ? appcolor.helper : appcolor.danger }]} />
+                                        <SpiralIcon name={confirmShift === 1 ? "comment" : "comment-slash"} size={17} style={[styles.iconStyle, { color: confirmShift === 1 ? appcolor.helper : appcolor.danger }]} />
                                         <Text style={{ color: confirmShift === 1 ? appcolor.helper : appcolor.danger, padding: 7, }}>{`Ghi chú của quản lý: ${item.confirmNote || ""}`}</Text>
                                     </View>
                                 }
                                 <View style={styles.iconContainer}>
-                                    <Icon name="sync" size={17} style={styles.iconStyle} />
+                                    <SpiralIcon name="sync" size={17} style={styles.iconStyle} />
                                     <RenderButtonDisplayBS handleDisplayBS={handleDisplayBS} item={item} keyForgot={"forgotSelectShift"} index={index}
                                         styles={styles} appcolor={appcolor} value={"Chọn ca đổi"} isEditable={isShiftEditable} type={SHIFT} />
                                 </View>
@@ -638,12 +638,12 @@ const WorkingPlanPG = ({ navigation, route }) => {
                         <View style={styles.expandItem}>
                             <View style={{ width: '95%' }}>
                                 <View style={styles.iconContainer}>
-                                    <Icon name="alarm-off" type='font-awesome-5' size={17} style={styles.iconStyle} />
+                                    <SpiralIcon name="alarm-off" type='font-awesome-5' size={17} style={styles.iconStyle} />
                                     <Text style={{ color: appcolor.dark }}>Xin đi trễ (phút)</Text>
                                 </View>
                                 {(confirmLate === 1 || confirmLate === -1) && (
                                     <View style={styles.iconContainer}>
-                                        <Icon type='font-awesome-5' name={confirmLate === 1 ? "comment" : "comment-slash"}
+                                        <SpiralIcon type='font-awesome-5' name={confirmLate === 1 ? "comment" : "comment-slash"}
                                             color={confirmLate === 1 ? appcolor.helper : appcolor.danger}
                                             size={17} style={[styles.iconStyle]} />
                                         <Text style={{ color: confirmLate === 1 ? appcolor.helper : appcolor.danger, padding: 7, }}>{`Ghi chú của quản lý: ${item.confirmNoteLate || ""}`}</Text>
@@ -667,12 +667,12 @@ const WorkingPlanPG = ({ navigation, route }) => {
                                     </TouchableOpacity>
                                 }
                                 <View style={styles.iconContainer}>
-                                    <Icon name="alarm" size={17} style={styles.iconStyle} />
+                                    <SpiralIcon name="alarm" size={17} style={styles.iconStyle} />
                                     <Text style={{ color: appcolor.dark }}>Xin về sớm (phút)</Text>
                                 </View>
                                 {(confirmEarlier === 1 || confirmEarlier === -1) && (
                                     <View style={styles.iconContainer}>
-                                        <Icon name={confirmEarlier === 1 ? "comment" : "comment-slash"} size={17} style={[styles.iconStyle, { color: confirmEarlier === 1 ? appcolor.helper : appcolor.danger }]} />
+                                        <SpiralIcon name={confirmEarlier === 1 ? "comment" : "comment-slash"} size={17} style={[styles.iconStyle, { color: confirmEarlier === 1 ? appcolor.helper : appcolor.danger }]} />
                                         <Text style={{ color: confirmEarlier === 1 ? appcolor.helper : appcolor.danger, padding: 7, }}>{`Ghi chú của quản lý: ${item.confirmNoteEarlier || ""}`}</Text>
                                     </View>
                                 )}
@@ -748,7 +748,7 @@ const WorkingPlanPG = ({ navigation, route }) => {
             {showIMV &&
                 <View style={{ width: '100%', height: '100%', borderRadius: 5 }}>
                     <TouchableOpacity onPress={() => setShowIMV(false)} style={{ position: 'absolute', top: 20, right: 15, zIndex: 2 }}>
-                        <Icon type='font-awesome-5' name='times' size={35} color={appcolor.dark} ></Icon>
+                        <SpiralIcon type='font-awesome-5' name='times' size={35} color={appcolor.dark} ></SpiralIcon>
                     </TouchableOpacity>
                     <ImageBackground source={{ uri: urlIMV }} style={{ width: '100%', height: '100%', borderRadius: 5, zIndex: 1 }} resizeMode={'contain'} />
                 </View>
@@ -762,13 +762,13 @@ const WorkingPlanPG = ({ navigation, route }) => {
                             flexDirection: 'row', justifyContent: 'center', padding: 12,
                             alignItems: 'center', borderColor: appcolor.primary, borderWidth: 1,
                         }}>
-                            <Icon type='font-awesome-5' name="calendar-week" size={18} color={appcolor.primary} />
+                            <SpiralIcon type='font-awesome-5' name="calendar-week" size={18} color={appcolor.primary} />
                             <Text style={{
                                 fontSize: 15, fontWeight: '700',
                                 flexGrow: 1,
                                 color: appcolor.dark, marginLeft: 5,
                             }}>{currentWeek.label || "-"}</Text>
-                            <Icon name="filter" type="font-awesome-5" size={18} color={appcolor.primary} />
+                            <SpiralIcon name="filter" type="font-awesome-5" size={18} color={appcolor.primary} />
                         </View>
                     </TouchableOpacity>
                 </View>
@@ -804,7 +804,7 @@ const WorkingPlanPG = ({ navigation, route }) => {
                                 {currentBS.type === WEEK ? "Chọn Tuần" : currentBS.type === SHIFT ? "Chọn Ca Làm Việc" : "Hình ảnh xác minh"}
                             </Text>
                             <TouchableOpacity style={{ padding: 8 }} onPress={() => setVisibleBS(false)}>
-                                <Icon name="times" type='font-awesome-5' size={28} color={appcolor.dark} />
+                                <SpiralIcon name="times" type='font-awesome-5' size={28} color={appcolor.dark} />
                             </TouchableOpacity>
                         </View>
                         {currentBS.type === IMAGE ?
@@ -838,16 +838,16 @@ const RenderContentModal = ({ appcolor, onSelectItemBS, currentBS, onClearItemSe
                     <ListItem key={index} onPress={() => onSelectItemBS(item)}
                         containerStyle={{ marginStart: 8, marginEnd: 8, backgroundColor: isExist ? appcolor.grayLight : appcolor.light, borderBottomWidth: 0.5 }}>
                         <ListItem.Content style={{ flexDirection: 'row', justifyContent: 'flex-start', alignItems: 'center', }}>
-                            {item.isShiftSelectable && <Icon name="thumbs-up" type='font-awesome-5'
+                            {item.isShiftSelectable && <SpiralIcon name="thumbs-up" type='font-awesome-5'
                                 size={16} style={{ color: appcolor.helper, marginRight: 7, }} />}
-                            {item.isShiftExisted && <Icon name="check-circle" type='font-awesome-5' size={16} style={{ color: appcolor.info, marginRight: 7, }} />}
-                            {item.isShiftCoincident && <Icon name="exclamation" type='font-awesome-5' size={16}
+                            {item.isShiftExisted && <SpiralIcon name="check-circle" type='font-awesome-5' size={16} style={{ color: appcolor.info, marginRight: 7, }} />}
+                            {item.isShiftCoincident && <SpiralIcon name="exclamation" type='font-awesome-5' size={16}
                                 style={{ color: appcolor.warning, marginRight: 7, }} />}
                             <ListItem.Title style={{ color: appcolor.dark, fontSize: 16, padding: 1, }}>{item[key]}</ListItem.Title>
                         </ListItem.Content>
                         {(isExist && currentBS.type !== WEEK && currentBS.isPastOrPresentWeek) && (
                             <TouchableOpacity onPress={() => onClearItemSelectedBS(currentBS.index)}>
-                                <Icon type='font-awesome-5' name="backspace" size={18} color={appcolor.dark} />
+                                <SpiralIcon type='font-awesome-5' name="backspace" size={18} color={appcolor.dark} />
                             </TouchableOpacity>
                         )}
                     </ListItem>)
@@ -875,12 +875,12 @@ const RenderImageModal = ({ currentBS, data, handleRemoveImage, handleSubmit, ca
                 />
                 <View style={{ width: '100%' }}>
                     <TouchableOpacity onPress={takePhoto} style={styles.styleViewSelectImage}  >
-                        <Icon solid name="camera" type='font-awesome-5' size={24}
+                        <SpiralIcon solid name="camera" type='font-awesome-5' size={24}
                             style={{ width: 30, textAlign: 'center', }} color={appcolor.dark} />
                         <Text style={{ fontSize: 18, marginLeft: 5, color: appcolor.dark }}>Chụp hình</Text>
                     </TouchableOpacity>
                     <TouchableOpacity onPress={choosePhoto} style={styles.styleViewSelectImage} >
-                        <Icon solid name="images" type='font-awesome-5' size={24} style={{ width: 30, textAlign: 'center', }} color={appcolor.dark} />
+                        <SpiralIcon solid name="images" type='font-awesome-5' size={24} style={{ width: 30, textAlign: 'center', }} color={appcolor.dark} />
                         <Text style={{ fontSize: 18, marginLeft: 5, color: appcolor.dark }}>Chọn hình từ thư viện</Text>
                     </TouchableOpacity>
                 </View>
@@ -897,7 +897,7 @@ const RenderImageModal = ({ currentBS, data, handleRemoveImage, handleSubmit, ca
                                 <View style={{ alignItems: 'center', backgroundColor: appcolor.background, marginTop: 8 }}>
                                     <Image source={{ uri: item.photoPath }} style={{ width: deviceWidth - 20, height: deviceWidth / 2, borderRadius: 8, resizeMode: 'cover', }} />
                                     <TouchableOpacity onPress={() => item.dataUpload == 0 ? handleRemoveImage(item, index) : null} style={{ position: 'absolute', top: 5, right: 16, }}>
-                                        <Icon name={item.dataUpload == 0 ? "times" : "check"} type='font-awesome-5'
+                                        <SpiralIcon name={item.dataUpload == 0 ? "times" : "check"} type='font-awesome-5'
                                             size={23} color={item.dataUpload == 0 ? appcolor.danger : appcolor.green} />
                                     </TouchableOpacity>
                                 </View>
@@ -919,7 +919,7 @@ const RenderExpandBtn = ({ shiftStatus, lateStatus, earlierStatus, expanded, han
     }
     return (
         <TouchableOpacity onPress={handlePress} style={{ flexDirection: 'row', justifyContent: 'center', alignItems: 'center' }}>
-            <Icon name={expanded[showState] === true ? "chevron-down" : "chevron-right"} type='font-awesome-5'
+            <SpiralIcon name={expanded[showState] === true ? "chevron-down" : "chevron-right"} type='font-awesome-5'
                 size={15} style={{ color: appcolor.dark, minWidth: 18 }} />
             {isShift ?
                 <View>
@@ -928,12 +928,12 @@ const RenderExpandBtn = ({ shiftStatus, lateStatus, earlierStatus, expanded, han
                 :
                 <View>
                     <View style={{ flexDirection: 'row', alignItems: 'center', }}>
-                        <Icon name="hourglass-start" type='font-awesome-5'
+                        <SpiralIcon name="hourglass-start" type='font-awesome-5'
                             size={12} color={colorStatus(confirmLate)} />
                         <Text style={{ color: colorStatus(confirmLate), fontSize: 16, }}>{lateStatus}</Text>
                     </View>
                     <View style={{ flexDirection: 'row', alignItems: 'center' }}>
-                        <Icon name="hourglass-end" type='font-awesome-5' size={12} style={{ color: colorStatus(confirmEarlier), marginRight: 5 }} />
+                        <SpiralIcon name="hourglass-end" type='font-awesome-5' size={12} style={{ color: colorStatus(confirmEarlier), marginRight: 5 }} />
                         <Text style={{ color: colorStatus(confirmEarlier), fontSize: 16, }}>{earlierStatus}</Text>
                     </View>
                 </View>
@@ -960,7 +960,7 @@ const RenderTextNote = ({ index, item, defaultValue, keyEdit, keyForgot, onChang
     return (
         <View style={{ backgroundColor: appcolor.light, borderColor: checkForgot ? appcolor.warning : appcolor.dark, borderWidth: 0.3, padding: 6, borderRadius: 10, }}>
             <View style={{ width: '100%', display: 'flex', flexDirection: 'row', justifyContent: 'flex-start', alignItems: 'center' }}>
-                <Icon style={{ padding: 8, color: checkForgot ? appcolor.warning : appcolor.dark }} type='font-awesome-5' name={"sticky-note"} size={18} />
+                <SpiralIcon style={{ padding: 8, color: checkForgot ? appcolor.warning : appcolor.dark }} type='font-awesome-5' name={"sticky-note"} size={18} />
                 <TextInput
                     defaultValue={defaultValue || ""} editable={editable}
                     onChangeText={handleChange} multiline={true} scrollable={true}
@@ -980,10 +980,10 @@ const RenderChangeMinute = ({ index, onChangeMinute, keyBusy, appcolor }) => {
     return (
         <View style={{ position: 'absolute', flexDirection: 'row', height: '82%', right: 0, }}>
             <TouchableOpacity onPress={minus} style={{ backgroundColor: appcolor.dark, width: 50, justifyContent: 'center', alignItems: 'center' }}>
-                <Icon type='font-awesome-5' name="minus" size={15} color={appcolor.light} />
+                <SpiralIcon type='font-awesome-5' name="minus" size={15} color={appcolor.light} />
             </TouchableOpacity>
             <TouchableOpacity onPress={plus} style={{ backgroundColor: appcolor.dark, borderTopRightRadius: 10, borderBottomRightRadius: 10, width: 50, justifyContent: 'center', alignItems: 'center', }}>
-                <Icon type='font-awesome-5' name="plus" size={15} color={appcolor.light} />
+                <SpiralIcon type='font-awesome-5' name="plus" size={15} color={appcolor.light} />
             </TouchableOpacity>
         </View>
     )
@@ -996,7 +996,7 @@ const RenderTextMinute = ({ index, value, item, keyForgot, onChangeMinute, appco
     return (
         <View style={{ backgroundColor: appcolor.light, borderWidth: 0.3, borderColor: checkForgot ? appcolor.warning : appcolor.dark, padding: 6, borderRadius: 10, }}>
             <View style={{ width: '100%', display: 'flex', flexDirection: 'row', justifyContent: 'flex-start', alignItems: 'center' }}>
-                <Icon style={{ padding: 8, color: checkForgot ? appcolor.warning : appcolor.dark }} name={iconName} size={18} />
+                <SpiralIcon style={{ padding: 8, color: checkForgot ? appcolor.warning : appcolor.dark }} name={iconName} size={18} />
                 <TextInput
                     editable={isBusyEditable}
                     value={value} onChangeText={handleChange} multiline={true} scrollable={true}
@@ -1022,7 +1022,7 @@ const RenderViewPhotoAttendant = ({ setShowImage, setUrl, imageURL, timeValue, a
                     </TouchableOpacity>
                     :
                     <View style={{ width: '90%', alignSelf: 'center' }}>
-                        <Icon name="image" size={30} style={{ width: '100%', textAlign: 'center', padding: 32 }} color={appcolor.dark} />
+                        <SpiralIcon name="image" size={30} style={{ width: '100%', textAlign: 'center', padding: 32 }} color={appcolor.dark} />
                     </View>
                 }
                 <Text style={{ color: colorTime }} >{timeValue}</Text>

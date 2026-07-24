@@ -36,9 +36,9 @@ const TabBarOptions = ({ state, descriptors, navigation }) => {
                         onPress={onPress}
                         style={{ flex: 1, justifyContent: 'center', alignSelf: 'stretch' }}>
                         <View style={{ flexDirection: 'row', justifyContent: 'center' }}>
-                            <Icon style={{ padding: 7, textAlign: 'center' }}
+                            <SpiralIcon style={{ padding: 7, textAlign: 'center' }}
                                 color={isFocused ? '#268bd2' : '#cccccc'}
-                                type="font-awesome-5" size={25} name={options.icon}></Icon>
+                                type="font-awesome-5" size={25} name={options.icon}></SpiralIcon>
                             <Text style={{ justifyContent: 'center', alignSelf: 'center', color: isFocused ? '#268bd2' : '#cccccc' }}>
                                 {label}
                             </Text>

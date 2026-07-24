@@ -1,7 +1,7 @@
 
 import React, { useEffect, useState } from "react";
 import { Modal, Platform, ScrollView, Text, TextInput, TouchableOpacity, UIManager, View } from "react-native";
-////import { NumericFormat } from "react-number-format";;
+//import { NumericFormat } from "react-number-format";
 import { useSelector } from "react-redux";
 import FormGroup from "../../Content/FormGroup";
 import { deviceHeight, TODAY } from "../../Core/Utility";
@@ -16,12 +16,14 @@ import { scaleSize } from "../../Themes/AppsStyle";
 import { ViewListPhoto } from "./ViewListPhoto";
 import { saveJsonData } from "../../Controller/ReportController";
 import { UUIDGenerator } from "../../Core/Helper";
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
 if (Platform.OS === "android" && UIManager.setLayoutAnimationEnabledExperimental) {
     UIManager.setLayoutAnimationEnabledExperimental(true);
 }
 
 export const ViewByCate = ({ itemTab, indexTab, data, countNumPhoto, listPhoto, listPhotoMain, isUploaded, contentSelect }) => {
+    const insets = useSafeAreaInsets()
     const { appcolor, shopinfo, workinfo, kpiinfo } = useSelector(state => state.GAppState);
     const [dataSubCate, setDataSubCate] = useState(JSON.parse(itemTab.listSubCate || '[]'))
     const [dataP, setDataP] = useState({ dataProduct: data.listProduct.filter(it => it.categoryId == itemTab.id), dataProductF: data.listProduct.filter(it => it.categoryId == itemTab.id) })
@@ -219,7 +221,7 @@ export const ViewByCate = ({ itemTab, indexTab, data, countNumPhoto, listPhoto, 
                                             <TouchableOpacity
                                                 onPress={() => takePhoto(it)}
                                                 style={{ flexDirection: 'row', width: '33%', padding: 3, marginRight: 2, justifyContent: 'center', alignItems: 'center', borderRadius: 10, backgroundColor: appcolor.surface }}>
-                                                <Icon name='camera' color={appcolor.primary} type='ionicon' size={22}></Icon>
+                                                <SpiralIcon name='camera' color={appcolor.primary} type='ionicon' size={22}></SpiralIcon>
                                             </TouchableOpacity>
                                         }
                                         {
@@ -227,14 +229,14 @@ export const ViewByCate = ({ itemTab, indexTab, data, countNumPhoto, listPhoto, 
                                             <TouchableOpacity
                                                 onPress={() => chosesPhoto(it)}
                                                 style={{ flexDirection: 'row', width: '33%', padding: 3, marginRight: 2, justifyContent: 'center', alignItems: 'center', borderRadius: 10, backgroundColor: appcolor.surface }}>
-                                                <Icon name='attach-outline' color={appcolor.primary} type='ionicon' size={22}></Icon>
+                                                <SpiralIcon name='attach-outline' color={appcolor.primary} type='ionicon' size={22}></SpiralIcon>
                                             </TouchableOpacity>
                                         }
                                         <TouchableOpacity
                                             onPress={() => handleShowPhoto(it, listPhotoSubCat)}
                                             style={{ flexDirection: 'row', width: '33%', justifyContent: 'center', alignItems: 'center', borderRadius: 10, backgroundColor: appcolor.surface }}>
                                             <View style={{ flex: 1, padding: 3, }}>
-                                                <Icon name='images' color={appcolor.primary} type='ionicon' size={20}></Icon>
+                                                <SpiralIcon name='images' color={appcolor.primary} type='ionicon' size={20}></SpiralIcon>
                                             </View>
                                             <Badge badgeStyle={{ position: 'absolute', bottom: 2, right: 0, }} value={listPhotoSubCat.length} />
                                         </TouchableOpacity>
@@ -272,7 +274,7 @@ export const ViewByCate = ({ itemTab, indexTab, data, countNumPhoto, listPhoto, 
                                     }}>
                                         <View style={{ backgroundColor: appcolor.surface, width: '100%', flexDirection: "row", alignItems: "center", justifyContent: "space-between", minHeight: 35, padding: 3, borderRadius: 4, borderColor: appcolor.grayLight }}>
                                             <Text style={{ fontSize: 12, fontWeight: '400', color: appcolor.dark, width: '80%' }}>{JSON.parse(it.productList || '[]')?.length > 0 ? JSON.parse(it.productList || '[]')?.map((it, idx) => { return (idx == 0 ? '' : '\n') + it.name }) : 'Chọn sản phẩm'}</Text>
-                                            <Icon type="font-awesome-5" color={appcolor.dark} name={"caret-down"} style={{ paddingHorizontal: 10 }} size={14} />
+                                            <SpiralIcon type="font-awesome-5" color={appcolor.dark} name={"caret-down"} style={{ paddingHorizontal: 10 }} size={14} />
                                         </View>
                                     </TouchableOpacity>
                                 </View>
@@ -295,7 +297,7 @@ export const ViewByCate = ({ itemTab, indexTab, data, countNumPhoto, listPhoto, 
                 id={'SheetByCate_' + itemTab.id}
                 keyboardHandlerEnabled={false}
                 defaultOverlayOpacity={0.3}
-                containerStyle={{ backgroundColor: appcolor.light }}
+                containerStyle={{ backgroundColor: appcolor.light, paddingBottom: insets.bottom }}
                 closeOnPressBack={true}
                 gestureEnabled={true}
                 indicatorColor={appcolor.primary} >

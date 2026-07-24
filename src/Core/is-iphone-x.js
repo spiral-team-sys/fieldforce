@@ -5,7 +5,19 @@ export function isIphoneX() {
 
   let res = false;
 
-  res = (dim.height === 780 || dim.width === 780 || dim.height === 812 || dim.width === 812 || dim.height === 844 || dim.width === 844 || dim.height === 896 || dim.width === 896 || dim.height === 926 || dim.width === 926) ? true : false
+  res =
+    dim.height === 780 ||
+    dim.width === 780 ||
+    dim.height === 812 ||
+    dim.width === 812 ||
+    dim.height === 844 ||
+    dim.width === 844 ||
+    dim.height === 896 ||
+    dim.width === 896 ||
+    dim.height === 926 ||
+    dim.width === 926
+      ? true
+      : false;
 
   return res;
 }

@@ -72,10 +72,10 @@ export const VideoByType = ({ navigation, route }) => {
                                 {
                                     pathJson[0].Thumbnail !== undefined ?
                                         <Image style={{ borderRadius: 10, width: '100%', height: '100%' }} source={{ uri: thumbnail }} /> :
-                                        <Icon name="stroopwafel" size={60}
+                                        <SpiralIcon name="stroopwafel" size={60}
                                             color={AppColor.danger}
                                             containerStyle={{ height: '100%', justifyContent: 'center', }}
-                                            type="font-awesome-5"></Icon>
+                                            type="font-awesome-5"></SpiralIcon>
                                 }
                             </View>
                             <View style={{ paddingLeft: 12, width: '64%', }}>

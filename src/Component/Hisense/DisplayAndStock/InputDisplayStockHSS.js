@@ -6,7 +6,7 @@ import { _competitorId, _competitorName } from "../../../Core/URLs";
 import { deviceHeight, deviceWidth, minWidthTab } from "../../../Core/Utility";
 import { clearAllDataDisplay, getDisplayProduct, getlistTabCompetitor, updateItemDisplay } from '../../../Controller/DisplayController'
 import { getAllPhotos, updateNoteDisplayReport, updateShelveDisplayReport } from "../../../Controller/WorkController";
-// import NumberFormat from "react-number-format";
+// //import NumberFormat from "react-number-format";
 import { groupDataByKey, Message, ToastError, ToastSuccess, UUIDGenerator } from "../../../Core/Helper";
 import ActionSheet, { SheetManager } from "react-native-actions-sheet";
 import FormGroup from "../../../Content/FormGroup";
@@ -18,8 +18,10 @@ import { useFocusEffect } from "@react-navigation/native";
 import { GetByListCode } from "../../../Controller/MasterController";
 import NativeCamera from "../../../Control/NativeCamera";
 import { REPORT } from "../../../API/ReportAPI";
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
 export const InputDisplayStockHSS = memo(({ navigation, route, Status, listInput, reloadView, lstReport }) => {
+    const insets = useSafeAreaInsets()
     const { appcolor, kpiinfo, workinfo, shopinfo, userinfo } = useSelector(state => state.GAppState)
     const [data, setData] = useState({ dataTab: [], dataShow: [], dataShowF: [] })
     const [listMaster, setListMaster] = useState({})
@@ -314,7 +316,7 @@ export const InputDisplayStockHSS = memo(({ navigation, route, Status, listInput
                 <TouchableOpacity
                     onPress={openSheet}
                     style={Styles.buttonHeaderStyle}>
-                    <Icon name='ellipsis-vertical' type='ionicon' size={21} color={appcolor.dark} />
+                    <SpiralIcon name='ellipsis-vertical' type='ionicon' size={21} color={appcolor.dark} />
                 </TouchableOpacity>
             </View>
             <View style={Styles.container}>
@@ -351,7 +353,7 @@ export const InputDisplayStockHSS = memo(({ navigation, route, Status, listInput
             <ActionSheet
                 ref={ref_toolsSheet}
                 defaultOverlayOpacity={0.3}
-                containerStyle={{ backgroundColor: appcolor.light }}
+                containerStyle={{ backgroundColor: appcolor.light, paddingBottom: insets.bottom }}
                 closeOnPressBack={true}
                 gestureEnabled={true}
                 indicatorColor={appcolor.primary} >
@@ -367,7 +369,7 @@ export const InputDisplayStockHSS = memo(({ navigation, route, Status, listInput
                                 width: '100%', flexDirection: 'row', alignItems: 'center',
                                 padding: 5, marginTop: 8, borderRadius: 5
                             }}>
-                                <Icon name={'keyboard'} size={18} color={appcolor.success} />
+                                <SpiralIcon name={'keyboard'} size={18} color={appcolor.success} />
                                 <Text style={{ width: '100%', fontSize: 14, fontWeight: '400', color: appcolor.dark, padding: 8 }}>Xem dữ liệu đã nhập</Text>
                             </View>
                         </TouchableOpacity>
@@ -381,7 +383,7 @@ export const InputDisplayStockHSS = memo(({ navigation, route, Status, listInput
                                     width: '100%', flexDirection: 'row', alignItems: 'center',
                                     padding: 5, marginTop: 8, borderRadius: 5
                                 }}>
-                                    <Icon name={'trash'} type={'ionicon'} size={23} color={appcolor.danger} />
+                                    <SpiralIcon name={'trash'} type={'ionicon'} size={23} color={appcolor.danger} />
                                     <Text style={{ width: '100%', fontSize: 14, fontWeight: '400', color: appcolor.dark, padding: 8 }} >Xóa dữ liệu đã nhập</Text>
                                 </View>
                             </TouchableOpacity>
@@ -435,7 +437,7 @@ const HeaderTab = ({ listDataByCate, listPhotoByCategory, itemTab, onUpdateNote,
                         onPress={() => handleSelectButton(true)}
                         style={{ flexDirection: 'row', backgroundColor: isShowNote ? appcolor.primary : appcolor.light, paddingLeft: 5, minHeight: 30, padding: 3, justifyContent: 'center', alignItems: 'center', borderRadius: 6, }}>
                         <View style={{ flexDirection: 'row', paddingLeft: 3, justifyContent: 'center', alignItems: 'center' }}>
-                            <Icon name='comment-alt' color={isShowNote ? appcolor.white : appcolor.primary} type='font-awesome-5' size={16}></Icon>
+                            <SpiralIcon name='comment-alt' color={isShowNote ? appcolor.white : appcolor.primary} type='font-awesome-5' size={16}></SpiralIcon>
                             <Text style={{ color: isShowNote ? appcolor.white : appcolor.dark, fontSize: 12, paddingLeft: 5 }}>Ghi chú</Text>
                         </View>
                     </TouchableOpacity>
@@ -447,7 +449,7 @@ const HeaderTab = ({ listDataByCate, listPhotoByCategory, itemTab, onUpdateNote,
                             onPress={() => handleSelectButton(false)}
                             style={{ flexDirection: 'row', minHeight: 30, backgroundColor: isShowNote ? appcolor.light : appcolor.primary, padding: 3, marginLeft: 3, justifyContent: 'center', alignItems: 'center', borderRadius: 6, }}>
                             <View style={{ flexDirection: 'row', paddingLeft: 5, justifyContent: 'center', alignItems: 'center' }}>
-                                <Icon name='library-outline' color={isShowNote ? appcolor.primary : appcolor.white} type='ionicon' size={16}></Icon>
+                                <SpiralIcon name='library-outline' color={isShowNote ? appcolor.primary : appcolor.white} type='ionicon' size={16}></SpiralIcon>
                                 <Text style={{ color: isShowNote ? appcolor.dark : appcolor.white, fontSize: 12, paddingLeft: 3 }}>Quầy kệ {(inputShelves !== null && inputShelves !== undefined && inputShelves !== '') ? (': ' + (inputShelves == 0 ? 0 : inputShelves || '')) : ''}</Text>
                             </View>
                         </TouchableOpacity>
@@ -466,9 +468,9 @@ const HeaderTab = ({ listDataByCate, listPhotoByCategory, itemTab, onUpdateNote,
                             <View style={{ flexDirection: 'row', justifyContent: 'center', alignItems: 'center', marginRight: 5 }}>
                                 {
                                     Status != 1 ?
-                                        <Icon name='camera' color={appcolor.primary} type='ionicon' size={16}></Icon>
+                                        <SpiralIcon name='camera' color={appcolor.primary} type='ionicon' size={16}></SpiralIcon>
                                         :
-                                        <Icon name='images' color={appcolor.primary} type='ionicon' size={16}></Icon>
+                                        <SpiralIcon name='images' color={appcolor.primary} type='ionicon' size={16}></SpiralIcon>
                                 }
                                 <Text style={{ color: appcolor.dark, fontSize: 12, paddingLeft: 3 }}>{Status != 1 ? 'Chụp hình' : 'Xem hình'}</Text>
                             </View>
@@ -481,7 +483,7 @@ const HeaderTab = ({ listDataByCate, listPhotoByCategory, itemTab, onUpdateNote,
                                     onPress={() => takePhoto(itemTab.displayRef)}
                                     style={{ flexDirection: 'row', minHeight: 30, marginRight: 2, padding: 3, justifyContent: 'center', alignItems: 'center', borderRadius: 6, backgroundColor: appcolor.light }}>
                                     <View style={{ flexDirection: 'row', justifyContent: 'center', alignItems: 'center' }}>
-                                        <Icon name='camera' color={appcolor.primary} type='ionicon' size={16}></Icon>
+                                        <SpiralIcon name='camera' color={appcolor.primary} type='ionicon' size={16}></SpiralIcon>
                                         <Text style={{ color: appcolor.dark, fontSize: 12, paddingLeft: 3 }}>Chụp hình</Text>
                                     </View>
                                 </TouchableOpacity>
@@ -492,7 +494,7 @@ const HeaderTab = ({ listDataByCate, listPhotoByCategory, itemTab, onUpdateNote,
                                 style={{ minHeight: 30, padding: 3, paddingVertical: 5, marginRight: 3, borderRadius: 6, backgroundColor: appcolor.light }}>
                                 <Badge badgeStyle={{ position: 'absolute', top: -8, right: -8 }} value={totalPhoto} />
                                 <View style={{ flexDirection: 'row', justifyContent: 'center', alignItems: 'center' }}>
-                                    <Icon name='images' color={appcolor.primary} type='ionicon' size={16}></Icon>
+                                    <SpiralIcon name='images' color={appcolor.primary} type='ionicon' size={16}></SpiralIcon>
                                     <Text style={{ color: appcolor.dark, fontSize: 12, paddingLeft: 3 }}>Xem hình</Text>
                                 </View>
                             </TouchableOpacity>
@@ -586,6 +588,7 @@ const RenderItem = ({ item, index, data, Styles, workinfo, listInput, appcolor, 
     )
 }
 const RenderItemNote = ({ lstReport, appcolor, item, listMaster, data, workinfo, Status }) => {
+    const insets = useSafeAreaInsets()
     const [showList, setShowList] = useState({ isShowList: false, dataShow: [], noteSelect: {} })
     const [_, setMutate] = useState(false)
     const [isSelectOther, setSelectOther] = useState(true)
@@ -641,7 +644,7 @@ const RenderItemNote = ({ lstReport, appcolor, item, listMaster, data, workinfo,
                             }}>
                                 <View style={{ backgroundColor: appcolor.surface, width: '100%', flexDirection: "row", alignItems: "center", justifyContent: "space-between", minHeight: 35, padding: 3, borderRadius: 4, borderColor: appcolor.grayLight }}>
                                     <Text style={{ fontSize: 12, fontWeight: '400', color: item[it.noteType] ? appcolor.dark : appcolor.placeholderText }}>{item[it.noteType] || it.name}</Text>
-                                    <Icon type="font-awesome-5" color={appcolor.dark} name={"caret-down"} style={{ paddingHorizontal: 10 }} size={14} />
+                                    <SpiralIcon type="font-awesome-5" color={appcolor.dark} name={"caret-down"} style={{ paddingHorizontal: 10 }} size={14} />
                                 </View>
                             </TouchableOpacity>
 
@@ -664,7 +667,7 @@ const RenderItemNote = ({ lstReport, appcolor, item, listMaster, data, workinfo,
             <ActionSheet
                 id={'productSheet_' + item.productId}
                 defaultOverlayOpacity={0.3}
-                containerStyle={{ backgroundColor: appcolor.light }}
+                containerStyle={{ backgroundColor: appcolor.light, paddingBottom: insets.bottom }}
                 closeOnPressBack={true}
                 gestureEnabled={true}
                 indicatorColor={appcolor.primary} >

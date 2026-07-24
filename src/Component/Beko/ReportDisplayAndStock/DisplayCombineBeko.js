@@ -1,229 +1,326 @@
-
-
-
-
-
-import React, { useEffect, useState } from "react";
-import { Keyboard, View } from "react-native";
-import { useSelector } from "react-redux";
-import { HeaderCustom } from "../../../Content/HeaderCustom";
-import { _competitorId, _competitorName } from "../../../Core/URLs";
-import { checkNetwork, deviceHeight } from "../../../Core/Utility";
-import { getDisplayProduct, getlistTabCompetitor, isPhotoNoData } from '../../../Controller/DisplayController'
-import { getAllPhotos, getAllPhotosUpload, getDisplayResult, getPhotosReport } from "../../../Controller/WorkController";
-import RNFS from 'react-native-fs'
-import { Message, ToastError } from "../../../Core/Helper";
-import UploadController from "../../../Controller/UploadController";
-import { InputDisplayStock } from "../../ReportDisplay/Cuckoo/InputDisplayStock";
-import { SceneMap } from "react-native-tab-view";
-import { PhotoItems } from "../../EPSON/PhotoItems";
-import { TabForm } from "../../../Control/TabForm";
-import { checkLockReport } from "../../../Controller/ShopController";
-import moment from "moment";
+import React, { useEffect, useState } from 'react';
+import { Keyboard, View } from 'react-native';
+import { useSelector } from 'react-redux';
+import { HeaderCustom } from '../../../Content/HeaderCustom';
+import { _competitorId, _competitorName } from '../../../Core/URLs';
+import { checkNetwork, deviceHeight } from '../../../Core/Utility';
+import {
+  getDisplayProduct,
+  getlistTabCompetitor,
+  isPhotoNoData,
+} from '../../../Controller/DisplayController';
+import {
+  getAllPhotos,
+  getAllPhotosUpload,
+  getDisplayResult,
+  getPhotosReport,
+} from '../../../Controller/WorkController';
+import RNFS from 'react-native-fs';
+import { Message, ToastError } from '../../../Core/Helper';
+import UploadController from '../../../Controller/UploadController';
+import { InputDisplayStock } from '../../ReportDisplay/Cuckoo/InputDisplayStock';
+import { SceneMap } from 'react-native-tab-view';
+import { PhotoItems } from '../../EPSON/PhotoItems';
+import { TabForm } from '../../../Control/TabForm';
+import { checkLockReport } from '../../../Controller/ShopController';
+import moment from 'moment';
 
 export const DisplayCombineBeko = ({ navigation, route }) => {
-    const { appcolor, kpiinfo, workinfo, shopinfo } = useSelector(state => state.GAppState)
-    const [reload, setReload] = useState(false)
-    const lstReport = JSON.parse(kpiinfo?.reportItem)
-    const [Status, setStatus] = useState(0)
-    const [routes, setRoutes] = useState([
-        { key: "first", title: "Nhập Liệu" },
-        { key: "second", title: "Hình Ảnh" },
-    ]);
-    const [settings, setSettings] = useState({ isLockReport: false, isUploaded: false })
+  const { appcolor, kpiinfo, workinfo, shopinfo } = useSelector(
+    state => state.GAppState,
+  );
+  const [reload, setReload] = useState(false);
+  const lstReport = JSON.parse(kpiinfo?.reportItem);
+  const [Status, setStatus] = useState(0);
+  const [routes, setRoutes] = useState([
+    { key: 'first', title: 'Nhập Liệu' },
+    { key: 'second', title: 'Hình Ảnh' },
+  ]);
+  const [settings, setSettings] = useState({
+    isLockReport: false,
+    isUploaded: false,
+  });
 
-    const listInput = [
-        { id: 1, name: 'Trưng bày', displayType: 'quanity', },
-        { id: 2, name: 'Tồn kho', displayType: 'quantityStock', },
-        { id: 3, name: 'Đề xuất', displayType: 'quantitySuggest', },
-        { id: 4, name: 'Thực bán', displayType: 'price', },
-        // { id: 5, name: 'FSM Incentive', displayType: 'fsmValue', },
-    ]
+  const listInput = [
+    { id: 1, name: 'Trưng bày', displayType: 'quanity' },
+    { id: 2, name: 'Tồn kho', displayType: 'quantityStock' },
+    { id: 3, name: 'Đề xuất', displayType: 'quantitySuggest' },
+    { id: 4, name: 'Thực bán', displayType: 'price' },
+    // { id: 5, name: 'FSM Incentive', displayType: 'fsmValue', },
+  ];
 
-    const loadData = async () => {
-
-        const lockReport = await checkLockReport(shopinfo)
-        const lstResults = await getDisplayResult(workinfo);
-        let day = parseInt(moment(new Date()).format('YYYYMMDD'))
-        if (workinfo.workDate === day) {
-            await setSettings({
-                isLockReport: lockReport,
-                isUploaded: lstResults[0]?.upload == 1 || false
-            })
-        } else {
-            await setSettings({
-                isLockReport: lockReport,
-                isUploaded: true
-            })
-        }
-
-        // let lstRes = await getDisplayResult(workinfo);
-        // let isUpload = lstRes?.length > 0 ? lstRes[0].upload : 0
-        // await setStatus(isUpload)
+  const loadData = async () => {
+    const lockReport = await checkLockReport(shopinfo);
+    const lstResults = await getDisplayResult(workinfo);
+    let day = parseInt(moment(new Date()).format('YYYYMMDD'));
+    if (workinfo.workDate === day) {
+      await setSettings({
+        isLockReport: lockReport,
+        isUploaded: lstResults[0]?.upload == 1 || false,
+      });
+    } else {
+      await setSettings({
+        isLockReport: lockReport,
+        isUploaded: true,
+      });
     }
 
-    useEffect(() => {
-        loadData()
-        return () => reload
-    }, [])
+    // let lstRes = await getDisplayResult(workinfo);
+    // let isUpload = lstRes?.length > 0 ? lstRes[0].upload : 0
+    // await setStatus(isUpload)
+  };
 
-    const uploadAction = async () => {
-        // await Keyboard.dismiss()
-        const listProduct = await getDisplayProduct(workinfo)
-        let resDisplay = await getDisplayResult(workinfo);
-        let resPhotos = await getAllPhotosUpload(kpiinfo.kpiId, workinfo.shopId, workinfo.workDate);
-        let noteStr = '';
+  useEffect(() => {
+    loadData();
+    return () => reload;
+  }, []);
 
-        //check limit photo
-        let isConstraint
-        let numLimitPhoto
-        if (lstReport) {
-            try {
-                if (lstReport?.isConstraint !== undefined) {
-                    isConstraint = lstReport?.isConstraint;
-                }
-                if (lstReport?.image !== undefined) {
-                    numLimitPhoto = lstReport?.image
-                }
-            } catch (error) {
-                console.log(error)
-            }
-        }
-        if (isConstraint !== undefined && isConstraint === 1) {
-            if (numLimitPhoto !== undefined && numLimitPhoto === 0) {
-                const LstMenuPhotos = lstReport?.ImageByList || []
-                for (let index = 0; index < LstMenuPhotos.length; index++) {
-                    const it = LstMenuPhotos[index];
-                    let lstPhoto = await getPhotosReport(kpiinfo.kpiId, it.code, workinfo.shopId, workinfo.workDate);
-                    if (lstPhoto.length < it.numberIMG) {
-                        noteStr += 'Vui lòng chụp ' + it.numberIMG + ' tấm hình cho ' + it.nameVN + '.\n';
-                    }
-                }
-            }
-            if (numLimitPhoto !== undefined && numLimitPhoto > 0 && resPhotos.length < numLimitPhoto) {
-                noteStr += 'Vui lòng chụp ' + numLimitPhoto + ' tấm hình cho báo cáo.';
-            }
-        }
+  const uploadAction = async () => {
+    // await Keyboard.dismiss()
+    const listProduct = await getDisplayProduct(workinfo);
+    let resDisplay = await getDisplayResult(workinfo);
+    let resPhotos = await getAllPhotosUpload(
+      kpiinfo.kpiId,
+      workinfo.shopId,
+      workinfo.workDate,
+    );
+    let noteStr = '';
 
-        if (settings.isUploaded) {
-            ToastError("Báo cáo đã khóa");
-            return;
+    //check limit photo
+    let isConstraint;
+    let numLimitPhoto;
+    if (lstReport) {
+      try {
+        if (lstReport?.isConstraint !== undefined) {
+          isConstraint = lstReport?.isConstraint;
         }
-
-        // // Check Report 
-        if (resDisplay.length == 0 && lstReport?.isDisplayBlank !== 1) {
-            ToastError(`Hoàn thành báo cáo trước khi gửi dữ liệu lên hệ thống`, 'Dữ liệu báo cáo', 'top')
-            return
-        } else {
-            for (let index = 0; index < resDisplay.length; index++) {
-                const item = resDisplay[index];
-                if ((item.price !== null && item.price !== 'null' && (item.price < 10000 || item.price % 1000 > 0)) ||
-                    (item.fsmValue !== null && item.fsmValue !== 'null' && (item.fsmValue < 1000 || item.fsmValue % 1000 > 0))) {
-                    ToastError(`Giá sản phẩm ${item.productName} ngành hàng ${item.categoryName} sai định dạng`, 'Giá sản phẩm', 'top')
-                    return
-                }
-                if ((item.price === 'null' || item.price === null) && (item.fsmValue !== 'null' && item.fsmValue !== null && item.fsmValue > 0)) {
-                    ToastError(`Chưa nhập giá ${item.productName} ngành hàng ${item.categoryName}`, 'Giá', 'top')
-                    return
-                }
-                if ((item.quanity === 'null' || item.quanity === null) &&
-                    ((item.price !== 'null' && item.price !== null && item.price > 0) ||
-                        (item.fsmValue !== 'null' && item.fsmValue !== null && item.fsmValue > 0))) {
-                    ToastError(`Chưa nhập số lượng ${item.productName} ngành hàng ${item.categoryName}`, 'Số lượng', 'top')
-                    return
-                }
-
-                if ((item.quanity === 'null' || item.quanity === null) &&
-                    ((item.quantityStock !== 'null' && item.quantityStock !== null && item.price >= 0) ||
-                        (item.quantitySuggest !== 'null' && item.quantitySuggest !== null && item.quantitySuggest >= 0))) {
-                    ToastError(`Chưa nhập số lượng ${item.productName} ngành hàng ${item.categoryName}`, 'Số lượng', 'top')
-                    return
-                }
-            }
+        if (lstReport?.image !== undefined) {
+          numLimitPhoto = lstReport?.image;
         }
-
-        let itemsUpload = resDisplay.filter(it => it.quanity !== 'null' && it.quanity !== null);
-        if (itemsUpload.length === 0 && lstReport?.isDisplayBlank !== 1) {
-            ToastError('Vui lòng làm báo cáo');
-            return;
-        }
-        if (noteStr !== '') {
-            ToastError(noteStr);
-            return
-        }
-        Message('Chú ý', 'Sau khi gửi dữ liệu sẽ không thể điều chỉnh, Bạn có chắc chắn không ?', () => UploadData(itemsUpload));
+      } catch (error) {
+        console.log(error);
+      }
     }
-    const UploadData = async (resDisplay) => {
-        const work = { ...workinfo, reportId: kpiinfo.kpiId };
-        let isNetwork = await checkNetwork();
-        if (!isNetwork) {
-            ToastError("Không có kết nối mạng, vui lòng kiểm tra lại kết nối sau đó thử lại.");
-            return
+    if (isConstraint !== undefined && isConstraint === 1) {
+      if (numLimitPhoto !== undefined && numLimitPhoto === 0) {
+        const LstMenuPhotos = lstReport?.ImageByList || [];
+        for (let index = 0; index < LstMenuPhotos.length; index++) {
+          const it = LstMenuPhotos[index];
+          let lstPhoto = await getPhotosReport(
+            kpiinfo.kpiId,
+            it.code,
+            workinfo.shopId,
+            workinfo.workDate,
+          );
+          if (lstPhoto.length < it.numberIMG) {
+            noteStr +=
+              'Vui lòng chụp ' +
+              it.numberIMG +
+              ' tấm hình cho ' +
+              it.nameVN +
+              '.\n';
+          }
         }
-        await UploadController.DataDisplay(resDisplay, work, async () => {
-            await loadData();
-        }, async () => {
-        })
+      }
+      if (
+        numLimitPhoto !== undefined &&
+        numLimitPhoto > 0 &&
+        resPhotos.length < numLimitPhoto
+      ) {
+        noteStr += 'Vui lòng chụp ' + numLimitPhoto + ' tấm hình cho báo cáo.';
+      }
     }
 
-    const reloadView = async () => {
-        await setReload(e => !e)
-    }
-    // View Action Sheet
-    const middleAction = async () => {
-        // await setMode(actionMode.TOOLS)
-        // SheetManager.show('actionDisplay')
+    if (settings.isUploaded) {
+      ToastError('Báo cáo đã khóa');
+      return;
     }
 
-    const ViewItemInput = () => {
-        return (
-            <InputDisplayStock Status={settings.isUploaded ? 1 : 0} navigation={navigation} listInput={listInput} reloadView={reloadView} />
-        );
-    };
-    const ViewItemPhoto = () => {
-        return (
-            <PhotoItems
-                usedHeader={false}
-                navigation={navigation}
-                route={{
-                    params: {
-                        Photos: lstReport?.ImageByList || [],
-                        Status: settings.isUploaded ? 1 : 0,
-                    },
-                }}
-            />
-        );
-    };
-    const renderScene = SceneMap({
-        first: ViewItemInput,
-        second: ViewItemPhoto,
-    });
+    // // Check Report
+    if (resDisplay.length == 0 && lstReport?.isDisplayBlank !== 1) {
+      ToastError(
+        `Hoàn thành báo cáo trước khi gửi dữ liệu lên hệ thống`,
+        'Dữ liệu báo cáo',
+        'top',
+      );
+      return;
+    } else {
+      for (let index = 0; index < resDisplay.length; index++) {
+        const item = resDisplay[index];
+        if (
+          (item.price !== null &&
+            item.price !== 'null' &&
+            (item.price < 10000 || item.price % 1000 > 0)) ||
+          (item.fsmValue !== null &&
+            item.fsmValue !== 'null' &&
+            (item.fsmValue < 1000 || item.fsmValue % 1000 > 0))
+        ) {
+          ToastError(
+            `Giá sản phẩm ${item.productName} ngành hàng ${item.categoryName} sai định dạng`,
+            'Giá sản phẩm',
+            'top',
+          );
+          return;
+        }
+        if (
+          (item.price === 'null' || item.price === null) &&
+          item.fsmValue !== 'null' &&
+          item.fsmValue !== null &&
+          item.fsmValue > 0
+        ) {
+          ToastError(
+            `Chưa nhập giá ${item.productName} ngành hàng ${item.categoryName}`,
+            'Giá',
+            'top',
+          );
+          return;
+        }
+        if (
+          (item.quanity === 'null' || item.quanity === null) &&
+          ((item.price !== 'null' && item.price !== null && item.price > 0) ||
+            (item.fsmValue !== 'null' &&
+              item.fsmValue !== null &&
+              item.fsmValue > 0))
+        ) {
+          ToastError(
+            `Chưa nhập số lượng ${item.productName} ngành hàng ${item.categoryName}`,
+            'Số lượng',
+            'top',
+          );
+          return;
+        }
+
+        if (
+          (item.quanity === 'null' || item.quanity === null) &&
+          ((item.quantityStock !== 'null' &&
+            item.quantityStock !== null &&
+            item.price >= 0) ||
+            (item.quantitySuggest !== 'null' &&
+              item.quantitySuggest !== null &&
+              item.quantitySuggest >= 0))
+        ) {
+          ToastError(
+            `Chưa nhập số lượng ${item.productName} ngành hàng ${item.categoryName}`,
+            'Số lượng',
+            'top',
+          );
+          return;
+        }
+      }
+    }
+
+    let itemsUpload = resDisplay.filter(
+      it => it.quanity !== 'null' && it.quanity !== null,
+    );
+    if (itemsUpload.length === 0 && lstReport?.isDisplayBlank !== 1) {
+      ToastError('Vui lòng làm báo cáo');
+      return;
+    }
+    if (noteStr !== '') {
+      ToastError(noteStr);
+      return;
+    }
+    Message(
+      'Chú ý',
+      'Sau khi gửi dữ liệu sẽ không thể điều chỉnh, Bạn có chắc chắn không ?',
+      () => UploadData(itemsUpload),
+    );
+  };
+  const UploadData = async resDisplay => {
+    const work = { ...workinfo, reportId: kpiinfo.kpiId };
+    let isNetwork = await checkNetwork();
+    if (!isNetwork) {
+      ToastError(
+        'Không có kết nối mạng, vui lòng kiểm tra lại kết nối sau đó thử lại.',
+      );
+      return;
+    }
+    await UploadController.DataDisplay(
+      resDisplay,
+      work,
+      async () => {
+        await loadData();
+      },
+      async () => {},
+    );
+  };
+
+  const reloadView = async () => {
+    await setReload(e => !e);
+  };
+  // View Action Sheet
+  const middleAction = async () => {
+    // await setMode(actionMode.TOOLS)
+    // SheetManager.show('actionDisplay')
+  };
+
+  const ViewItemInput = () => {
     return (
-        <View style={{ flex: 1, backgroundColor: appcolor.light }}>
-            <HeaderCustom
-                title={kpiinfo?.menuNameVN}
-                // iconMiddle='poll-h'
-                iconRight={!settings.isLockReport ? (!settings.isUploaded ? 'cloud-upload-alt' : null) : 'user-lock'}
-                rightFunc={!settings.isLockReport ? (!settings.isUploaded ? () => uploadAction() : null) : () => {
-                    ToastSuccess('Bạn đã hoàn thành chấm công nên không thể gửi dữ liệu báo cáo')
-                }}
-                // middleFunc={middleAction}
-                leftFunc={() => navigation.goBack()}
-            />
+      <InputDisplayStock
+        Status={settings.isUploaded ? 1 : 0}
+        navigation={navigation}
+        listInput={listInput}
+        reloadView={reloadView}
+      />
+    );
+  };
+  const ViewItemPhoto = () => {
+    return (
+      <PhotoItems
+        usedHeader={false}
+        navigation={navigation}
+        route={{
+          params: {
+            Photos: lstReport?.ImageByList || [],
+            Status: settings.isUploaded ? 1 : 0,
+          },
+        }}
+      />
+    );
+  };
+  const renderScene = SceneMap({
+    first: ViewItemInput,
+    second: ViewItemPhoto,
+  });
+  return (
+    <View style={{ flex: 1, backgroundColor: appcolor.light }}>
+      <HeaderCustom
+        title={kpiinfo?.menuNameVN}
+        // iconMiddle='poll-h'
+        iconRight={
+          !settings.isLockReport
+            ? !settings.isUploaded
+              ? 'cloud-upload-alt'
+              : null
+            : 'user-lock'
+        }
+        rightFunc={
+          !settings.isLockReport
+            ? !settings.isUploaded
+              ? () => uploadAction()
+              : null
+            : () => {
+                ToastSuccess(
+                  'Bạn đã hoàn thành chấm công nên không thể gửi dữ liệu báo cáo',
+                );
+              }
+        }
+        // middleFunc={middleAction}
+        leftFunc={() => navigation.goBack()}
+      />
 
-            {routes.length > 0 && (
-                <TabForm
-                    renderScene={renderScene}
-                    initialPage={0}
-                    routes={routes}
-                    positionTabBar={"bottom"}
-                    swipeEnabled={false}
-                />
-            )}
-        </View>
-    )
-}
-
+      {routes.length > 0 && (
+        <TabForm
+          renderScene={renderScene}
+          initialPage={0}
+          routes={routes}
+          positionTabBar={'bottom'}
+          swipeEnabled={false}
+        />
+      )}
+    </View>
+  );
+};
 
 // import React, { useEffect, useRef, useState } from 'react';
 // import { View, Text, Dimensions, DeviceEventEmitter } from "react-native"
@@ -289,7 +386,7 @@ export const DisplayCombineBeko = ({ navigation, route }) => {
 //         //     const lstitemPhoto = await getPhotosReport(workinfo.reportId, 333 + '_' + itemMast.code, workinfo.shopId, workinfo.workDate);
 //         // if (itemMast.numberValue > 0) {
 //         //     if (lstitemPhoto.length < itemMast.numberValue && resPho === true) {
-//         // MessageInfo('Vui lòng chụp đủ số lượng hình cho: ' + itemMast.name + ' (' + itemMast.numberValue + ' tấm )') 
+//         // MessageInfo('Vui lòng chụp đủ số lượng hình cho: ' + itemMast.name + ' (' + itemMast.numberValue + ' tấm )')
 //         //     }
 //         // }
 //         // })

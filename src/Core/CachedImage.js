@@ -6,29 +6,35 @@ import { checkLinkType } from './Helper';
 // FastImage.clearDiskCache();
 // FastImage.clearMemoryCache();
 
-const CachedImage = ({ uri, requireSource, resizeMode = "contain", style, onPress, onLongPress, enable = true }) => {
-    const [localUri, setLocalUri] = useState(null);
+const CachedImage = ({
+  uri,
+  requireSource,
+  resizeMode = 'contain',
+  style,
+  onPress,
+  onLongPress,
+  enable = true,
+}) => {
+  const [localUri, setLocalUri] = useState(null);
 
-    useEffect(() => {
-        const loadImage = async () => {
-            if (uri)
-                setLocalUri(checkLinkType(uri));
-            else
-                setLocalUri(null)
-        };
-        loadImage();
-    }, [uri, requireSource]);
+  useEffect(() => {
+    const loadImage = async () => {
+      if (uri) setLocalUri(checkLinkType(uri));
+      else setLocalUri(null);
+    };
+    loadImage();
+  }, [uri, requireSource]);
 
-    if (!enable) return <View />
-    return (
-        <TouchableOpacity onPress={onPress} onLongPress={onLongPress}>
-            {/* <FastImage
+  if (!enable) return <View />;
+  return (
+    <TouchableOpacity onPress={onPress} onLongPress={onLongPress}>
+      {/* <FastImage
                 source={(localUri || uri) ? { uri: localUri || uri, priority: 'low', cache: 'immutable' } : (requireSource || require('../Themes/Images/noimage.png'))}
                 style={style}
                 resizeMode={resizeMode}
             /> */}
-        </TouchableOpacity>
-    )
+    </TouchableOpacity>
+  );
 };
 
 export default CachedImage;

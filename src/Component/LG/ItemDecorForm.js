@@ -100,7 +100,7 @@ export const ItemDecorForm = ({ item, index, template, data, KeyStore }) => {
                                                 {idx == 0 && <Text style={{ fontSize: 11, fontWeight: '500', color: appcolor.dark, paddingHorizontal: 10 }}>Thêm kích thước</Text>}
                                                 {
                                                     (a.isUpload !== 1 || idx == 0) &&
-                                                    <Icon size={14} name={idx == 0 ? 'plus' : "times"} type={'font-awesome-5'} color={idx == 0 ? appcolor.success : appcolor.danger} />
+                                                    <SpiralIcon size={14} name={idx == 0 ? 'plus' : "times"} type={'font-awesome-5'} color={idx == 0 ? appcolor.success : appcolor.danger} />
                                                 }
                                             </TouchableOpacity>
 
@@ -375,7 +375,7 @@ const ViewPhotoDecor = ({ guiId, item, handleShowImage }) => {
                 {
                     isShowDelete &&
                     <View style={{ position: 'absolute', width: '100%', height: '100%', borderRadius: 12, justifyContent: 'center', alignItems: "center", backgroundColor: appcolor.black, opacity: 0.5 }}>
-                        <Icon
+                        <SpiralIcon
                             color={appcolor.red}
                             name={item.isDelete ? 'check-circle' : 'circle'}
                             type='font-awesome-5'
@@ -460,7 +460,7 @@ const ViewPhotoDecor = ({ guiId, item, handleShowImage }) => {
                                 onPress={() => takePhoto()}
                                 style={{ flexDirection: 'row', minHeight: 30, width: '40%', marginRight: 2, justifyContent: 'center', alignItems: 'center', borderRadius: 10, backgroundColor: appcolor.grayLight }}>
                                 <View style={{}}>
-                                    <Icon name='camera' color={appcolor.primary} type='ionicon' size={22}></Icon>
+                                    <SpiralIcon name='camera' color={appcolor.primary} type='ionicon' size={22}></SpiralIcon>
                                 </View>
                             </TouchableOpacity>
                             <TouchableOpacity
@@ -468,14 +468,14 @@ const ViewPhotoDecor = ({ guiId, item, handleShowImage }) => {
                                 style={{ flexDirection: 'row', minHeight: 30, width: '40%', justifyContent: 'center', alignItems: 'center', borderRadius: 10, backgroundColor: appcolor.grayLight }}>
 
                                 <View style={{ flex: 1 }}>
-                                    <Icon name='attach' color={appcolor.primary} type='ionicon' size={22}></Icon>
+                                    <SpiralIcon name='attach' color={appcolor.primary} type='ionicon' size={22}></SpiralIcon>
                                 </View>
                             </TouchableOpacity>
                         </View>
                         {
                             isShowDelete &&
                             <TouchableOpacity style={{ width: '30%', justifyContent: 'flex-end', alignItems: 'flex-end' }} onPress={() => deletePhotoSelect()}>
-                                <Icon iconStyle={{ color: appcolor.red }} style={{}} size={30} name={'trash'} type='ionicon' />
+                                <SpiralIcon iconStyle={{ color: appcolor.red }} style={{}} size={30} name={'trash'} type='ionicon' />
                             </TouchableOpacity>
                         }
                     </View>

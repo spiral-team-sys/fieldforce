@@ -1,32 +1,77 @@
-import React from "react"
-import { Text, TouchableOpacity, View } from "react-native"
-import { Icon } from "@rneui/themed"
-import { deviceWidth, fontWeightBold } from "../../../../Themes/AppsStyle"
-import LinearGradient from "react-native-linear-gradient"
-import { StyleSheet } from "react-native"
-import { DEFAULT_LIGHT_COLOR } from "../../../../Core/URLs"
+import React from 'react';
+import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import { Icon } from '@rneui/themed';
+import { fontWeightBold } from '../../../../Themes/AppsStyle';
 
 export const MenuHonor = ({ item, onPress, appcolor, index }) => {
+  const iconColors = [
+    appcolor.primary,
+    appcolor.secondary,
+    appcolor.success,
+    appcolor.highlightDate,
+    appcolor.danger,
+    appcolor.info,
+  ];
+  const colorIndex = index % iconColors.length;
+  const iconColor = iconColors[colorIndex];
 
-    const styles = StyleSheet.create({
-        itemContainer: { margin: 8, height: (deviceWidth / 4), alignItems: 'center', justifyContent: 'center' },
-        gradientContainer: { flex: 1, borderRadius: 8, margin: 4 },
-        iconContainer: { borderRadius: 50, borderWidth: 0.6, borderColor: appcolor.switchEnable, backgroundColor: appcolor.light, width: 45, height: 45, justifyContent: 'center', alignItems: 'center' },
-        titleContainer: { marginTop: 8 },
-        titleName: { fontSize: 12, fontWeight: fontWeightBold, color: appcolor.light, textAlign: 'center' },
-        subTitleName: { fontSize: 10, fontWeight: '500', color: appcolor.grayLight, textAlign: 'center' }
-    })
-    return (
-        <LinearGradient colors={[appcolor.primary, DEFAULT_LIGHT_COLOR]} style={styles.gradientContainer}   >
-            <TouchableOpacity style={styles.itemContainer} onPress={() => onPress(item)}>
-                <View style={styles.iconContainer}>
-                    <Icon name={item.iconName} type={item.iconType || "font-awesome-5"} size={18} color={appcolor.switchEnable} />
-                </View>
-                <View style={styles.titleContainer}>
-                    <Text style={styles.titleName} numberOfLines={1}>{item.menuNameVN}</Text>
-                    <Text style={styles.subTitleName}>{item.menuName}</Text>
-                </View>
-            </TouchableOpacity>
-        </LinearGradient>
-    )
-}
+  const styles = StyleSheet.create({
+    itemContainer: {
+      flex: 1,
+      minHeight: 118,
+      marginHorizontal: 8,
+      marginVertical: 8,
+      paddingHorizontal: 8,
+      paddingVertical: 14,
+      alignItems: 'center',
+      justifyContent: 'center',
+      borderRadius: 14,
+      backgroundColor: appcolor.light,
+      borderWidth: 1,
+      borderColor: appcolor.grayLight,
+    },
+    iconContainer: {
+      width: 56,
+      height: 56,
+      borderRadius: 28,
+      justifyContent: 'center',
+      alignItems: 'center',
+      overflow: 'hidden',
+    },
+    iconBackground: {
+      ...StyleSheet.absoluteFillObject,
+      backgroundColor: iconColor,
+      opacity: 0.14,
+    },
+    titleContainer: { marginTop: 12, minHeight: 34, justifyContent: 'center' },
+    titleName: {
+      fontSize: 13,
+      lineHeight: 17,
+      fontWeight: fontWeightBold,
+      color: appcolor.dark,
+      textAlign: 'center',
+    },
+  });
+
+  return (
+    <TouchableOpacity
+      style={styles.itemContainer}
+      onPress={() => onPress(item)}
+    >
+      <View style={styles.iconContainer}>
+        <View style={styles.iconBackground} />
+        <SpiralIcon
+          name={item.iconName}
+          type={item.iconType || 'font-awesome-5'}
+          size={24}
+          color={iconColor}
+        />
+      </View>
+      <View style={styles.titleContainer}>
+        <Text style={styles.titleName} numberOfLines={2}>
+          {item.menuNameVN}
+        </Text>
+      </View>
+    </TouchableOpacity>
+  );
+};
